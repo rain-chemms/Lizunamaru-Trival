@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Card))]
-public class CardInsertSlotChecker : MonoBehaviour,IEndDragHandler
+public class CardInsertSlotChecker : MonoBehaviour,IEndDragHandler,IDragHandler
 {
     [SerializeField] private Card card;
     [SerializeField] private CardSlot cardSlotUnderCard;//在卡牌图片下方的卡槽对象
@@ -18,16 +18,26 @@ public class CardInsertSlotChecker : MonoBehaviour,IEndDragHandler
         //CheckCardSlotUnderCard();
     }
 
+    public void OnDrag(PointerEventData eventData)
+    {
+        CheckCardSlotUnderCard();
+    }
+
     public void OnEndDrag(PointerEventData eventData)
     {
-        //停止拖拽时检测卡槽对象并设置卡牌
-        CheckCardSlotUnderCard();
         if(cardSlotUnderCard != null)
         {
+            //如果当前卡牌已经在某一个卡槽中,则不处理
+            foreach(CardSlot cardSlot in BattleMessage.instance.GetAllCardSlot()) 
+            {
+                if(cardSlot.GetInnerCard() == card) return;
+            }
             //卡片类别一致时才可设置值
             if(cardSlotUnderCard.GetSlotCardCategory() == card.GetCardCategory())
             {
                 cardSlotUnderCard.SetInnerCard(card);
+                //若在手牌中,将其从手牌中移除
+                BattleMessage.instance.GetHandCardList().Remove(card);
                 //触发卡牌的插入效果
                 card.AfterInsertToSolt();
             }
@@ -39,6 +49,7 @@ public class CardInsertSlotChecker : MonoBehaviour,IEndDragHandler
     {
         //获取卡牌图片下方的物体
         RaycastHit2D[] hit2Ds = Physics2D.RaycastAll(card.transform.position, Vector2.down, 0.1f);
+        cardSlotUnderCard = null;
         foreach (var hit2D in hit2Ds)
         {
             //判断是否是卡槽对象

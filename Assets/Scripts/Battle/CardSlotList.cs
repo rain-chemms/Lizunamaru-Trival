@@ -7,6 +7,10 @@ public class CardSlotList : MonoBehaviour
 {
     //管理的卡槽列表
     [SerializeField] private List<CardSlot> cardSlotList = new List<CardSlot>();
+    public List<CardSlot> GetCardSlotList()
+    {
+        return cardSlotList;
+    }
     //卡槽列表的种类
     [EnumRestrict(typeof(CardCategory),CardCategory.ATTACK, CardCategory.GADGET, CardCategory.POWER)]
     [SerializeField] private CardCategory cardCategory = CardCategory.EFFECTIVE;//默认为卡槽类型,正常来说是错误类型

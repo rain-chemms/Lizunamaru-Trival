@@ -19,7 +19,7 @@ public class CardDisplayer : MonoBehaviour
         isFront = backOrFront;
     }
 
-    [SerializeField] private float flipSpeed = 1.0f;// 翻转速度
+    [SerializeField] private float flipSpeed = 3.0f;// 翻转速度
     public float GetFlipSpeed()
     {
         return flipSpeed;

@@ -37,6 +37,27 @@ public class HandCardDisplayer : MonoBehaviour
         }
     }
 
+    private void SetHandCardAnchor()
+    {
+        if(baseCardAnchor == null) return;
+        foreach(Card card in BattleMessage.instance.GetHandCardList())
+        {
+            if(card == null) continue;
+            RectTransform cardRTF = card.GetComponent<RectTransform>();
+            cardRTF.anchorMax = Vector2.Lerp(
+                cardRTF.anchorMax ,
+                baseCardAnchor.anchorMax,
+                lerpSpeed * Time.deltaTime
+            );
+            
+            cardRTF.anchorMin = Vector2.Lerp(
+                cardRTF.anchorMin ,
+                baseCardAnchor.anchorMin,
+                lerpSpeed * Time.deltaTime
+            );
+        }
+    }
+
     private void ChangeHandCardRotation()
     {
         int cardCount = handCardList.Count;
@@ -103,6 +124,7 @@ public class HandCardDisplayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SetHandCardAnchor();
         ChangeHandCardRotation();
         ChangeHandCardPosition();
     }

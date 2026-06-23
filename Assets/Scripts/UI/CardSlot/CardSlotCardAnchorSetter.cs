@@ -8,7 +8,7 @@ using UnityEngine;
 public class CardSlotCardAnchorSetter : MonoBehaviour
 {
     //速度控制
-    [SerializeField] private float lerpSpeed = 10.0f;
+    [SerializeField] private float lerpSpeed = 100.0f;
     [SerializeField] private float rotateSpeed = 5.0f;
     //用于获取卡槽的位置
     [SerializeField] private RectTransform rectTransform;
@@ -25,15 +25,33 @@ public class CardSlotCardAnchorSetter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SetCardAnchorAndPosition();
+    }
+
+    public void SetCardAnchorAndPosition()
+    {
         Card theCard = cardSlot.GetInnerCard();
         if(theCard != null)
         {
+            if((bool)theCard.GetComponent<CardHandler>()?.IsDragging()) return;
             RectTransform theCardRectTransform = theCard.GetComponent<RectTransform>();
             if(theCardRectTransform != null)
             {
                 //设置锚点
-                theCardRectTransform.anchorMin = rectTransform.anchorMin;
-                theCardRectTransform.anchorMax = rectTransform.anchorMax;
+                theCardRectTransform.anchorMin = Vector2.Lerp(
+                    theCardRectTransform.anchorMin,
+                    rectTransform.anchorMin,
+                    lerpSpeed * Time.deltaTime
+                );
+                
+                theCardRectTransform.anchorMax = Vector2.Lerp(
+                    theCardRectTransform.anchorMax,
+                    rectTransform.anchorMax,
+                    lerpSpeed * Time.deltaTime
+                );
+                
+
+
                 theCardRectTransform.anchoredPosition = Vector2.Lerp(
                     theCardRectTransform.anchoredPosition,
                     rectTransform.anchoredPosition,
@@ -45,6 +63,6 @@ public class CardSlotCardAnchorSetter : MonoBehaviour
                     ,rotateSpeed * Time.deltaTime
                 );
             }
-        }    
+        }
     }
 }

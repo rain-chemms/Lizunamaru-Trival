@@ -104,4 +104,18 @@ public class BattleMessage : MonoBehaviour
     {
         return spellAttackCardSlot;
     }
+    //获取全部卡槽组成的列表
+    public List<CardSlot> GetAllCardSlot()
+    {
+        List<CardSlot> allCardSlotList = new List<CardSlot>();
+        foreach(CardSlotList cardSlotList1 in GetCardSlotListList())
+        {
+            foreach(CardSlot cardSlot in cardSlotList1.GetCardSlotList())
+            {
+                allCardSlotList.Add(cardSlot);
+            }
+        }
+        allCardSlotList.Add(spellAttackCardSlot);
+        return allCardSlotList;
+    }
 }
