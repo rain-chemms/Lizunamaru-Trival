@@ -78,7 +78,10 @@ public class BattleMessage : MonoBehaviour
     }
     
     [SerializeField] private float spellPrecent = 0.0f;//符卡攻击的充能情况
-
+    public float GetSpellPrecent()
+    {
+        return spellPrecent;
+    }
     //卡槽相关
     [SerializeField] private List<CardSlotList> cardSlotListList = new List<CardSlotList>();//所有卡槽列表的管理器
     public List<CardSlotList> GetCardSlotListList()

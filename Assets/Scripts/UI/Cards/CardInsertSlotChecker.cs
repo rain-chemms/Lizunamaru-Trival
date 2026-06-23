@@ -1,0 +1,54 @@
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+[RequireComponent(typeof(Card))]
+public class CardInsertSlotChecker : MonoBehaviour,IEndDragHandler
+{
+    [SerializeField] private Card card;
+    [SerializeField] private CardSlot cardSlotUnderCard;//在卡牌图片下方的卡槽对象
+    void Start()
+    {
+        //尝试自动获取
+        if(card == null) card = GetComponent<Card>();
+    }
+
+    void Update()
+    {
+        //检测卡牌图片下方是否存在卡槽对象
+        //CheckCardSlotUnderCard();
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        //停止拖拽时检测卡槽对象并设置卡牌
+        CheckCardSlotUnderCard();
+        if(cardSlotUnderCard != null)
+        {
+            //卡片类别一致时才可设置值
+            if(cardSlotUnderCard.GetSlotCardCategory() == card.GetCardCategory())
+            {
+                cardSlotUnderCard.SetInnerCard(card);
+                //触发卡牌的插入效果
+                card.AfterInsertToSolt();
+            }
+        }
+    }
+
+    //检测卡牌图片下方是否存在卡槽对象
+    private void CheckCardSlotUnderCard()
+    {
+        //获取卡牌图片下方的物体
+        RaycastHit2D[] hit2Ds = Physics2D.RaycastAll(card.transform.position, Vector2.down, 0.1f);
+        foreach (var hit2D in hit2Ds)
+        {
+            //判断是否是卡槽对象
+            if (hit2D.collider.GetComponent<CardSlot>() != null)
+            {
+                //检测第一个卡槽
+                cardSlotUnderCard = hit2D.collider.GetComponent<CardSlot>();
+                break;
+            }
+        }
+    }
+
+}

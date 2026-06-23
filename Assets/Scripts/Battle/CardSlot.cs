@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 //战斗时的游戏卡槽
 [RequireComponent(typeof(Image))]
-[RequireComponent(typeof(RawImage))]
 public class CardSlot : MonoBehaviour
 {
     [EnumRestrict(typeof(CardCategory),CardCategory.ATTACK, CardCategory.GADGET, CardCategory.POWER, CardCategory.SPELL_ATTACK)]
@@ -18,5 +17,9 @@ public class CardSlot : MonoBehaviour
     public Card GetInnerCard()
     {
         return innerCard;
+    }
+    public void SetInnerCard(Card card)
+    {
+        innerCard = card;
     }
 }

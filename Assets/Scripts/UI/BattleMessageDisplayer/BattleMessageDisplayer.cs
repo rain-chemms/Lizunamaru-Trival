@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 //战斗UI显示器,必须挂在含有Canvas的组件上
 [RequireComponent(typeof(Canvas))]
@@ -31,13 +32,14 @@ public class BattleMessageDisplayer : MonoBehaviour
         if(mainCanvas == null) mainCanvas = GetComponent<Canvas>();
     }
 
-    
     public void Update()
     {
         //更新UI的显示状态
         if(mainCanvas?.enabled != isShow) mainCanvas.enabled = isShow;
-    
+        //依据战斗信息实时更新UI显示
+        
     }
+
 
 
 }

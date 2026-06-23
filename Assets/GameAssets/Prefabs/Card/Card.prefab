@@ -110,7 +110,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.055694398, y: 0.031000001}
   m_AnchorMax: {x: 0.9433472, y: 0.9677832}
-  m_AnchoredPosition: {x: -0.00026130676, y: 0}
+  m_AnchoredPosition: {x: -0.0002593994, y: 0}
   m_SizeDelta: {x: 0.0005, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7080197002401759028
@@ -380,6 +380,8 @@ GameObject:
   - component: {fileID: 1652210342211082365}
   - component: {fileID: 1625184676289311345}
   - component: {fileID: 7730907650560054274}
+  - component: {fileID: 3623121930064201658}
+  - component: {fileID: 3420748214366101851}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -554,3 +556,33 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 1a62cc553514d3246915c65484219abc, type: 3}
     - {fileID: 21300000, guid: 3511564f8bba6714690a5977c7dd5a1a, type: 3}
   card: {fileID: 1652210342211082365}
+--- !u!114 &3623121930064201658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c4b1b4cbe8b324449c197ca4db2ed71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDragging: 0
+  cardLerpSpeed: 20
+  rectTransform: {fileID: 4526820275402633002}
+  offSet: {x: 0, y: 0}
+--- !u!114 &3420748214366101851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb79ac10f9b141408fc6d3e9561f1f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 0}
+  cardSlotUnderCard: {fileID: 0}

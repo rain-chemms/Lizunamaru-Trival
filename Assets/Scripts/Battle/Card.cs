@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Canvas))]
+[RequireComponent(typeof(RectTransform))]
 public class Card : MonoBehaviour
 {
     //卡牌类别
