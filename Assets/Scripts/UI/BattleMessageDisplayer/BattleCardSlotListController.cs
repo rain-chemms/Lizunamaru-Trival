@@ -118,6 +118,7 @@ public class BattleCardSlotListController : MonoBehaviour
                 {
                     //创建卡槽,并将其作为子物体添加到卡槽列表中
                     CardSlot newCardSlot = Instantiate(prefabDict[nowCardCategory],cardSlotList.transform);
+                    newCardSlot.SetSlotCardCategory(nowCardCategory);
                     //插入新的卡槽到卡槽列表中
                     cardSlotList.GetCardSlotList().Add(newCardSlot);
                 }

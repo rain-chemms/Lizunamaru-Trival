@@ -49,9 +49,7 @@ public class CardSlotCardAnchorSetter : MonoBehaviour
                     rectTransform.anchorMax,
                     lerpSpeed * Time.deltaTime
                 );
-                
-
-
+                //设置偏移位置
                 theCardRectTransform.anchoredPosition = Vector2.Lerp(
                     theCardRectTransform.anchoredPosition,
                     rectTransform.anchoredPosition,
@@ -61,6 +59,13 @@ public class CardSlotCardAnchorSetter : MonoBehaviour
                     theCardRectTransform.rotation,
                     rectTransform.rotation
                     ,rotateSpeed * Time.deltaTime
+                );
+                //同步尺寸
+                //theCardRectTransform.sizeDelta = rectTransform.sizeDelta;
+                theCardRectTransform.sizeDelta = Vector2.Lerp(
+                    theCardRectTransform.sizeDelta,
+                    rectTransform.sizeDelta,
+                    lerpSpeed * Time.deltaTime
                 );
             }
         }

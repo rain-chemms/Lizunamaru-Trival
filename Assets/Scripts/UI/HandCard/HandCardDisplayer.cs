@@ -55,6 +55,28 @@ public class HandCardDisplayer : MonoBehaviour
                 baseCardAnchor.anchorMin,
                 lerpSpeed * Time.deltaTime
             );
+            //同步尺寸
+            cardRTF.sizeDelta = Vector2.Lerp(
+                cardRTF.sizeDelta,
+                baseCardAnchor.sizeDelta,
+                lerpSpeed * Time.deltaTime
+            );
+        }
+    }
+
+    private void ChangeHandCardParent()
+    {
+        foreach(Card card in handCardList)
+        {
+            if(card == null) continue;
+            //检测是否正在拖拽
+            if((bool)card.GetComponent<CardHandler>()?.IsDragging()) continue;
+            //获取并设置卡牌的父节点与当前父节点相同
+            RectTransform cardRTF = card.GetComponent<RectTransform>();
+            if(cardRTF != null)
+            {
+                cardRTF.SetParent(baseCardAnchor.parent);
+            }
         }
     }
 
@@ -127,5 +149,6 @@ public class HandCardDisplayer : MonoBehaviour
         SetHandCardAnchor();
         ChangeHandCardRotation();
         ChangeHandCardPosition();
+        ChangeHandCardParent();
     }
 }

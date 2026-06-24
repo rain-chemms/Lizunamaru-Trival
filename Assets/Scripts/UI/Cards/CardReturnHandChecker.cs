@@ -24,7 +24,7 @@ public class CardReturnHandChecker : MonoBehaviour,
     {
         if(returnHandAreaUnderCard != null)
         {
-            //如果当前卡牌不在手牌列表中,则添加奥手牌列表,并从其他卡槽中移除
+            //如果当前卡牌不在手牌列表中,则添加到手牌列表,并从其他卡槽中移除
             if(!BattleMessage.instance.GetHandCardList().Contains(card))
             {
                 //检测卡槽中是否有当前卡牌

@@ -12,6 +12,10 @@ public class CardSlot : MonoBehaviour
     {
         return cardCategory;
     }
+    public void SetSlotCardCategory(CardCategory category)
+    {
+        cardCategory = category;
+    }
     //卡槽中目前存储的卡
     [SerializeField] private Card innerCard = null;
     public Card GetInnerCard()

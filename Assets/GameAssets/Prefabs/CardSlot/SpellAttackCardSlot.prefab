@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8892525096393619105}
   - component: {fileID: 6296031376208459036}
   - component: {fileID: 1752562664971721490}
+  - component: {fileID: 8630508558502770196}
   m_Layer: 5
   m_Name: SpellAttackCardSlot
   m_TagString: Untagged
@@ -104,6 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04100e708c42ad2409fef21dd4a23c2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lerpSpeed: 100
+  rotateSpeed: 5
   rectTransform: {fileID: 3714910949193384335}
   cardSlot: {fileID: 8892525096393619105}
 --- !u!61 &1752562664971721490
@@ -152,3 +155,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 225, y: 315}
   m_EdgeRadius: 0
+--- !u!114 &8630508558502770196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5886214239972828908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59959f9c4a8a4d3469afa8817cfd10bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rectTransform: {fileID: 3714910949193384335}
+  boxCollider2D: {fileID: 1752562664971721490}

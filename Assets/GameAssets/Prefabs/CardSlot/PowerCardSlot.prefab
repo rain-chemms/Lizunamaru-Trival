@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5849402520368199247}
   - component: {fileID: 8176876561810143348}
   - component: {fileID: 8651275621327253175}
+  - component: {fileID: 5102921398504501071}
   m_Layer: 5
   m_Name: PowerCardSlot
   m_TagString: Untagged
@@ -36,9 +37,9 @@ RectTransform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.33070037, y: 1}
-  m_AnchoredPosition: {x: 0.00012207031, y: 0}
-  m_SizeDelta: {x: 0.0002, y: 0}
+  m_AnchorMax: {x: 0.25, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -0.000061035, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5885909842065060991
 CanvasRenderer:
@@ -152,5 +153,19 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 829.3, y: 1407.9}
+  m_Size: {x: 638, y: 1447.4}
   m_EdgeRadius: 0
+--- !u!114 &5102921398504501071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2989287266705298750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59959f9c4a8a4d3469afa8817cfd10bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rectTransform: {fileID: 7956985556200349532}
+  boxCollider2D: {fileID: 8651275621327253175}
