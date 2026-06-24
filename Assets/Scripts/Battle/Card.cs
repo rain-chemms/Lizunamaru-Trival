@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Canvas))]
 [RequireComponent(typeof(RectTransform))]
+//卡牌的属性和功能全在这个类及其继承中实现
 public class Card : MonoBehaviour
 {
     //卡牌类别

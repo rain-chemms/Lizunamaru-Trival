@@ -356,6 +356,8 @@ GameObject:
   - component: {fileID: 2261609854782664910}
   - component: {fileID: 7898774966224460965}
   - component: {fileID: 637296678900860888}
+  - component: {fileID: 2813997078824751419}
+  - component: {fileID: 1999042000367588561}
   m_Layer: 5
   m_Name: BattleMessageDisplayer
   m_TagString: Untagged
@@ -469,6 +471,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isShow: 0
   mainCanvas: {fileID: 3575368294249828338}
+--- !u!114 &2813997078824751419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237234409092675563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70f3e1ee5ef333644b234afae9285469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabDict:
+    m_keys: 000000000100000002000000
+    m_values:
+    - {fileID: 5849402520368199247, guid: d7e4e21e5a1f81049a958e300e266215, type: 3}
+    - {fileID: 497130544065930605, guid: b8ffd38aebeb1c74fbce86d40f1dce09, type: 3}
+    - {fileID: 8961327387173126957, guid: dcb985434687e044cab9071fe2128068, type: 3}
+--- !u!114 &1999042000367588561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237234409092675563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e42fc9d7b9f6f41bced164124ff0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1764150568763529091
 GameObject:
   m_ObjectHideFlags: 0

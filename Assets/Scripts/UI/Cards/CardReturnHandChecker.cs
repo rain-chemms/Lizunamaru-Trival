@@ -34,6 +34,7 @@ public class CardReturnHandChecker : MonoBehaviour,
                     if(cardSlot.GetInnerCard() == card) 
                     {
                         cardSlot.SetInnerCard(null);
+                        card.AfterRemoveFromSolt();//触发卡牌的移除效果
                         break;
                     }
                 }

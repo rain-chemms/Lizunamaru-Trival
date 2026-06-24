@@ -83,6 +83,7 @@ public class BattleMessage : MonoBehaviour
         return spellPrecent;
     }
     //卡槽相关
+    [Header("所有的卡槽列表")]
     [SerializeField] private List<CardSlotList> cardSlotListList = new List<CardSlotList>();//所有卡槽列表的管理器
     public List<CardSlotList> GetCardSlotListList()
     {
@@ -118,4 +119,14 @@ public class BattleMessage : MonoBehaviour
         allCardSlotList.Add(spellAttackCardSlot);
         return allCardSlotList;
     }
+
+    //每个种类的卡槽列表中卡槽的数量
+    //卡槽数量更新时以整个字典为准
+    [Header("卡槽列表中卡槽的数量:仅限Power,Attack,Gadget这3种可设置")]
+    [SerializeField] private SerializableDictionary<CardCategory,int> cardSlotListCardSlotCount = new SerializableDictionary<CardCategory,int>();
+    public SerializableDictionary<CardCategory,int> GetCardSlotListCardSlotCount()
+    {
+        return cardSlotListCardSlotCount;
+    }
+    
 }

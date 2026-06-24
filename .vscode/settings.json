@@ -68,5 +68,6 @@
         "*.slnx": "*.csproj"
     },
     "dotnet.defaultSolution": "Lizunamaru-Trival.slnx",
+    "editor.mouseWheelZoom": true,
     "dotnet.enableWorkspaceBasedDevelopment": false
 }
