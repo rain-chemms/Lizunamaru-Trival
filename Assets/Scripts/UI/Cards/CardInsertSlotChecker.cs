@@ -33,6 +33,10 @@ public class CardInsertSlotChecker : MonoBehaviour,IEndDragHandler,IDragHandler
             {
                 if(cardSlot.GetInnerCard() == card) return;
             }
+            
+            //如果当前卡牌在抽牌或弃牌堆中,则不处理
+            if((bool)BattleMessage.instance.GetDrawCardList()?.Contains(card) || (bool)BattleMessage.instance.GetDiscardCardList()?.Contains(card)) return;
+            
             //卡片类别一致时才可设置值
             if(cardSlotUnderCard.GetSlotCardCategory() == card.GetCardCategory())
             {

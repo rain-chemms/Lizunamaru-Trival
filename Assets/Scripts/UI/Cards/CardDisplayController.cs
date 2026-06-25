@@ -9,6 +9,15 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Card))]
 public class CardDisplayer : MonoBehaviour
 {
+    [SerializeField] private bool isInStack = false;
+    public bool IsInStack()
+    {
+        return isInStack;
+    }
+    public void SetInStack(bool inStack)
+    {
+        isInStack = inStack;
+    }
     [SerializeField] private bool isFront = true;// true:正面，false:反面
     public bool IsDisplayFront()
     {
@@ -52,5 +61,6 @@ public class CardDisplayer : MonoBehaviour
         //控制动画器参数
         if(animator?.GetBool("IsFront") != isFront) animator?.SetBool("IsFront", isFront);
         if(animator?.GetFloat("FlipSpeed") != flipSpeed) animator?.SetFloat("FlipSpeed", flipSpeed);
+        if(animator?.GetBool("IsInStack") != isInStack) animator?.SetBool("IsInStack", isInStack);
     }
 }

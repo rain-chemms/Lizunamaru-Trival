@@ -24,6 +24,9 @@ public class CardReturnHandChecker : MonoBehaviour,
     {
         if(returnHandAreaUnderCard != null)
         {
+            //如果当前卡牌在抽牌或弃牌堆中,则不处理
+            if((bool)BattleMessage.instance.GetDrawCardList()?.Contains(card) || (bool)BattleMessage.instance.GetDiscardCardList()?.Contains(card)) return;
+
             //如果当前卡牌不在手牌列表中,则添加到手牌列表,并从其他卡槽中移除
             if(!BattleMessage.instance.GetHandCardList().Contains(card))
             {

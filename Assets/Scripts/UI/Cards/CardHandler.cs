@@ -12,7 +12,10 @@ public class CardHandler : MonoBehaviour,
 {
     
     [SerializeField] private bool isDragging = false;// 记录是否正在拖拽
-
+    [SerializeField] private bool inHand = false;
+    [SerializeField] private bool inDiscard = false;
+    [SerializeField] private bool inDraw = false;
+    [SerializeField] private bool inSlot = false;
     public bool IsDragging()
     {
         return isDragging;
@@ -89,8 +92,20 @@ public class CardHandler : MonoBehaviour,
     void Update()
     {
         //非拖拽状态且不在手牌中时,图片位置 lerp 回到初始位置
-        bool inHand = BattleMessage.instance.GetHandCardList().Contains(card);
-        if(!isDragging && !inHand)
+        inHand = BattleMessage.instance.GetHandCardList().Contains(card);
+        inDiscard = BattleMessage.instance.GetDiscardCardList().Contains(card);
+        inDraw = BattleMessage.instance.GetDrawCardList().Contains(card);
+        inSlot = false;
+        foreach(CardSlot csl in BattleMessage.instance.GetAllCardSlot())
+        {
+            if(csl.GetInnerCard() == card) 
+            {
+                inSlot = true;
+                break;
+            }
+        }
+
+        if(!isDragging && !inHand && !inSlot && !inDiscard && !inDraw)
         {
             rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition,
                 Vector2.zero,

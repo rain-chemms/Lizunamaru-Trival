@@ -5026,6 +5026,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -1.4398193
       objectReference: {fileID: 0}
+    - target: {fileID: 7077068858142515853, guid: 2940ba056d6bf3a4691d214f7e5a86ef, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7346220007854845577, guid: 2940ba056d6bf3a4691d214f7e5a86ef, type: 3}
       propertyPath: offSet.x
       value: 100
@@ -13281,7 +13285,7 @@ PrefabInstance:
       objectReference: {fileID: 606083970}
     - target: {fileID: 7147680556464847461, guid: 1843b34ff4490c34cb457431c9a4087c, type: 3}
       propertyPath: 'cardSlotListCardSlotCount.m_values.Array.data[2]'
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
