@@ -110,8 +110,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.055694398, y: 0.031000001}
   m_AnchorMax: {x: 0.9433472, y: 0.9677832}
-  m_AnchoredPosition: {x: -0.0002593994, y: 0}
-  m_SizeDelta: {x: 0.0005, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7080197002401759028
 CanvasRenderer:
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &5042923368262764309
 GameObject:
@@ -576,6 +576,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDragging: 0
+  inHand: 0
+  inDiscard: 0
+  inDraw: 0
+  inSlot: 0
   cardLerpSpeed: 20
   rotateSpeed: 10
   rectTransform: {fileID: 4526820275402633002}
