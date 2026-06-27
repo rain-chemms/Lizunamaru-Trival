@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 //战斗棋盘:全局只能由一个,使用单例模式
 //棋盘的朝向与Unity自身的坐标系统一致
@@ -54,5 +55,10 @@ public class BattleBoard : MonoBehaviour
     public void SetWidthAndHeight(Vector2Int widthAndHeight)
     {
         this.widthAndHeight = widthAndHeight;
+    }
+    void Start()
+    {
+        //默认将所有子节点的地图格子加入列表中
+        battleGridList = GetComponentsInChildren<BattleGrid>().ToList();
     }
 }

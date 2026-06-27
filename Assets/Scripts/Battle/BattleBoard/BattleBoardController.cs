@@ -28,6 +28,13 @@ public class BattleBoardController : MonoBehaviour
             if(battleBoard == null) battleBoard = GetComponent<BattleBoard>();//尝试从脚本中获取
             if(battleBoard == null) battleBoard = BattleBoard.instance;//尝试从BattleBoard单例中获取
         }
+        DestroyOutOfBoundaryGrids();
+        DestroyRepeatBattleGrid();
+    }
+
+    void Update()
+    {
+        FreshBattleBoardGridsPosition();
     }
     //清空棋盘格
     public void DestoryAllGrids()

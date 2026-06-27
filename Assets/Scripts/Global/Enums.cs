@@ -1,5 +1,15 @@
 using UnityEngine;
 
+//战斗中的方向位置种类
+public enum BattleDirection
+{
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT
+}
+
+
 //卡片的种类
 //用于标记卡槽,卡槽列表,卡片的种类
 public enum CardCategory
