@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(CardSlot))]
+
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(RectTransform))]
-public class CardSlotCollider2DBoarderSyncer : MonoBehaviour
+public class BoxCollider2DBoarderSyncer : MonoBehaviour
 {
     [SerializeField] private RectTransform rectTransform;
     [SerializeField] private BoxCollider2D boxCollider2D;

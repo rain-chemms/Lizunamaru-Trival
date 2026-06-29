@@ -37,7 +37,7 @@ public class CardReturnHandChecker : MonoBehaviour,
                     if(cardSlot.GetInnerCard() == card) 
                     {
                         cardSlot.SetInnerCard(null);
-                        card.AfterRemoveFromSolt();//触发卡牌的移除效果
+                        ((CardFunctioner)card).AfterRemoveFromSolt();//触发卡牌的移除效果
                         break;
                     }
                 }
@@ -56,7 +56,7 @@ public class CardReturnHandChecker : MonoBehaviour,
         {
             //判断是否是卡槽对象
             if (hit2D.collider.GetComponent<ReturnHandArea>() != null)
-            {
+            {   
                 //检测第一个卡槽
                 returnHandAreaUnderCard = hit2D.collider.GetComponent<ReturnHandArea>();
                 break;

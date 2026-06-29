@@ -5,7 +5,6 @@ using UnityEngine;
 public class BattleMessage : MonoBehaviour
 {
     public static BattleMessage instance;
-
     private void Awake()
     {
         if(instance == null)
@@ -29,7 +28,21 @@ public class BattleMessage : MonoBehaviour
     {
         return isPlayerTurn;
     }
-    
+    [SerializeField] private uint controlPlayerID = 0;//控制的玩家的ID,卡牌触发系统从这个id的玩家中生效
+    public uint GetControlPlayerID()
+    {
+        return controlPlayerID;
+    }
+    public void SetControlPlayerID(uint id)
+    {
+        controlPlayerID = id;
+    }
+    [SerializeField] private List<Role> roleList = new List<Role>();//敌人与玩家对象的列表
+    public List<Role> GetRoleList()
+    {
+        return roleList;
+    }
+
     // 卡牌相关
     //抽牌堆
     [SerializeField] private List<Card> drawCardList = new List<Card>();

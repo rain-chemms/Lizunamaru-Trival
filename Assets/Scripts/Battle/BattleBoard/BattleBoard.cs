@@ -21,7 +21,7 @@ public class BattleBoard : MonoBehaviour
             Destroy(this);
         }
     }
-
+    
     [SerializeField] private List<BattleGrid> battleGridList = new List<BattleGrid>();
     public List<BattleGrid> GetBattleGridList()
     {
