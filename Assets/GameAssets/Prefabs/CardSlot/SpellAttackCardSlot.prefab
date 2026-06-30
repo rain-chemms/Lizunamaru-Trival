@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6296031376208459036}
   - component: {fileID: 1752562664971721490}
   - component: {fileID: 8630508558502770196}
+  - component: {fileID: 13844787728990332}
   m_Layer: 5
   m_Name: SpellAttackCardSlot
   m_TagString: Untagged
@@ -170,6 +171,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 3714910949193384335}
   boxCollider2D: {fileID: 1752562664971721490}
+--- !u!95 &13844787728990332
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5886214239972828908}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &3184663535650932041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -261,6 +284,26 @@ PrefabInstance:
     - target: {fileID: 7911627481387798916, guid: 04ab255b31962e946a5279e69a828e03, type: 3}
       propertyPath: m_Name
       value: UIBoarderDisplayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662594041541115590, guid: 04ab255b31962e946a5279e69a828e03, type: 3}
+      propertyPath: cardCategories.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662594041541115590, guid: 04ab255b31962e946a5279e69a828e03, type: 3}
+      propertyPath: 'cardCategories.Array.data[0]'
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662594041541115590, guid: 04ab255b31962e946a5279e69a828e03, type: 3}
+      propertyPath: 'cardCategories.Array.data[1]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662594041541115590, guid: 04ab255b31962e946a5279e69a828e03, type: 3}
+      propertyPath: 'cardCategories.Array.data[2]'
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662594041541115590, guid: 04ab255b31962e946a5279e69a828e03, type: 3}
+      propertyPath: 'cardCategories.Array.data[3]'
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

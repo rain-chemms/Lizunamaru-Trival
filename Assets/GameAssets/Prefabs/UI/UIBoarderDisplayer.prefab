@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2141462581891849448}
   - component: {fileID: 4008853712304481198}
   - component: {fileID: 31182682579095789}
+  - component: {fileID: 8662594041541115590}
   m_Layer: 5
   m_Name: UIBoarderDisplayer
   m_TagString: Untagged
@@ -113,3 +114,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 4008853712304481198}
   hideBoarder: 1
+--- !u!114 &8662594041541115590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7911627481387798916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2a801f7eb63d24ebfd5cbbee3363f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardCategories: 0000000001000000020000000300000004000000

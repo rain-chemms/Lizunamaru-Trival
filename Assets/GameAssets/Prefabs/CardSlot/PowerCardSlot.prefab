@@ -262,6 +262,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIBoarderDisplayer
       objectReference: {fileID: 0}
+    - target: {fileID: 8662594041541115590, guid: 04ab255b31962e946a5279e69a828e03, type: 3}
+      propertyPath: cardCategories.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662594041541115590, guid: 04ab255b31962e946a5279e69a828e03, type: 3}
+      propertyPath: 'cardCategories.Array.data[0]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662594041541115590, guid: 04ab255b31962e946a5279e69a828e03, type: 3}
+      propertyPath: 'cardCategories.Array.data[1]'
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662594041541115590, guid: 04ab255b31962e946a5279e69a828e03, type: 3}
+      propertyPath: 'cardCategories.Array.data[2]'
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662594041541115590, guid: 04ab255b31962e946a5279e69a828e03, type: 3}
+      propertyPath: 'cardCategories.Array.data[3]'
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
