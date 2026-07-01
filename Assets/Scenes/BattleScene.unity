@@ -12902,7 +12902,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1821943090471272353, guid: 58570116c0bfbea4fb0123577b907d4d, type: 3}
       propertyPath: grandYOffset
-      value: 1.3
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 2653073071628111643, guid: 58570116c0bfbea4fb0123577b907d4d, type: 3}
       propertyPath: m_Name
@@ -13011,11 +13011,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4664889070188849211, guid: 7ddb802b9d6f7f34daa1cca11124ecf5, type: 3}
       propertyPath: gapsOfGrid.x
-      value: 5
+      value: 2.75
       objectReference: {fileID: 0}
     - target: {fileID: 4664889070188849211, guid: 7ddb802b9d6f7f34daa1cca11124ecf5, type: 3}
       propertyPath: gapsOfGrid.y
-      value: 5
+      value: 2.75
       objectReference: {fileID: 0}
     - target: {fileID: 4664889070188849211, guid: 7ddb802b9d6f7f34daa1cca11124ecf5, type: 3}
       propertyPath: widthAndHeight.x
@@ -13028,6 +13028,10 @@ PrefabInstance:
     - target: {fileID: 7848590913677720928, guid: 7ddb802b9d6f7f34daa1cca11124ecf5, type: 3}
       propertyPath: terrainSetHeight
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900717275884146044, guid: 7ddb802b9d6f7f34daa1cca11124ecf5, type: 3}
+      propertyPath: m_DetailObjectDensity
+      value: 0.066
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13042,17 +13046,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6716062497075986079, guid: 3ee97cbb303b6814b9b62b6c7ce05a3e, type: 3}
+      propertyPath: gridIndex.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7050839137283839184, guid: 3ee97cbb303b6814b9b62b6c7ce05a3e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.5853176
+      value: 3.58
       objectReference: {fileID: 0}
     - target: {fileID: 7050839137283839184, guid: 3ee97cbb303b6814b9b62b6c7ce05a3e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.15
+      value: 2.204
       objectReference: {fileID: 0}
     - target: {fileID: 7050839137283839184, guid: 3ee97cbb303b6814b9b62b6c7ce05a3e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 22.29
+      value: 2.63
       objectReference: {fileID: 0}
     - target: {fileID: 7050839137283839184, guid: 3ee97cbb303b6814b9b62b6c7ce05a3e, type: 3}
       propertyPath: m_LocalRotation.w

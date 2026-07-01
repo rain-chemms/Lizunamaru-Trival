@@ -9,6 +9,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 088078871be346a4b8c024762a032106, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 088078871be346a4b8c024762a032106, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 088078871be346a4b8c024762a032106, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 088078871be346a4b8c024762a032106, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.5853176
       objectReference: {fileID: 0}
@@ -47,6 +59,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 088078871be346a4b8c024762a032106, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 088078871be346a4b8c024762a032106, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7164257171881353929, guid: 088078871be346a4b8c024762a032106, type: 3}
       propertyPath: m_Name
@@ -168,10 +184,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!135 &5700603652658145434
 SphereCollider:
@@ -206,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78cc26caf5d9c8747ba7444217dd0d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rb: {fileID: 9111144190148688338}
   direction: 3
   id: 1
   side: 0
@@ -214,7 +230,7 @@ MonoBehaviour:
   maxHp: 100
   speed: 5
   isFly: 0
-  gridIndex: {x: 0, y: 0}
+  gridIndex: {x: 1, y: 0}
   missBulltetNumber: 0
   spellPrecent: 0
   defendPoint: 0
@@ -243,6 +259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36e921570b4037a469aa1a5df42dc8b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flyHeight: 0
-  grandYOffset: 0
+  flyHeight: 2.46
+  grandYOffset: 2.5
   role: {fileID: 6716062497075986079}

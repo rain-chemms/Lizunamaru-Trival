@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: GameTexts Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: GameTexts
+  m_TableCollectionNameGuidString: e2fcf0a1c5cc9074ea69c49b22081d4d
+  m_Entries:
+  - m_Id: 11061074984960
+    m_Key: 'Menu_Statement
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11124098596864
+    m_Key: 'Menu_License
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18474402447360
+    m_Key: 'Menu_StartButton
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18596200841216
+    m_Key: Menu_SettingsButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18665738207232
+    m_Key: Menu_ExitButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 171573268054016
+    m_Key: SceneLoader_GirlIsShuffling
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 816146620906733782
+  references:
+    version: 2
+    RefIds:
+    - rid: 816146620906733782
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1782895489280

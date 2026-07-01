@@ -9,6 +9,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5ce03454a124d314886e09ce3b483985, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5ce03454a124d314886e09ce3b483985, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5ce03454a124d314886e09ce3b483985, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5ce03454a124d314886e09ce3b483985, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -47,6 +59,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 5ce03454a124d314886e09ce3b483985, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5ce03454a124d314886e09ce3b483985, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5ce03454a124d314886e09ce3b483985, type: 3}
       propertyPath: m_Name
@@ -142,7 +158,7 @@ Animator:
   m_GameObject: {fileID: 2653073071628111643}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 52b45cb676bfbe44f9909f082629d5b9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1316c09c384088044917a0d4c84b0699, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -203,6 +219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36e921570b4037a469aa1a5df42dc8b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flyHeight: 0
-  grandYOffset: 0
+  flyHeight: 3
+  grandYOffset: 1.75
   role: {fileID: 8809994845351193527}

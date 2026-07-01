@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4664889070188849211}
   - component: {fileID: 2711024364979665373}
   - component: {fileID: 7848590913677720928}
+  - component: {fileID: 7912427733305363750}
   m_Layer: 0
   m_Name: BattleBoard
   m_TagString: Untagged
@@ -76,7 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleGridList: []
-  gapsOfGrid: {x: 1, y: 1}
+  gapsOfGrid: {x: 2.75, y: 2.75}
   grid00LocalPosition: {x: 0, y: 0, z: 0}
   widthAndHeight: {x: 1, y: 1}
 --- !u!114 &2711024364979665373
@@ -105,9 +106,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battleTerrainList: []
   upDownHeight: 5
-  leftRightWidth: 5
+  leftRightWidth: 8
   positionOffsetHeight: 0
   terrainSetHeight: 600
+--- !u!114 &7912427733305363750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339118148884898362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 144abd0c70be7d441b69d88dc8e168b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  posOffset: {x: 0, y: 20, z: -13}
+  rotOffset: {x: 50, y: 0, z: 0}
+  resetPos: 1
+  resetRot: 1
+  lerpSpeed: 5
+  rotateSpeed: 5
+  stopDistance: 0.1
+  stopRotateDistance: 0.1
+  board: {fileID: 0}
+  cinemachineCamera: {fileID: 0}
 --- !u!1 &1561694602180378740
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,16 +285,16 @@ Terrain:
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: 9f41873b5f6c1c04690f54689ca48f0e, type: 2}
   m_TreeDistance: 5000
-  m_TreeBillboardDistance: 50
-  m_TreeCrossFadeLength: 5
-  m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
-  m_DetailObjectDensity: 1
-  m_HeightmapPixelError: 5
+  m_TreeBillboardDistance: 5
+  m_TreeCrossFadeLength: 0
+  m_TreeMaximumFullLODCount: 0
+  m_DetailObjectDistance: 1000
+  m_DetailObjectDensity: 0.176
+  m_HeightmapPixelError: 1
   m_SplatMapDistance: 1000
   m_HeightmapMinimumLODSimplification: 0
   m_HeightmapMaximumLOD: 0
-  m_ShadowCastingMode: 2
+  m_ShadowCastingMode: 0
   m_DrawHeightmap: 1
   m_DrawInstanced: 0
   m_DrawTreesAndFoliage: 1
