@@ -14,7 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TableCollectionName: CardTexts
   m_TableCollectionNameGuidString: c82d369c4328d944ab6b01bb4e351a25
-  m_Entries: []
+  m_Entries:
+  - m_Id: 311482616250368
+    m_Key: 'CardExplain
+
+      _WhiteEmptyCard'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358383998861312
+    m_Key: CardExplain_Debug
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

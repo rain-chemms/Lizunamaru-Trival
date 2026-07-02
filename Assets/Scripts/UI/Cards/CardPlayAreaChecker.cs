@@ -25,6 +25,8 @@ public class CardPlayAreaChecker : MonoBehaviour,
         {
             //如果当前卡牌不在手牌列表中,则不处理
             if (!BattleMessage.instance.GetHandCardList().Contains(card)) return;
+            //如果当前卡牌含有不可打出关键字,则不处理
+            if ((bool)card?.GetCardKeyWords()?.Contains(CardKeyWord.UNPLAYABLE)) return;
             //将当前卡牌加入卡牌打出区域的卡牌列表中,并从手牌中移除
             cardPlayAreaUnderCard.AddCard(card);
             BattleMessage.instance?.GetHandCardList()?.Remove(card);

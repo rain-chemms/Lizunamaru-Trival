@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BattleMessage : MonoBehaviour
@@ -68,9 +69,11 @@ public class BattleMessage : MonoBehaviour
         return handCardList;
     }
     //卡牌相关的方法
-    //弃掉一张牌
-    //弃牌时会检测是否有奇巧SLY关键字,若有则将卡牌打出
     //可以将卡牌相关的指令包装为一个Cmd类
+    /*
+        1.弃掉一张牌
+        弃牌时会检测是否有奇巧SLY关键字,若有则将卡牌打出
+    */
     public IEnumerator DiscardCard(Card card)
     {
         if(instance.discardCardList.Contains(card) || instance.drawCardList.Contains(card)) 
@@ -86,6 +89,145 @@ public class BattleMessage : MonoBehaviour
         }
         yield return ((CardFunctioner)card).AfterDsicard();//触发卡牌丢弃时的效果
         discardCardList.Add(card);
+    }
+    /*
+        2.将弃牌堆的卡牌转移到抽牌堆
+    */
+    public IEnumerator ReturnDiscardCardToDrawList()
+    {
+        //检查弃牌堆
+        if(discardCardList == null)
+        {
+            Debug.LogError("[BattleMessage]: Discard Card List is Null, Please Check!");
+            yield return null;   
+        }
+        //检查抽牌堆
+        if(drawCardList == null)
+        {
+            Debug.LogError("[BattleMessage]: Draw Card List is Null, Please Check!");
+            yield return null;   
+        }
+        //先将弃牌堆洗牌
+        //这里随机化弃牌堆牌的顺序
+        ShuffleCardList(discardCardList);
+        //加入抽牌堆
+        foreach(Card card in discardCardList.ToList())
+        {
+            drawCardList.Add(card);
+            discardCardList.Remove(card);
+            yield return 0.2f;//此处可以加入时间停顿产生逐渐回到手牌的现象
+        }
+    }
+    /*
+        3.抽一定数量的卡牌
+    */
+    public IEnumerator DrawCard(int count)
+    {
+        if(drawCardList == null)
+        {
+            Debug.LogError("[BattleMessage]: Draw Card List is Null, Please Check!");
+            yield return null;   
+        }
+        if(handCardList == null)
+        {
+            Debug.LogError("[BattleMessage]: Hand Card List is Null, Please Check!");
+            yield return null;   
+        }
+        if(handCardList == null)
+        {
+            Debug.LogError("[BattleMessage]: Hand Card List is Full, Please Check!");
+            yield return null;   
+        }
+        //一张一张的抽牌
+        for(int i=0;i<count;i++)
+        {
+            //先判断:
+            //抽牌堆没有卡牌时,将弃牌堆的卡牌转移到抽牌堆中,再进行抽牌
+            if(drawCardList.Count <= 0) 
+            {
+                yield return ReturnDiscardCardToDrawList();
+                //如果还是无卡牌,则停止抽牌
+                if(drawCardList.Count <= 0) break;
+            }
+            //后判断:
+            if(handCardList.Count >= maxHandCardCount) break;//手牌已满则停止抽牌
+            Card nowCard = drawCardList[0];
+            drawCardList.Remove(nowCard);
+            handCardList.Add(nowCard);
+            yield return ((CardFunctioner)nowCard).AfterDraw();//触发抽到卡牌后的效果
+        }
+    }
+    /*
+        4.使用种子对卡牌列表进行洗牌:
+            使用Fisher-Yates洗牌算法
+    */
+    private void ShuffleCardList(List<Card> cardList)
+    {
+        if(cardList == null) return;
+        if(SeedSetter.instance == null) return;
+        //获取随机种子
+        int seed = SeedSetter.instance.GetSeed_Int();
+        //生成随机数生成器
+        System.Random rng = new System.Random(seed);
+        int n = cardList.Count;
+        // Fisher-Yates 洗牌算法
+        while (n > 1)
+        {
+            n--;
+            // 注意：rng.Next(n + 1) 的范围是 [0, n]，必须包含 n
+            int k = rng.Next(n + 1); 
+            // 交换元素
+            (cardList[k], cardList[n]) = (cardList[n], cardList[k]); 
+        }
+    }
+    /*
+        5.生成一张牌并加入手中
+    */
+    public IEnumerator GenerateCardAndAddToHand(Card cardTemplate)
+    {
+        if(handCardList == null)
+        {
+            Debug.LogError("[BattleMessage]: Hand Card List is Full, Please Check!");
+            yield return null;   
+        }
+        if(handCardList.Count < maxHandCardCount)
+        {
+            //按照卡牌模板产生一张新卡
+            Card newCard = Instantiate(cardTemplate);
+            //将新的卡牌加入手牌中
+            handCardList.Add(newCard);  
+        }
+        else yield return GenerateCardAndAddToDiscardList(cardTemplate);//爆牌时加入弃牌堆
+    }
+    /*
+        6.生成一张牌并随机加入抽牌堆中
+    */
+    public IEnumerator GenerateCardAndAddToDrawList(Card cardTemplate)
+    {
+        if(drawCardList == null)
+        {
+            Debug.LogError("[BattleMessage]: Draw Card List is Null, Please Check!");
+            yield return null;   
+        }
+        Card newCard = Instantiate(cardTemplate);//按照卡牌模板产生一张新卡
+        //将新的卡牌加入抽牌堆
+        drawCardList.Add(newCard);//添加到抽牌
+        ShuffleCardList(drawCardList);//随机化抽牌堆的顺序
+    }
+    /*
+        7.生成一张牌并随机加入弃牌堆中
+    */
+    public IEnumerator GenerateCardAndAddToDiscardList(Card cardTemplate)
+    {
+        if(discardCardList == null)
+        {
+            Debug.LogError("[BattleMessage]: Discard Card List is Null, Please Check!");
+            yield return null;   
+        }
+        Card newCard = Instantiate(cardTemplate);//按照卡牌模板产生一张新卡
+        //将新的卡牌加入弃牌堆后喜爱
+        discardCardList.Add(newCard);//添加到弃牌堆中
+        ShuffleCardList(discardCardList);//随机化弃牌堆的顺序   
     }
 
     //能量数值相关

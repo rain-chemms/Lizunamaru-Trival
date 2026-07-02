@@ -17,7 +17,18 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: c82d369c4328d944ab6b01bb4e351a25, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 311482616250368
+    m_Localized: 'Discard all of your cards.
+
+      For each card discarded, gain
+      1 action point for this turn.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358383998861312
+    m_Localized: This is Debug Card
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

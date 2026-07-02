@@ -4538,7 +4538,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 973607375}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1652210342211082365, guid: f1692514d82f63348adb6cdea68f885f, type: 3}
       propertyPath: cardCategory
@@ -4574,11 +4574,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4526820275402633002, guid: f1692514d82f63348adb6cdea68f885f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0.0002
+      value: 254.0002
       objectReference: {fileID: 0}
     - target: {fileID: 4526820275402633002, guid: f1692514d82f63348adb6cdea68f885f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1.66
+      value: 345.58008
       objectReference: {fileID: 0}
     - target: {fileID: 4526820275402633002, guid: f1692514d82f63348adb6cdea68f885f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4610,11 +4610,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4526820275402633002, guid: f1692514d82f63348adb6cdea68f885f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00012207031
+      value: 1198.5201
       objectReference: {fileID: 0}
     - target: {fileID: 4526820275402633002, guid: f1692514d82f63348adb6cdea68f885f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.3900146
+      value: 226.72998
       objectReference: {fileID: 0}
     - target: {fileID: 4526820275402633002, guid: f1692514d82f63348adb6cdea68f885f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4637,11 +4637,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1692514d82f63348adb6cdea68f885f, type: 3}
---- !u!224 &775394980 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4526820275402633002, guid: f1692514d82f63348adb6cdea68f885f, type: 3}
-  m_PrefabInstance: {fileID: 775394979}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &775394981 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1652210342211082365, guid: f1692514d82f63348adb6cdea68f885f, type: 3}
@@ -5047,9 +5042,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2742926122028737953, guid: 2940ba056d6bf3a4691d214f7e5a86ef, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1204925327}
-    - targetCorrespondingSourceObject: {fileID: 2742926122028737953, guid: 2940ba056d6bf3a4691d214f7e5a86ef, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 775394980}
     - targetCorrespondingSourceObject: {fileID: 2742926122028737953, guid: 2940ba056d6bf3a4691d214f7e5a86ef, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1960250032}
@@ -13242,6 +13234,7 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 5393619843535721589}
+  - {fileID: 775394979}
   - {fileID: 798372029}
   - {fileID: 1270048055480788040}
   - {fileID: 1495201688}

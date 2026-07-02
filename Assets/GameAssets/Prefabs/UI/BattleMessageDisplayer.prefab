@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: 4997555423425306404}
   - component: {fileID: 8304834580630412256}
   - component: {fileID: 3150714045746062310}
+  - component: {fileID: 80567950923663517}
   m_Layer: 5
   m_Name: CardDiscardStack
   m_TagString: Untagged
@@ -274,6 +275,20 @@ MonoBehaviour:
   rotateSpeed: 5
   discardAreaRTF: {fileID: 743924074274887298}
   cardList: []
+--- !u!114 &80567950923663517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268444846807292849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449609a00076cb148b79d8e2f49332f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawOrDiscard: 0
+  sortOffset: -20
 --- !u!1 &275849587715428329
 GameObject:
   m_ObjectHideFlags: 0
@@ -3040,6 +3055,7 @@ GameObject:
   - component: {fileID: 8642011239922738180}
   - component: {fileID: 178669746790209489}
   - component: {fileID: 5319069262995434285}
+  - component: {fileID: 6425134295791723150}
   m_Layer: 5
   m_Name: CardDrawStack
   m_TagString: Untagged
@@ -3124,6 +3140,20 @@ MonoBehaviour:
   rotateSpeed: 5
   discardAreaRTF: {fileID: 2025866419698822061}
   cardList: []
+--- !u!114 &6425134295791723150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7695848321454493649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449609a00076cb148b79d8e2f49332f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawOrDiscard: 1
+  sortOffset: -20
 --- !u!1001 &898626553149311540
 PrefabInstance:
   m_ObjectHideFlags: 0

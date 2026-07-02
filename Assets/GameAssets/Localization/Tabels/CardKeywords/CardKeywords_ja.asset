@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: CardKeywords_ja
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: ja
+  m_SharedData: {fileID: 11400000, guid: e8677113bab46014cae2b6216f8e9200, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 707590750208
+    m_Localized: "\u30B9\u30ED\u30C3\u30C8"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628519731200
+    m_Localized: "\u6C38\u9060"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 595418284032
+    m_Localized: "\u305A\u308B\u8CE2\u3044"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 528527523840
+    m_Localized: "\u57CB\u3081\u8FBC\u3081\u306A\u3044"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 453071994880
+    m_Localized: "\u6253\u3066\u306A\u3044"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 393508683776
+    m_Localized: "\u865A\u7121"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 156119465984
+    m_Localized: "\u56FA\u6709"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14704312320
+    m_Localized: "\u6D88\u8017"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90906427392
+    m_Localized: "\u4FDD\u7559"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

@@ -25,6 +25,12 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e8677113bab46014cae2b6216f8e9200
+    m_Address: Assets/GameAssets/Localization/Tabels/CardKeywords/CardKeywords Shared
+      Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: e8888f07cbfd2fc48b162c127f18c7e3, type: 2}
   m_SchemaSet:

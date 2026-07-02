@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: CardKeywords Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: CardKeywords
+  m_TableCollectionNameGuidString: e8677113bab46014cae2b6216f8e9200
+  m_Entries:
+  - m_Id: 14704312320
+    m_Key: CardKeyword_Exhaust
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90906427392
+    m_Key: CardKeyword_Retain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 156119465984
+    m_Key: CardKeyword_Innate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 393508683776
+    m_Key: CardKeyword_Ethereal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 453071994880
+    m_Key: CardKeyword_Unplayable
+    m_Metadata:
+      m_Items: []
+  - m_Id: 528527523840
+    m_Key: CardKeyword_Uninsertable
+    m_Metadata:
+      m_Items: []
+  - m_Id: 595418284032
+    m_Key: CardKeyword_Sly
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628519731200
+    m_Key: CardKeyword_Eternal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 707590750208
+    m_Key: CardKeyword_Slot
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 816146652149841999
+  references:
+    version: 2
+    RefIds:
+    - rid: 816146652149841999
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1783013269873
