@@ -28,11 +28,11 @@ public class StackCardAnchorSetter : MonoBehaviour
     {
         if (drawOrDiscard is false)
         {
-            cardList = BattleMessage.instance.GetDiscardCardList();//获取弃牌堆的卡牌列表
+            cardList = BattleMessage.instance?.GetDiscardCardList();//获取弃牌堆的卡牌列表
         }
         else
         {
-            cardList = BattleMessage.instance.GetDrawCardList();//获取抽牌堆的卡牌列表
+            cardList = BattleMessage.instance?.GetDrawCardList();//获取抽牌堆的卡牌列表
         }
     }
 

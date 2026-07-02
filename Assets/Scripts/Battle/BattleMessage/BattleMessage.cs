@@ -67,6 +67,26 @@ public class BattleMessage : MonoBehaviour
     {
         return handCardList;
     }
+    //卡牌相关的方法
+    //弃掉一张牌
+    //弃牌时会检测是否有奇巧SLY关键字,若有则将卡牌打出
+    //可以将卡牌相关的指令包装为一个Cmd类
+    public IEnumerator DiscardCard(Card card)
+    {
+        if(instance.discardCardList.Contains(card) || instance.drawCardList.Contains(card)) 
+        {
+            Debug.LogError("[BattleMessage]: The Card<"+card.name+"> is In Draw OR Discard List, Can't Discard!");
+            yield return null;
+        }
+        if(handCardList.Contains(card)) handCardList.Remove(card);
+        foreach(CardSlot cl in GetAllCardSlot())
+        {
+            if(cl == null) continue;
+            if(cl.GetInnerCard() == card) cl.SetInnerCard(null);//移除卡槽中的卡牌
+        }
+        yield return ((CardFunctioner)card).AfterDsicard();//触发卡牌丢弃时的效果
+        discardCardList.Add(card);
+    }
 
     //能量数值相关
     [SerializeField] private uint ricePoint = 0;//行动点数
@@ -74,10 +94,18 @@ public class BattleMessage : MonoBehaviour
     {
         return ricePoint;
     }
+    public void SetRicePoint(uint newRicePoint)
+    {
+        ricePoint = newRicePoint;
+    }
     [SerializeField] private uint icePoint = 0;//敌方回合可用行动点数
     public uint GetIcePoint()
     {
         return icePoint;
+    }
+    public void SetIcePoint(uint newIcePoint)
+    {
+        icePoint = newIcePoint;
     }
     [SerializeField] private uint riceChargePreRound = 6;//每回合可以恢复的行动点数
     public uint GetRiceChargePreRound()

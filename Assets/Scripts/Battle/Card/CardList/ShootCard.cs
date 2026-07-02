@@ -1,9 +1,9 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 
-public class DefendCard : Card
+public class ShootCard : Card
 {
-    //卡牌接口的空实现
+        //卡牌接口的空实现
     public virtual IEnumerator AfterInsertToSolt()
     {
         yield return null;

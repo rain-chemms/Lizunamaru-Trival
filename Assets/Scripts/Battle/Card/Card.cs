@@ -23,6 +23,12 @@ public class Card : MonoBehaviour,CardFunctioner
     {
         return cardKeyWords;
     }
+    public void AddCardKeyWord(CardKeyWord kw)
+    {
+        if(cardKeyWords == null) return;
+        if(!cardKeyWords.Contains(kw)) cardKeyWords.Add(kw);
+    }
+
     //卡牌接口的空实现
     public virtual IEnumerator AfterInsertToSolt()
     {
@@ -40,5 +46,30 @@ public class Card : MonoBehaviour,CardFunctioner
     {
         yield return null;
     }
+    public virtual IEnumerator AfterRoundEnd()
+    {
+        yield return null;
+    }
+    //回合开始时触发
+    public virtual IEnumerator AfterRoundStart()
+    {
+        yield return null;
+    }
+
+    //在你的回合丢弃时触发
+    public virtual IEnumerator AfterDsicard()
+    {
+        yield return null;    
+    }
     
+    //在抽到卡牌时触发
+    public virtual IEnumerator AfterDraw()
+    {
+        yield return null;
+    }   
+
+    public virtual IEnumerator AfterExhaust()
+    {
+        yield return null;
+    }
 }

@@ -33,3 +33,17 @@ public enum MapNodeCategory
     CAMPFIRE,//篝火
     BONUS//奖励箱
 }
+
+//卡牌关键字
+public enum CardKeyWord
+{
+    EXHAUST,//消耗,打出后从本场战斗中移除
+    RETAIN,//保留,回合结束时不回到弃牌堆
+    ETHEREAL,//虚无,回合结束时在手中则消耗
+    INNATE,//固有,开局时加入手牌
+    UNPLAYABLE,//不可被打出
+    UNINSERTABLE,//不可插入卡槽
+    SLY,//奇巧,丢弃手牌时将其打出
+    ETERNAL,//永恒,无法从牌堆中移除
+    SLOT,//槽位,牌嵌入槽位时可以在上面叠加更多卡牌
+}

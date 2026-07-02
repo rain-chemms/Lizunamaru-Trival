@@ -3,14 +3,42 @@ using UnityEngine;
 
 public class StrikeCard : Card
 {
-    void Start()
+        //卡牌接口的空实现
+    public virtual IEnumerator AfterInsertToSolt()
     {
-        this.SetCardCategory(CardCategory.ATTACK);
+        yield return null;
     }
-
+    public virtual IEnumerator AfterPlay()
+    {
+        yield return null;
+    }
+    public virtual IEnumerator AfterRemoveFromSolt()
+    {
+        yield return null;
+    }
     public virtual IEnumerator AfterTriggerEffective()
     {
-        yield return base.AfterTriggerEffective();
-        yield return 2.0f;
+        yield return null;
     }
+    public virtual IEnumerator AfterRoundEnd()
+    {
+        yield return null;
+    }
+    //回合开始时触发
+    public virtual IEnumerator AfterRoundStart()
+    {
+        yield return null;
+    }
+
+    //在你的回合丢弃时触发
+    public virtual IEnumerator AfterDsicard()
+    {
+        yield return null;    
+    }
+    
+    //在抽到卡牌时触发
+    public virtual IEnumerator AfterDraw()
+    {
+        yield return null;
+    } 
 }
