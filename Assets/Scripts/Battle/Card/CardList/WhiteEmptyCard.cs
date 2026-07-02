@@ -14,7 +14,6 @@ public class WhiteEmptyCard : Card
     }
     public override IEnumerator AfterPlay()
     {
-        base.AfterPlay();
         List<Card> cardList = BattleMessage.instance?.GetHandCardList()?.ToList();
         if(cardList == null)
         {
@@ -28,6 +27,8 @@ public class WhiteEmptyCard : Card
         //回复相应的麦饭点数
         BattleMessage.instance?.SetRicePoint((uint)BattleMessage.instance?.GetRicePoint() + (uint)cardList?.Count);
         yield return 1.5f;//时间间隔
+        //随后触发卡牌的基础检测
+        base.AfterPlay();
     }
     public virtual IEnumerator AfterRemoveFromSolt()
     {

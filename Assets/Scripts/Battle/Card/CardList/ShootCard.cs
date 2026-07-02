@@ -8,8 +8,9 @@ public class ShootCard : Card
     {
         yield return null;
     }
-    public virtual IEnumerator AfterPlay()
+    public override IEnumerator AfterPlay()
     {
+        base.AfterPlay();
         yield return null;
     }
     public virtual IEnumerator AfterRemoveFromSolt()

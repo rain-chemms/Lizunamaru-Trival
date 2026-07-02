@@ -30,9 +30,10 @@ public class CardPlayArea : MonoBehaviour
         {
             Card card = willPlayCardQueue.Dequeue();
             //打出卡牌
-            yield return ((CardFunctioner)card).AfterPlay();
+            yield return ((CardFunctioner)card).AfterPlay();//AfterPlay函数会对消耗字段进行检测,若存在消耗字段则触发消耗的连锁函数
             //将卡牌返回弃牌堆
-            BattleMessage.instance?.GetDiscardCardList()?.Add(card);
+            //若当前卡牌由消耗关键字,则不将其加入弃牌堆
+            if(card!=null && !(bool)card.GetCardKeyWords()?.Contains(CardKeyWord.EXHAUST)) BattleMessage.instance?.GetDiscardCardList()?.Add(card);
         }
         isExecuting = false;
     }

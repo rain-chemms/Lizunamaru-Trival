@@ -8,7 +8,7 @@ public class BattleMessage : MonoBehaviour
     public static BattleMessage instance;
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(this);
@@ -68,6 +68,7 @@ public class BattleMessage : MonoBehaviour
     {
         return handCardList;
     }
+    //没有本场战斗消耗的牌堆,个人感觉对于这个项目来说用处不大,加了之后就太像杀戮尖塔了
     //卡牌相关的方法
     //可以将卡牌相关的指令包装为一个Cmd类
     /*
@@ -76,16 +77,16 @@ public class BattleMessage : MonoBehaviour
     */
     public IEnumerator DiscardCard(Card card)
     {
-        if(instance.discardCardList.Contains(card) || instance.drawCardList.Contains(card)) 
+        if (instance.discardCardList.Contains(card) || instance.drawCardList.Contains(card))
         {
-            Debug.LogError("[BattleMessage]: The Card<"+card.name+"> is In Draw OR Discard List, Can't Discard!");
+            Debug.LogError("[BattleMessage]: The Card<" + card.name + "> is In Draw OR Discard List, Can't Discard!");
             yield return null;
         }
-        if(handCardList.Contains(card)) handCardList.Remove(card);
-        foreach(CardSlot cl in GetAllCardSlot())
+        if (handCardList.Contains(card)) handCardList.Remove(card);
+        foreach (CardSlot cl in GetAllCardSlot())
         {
-            if(cl == null) continue;
-            if(cl.GetInnerCard() == card) cl.SetInnerCard(null);//移除卡槽中的卡牌
+            if (cl == null) continue;
+            if (cl.GetInnerCard() == card) cl.SetInnerCard(null);//移除卡槽中的卡牌
         }
         yield return ((CardFunctioner)card).AfterDsicard();//触发卡牌丢弃时的效果
         discardCardList.Add(card);
@@ -96,22 +97,22 @@ public class BattleMessage : MonoBehaviour
     public IEnumerator ReturnDiscardCardToDrawList()
     {
         //检查弃牌堆
-        if(discardCardList == null)
+        if (discardCardList == null)
         {
             Debug.LogError("[BattleMessage]: Discard Card List is Null, Please Check!");
-            yield return null;   
+            yield return null;
         }
         //检查抽牌堆
-        if(drawCardList == null)
+        if (drawCardList == null)
         {
             Debug.LogError("[BattleMessage]: Draw Card List is Null, Please Check!");
-            yield return null;   
+            yield return null;
         }
         //先将弃牌堆洗牌
         //这里随机化弃牌堆牌的顺序
         ShuffleCardList(discardCardList);
         //加入抽牌堆
-        foreach(Card card in discardCardList.ToList())
+        foreach (Card card in discardCardList.ToList())
         {
             drawCardList.Add(card);
             discardCardList.Remove(card);
@@ -123,34 +124,34 @@ public class BattleMessage : MonoBehaviour
     */
     public IEnumerator DrawCard(int count)
     {
-        if(drawCardList == null)
+        if (drawCardList == null)
         {
             Debug.LogError("[BattleMessage]: Draw Card List is Null, Please Check!");
-            yield return null;   
+            yield return null;
         }
-        if(handCardList == null)
+        if (handCardList == null)
         {
             Debug.LogError("[BattleMessage]: Hand Card List is Null, Please Check!");
-            yield return null;   
+            yield return null;
         }
-        if(handCardList == null)
+        if (handCardList == null)
         {
             Debug.LogError("[BattleMessage]: Hand Card List is Full, Please Check!");
-            yield return null;   
+            yield return null;
         }
         //一张一张的抽牌
-        for(int i=0;i<count;i++)
+        for (int i = 0; i < count; i++)
         {
             //先判断:
             //抽牌堆没有卡牌时,将弃牌堆的卡牌转移到抽牌堆中,再进行抽牌
-            if(drawCardList.Count <= 0) 
+            if (drawCardList.Count <= 0)
             {
                 yield return ReturnDiscardCardToDrawList();
                 //如果还是无卡牌,则停止抽牌
-                if(drawCardList.Count <= 0) break;
+                if (drawCardList.Count <= 0) break;
             }
             //后判断:
-            if(handCardList.Count >= maxHandCardCount) break;//手牌已满则停止抽牌
+            if (handCardList.Count >= maxHandCardCount) break;//手牌已满则停止抽牌
             Card nowCard = drawCardList[0];
             drawCardList.Remove(nowCard);
             handCardList.Add(nowCard);
@@ -163,8 +164,8 @@ public class BattleMessage : MonoBehaviour
     */
     private void ShuffleCardList(List<Card> cardList)
     {
-        if(cardList == null) return;
-        if(SeedSetter.instance == null) return;
+        if (cardList == null) return;
+        if (SeedSetter.instance == null) return;
         //获取随机种子
         int seed = SeedSetter.instance.GetSeed_Int();
         //生成随机数生成器
@@ -175,9 +176,9 @@ public class BattleMessage : MonoBehaviour
         {
             n--;
             // 注意：rng.Next(n + 1) 的范围是 [0, n]，必须包含 n
-            int k = rng.Next(n + 1); 
+            int k = rng.Next(n + 1);
             // 交换元素
-            (cardList[k], cardList[n]) = (cardList[n], cardList[k]); 
+            (cardList[k], cardList[n]) = (cardList[n], cardList[k]);
         }
     }
     /*
@@ -185,17 +186,17 @@ public class BattleMessage : MonoBehaviour
     */
     public IEnumerator GenerateCardAndAddToHand(Card cardTemplate)
     {
-        if(handCardList == null)
+        if (handCardList == null)
         {
             Debug.LogError("[BattleMessage]: Hand Card List is Full, Please Check!");
-            yield return null;   
+            yield return null;
         }
-        if(handCardList.Count < maxHandCardCount)
+        if (handCardList.Count < maxHandCardCount)
         {
             //按照卡牌模板产生一张新卡
             Card newCard = Instantiate(cardTemplate);
             //将新的卡牌加入手牌中
-            handCardList.Add(newCard);  
+            handCardList.Add(newCard);
         }
         else yield return GenerateCardAndAddToDiscardList(cardTemplate);//爆牌时加入弃牌堆
     }
@@ -204,10 +205,10 @@ public class BattleMessage : MonoBehaviour
     */
     public IEnumerator GenerateCardAndAddToDrawList(Card cardTemplate)
     {
-        if(drawCardList == null)
+        if (drawCardList == null)
         {
             Debug.LogError("[BattleMessage]: Draw Card List is Null, Please Check!");
-            yield return null;   
+            yield return null;
         }
         Card newCard = Instantiate(cardTemplate);//按照卡牌模板产生一张新卡
         //将新的卡牌加入抽牌堆
@@ -219,15 +220,61 @@ public class BattleMessage : MonoBehaviour
     */
     public IEnumerator GenerateCardAndAddToDiscardList(Card cardTemplate)
     {
-        if(discardCardList == null)
+        if (discardCardList == null)
         {
             Debug.LogError("[BattleMessage]: Discard Card List is Null, Please Check!");
-            yield return null;   
+            yield return null;
         }
         Card newCard = Instantiate(cardTemplate);//按照卡牌模板产生一张新卡
         //将新的卡牌加入弃牌堆后喜爱
         discardCardList.Add(newCard);//添加到弃牌堆中
         ShuffleCardList(discardCardList);//随机化弃牌堆的顺序   
+    }
+    /*
+        8.消耗一张卡
+    */
+    public IEnumerator ExhaustCard(Card card)//消耗一张卡
+    {
+        //当有消耗词条是将触发卡牌的
+        Animator animator = card?.GetComponent<Animator>();
+        //在指定当前卡牌的排序位置
+        Canvas canvas = card?.GetComponentInParent<Canvas>();
+        if (canvas != null) canvas.sortingOrder = 100 + canvas.sortingOrder;
+        BattleMessage.instance?.GetAllCardSlot()?.ForEach(cardSlot =>
+        {
+            if (cardSlot?.GetInnerCard() == this)
+            {
+                cardSlot?.SetInnerCard(null);
+            }
+        });
+        //卡牌列表检测
+        if (BattleMessage.instance?.GetHandCardList()?.Contains(card) == true)
+        {
+            BattleMessage.instance?.GetHandCardList()?.Remove(card);
+        }
+        if (BattleMessage.instance?.GetDrawCardList()?.Contains(card) == true)
+        {
+            BattleMessage.instance?.GetDrawCardList()?.Remove(card);
+        }
+        if (BattleMessage.instance?.GetDiscardCardList()?.Contains(card) == true)
+        {
+            BattleMessage.instance?.GetDiscardCardList()?.Remove(card);
+        }
+        animator?.SetTrigger("Exhaust");//触发消耗动画,由消耗动画触发消耗后的效果
+        yield return card.AfterExhaust();//触发消耗效果
+                                         //获取消耗动画的时长
+        AnimationClip[] clips = animator?.runtimeAnimatorController.animationClips;
+        float haltTime = 0;
+        foreach (AnimationClip clip in clips)
+        {
+            if (clip?.name == "Exhaust")
+            {
+                haltTime = (float)clip?.length;
+                break;
+            }
+        }
+        //等待消耗动画结束
+        yield return haltTime;
     }
 
     //能量数值相关
@@ -259,7 +306,7 @@ public class BattleMessage : MonoBehaviour
     {
         return iceChargePreRound;
     }
-    
+
     [SerializeField] private float spellPrecent = 0.0f;//符卡攻击的充能情况
     public float GetSpellPrecent()
     {
@@ -274,9 +321,9 @@ public class BattleMessage : MonoBehaviour
     }
     public CardSlotList GetCardSlotList(CardCategory cardCategory)
     {
-        foreach(CardSlotList cardSlotList in cardSlotListList)
+        foreach (CardSlotList cardSlotList in cardSlotListList)
         {
-            if(cardSlotList.GetSlotListCardCategory() == cardCategory)
+            if (cardSlotList.GetSlotListCardCategory() == cardCategory)
             {
                 return cardSlotList;
             }
@@ -292,9 +339,9 @@ public class BattleMessage : MonoBehaviour
     public List<CardSlot> GetAllCardSlot()
     {
         List<CardSlot> allCardSlotList = new List<CardSlot>();
-        foreach(CardSlotList cardSlotList1 in GetCardSlotListList())
+        foreach (CardSlotList cardSlotList1 in GetCardSlotListList())
         {
-            foreach(CardSlot cardSlot in cardSlotList1.GetCardSlotList())
+            foreach (CardSlot cardSlot in cardSlotList1.GetCardSlotList())
             {
                 allCardSlotList.Add(cardSlot);
             }
@@ -306,10 +353,10 @@ public class BattleMessage : MonoBehaviour
     //每个种类的卡槽列表中卡槽的数量
     //卡槽数量更新时以整个字典为准
     [Header("卡槽列表中卡槽的数量:仅限Power,Attack,Gadget这3种可设置")]
-    [SerializeField] private SerializableDictionary<CardCategory,int> cardSlotListCardSlotCount = new SerializableDictionary<CardCategory,int>();
-    public SerializableDictionary<CardCategory,int> GetCardSlotListCardSlotCount()
+    [SerializeField] private SerializableDictionary<CardCategory, int> cardSlotListCardSlotCount = new SerializableDictionary<CardCategory, int>();
+    public SerializableDictionary<CardCategory, int> GetCardSlotListCardSlotCount()
     {
         return cardSlotListCardSlotCount;
     }
-    
+
 }

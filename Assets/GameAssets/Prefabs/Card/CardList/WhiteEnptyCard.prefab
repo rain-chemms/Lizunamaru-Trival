@@ -418,6 +418,7 @@ GameObject:
   - component: {fileID: 9014205762273278572}
   - component: {fileID: 8145605548122215368}
   - component: {fileID: 2911024134486367286}
+  - component: {fileID: 4710014419318224855}
   - component: {fileID: 9152005910634175684}
   - component: {fileID: 1625184676289311345}
   - component: {fileID: 7730907650560054274}
@@ -431,6 +432,7 @@ GameObject:
   - component: {fileID: 1644728094080825556}
   - component: {fileID: 5472395152714624468}
   - component: {fileID: -1904722757329643952}
+  - component: {fileID: 2600697479038610853}
   m_Layer: 5
   m_Name: WhiteEnptyCard
   m_TagString: Untagged
@@ -545,6 +547,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4710014419318224855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8251725276e864cb221d894ca39a94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 9152005910634175684}
 --- !u!114 &9152005910634175684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -765,6 +780,21 @@ MonoBehaviour:
   localizeEvent: {fileID: 5417963785666043808}
   card: {fileID: 9152005910634175684}
   keyWordTextList: []
+--- !u!114 &2600697479038610853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252c00f1e12142543931910f92f2f7a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scale: {x: 1, y: 1, z: 1}
+  lerpSpeed: 5
+  card: {fileID: 0}
 --- !u!1 &8117196228549574974
 GameObject:
   m_ObjectHideFlags: 0
