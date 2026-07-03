@@ -88,6 +88,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Marisa_Debug
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 088078871be346a4b8c024762a032106, type: 3}
+      propertyPath: m_TagString
+      value: Role
+      objectReference: {fileID: 0}
     - target: {fileID: 4178171252070706705, guid: 088078871be346a4b8c024762a032106, type: 3}
       propertyPath: m_Name
       value: Broom
@@ -134,6 +138,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 088078871be346a4b8c024762a032106, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2315334257323820832}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 088078871be346a4b8c024762a032106, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2364962439494009155}
   m_SourcePrefab: {fileID: 100100000, guid: 088078871be346a4b8c024762a032106, type: 3}
 --- !u!1 &7679284402438393450 stripped
 GameObject:
@@ -227,6 +234,7 @@ MonoBehaviour:
   id: 1
   side: 0
   hp: 100
+  defend: 0
   maxHp: 100
   speed: 5
   isFly: 0
@@ -262,3 +270,17 @@ MonoBehaviour:
   flyHeight: 2.46
   grandYOffset: 2.5
   role: {fileID: 6716062497075986079}
+--- !u!114 &2364962439494009155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7679284402438393450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6970fca72bcda47428725922a1127279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  role: {fileID: 0}
+  animTrigger: {fileID: 0}

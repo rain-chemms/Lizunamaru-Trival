@@ -51,7 +51,15 @@ public class Role : MonoBehaviour
     {
         return hp;
     }
-
+    [SerializeField] private int defend = 0;//角色的防御点数,每1点可以格挡一次伤害
+    public int GetDefend()
+    {
+        return defend;
+    }
+    public void SetDefend(int nowDefend)
+    {
+        defend = nowDefend;
+    }
     [SerializeField] private float maxHp = 100.0f;//角色最大生命值
     public float GetMaxHp()
     {

@@ -6499,6 +6499,18 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1665973523132243527, guid: f73bf400300806a40a870797ab6da781, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2001320264528941479, guid: f73bf400300806a40a870797ab6da781, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362775150418612011, guid: f73bf400300806a40a870797ab6da781, type: 3}
+      propertyPath: laserInterval
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6066231918773248070, guid: f73bf400300806a40a870797ab6da781, type: 3}
       propertyPath: ImpulseDefinition.ImpulseType
       value: 0
@@ -6507,13 +6519,17 @@ PrefabInstance:
       propertyPath: ImpulseDefinition.ImpulseShape
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6982345808307623780, guid: f73bf400300806a40a870797ab6da781, type: 3}
+      propertyPath: side
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8791272882377706504, guid: f73bf400300806a40a870797ab6da781, type: 3}
       propertyPath: m_Name
       value: MasterSpark
       objectReference: {fileID: 0}
     - target: {fileID: 8791272882377706504, guid: f73bf400300806a40a870797ab6da781, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13247,6 +13263,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Marisa_Debug
       objectReference: {fileID: 0}
+    - target: {fileID: 7679284402438393450, guid: 3ee97cbb303b6814b9b62b6c7ce05a3e, type: 3}
+      propertyPath: m_TagString
+      value: Role
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13271,6 +13291,10 @@ PrefabInstance:
     - target: {fileID: 457553043601798871, guid: 4ab2b53d9689e6340a7dd7fc1fd8c158, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 812461984891080851, guid: 4ab2b53d9689e6340a7dd7fc1fd8c158, type: 3}
+      propertyPath: m_fontSize
+      value: 61.95
       objectReference: {fileID: 0}
     - target: {fileID: 996939505450286246, guid: 4ab2b53d9689e6340a7dd7fc1fd8c158, type: 3}
       propertyPath: m_AnchorMax.x
@@ -13310,7 +13334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2147952427427955409, guid: 4ab2b53d9689e6340a7dd7fc1fd8c158, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000111876594
+      value: 0.00016357294
       objectReference: {fileID: 0}
     - target: {fileID: 2691076019530882444, guid: 4ab2b53d9689e6340a7dd7fc1fd8c158, type: 3}
       propertyPath: m_AnchorMax.x
@@ -13466,6 +13490,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6010902343695274162, guid: 4ab2b53d9689e6340a7dd7fc1fd8c158, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6645761421413826265, guid: 4ab2b53d9689e6340a7dd7fc1fd8c158, type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6826668288809896189, guid: 4ab2b53d9689e6340a7dd7fc1fd8c158, type: 3}
