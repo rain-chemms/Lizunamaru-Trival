@@ -2627,6 +2627,7 @@ GameObject:
   - component: {fileID: 437705437819646736}
   - component: {fileID: 3174459391170877373}
   - component: {fileID: 5980747137165606697}
+  - component: {fileID: 2749471635584759306}
   m_Layer: 5
   m_Name: InnerCardChecker
   m_TagString: Untagged
@@ -2735,7 +2736,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3174459391170877373}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2749471635584759306}
+        m_TargetAssemblyTypeName: StackCardCheckButton, Assembly-CSharp
+        m_MethodName: OpenTheCardStackDisplayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2749471635584759306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7298811425276502534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 314da480bb45ef649b189f6749268464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawOrDiscard: 0
 --- !u!1 &7478395392113486428
 GameObject:
   m_ObjectHideFlags: 0
@@ -2748,6 +2774,7 @@ GameObject:
   - component: {fileID: 8062333825583151887}
   - component: {fileID: 8804109942881027042}
   - component: {fileID: 4229504139771253825}
+  - component: {fileID: 6592067151590177420}
   m_Layer: 5
   m_Name: InnerCardChecker
   m_TagString: Untagged
@@ -2856,7 +2883,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8804109942881027042}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6592067151590177420}
+        m_TargetAssemblyTypeName: StackCardCheckButton, Assembly-CSharp
+        m_MethodName: OpenTheCardStackDisplayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6592067151590177420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7478395392113486428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 314da480bb45ef649b189f6749268464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawOrDiscard: 1
 --- !u!1 &7532126199897759904
 GameObject:
   m_ObjectHideFlags: 0
