@@ -43,6 +43,32 @@ public class BattleMessage : MonoBehaviour
     {
         return roleList;
     }
+    /*
+        扩展方法1:查找某一特定阵营特定ID的角色
+            一般来说ID都是唯一的,但是分阵营
+            当前情况下:True阵营的ID = 1的角色一般 不与 False阵营ID = 1的角色冲突,因为可以使用阵营区别两者
+    */
+    
+    public Role GetRole(uint id,bool side)
+    {
+        if(roleList == null) return null;
+        foreach(Role role in roleList)
+        {
+            if(role.GetID() == id && role.GetSide() == side)
+            {
+                return role;
+            }
+        }
+        return null;
+    }
+    /*
+        扩展方法2:依据当前存储的玩家信息,获取目前正在控制的玩家
+            依赖扩展方法1
+    */
+    public Role GetControlPlayer()//默认获取True阵营的玩家
+    {
+        return GetRole(controlPlayerID,isPlayerTurn);
+    }
 
     // 卡牌相关
     //抽牌堆

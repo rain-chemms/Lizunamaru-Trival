@@ -32,6 +32,6 @@ public class RoleDamageGetter : MonoBehaviour
         }
         //无防御点数时受到伤害
         role.SetHp(role.GetHp() - damage);
-        if(animTrigger != null) animTrigger.TriggerAnim("BeHit");
+        if(animTrigger != null) animTrigger.TriggerAnim("Behit");
     }
 }

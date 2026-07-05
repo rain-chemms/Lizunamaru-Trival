@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 //战斗网格控制器:用于控制棋盘的数据
 [RequireComponent(typeof(BattleBoard))]
@@ -123,7 +124,7 @@ public class BattleBoardController : MonoBehaviour
             return;
         }
         List<Vector2Int> repeatIndex = new List<Vector2Int>();
-        foreach(BattleGrid battleGrid in battleBoard.GetBattleGridList())
+        foreach(BattleGrid battleGrid in battleBoard.GetBattleGridList().ToList())
         {
             if(battleGrid == null) continue;//忽略空格
             Vector2Int index = battleGrid.GetIndex();

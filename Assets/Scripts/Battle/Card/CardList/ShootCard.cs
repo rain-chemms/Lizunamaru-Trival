@@ -11,6 +11,14 @@ public class ShootCard : Card
     public override IEnumerator AfterPlay()
     {
         base.AfterPlay();
+        //获取玩家脚本
+        Role player = BattleMessage.instance?.GetRole(
+            (uint)BattleMessage.instance?.GetControlPlayerID(),
+            true
+        );
+        //等待玩家选择射击的地块
+        
+        //依据选择的地块和玩家当前的高度执行射击
         yield return null;
     }
     public virtual IEnumerator AfterRemoveFromSolt()
