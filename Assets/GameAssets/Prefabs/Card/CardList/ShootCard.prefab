@@ -574,6 +574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardCategory: 4
   cardKeyWords: 
+  bulletPrefab: {fileID: 2857681049944608652, guid: 3cbd61cca239eca40b455315c5cc341c, type: 3}
 --- !u!114 &1625184676289311345
 MonoBehaviour:
   m_ObjectHideFlags: 0

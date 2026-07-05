@@ -34,7 +34,11 @@ public class BulletDamageTriggger : MonoBehaviour
                 Role role = other.gameObject.GetComponent<Role>();
                 RoleDamageGetter damageGetter = other.gameObject.GetComponent<RoleDamageGetter>();
                 //伤害只对不同阵营的物体有效
-                if (role?.GetSide() != bullet?.GetSide()) damageGetter?.GetDamage(bullet.GetDamage());
+                if (role?.GetSide() != bullet?.GetSide()) 
+                {
+                    damageGetter?.GetDamage(bullet.GetDamage());
+                    bullet.SetPierce(bullet.GetPierce() - 1);//减穿透数
+                }
             }
         }
     }
@@ -48,7 +52,11 @@ public class BulletDamageTriggger : MonoBehaviour
             {
                 Role role = other.gameObject.GetComponent<Role>();
                 RoleDamageGetter damageGetter = other.gameObject.GetComponent<RoleDamageGetter>();
-                if (role?.GetSide() != bullet?.GetSide()) damageGetter?.GetDamage(bullet.GetDamage());
+                //如果可以产生伤害
+                if (role?.GetSide() != bullet?.GetSide())
+                {
+                    damageGetter?.GetDamage(bullet.GetDamage());
+                }
             }
         }
     }

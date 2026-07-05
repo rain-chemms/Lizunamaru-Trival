@@ -14,6 +14,11 @@ GameObject:
   - component: {fileID: 5382935814754971828}
   - component: {fileID: 2857681049944608652}
   - component: {fileID: 4701561104346855887}
+  - component: {fileID: 5363263766071239319}
+  - component: {fileID: 6016869080905357633}
+  - component: {fileID: 1128406933437811870}
+  - component: {fileID: 8108089026523485342}
+  - component: {fileID: 7329539416007000010}
   m_Layer: 0
   m_Name: StarBullet
   m_TagString: Untagged
@@ -59,10 +64,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!135 &4956087535029669272
 SphereCollider:
@@ -119,6 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7577c2474007ff84fb6a584ceef06a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pierce: 0
+  lifeTime: 5
+  lifeRecorder: 0
   side: 1
   damage: 6
   rb: {fileID: 6584189996944205465}
@@ -140,6 +148,76 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserMode: 0
+  bullet: {fileID: 2857681049944608652}
+--- !u!114 &5363263766071239319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745992879327320267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c249d22c914b994e8514437ea4ba180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 2857681049944608652}
+  lerpSpeed: 2
+--- !u!114 &6016869080905357633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745992879327320267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed78c1b3a2541a408f084aad4529517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 2857681049944608652}
+--- !u!114 &1128406933437811870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745992879327320267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c8cb7083884c18479986a6cab21d0d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 2857681049944608652}
+  animator: {fileID: 5382935814754971828}
+  damageTriggger: {fileID: 4701561104346855887}
+  animatorControl: 1
+--- !u!114 &8108089026523485342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745992879327320267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5480ee2241270fe439045d6b2c935154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 2857681049944608652}
+--- !u!114 &7329539416007000010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745992879327320267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c7b7d43746bbe4ea2ce882c906e2e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lerpSpeed: 10
   bullet: {fileID: 2857681049944608652}
 --- !u!1001 &6259619460249784980
 PrefabInstance:
@@ -188,6 +266,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 5228b9742969897449b40f57b6155d86, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5228b9742969897449b40f57b6155d86, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5228b9742969897449b40f57b6155d86, type: 3}
       propertyPath: m_Name

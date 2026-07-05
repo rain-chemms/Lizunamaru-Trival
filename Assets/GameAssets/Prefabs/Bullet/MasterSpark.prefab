@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1665973523132243527}
   - component: {fileID: 6982345808307623780}
   - component: {fileID: 2362775150418612011}
+  - component: {fileID: 6488222833651592962}
   m_Layer: 0
   m_Name: MasterSpark
   m_TagString: Untagged
@@ -313,6 +314,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7577c2474007ff84fb6a584ceef06a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pierce: 1
+  lifeTime: 0
+  lifeRecorder: 0
   side: 1
   damage: 0.6
   rb: {fileID: 2744060157367581738}
@@ -334,7 +338,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserMode: 1
-  laserInterval: 6.65
+  bullet: {fileID: 6982345808307623780}
+--- !u!114 &6488222833651592962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8791272882377706504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c7b7d43746bbe4ea2ce882c906e2e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lerpSpeed: 10
   bullet: {fileID: 6982345808307623780}
 --- !u!1001 &601099897584291656
 PrefabInstance:

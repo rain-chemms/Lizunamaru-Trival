@@ -16,6 +16,18 @@ public class ConcentratePoint : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
+    [SerializeField] private bool isLocked = false;
+    public bool IsLocked()
+    {
+        return isLocked;
+    }
+
+    public void SetIsLocked(bool _lock)
+    {
+        isLocked = _lock;
+    }
+    
     [SerializeField] private bool isDisplay = false;
     public bool IsDisplay()
     {
@@ -25,12 +37,12 @@ public class ConcentratePoint : MonoBehaviour
     {
         isDisplay = display;
     }
-    [SerializeField] private Vector2 index = Vector2.zero;//当前聚焦的格子索引
-    public Vector2 GetIndex()
+    [SerializeField] private Vector2Int index = Vector2Int.zero;//当前聚焦的格子索引
+    public Vector2Int GetIndex()
     {
         return index;
     }
-    public void SetIndex(Vector2 index)
+    public void SetIndex(Vector2Int index)
     {
         this.index = index;
     }

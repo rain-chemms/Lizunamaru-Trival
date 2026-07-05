@@ -4,6 +4,30 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private int pierce = 1;//子弹的剩余的穿透数
+    public void SetPierce(int pierce)
+    {
+        this.pierce = pierce;
+    }
+    public int GetPierce()
+    {
+        return pierce;
+    }
+    [SerializeField] private float lifeTime = 0.0f;//生命时间,小于等于0.0时代表不会自动消失
+    public float GetLifeTime()
+    {
+        return lifeTime;
+    }
+    public void SetLifeTime(float lifeTime)
+    {
+        this.lifeTime = lifeTime;
+    }
+    [SerializeField] private float lifeRecorder = 0.0f;
+    public float GetLifeRecorder()
+    {
+        return lifeRecorder;
+    }
+
     [SerializeField] private bool side = true;//子弹所属的阵营,默认为玩家阵营
     public void SetSide(bool side)
     {
@@ -77,5 +101,12 @@ public class Bullet : MonoBehaviour
     {
         //尝试自动获取
         if(rb == null) rb = GetComponent<Rigidbody>();
+        lifeRecorder = 0.0f;
     }
+    void Update()
+    {
+        //生命时间流逝
+        lifeRecorder += Time.deltaTime;
+    }
+
 }
