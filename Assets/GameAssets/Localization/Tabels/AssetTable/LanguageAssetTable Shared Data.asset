@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: LanguageAssetTable Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: LanguageAssetTable
+  m_TableCollectionNameGuidString: 6f14b5d978151d041b06e81a89c6fd47
+  m_Entries:
+  - m_Id: 6697514041344
+    m_Key: MenuUI_ExitButton_FontAsset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6697526624256
+    m_Key: MenuUI_ExitButton_SharedMaterial
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items:
+    - rid: 816146740363657316
+    - rid: 816146740363657319
+  m_KeyGenerator:
+    rid: 816146738914787452
+  references:
+    version: 2
+    RefIds:
+    - rid: 816146738914787452
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1783347829016
+    - rid: 816146740363657316
+      type: {class: AssetTypeMetadata, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries:
+        - m_KeyId: 6697514041344
+          m_TableCodes:
+          - en
+          - ja
+        m_TypeString: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+    - rid: 816146740363657319
+      type: {class: AssetTypeMetadata, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries:
+        - m_KeyId: 6697526624256
+          m_TableCodes:
+          - en
+          - ja
+        m_TypeString: UnityEngine.Material, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null

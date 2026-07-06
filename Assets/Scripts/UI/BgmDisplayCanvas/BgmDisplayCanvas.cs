@@ -20,7 +20,7 @@ public class BgmDisplayCanvas : MonoBehaviour
     [SerializeField] private TMP_InputField searchField;//搜索框的文字
     [SerializeField] private ScrollRect bgmList;//Bgm列表
     //Bgm按钮预制体
-    [SerializeField] private BgmListButton buttonPrefab;
+    [SerializeField] private BgmPlayButtonFunctioner buttonPrefab;
     void Start()
     {
         InitTheBgmList();
@@ -31,10 +31,10 @@ public class BgmDisplayCanvas : MonoBehaviour
         if(searchField == null) return;
         if(bgmList == null) return;
         //获取BgmListButton列表
-        List<BgmListButton> buttons = bgmList.content?.GetComponentsInChildren<BgmListButton>(true).ToList();
+        List<BgmPlayButtonFunctioner> buttons = bgmList.content?.GetComponentsInChildren<BgmPlayButtonFunctioner>(true).ToList();
         if(buttons == null || buttons.Count == 0) return;
         //进行查询:当从头开始的字符均匹配时则代表有效(不区分大小写)
-        foreach(BgmListButton button in buttons)
+        foreach(BgmPlayButtonFunctioner button in buttons)
         {
             if(button == null) continue;
             //如果没有输入,则开启所有的按钮
@@ -72,7 +72,7 @@ public class BgmDisplayCanvas : MonoBehaviour
         {
             if(audio == null) continue;//忽略空音频源
             //创建Bgm按钮
-            BgmListButton button = Instantiate(buttonPrefab, bgmList.content);
+            BgmPlayButtonFunctioner button = Instantiate(buttonPrefab, bgmList.content);
             button.SetBgmName(audio.name);
             //添加点击事件
             UnityAction action = () => StartCoroutine(bgmExplainTextDisplayer.CheckTheBgmExplainText(audio.name));

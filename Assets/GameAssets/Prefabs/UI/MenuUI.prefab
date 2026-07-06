@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 229398194733813614}
   - component: {fileID: 381587439103476236}
   - component: {fileID: 8807416728781948943}
+  - component: {fileID: 6758020861466617148}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -301,10 +302,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 144
+  m_fontSize: 72
   m_fontSizeBase: 144
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -386,6 +387,22 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!114 &6758020861466617148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2549879481012810312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69beb381e244f92449b8c4cf954630e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackedObjects: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &3243824485907473804
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,6 +415,7 @@ GameObject:
   - component: {fileID: 4510527590539151464}
   - component: {fileID: 8442526186636584411}
   - component: {fileID: 7200504874338135317}
+  - component: {fileID: 3019993867702934983}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -479,10 +497,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 144
+  m_fontSize: 72
   m_fontSizeBase: 144
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -561,6 +579,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &3019993867702934983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3243824485907473804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69beb381e244f92449b8c4cf954630e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackedObjects: []
   references:
     version: 2
     RefIds: []
@@ -855,8 +889,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.8076668}
   m_AnchorMax: {x: 0.21676564, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000061035156}
-  m_SizeDelta: {x: 0, y: 0.000091553}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8997600964434896733
 Canvas:
@@ -1054,6 +1088,7 @@ GameObject:
   - component: {fileID: 647865533092799392}
   - component: {fileID: 900415494553137493}
   - component: {fileID: 4788166935067225528}
+  - component: {fileID: 4756246071134181231}
   m_Layer: 5
   m_Name: LicenseText
   m_TagString: Untagged
@@ -1137,10 +1172,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 61.05
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1222,6 +1257,22 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!114 &4756246071134181231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7962492941651766438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69beb381e244f92449b8c4cf954630e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackedObjects: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &8426211946754518387
 GameObject:
   m_ObjectHideFlags: 0
@@ -1234,6 +1285,7 @@ GameObject:
   - component: {fileID: 3242659073180173017}
   - component: {fileID: 4831090286716914989}
   - component: {fileID: 3305397916086792780}
+  - component: {fileID: 6616106253022418175}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1315,10 +1367,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 144
+  m_fontSize: 72
   m_fontSizeBase: 144
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1400,6 +1452,64 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!114 &6616106253022418175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8426211946754518387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69beb381e244f92449b8c4cf954630e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackedObjects:
+  - rid: 816146740363657313
+  references:
+    version: 2
+    RefIds:
+    - rid: 816146740363657313
+      type: {class: TrackedUGuiGraphic, ns: UnityEngine.Localization.PropertyVariants.TrackedObjects, asm: Unity.Localization}
+      data:
+        m_Target: {fileID: 4831090286716914989}
+        m_TrackedProperties:
+          items:
+          - rid: 816146740363657314
+          - rid: 816146740363657317
+        m_UpdateType: 0
+    - rid: 816146740363657314
+      type: {class: LocalizedAssetProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
+      data:
+        m_Localized:
+          rid: 816146740363657315
+        m_PropertyPath: m_fontAsset
+    - rid: 816146740363657315
+      type: {class: LocalizedTmpFont, ns: UnityEngine.Localization, asm: Unity.Localization}
+      data:
+        m_TableReference:
+          m_TableCollectionName: GUID:6f14b5d978151d041b06e81a89c6fd47
+        m_TableEntryReference:
+          m_KeyId: 6697514041344
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+    - rid: 816146740363657317
+      type: {class: LocalizedAssetProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
+      data:
+        m_Localized:
+          rid: 816146740363657318
+        m_PropertyPath: m_sharedMaterial
+    - rid: 816146740363657318
+      type: {class: LocalizedMaterial, ns: UnityEngine.Localization, asm: Unity.Localization}
+      data:
+        m_TableReference:
+          m_TableCollectionName: GUID:6f14b5d978151d041b06e81a89c6fd47
+        m_TableEntryReference:
+          m_KeyId: 6697526624256
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
 --- !u!1 &8716627883385478131
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,6 +1522,7 @@ GameObject:
   - component: {fileID: 6454294661712027982}
   - component: {fileID: 1861246126982462048}
   - component: {fileID: 8436310025334691192}
+  - component: {fileID: 1175031263683024786}
   m_Layer: 5
   m_Name: MusicRoomButton
   m_TagString: Untagged
@@ -1521,18 +1632,33 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1175031263683024786}
+        m_TargetAssemblyTypeName: LoadSceneButtonFunctioner, Assembly-CSharp
+        m_MethodName: StartLoadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1175031263683024786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8716627883385478131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24fdc4a4a11978343a483ac450918917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadSceneName: MusicRoom
+  autoLinkFunction: 0
+  button: {fileID: 0}
 --- !u!1 &8755441812343323098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1545,6 +1671,7 @@ GameObject:
   - component: {fileID: 6482541087433208712}
   - component: {fileID: 2835885421012129329}
   - component: {fileID: 747226610974164116}
+  - component: {fileID: 4347947543197108017}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1626,10 +1753,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 144
+  m_fontSize: 72
   m_fontSizeBase: 144
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1711,6 +1838,22 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!114 &4347947543197108017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8755441812343323098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69beb381e244f92449b8c4cf954630e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackedObjects: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &9103820658453922183
 GameObject:
   m_ObjectHideFlags: 0
@@ -1723,6 +1866,7 @@ GameObject:
   - component: {fileID: 6427217244047043807}
   - component: {fileID: 4524300564482985532}
   - component: {fileID: 5359288436138200951}
+  - component: {fileID: 4529377170646373789}
   m_Layer: 5
   m_Name: StatementText
   m_TagString: Untagged
@@ -1746,8 +1890,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -0.26000977}
-  m_SizeDelta: {x: -1.0800171, y: -0.5200043}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6427217244047043807
 CanvasRenderer:
@@ -1804,10 +1948,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 61.05
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1886,6 +2030,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &4529377170646373789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9103820658453922183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69beb381e244f92449b8c4cf954630e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackedObjects: []
   references:
     version: 2
     RefIds: []
