@@ -45,5 +45,12 @@ public class BgmSlider : MonoBehaviour,
         AudioSource audio = BgmController.instance.GetBgm(BgmController.instance.GetNowBgm());
         if(audio == null) return;
         audio.time =  audio.clip.length * slider.value / slider.maxValue;//设置播放器进度
+        //尝试播放修改音乐进度后的音效
+        AudioSource sliderAS = slider.GetComponent<AudioSource>();
+        if(sliderAS != null)
+        {
+            sliderAS.loop = false;
+            sliderAS.Play();
+        }
     }
 }
