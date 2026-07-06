@@ -12,6 +12,15 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Card))]
 public class CardKeyWordDisplayer : MonoBehaviour
 {
+    [SerializeField] private string tableName = "CardKeywords";//指定查找的Table列表
+    public void SetTableName(string name)
+    {
+        tableName = name;
+    }
+    public string GetTableName()
+    {
+        return tableName;
+    }
     [SerializeField] private TMP_Text keyWordText;
     [SerializeField] public LocalizeStringEvent localizeEvent;
     [SerializeField] private Card card;
@@ -83,7 +92,7 @@ public class CardKeyWordDisplayer : MonoBehaviour
         // 等待本地化系统初始化完成
         yield return LocalizationSettings.InitializationOperation;
         // 异步获取指定表和Key的本地化字符串
-        string tableName = "CardKeywords";//指定查找的Table列表
+        //string tableName = "CardKeywords";//指定查找的Table列表
         foreach (CardKeyWord kw in kwList)
         {
             //将UN_RETAIN这类的字符串转化为UnRetain

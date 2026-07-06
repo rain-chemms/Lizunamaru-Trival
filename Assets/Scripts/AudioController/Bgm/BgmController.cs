@@ -88,6 +88,11 @@ public class BgmController : MonoBehaviour
     private Dictionary<AudioSource, Coroutine> activeCoroutines = new Dictionary<AudioSource, Coroutine>();
 
     // 提供给外界桉树调用的公共方法,用于播放指定名称的BGM
+    [SerializeField] private string nowBgm;
+    public string GetNowBgm()
+    {
+        return nowBgm;
+    }
     public void PlayBgm(string bgmName)
     {
         if(bgmList == null) return ;
@@ -104,18 +109,19 @@ public class BgmController : MonoBehaviour
                     bgm.volume = 0f;//初始音量设置为0
                 }
                 //启动或重启淡入协程
-                StartFade(bgm, 1.0f);//音量设置为1.0f    
+                StartFade(bgm, 1.0f , false);//音量设置为1.0f    
             }
             else if (bgm.isPlaying)//若非当前播放的音乐,则开始淡出
             {
                 //启动淡出协程
-                StartFade(bgm, 0.0f);//淡出为0.0f,自动停止
+                StartFade(bgm, 0.0f , false);//淡出为0.0f,自动停止
             }
         }
+        nowBgm = bgmName;
     }
     
     // 核心方法:启动或替换一个AudioSource的淡入淡出协程
-    private void StartFade(AudioSource source, float targetVolume)
+    public void StartFade(AudioSource source, float targetVolume, bool pauseModel = false)
     {
         // 如果这个音源已经有协程在跑了,先停掉它,避免冲突
         if (activeCoroutines.ContainsKey(source))
@@ -125,12 +131,12 @@ public class BgmController : MonoBehaviour
         }
         
         // 启动新的淡入淡出协程并记录下来
-        Coroutine newCoroutine = StartCoroutine(FadeVolume(source, targetVolume));
+        Coroutine newCoroutine = StartCoroutine(FadeVolume(source, targetVolume,pauseModel));
         activeCoroutines.Add(source, newCoroutine);//添加新的协程
     }
     
     //淡入淡出协程
-    private IEnumerator FadeVolume(AudioSource source, float targetVolume)
+    private IEnumerator FadeVolume(AudioSource source, float targetVolume ,bool pauseModel)
     {
         float startVolume = source.volume;//获取当前初始音量
         float timeElapsed = 0f;//计时器
@@ -147,7 +153,8 @@ public class BgmController : MonoBehaviour
         // 如果是淡出到0,并且音乐还在播放,就停止它
         if (targetVolume <= 0.0f && source.isPlaying)
         {
-            source.Stop();
+            if(!pauseModel) source.Stop();
+            else source.Pause();
         }
 
         // 协程结束后,从字典中移除

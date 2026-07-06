@@ -15,6 +15,12 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-Shared
   m_GUID: 957d6c267ae2c9a4e807e51763ffc875
   m_SerializeEntries:
+  - m_GUID: 3a24db60751b30e46a0b9de70907581e
+    m_Address: Assets/GameAssets/Localization/Tabels/MusicExplainTexts/MusicExplainTexts
+      Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c82d369c4328d944ab6b01bb4e351a25
     m_Address: Assets/GameAssets/Localization/Tabels/CardTexts/CardTexts Shared Data.asset
     m_ReadOnly: 1
