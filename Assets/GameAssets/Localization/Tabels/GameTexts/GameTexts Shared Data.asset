@@ -69,6 +69,22 @@ MonoBehaviour:
     m_Key: MusicRoom_Tittle
     m_Metadata:
       m_Items: []
+  - m_Id: 2174524689874944
+    m_Key: BattleMessageDisplayer_DrawButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2174887102906368
+    m_Key: 'BattleMessageDisplayer_DiscardButton
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2176649553641472
+    m_Key: 'BattleMessageDisplayer_EndRoundButton
+
+'
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

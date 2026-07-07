@@ -22,7 +22,7 @@ public interface CardFunctioner
     IEnumerator AfterRoundStart();
 
     //在你的回合丢弃时触发
-    IEnumerator AfterDsicard();
+    IEnumerator AfterDiscard();
     
     //在抽到卡牌时触发
     IEnumerator AfterDraw();

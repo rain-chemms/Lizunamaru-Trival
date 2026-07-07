@@ -32,7 +32,7 @@ public class DefendCard : Card
     }
 
     //在你的回合丢弃时触发
-    public virtual IEnumerator AfterDsicard()
+    public virtual IEnumerator AfterDiscard()
     {
         yield return null;    
     }

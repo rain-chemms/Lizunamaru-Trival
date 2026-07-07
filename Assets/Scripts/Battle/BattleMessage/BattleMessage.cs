@@ -43,6 +43,10 @@ public class BattleMessage : MonoBehaviour
     {
         return roleList;
     }
+    public List<Role> GetRoleList_Copy()
+    {
+        return roleList.ToList();
+    }
     /*
         扩展方法1:查找某一特定阵营特定ID的角色
             一般来说ID都是唯一的,但是分阵营
@@ -77,11 +81,19 @@ public class BattleMessage : MonoBehaviour
     {
         return drawCardList;
     }
+    public List<Card> GetDrawCardList_Copy()
+    {
+        return drawCardList.ToList();
+    }
     //弃牌堆
     [SerializeField] private List<Card> discardCardList = new List<Card>();
     public List<Card> GetDiscardCardList()
     {
         return discardCardList;
+    }
+    public List<Card> GetDiscardCardList_Copy()
+    {
+        return discardCardList.ToList();
     }
     //手牌
     [SerializeField] private uint maxHandCardCount = 10;//最大手牌数
@@ -93,6 +105,10 @@ public class BattleMessage : MonoBehaviour
     public List<Card> GetHandCardList()
     {
         return handCardList;
+    }
+    public List<Card> GetHandCardList_Copy()
+    {
+        return handCardList.ToList();
     }
     //没有本场战斗消耗的牌堆,个人感觉对于这个项目来说用处不大,加了之后就太像杀戮尖塔了
     //卡牌相关的方法
@@ -114,7 +130,7 @@ public class BattleMessage : MonoBehaviour
             if (cl == null) continue;
             if (cl.GetInnerCard() == card) cl.SetInnerCard(null);//移除卡槽中的卡牌
         }
-        yield return ((CardFunctioner)card).AfterDsicard();//触发卡牌丢弃时的效果
+        yield return ((CardFunctioner)card).AfterDiscard();//触发卡牌丢弃时的效果
         discardCardList.Add(card);
     }
     /*
@@ -299,6 +315,12 @@ public class BattleMessage : MonoBehaviour
                 break;
             }
         }
+        //将这张卡从牌堆中移除
+        if(drawCardList.Contains(card)) drawCardList.Remove(card);
+        if(handCardList.Contains(card)) handCardList.Remove(card);
+        if(discardCardList.Contains(card)) discardCardList.Remove(card);
+        //尝试播放卡片的消耗音效
+        card.GetComponent<CardVoiceController>()?.PlayCardVoice("Exhaust");
         //等待消耗动画结束
         yield return haltTime;
     }
@@ -345,6 +367,10 @@ public class BattleMessage : MonoBehaviour
     {
         return cardSlotListList;
     }
+    public List<CardSlotList> GetCardSlotListList_Copy()
+    {
+        return cardSlotListList.ToList();
+    }
     public CardSlotList GetCardSlotList(CardCategory cardCategory)
     {
         foreach (CardSlotList cardSlotList in cardSlotListList)
@@ -376,6 +402,11 @@ public class BattleMessage : MonoBehaviour
         return allCardSlotList;
     }
 
+    public List<CardSlot> GetAllCardSlot_Copy()
+    {
+        return GetAllCardSlot().ToList();
+    }
+
     //每个种类的卡槽列表中卡槽的数量
     //卡槽数量更新时以整个字典为准
     [Header("卡槽列表中卡槽的数量:仅限Power,Attack,Gadget这3种可设置")]
@@ -383,6 +414,11 @@ public class BattleMessage : MonoBehaviour
     public SerializableDictionary<CardCategory, int> GetCardSlotListCardSlotCount()
     {
         return cardSlotListCardSlotCount;
+    }
+
+    public SerializableDictionary<CardCategory, int> GetCardSlotListCardSlotCount_Copy()
+    {
+        return new SerializableDictionary<CardCategory, int>(cardSlotListCardSlotCount);
     }
 
 }

@@ -36,6 +36,8 @@ public class Card : MonoBehaviour, CardFunctioner
     }
     public virtual IEnumerator AfterPlay()
     {
+        //尝试播放打出音效
+        GetComponent<CardVoiceController>()?.PlayCardVoice("Play");
         //当有消耗词条是将触发卡牌的
         if ((bool)cardKeyWords?.Contains(CardKeyWord.EXHAUST))
         {
@@ -63,14 +65,18 @@ public class Card : MonoBehaviour, CardFunctioner
     }
 
     //在你的回合丢弃时触发
-    public virtual IEnumerator AfterDsicard()
+    public virtual IEnumerator AfterDiscard()
     {
+        //尝试播放丢弃音效
+        GetComponent<CardVoiceController>()?.PlayCardVoice("Discard");
         yield return null;
     }
 
     //在抽到卡牌时触发
     public virtual IEnumerator AfterDraw()
     {
+        //尝试播放抽卡音效
+        GetComponent<CardVoiceController>()?.PlayCardVoice("Draw");
         yield return null;
     }
 

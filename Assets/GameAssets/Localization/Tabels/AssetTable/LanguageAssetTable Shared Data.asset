@@ -103,6 +103,121 @@ MonoBehaviour:
     m_Key: BgmListButton/Canvas (Environment)/BgmListButton/Text (TMP) 1
     m_Metadata:
       m_Items: []
+  - m_Id: 271037647421440
+    m_Key: CardTemplate/Canvas (Environment)/CardTemplate/Back/Discription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 271037660004352
+    m_Key: CardTemplate/Canvas (Environment)/CardTemplate/Back/Discription 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 271593279455232
+    m_Key: ShootCard/Canvas (Environment)/ShootCard/Back/Discription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 271593296232448
+    m_Key: ShootCard/Canvas (Environment)/ShootCard/Back/Discription 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 272013292863488
+    m_Key: WhiteEnptyCard/Canvas (Environment)/WhiteEnptyCard/Back/Discription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 272013305446400
+    m_Key: WhiteEnptyCard/Canvas (Environment)/WhiteEnptyCard/Back/Discription 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273381088952320
+    m_Key: StackCardDisplayer/StackCardDisplayer/CloseButton/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273381244141568
+    m_Key: StackCardDisplayer/StackCardDisplayer/CloseButton/Text (TMP) 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273560944902144
+    m_Key: StackCardDisplayer/StackCardDisplayer/CardOutLookChanger/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273560965873664
+    m_Key: StackCardDisplayer/StackCardDisplayer/CardOutLookChanger/Text (TMP) 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 275672248483840
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/ActionPoint/RicePoint/RiceValue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 275672407867392
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/ActionPoint/RicePoint/RiceValue
+      1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 276423347666944
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/ActionPoint/SpellPrecent/Fill
+      Area/ValueText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 276423364444160
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/ActionPoint/SpellPrecent/Fill
+      Area/ValueText 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 276912432873472
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/CardDrawStack/CardNumber
+    m_Metadata:
+      m_Items: []
+  - m_Id: 276912449650688
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/CardDrawStack/CardNumber
+      1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 278290748276736
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/CardDrawStack/InnerCardChecker/Text
+      (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 278290760859648
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/CardDrawStack/InnerCardChecker/Text
+      (TMP) 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 278700863127552
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/CardDiscardStack/CardNumber
+    m_Metadata:
+      m_Items: []
+  - m_Id: 278700875710464
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/CardDiscardStack/CardNumber
+      1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 279061418082304
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/CardDiscardStack/InnerCardChecker/Text
+      (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 279061434859520
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/CardDiscardStack/InnerCardChecker/Text
+      (TMP) 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 279796490829824
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/RoundEndButton/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 279796511801344
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/RoundEndButton/Text (TMP)
+      1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 288824809881600
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/ActionPoint/IcePoint/IceValue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 288824847630336
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/ActionPoint/IcePoint/IceValue
+      1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 816146740363657316
@@ -186,6 +301,84 @@ MonoBehaviour:
           - zh
           - zh-Hant
           - ja
+        - m_KeyId: 271037647421440
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 271593279455232
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 272013292863488
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 273381088952320
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 273560944902144
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 275672248483840
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 276423347666944
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 276912432873472
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 278290748276736
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 278700863127552
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 279061418082304
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 279796490829824
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 288824809881600
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
         m_TypeString: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
     - rid: 816146740363657319
@@ -253,6 +446,84 @@ MonoBehaviour:
           - zh-Hant
           - ja
         - m_KeyId: 71922514788352
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 271037660004352
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 271593296232448
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 272013305446400
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 273381244141568
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 273560965873664
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 275672407867392
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 276423364444160
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 276912449650688
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 278290760859648
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 278700875710464
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 279061434859520
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 279796511801344
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 288824847630336
           m_TableCodes:
           - en
           - zh
