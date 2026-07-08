@@ -1,9 +1,11 @@
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
-
+using UnityEngine.UI;
+using TMPro;
 
 [RequireComponent(typeof(Canvas))]
+[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(RectTransform))]
 public class SpellAttackDisplayer : MonoBehaviour
 {
@@ -21,8 +23,22 @@ public class SpellAttackDisplayer : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    [SerializeField] private TMP_Text spellText;
+    public TMP_Text GetSpellText()
+    {
+        return spellText;
+    }
+    [SerializeField] private Image roleImage;
+    public Image GetRoleImage()
+    {
+        return roleImage;
+    }
     [SerializeField] private List<AudioSource> audioSources = new List<AudioSource>();
+    [SerializeField] private Animator animator;
+    public Animator GetAnimator()
+    {
+        return animator;
+    }
     public List<AudioSource> GetAudioSources()
     {
         return audioSources;
@@ -37,10 +53,33 @@ public class SpellAttackDisplayer : MonoBehaviour
             if(audioSources.Contains(aS)) continue;
             audioSources.Add(aS);
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //尝试自动获取角色spell图片容器
+        if(roleImage == null)
+        {
+            foreach(Image img in GetComponentsInChildren<Image>())
+            {
+                if(img == null) continue;
+                if(img.name.Equals("RoleImage")) 
+                {
+                    roleImage = img;
+                    break;
+                }
+            }
+        }
+        //尝试自动获取技能文本容器
+        if(spellText == null)
+        {
+            foreach(TMP_Text txt in GetComponentsInChildren<TMP_Text>())
+            {
+                if(txt == null) continue;
+                if(txt.name.Equals("SpellText"))
+                {
+                    spellText = txt;
+                    break;
+                }
+            }
+        }
+        //尝试自动获取动画控制器
+        if(animator == null) animator = GetComponent<Animator>();
     }
 }

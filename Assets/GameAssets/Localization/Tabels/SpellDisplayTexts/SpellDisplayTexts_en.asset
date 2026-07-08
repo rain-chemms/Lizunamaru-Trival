@@ -19,7 +19,11 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 67573514240
-    m_Localized: Debug Spell"This is Debug Spell"
+    m_Localized: Debug Spell "This is Debug Spell"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37599182979072
+    m_Localized: Magic Spell "Master Spark"
     m_Metadata:
       m_Items: []
   references:
