@@ -7,6 +7,15 @@ using UnityEngine;
 //卡牌的属性和功能全在这个类及其继承中实现
 public class Card : MonoBehaviour, CardFunctioner
 {
+    [SerializeField] private uint riceCost = 0;//打出这张牌需要消耗的ricePoint数
+    public void SetRiceCost(uint cost)
+    {
+        riceCost = cost;
+    }
+    public uint GetRiceCost()
+    {
+        return riceCost;
+    }
     //卡牌类别
     [SerializeField] private CardCategory cardCategory;
     public void SetCardCategory(CardCategory ctg)

@@ -226,6 +226,15 @@ MonoBehaviour:
     m_Key: SpellAttackDisplayer/SpellAttackDisplayer/SpellText 1
     m_Metadata:
       m_Items: []
+  - m_Id: 767188188397568
+    m_Key: CardTemplate/Canvas (Environment)/CardTemplate/RiceCost/RiceCostPoint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 767188360364032
+    m_Key: CardTemplate/Canvas (Environment)/CardTemplate/RiceCost/RiceCostPoint
+      1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 816146740363657316
@@ -393,6 +402,12 @@ MonoBehaviour:
           - zh
           - zh-Hant
           - ja
+        - m_KeyId: 767188188397568
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
         m_TypeString: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
     - rid: 816146740363657319
@@ -544,6 +559,12 @@ MonoBehaviour:
           - zh-Hant
           - ja
         - m_KeyId: 521321875374080
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 767188360364032
           m_TableCodes:
           - en
           - zh

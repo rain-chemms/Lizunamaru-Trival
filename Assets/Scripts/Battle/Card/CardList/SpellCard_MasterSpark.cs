@@ -3,6 +3,7 @@ using System.Collections;
 
 public class SpellCard_MasterSpark : Card
 {
+    [SerializeField] private Bullet bulletPrefab;
     //卡牌接口的空实现
     public virtual IEnumerator AfterInsertToSolt()
     {
@@ -11,16 +12,17 @@ public class SpellCard_MasterSpark : Card
     public override IEnumerator AfterPlay()
     {
         base.AfterPlay();
-        //测试部分
-        yield return GetComponent<CardSpellAttackWaker>()?.WakeSpellAttackDisplayer(true);
+        yield return GenertaeMasterSpark();
         yield return null;
     }
     public virtual IEnumerator AfterRemoveFromSolt()
     {
         yield return null;
     }
-    public virtual IEnumerator AfterTriggerEffective()
+    public override IEnumerator AfterTriggerEffective()
     {
+        base.AfterTriggerEffective();
+        yield return GenertaeMasterSpark();
         yield return null;
     }
     public virtual IEnumerator AfterRoundEnd()
@@ -44,4 +46,18 @@ public class SpellCard_MasterSpark : Card
     {
         yield return null;
     } 
+
+    private IEnumerator GenertaeMasterSpark()
+    {
+        yield return GetComponent<CardSpellAttackWaker>()?.WakeSpellAttackDisplayer(false);
+        yield return BattleMessage.instance?.GenerateBullet(
+            BattleMessage.instance?.GetRole(
+                (uint)BattleMessage.instance?.GetControlPlayerID(),
+                true
+            ),//传入产生的Role信息,包含位置等
+            bulletPrefab,//子弹预设体
+            (Vector2Int)ConcentratePoint.instance?.GetIndex(),//目标位置
+            default
+        );
+    }
 }

@@ -72,6 +72,14 @@ public class CardSpellAttackWaker : MonoBehaviour
             Debug.LogError($"[CardSpellAttackWaker]: Display the Keywords Failed: {operation.OperationException}");
         }
         //播放动画
-        instance?.GetAnimator().SetTrigger(leftOrRight ? "Left" : "Right");
+        Animator animator = instance?.GetAnimator();
+        if (animator != null)
+        {
+            animator?.SetTrigger(leftOrRight ? "Left" : "Right");
+            yield return null;
+            AnimatorStateInfo stateInfo =(AnimatorStateInfo)animator?.GetCurrentAnimatorStateInfo(0);
+            float length = stateInfo.length;
+            yield return new WaitForSeconds(length / animator.speed); //等待动画播放完毕 
+        }
     }
 }

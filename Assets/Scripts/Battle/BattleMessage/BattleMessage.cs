@@ -52,13 +52,13 @@ public class BattleMessage : MonoBehaviour
             一般来说ID都是唯一的,但是分阵营
             当前情况下:True阵营的ID = 1的角色一般 不与 False阵营ID = 1的角色冲突,因为可以使用阵营区别两者
     */
-    
-    public Role GetRole(uint id,bool side)
+
+    public Role GetRole(uint id, bool side)
     {
-        if(roleList == null) return null;
-        foreach(Role role in roleList)
+        if (roleList == null) return null;
+        foreach (Role role in roleList)
         {
-            if(role.GetID() == id && role.GetSide() == side)
+            if (role.GetID() == id && role.GetSide() == side)
             {
                 return role;
             }
@@ -71,7 +71,7 @@ public class BattleMessage : MonoBehaviour
     */
     public Role GetControlPlayer()//默认获取True阵营的玩家
     {
-        return GetRole(controlPlayerID,isPlayerTurn);
+        return GetRole(controlPlayerID, isPlayerTurn);
     }
 
     // 卡牌相关
@@ -316,13 +316,92 @@ public class BattleMessage : MonoBehaviour
             }
         }
         //将这张卡从牌堆中移除
-        if(drawCardList.Contains(card)) drawCardList.Remove(card);
-        if(handCardList.Contains(card)) handCardList.Remove(card);
-        if(discardCardList.Contains(card)) discardCardList.Remove(card);
+        if (drawCardList.Contains(card)) drawCardList.Remove(card);
+        if (handCardList.Contains(card)) handCardList.Remove(card);
+        if (discardCardList.Contains(card)) discardCardList.Remove(card);
         //尝试播放卡片的消耗音效
         card.GetComponent<CardVoiceController>()?.PlayCardVoice("Exhaust");
         //等待消耗动画结束
         yield return haltTime;
+    }
+
+    /*
+        9.由玩家位置处角色产生一颗子弹(ConcentratePoint版)
+    */
+    /*
+        10.打出一张卡牌
+    */
+    public IEnumerator PlayCard(Card card,bool costRice = true)
+    {
+        //打出卡牌
+        if (card == null) yield break;
+        if (card?.GetRiceCost() <= instance?.GetRicePoint() && costRice)//能量足够且耗能的情况下可以打出
+        {
+            instance?.SetRicePoint((uint)(instance?.GetRicePoint() - card?.GetRiceCost()));
+            yield return ((CardFunctioner)card).AfterPlay();//AfterPlay函数会对消耗字段进行检测,若存在消耗字段则触发消耗的连锁函数
+            //将卡牌返回弃牌堆
+            //若当前卡牌有消耗关键字,则不将其加入弃牌堆
+            if (card != null && !(bool)card.GetCardKeyWords()?.Contains(CardKeyWord.EXHAUST)) instance?.GetDiscardCardList()?.Add(card);
+        }
+        else if(!costRice)
+        {
+            //不对费用进行消耗
+            yield return ((CardFunctioner)card).AfterPlay();//AfterPlay函数会对消耗字段进行检测,若存在消耗字段则触发消耗的连锁函数
+            //将卡牌返回弃牌堆
+            //若当前卡牌有消耗关键字,则不将其加入弃牌堆
+            if (card != null && !(bool)card.GetCardKeyWords()?.Contains(CardKeyWord.EXHAUST)) instance?.GetDiscardCardList()?.Add(card);
+        }
+        else//将这张牌返回手中
+        {
+            if (card != null)
+            {
+                instance?.GetHandCardList().Add(card);
+            }
+            yield return null;
+        }
+    }
+    //用于直线子弹,会依据玩家的位置和目标坐标的位置产生子弹
+    public IEnumerator GenerateBullet(Role role, Bullet bulletPrefab, Vector2Int targetIndex, Vector3 posOffset = default)//角色产生一颗子弹,posOffset为这颗子弹的微小位置偏移
+    {
+        if (role == null || bulletPrefab == null)
+        {
+            Debug.LogError("[BattleMessage]: Role or Bullet is Null, Generate Bullet Error ,Please Check!");
+            yield break;
+        }
+        Role player = role;
+        Vector2Int index = targetIndex;
+        //依据选择的地块和玩家当前的高度执行射击
+        //获取对应索引的棋盘格的XZ坐标
+        List<BattleGrid> grids = BattleBoard.instance?.GetBattleGridList();
+        BattleGrid grid = null;
+        foreach (BattleGrid g in grids)
+        {
+            if (g == null) continue;
+            if (g.GetIndex().x == index.x && g.GetIndex().y == index.y)
+            {
+                grid = g;
+                break;
+            }
+        }
+        Vector3 target = new Vector3(
+            grid == null ? 0.0f : (float)grid?.transform.position.x,
+            player == null ? 0.0f : (float)player?.transform.position.y,
+            grid == null ? 0.0f : (float)grid?.transform.position.z
+        );
+        Vector3 direction = (target - (Vector3)player?.transform.position).normalized;
+        //产生子弹实体并设置其方向和初始位置
+        Bullet bt = Instantiate(bulletPrefab, target, Quaternion.identity);
+        if (bt != null)
+        {
+            bt.SetSide(player.GetSide());//设置子弹的阵营
+            bt.transform.position = (Vector3)player?.transform.position + posOffset;//设置子弹的初始位置
+            bt.SetDirection(direction);//设置子弹的方向
+        }
+        //控制玩家动画播放
+        RoleAnimTrigger animTrigger = player?.GetComponent<RoleAnimTrigger>();
+        animTrigger?.TriggerAnim("Skill");
+        AnimatorStateInfo stateInfo = (AnimatorStateInfo)((Animator)animTrigger?.GetComponent<Animator>())?.GetCurrentAnimatorStateInfo(0);
+        yield return (float)stateInfo.normalizedTime * (float)stateInfo.length;
     }
 
     //能量数值相关
