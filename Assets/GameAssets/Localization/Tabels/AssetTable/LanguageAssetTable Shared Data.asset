@@ -218,6 +218,14 @@ MonoBehaviour:
       1
     m_Metadata:
       m_Items: []
+  - m_Id: 521321846013952
+    m_Key: SpellAttackDisplayer/SpellAttackDisplayer/SpellText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 521321875374080
+    m_Key: SpellAttackDisplayer/SpellAttackDisplayer/SpellText 1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 816146740363657316
@@ -379,6 +387,12 @@ MonoBehaviour:
           - zh
           - zh-Hant
           - ja
+        - m_KeyId: 521321846013952
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
         m_TypeString: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
     - rid: 816146740363657319
@@ -524,6 +538,12 @@ MonoBehaviour:
           - zh-Hant
           - ja
         - m_KeyId: 288824847630336
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 521321875374080
           m_TableCodes:
           - en
           - zh

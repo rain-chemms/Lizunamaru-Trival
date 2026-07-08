@@ -27,6 +27,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-zh
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a06c7fd7b78c0524895d0bded415ca68
+    m_Address: SpellDisplayTexts_zh
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f7c713a0e5b99df4b86295104944b718
     m_Address: CardKeywords_zh
     m_ReadOnly: 1
