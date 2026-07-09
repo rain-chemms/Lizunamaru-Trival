@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class DefendCard : Card
 {
+    [SerializeField] private int gainDefendPoint = 1;
     //卡牌接口的空实现
     public virtual IEnumerator AfterInsertToSolt()
     {
@@ -11,6 +12,11 @@ public class DefendCard : Card
     public override IEnumerator AfterPlay()
     {
         base.AfterPlay();
+        //让玩家获取格挡值
+        BattleMessage.instance?.GetRole(
+            (uint)BattleMessage.instance?.GetControlPlayerID(),
+            true
+        )?.GetComponent<RoleDefendGetter>()?.GetDefend(gainDefendPoint);
         yield return null;
     }
     public virtual IEnumerator AfterRemoveFromSolt()

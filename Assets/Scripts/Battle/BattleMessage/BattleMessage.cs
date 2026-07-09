@@ -73,7 +73,10 @@ public class BattleMessage : MonoBehaviour
     {
         return GetRole(controlPlayerID, isPlayerTurn);
     }
-
+    /*
+        角色扩展功能
+        1.获取防御
+    */
     // 卡牌相关
     //抽牌堆
     [SerializeField] private List<Card> drawCardList = new List<Card>();

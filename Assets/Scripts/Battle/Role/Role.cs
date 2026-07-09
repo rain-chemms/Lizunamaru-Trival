@@ -51,12 +51,12 @@ public class Role : MonoBehaviour
     {
         return hp;
     }
-    [SerializeField] private int defend = 0;//角色的防御点数,每1点可以格挡一次伤害
-    public int GetDefend()
+    [SerializeField] private uint defend = 0;//角色的防御点数,每1点可以格挡一次伤害
+    public uint GetDefend()
     {
         return defend;
     }
-    public void SetDefend(int nowDefend)
+    public void SetDefend(uint nowDefend)
     {
         defend = nowDefend;
     }
