@@ -235,6 +235,25 @@ MonoBehaviour:
       1
     m_Metadata:
       m_Items: []
+  - m_Id: 981103849635840
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/HiddenButton/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 981103992242176
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/HiddenButton/Text (TMP)
+      1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 981571988488192
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/HiddenButton/Text (TMP)
+      2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 981572030431232
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/HiddenButton/Text (TMP)
+      3
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 816146740363657316
@@ -408,6 +427,18 @@ MonoBehaviour:
           - zh
           - zh-Hant
           - ja
+        - m_KeyId: 981103849635840
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 981571988488192
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
         m_TypeString: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
     - rid: 816146740363657319
@@ -565,6 +596,18 @@ MonoBehaviour:
           - zh-Hant
           - ja
         - m_KeyId: 767188360364032
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 981103992242176
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 981572030431232
           m_TableCodes:
           - en
           - zh

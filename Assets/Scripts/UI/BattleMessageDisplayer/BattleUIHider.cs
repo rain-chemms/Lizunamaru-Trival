@@ -30,7 +30,7 @@ public class BattleUIHider : MonoBehaviour
     void Update()
     {
         // 设置动画器
-        if(animator.GetBool("IsHidden") != isHidden) animator.SetBool("IsHidden", isHidden);
+        animator?.SetBool("IsHidden", isHidden);
         GetAllChildImage();
         CheckAndSetAllChildImageAlpha();
     }
@@ -62,5 +62,10 @@ public class BattleUIHider : MonoBehaviour
                 image.color = new Color(image.color.r, image.color.g, image.color.b, displayAlpha);
             }
         }
+    }
+    // 改变隐藏状态
+    public void ChangeHideState()
+    {
+        isHidden = !isHidden;
     }
 }

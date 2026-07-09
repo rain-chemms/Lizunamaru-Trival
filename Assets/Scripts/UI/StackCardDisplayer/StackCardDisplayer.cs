@@ -62,15 +62,9 @@ public class StackCardDisplayer : MonoBehaviour
         if(canvas == null) canvas = GetComponent<Canvas>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetBattleMessageHider(bool isHidden)
     {
-        CheckAndHiddenBattleMessageDisplayer();
-    }
-
-    private void CheckAndHiddenBattleMessageDisplayer()
-    {
-        BattleMessageDisplayer.instance?.GetComponent<BattleUIHider>()?.SetIsHidden(isDisplay);
+        BattleMessageDisplayer.instance?.GetComponent<BattleUIHider>()?.SetIsHidden(isHidden);
     }
 
     public void OpenDisplayer()
