@@ -50,6 +50,8 @@ public class CardHandler : MonoBehaviour,
     public void OnBeginDrag(PointerEventData eventData)
     {
         isDragging = true;
+        //尝试播放拖拽音效
+        card?.GetComponent<CardVoiceController>()?.PlayCardVoice("Drag");
         Debug.Log("[CardHandler]: Mouse Begin Drag]");
     }
 
@@ -57,6 +59,7 @@ public class CardHandler : MonoBehaviour,
     public void OnEndDrag(PointerEventData eventData)
     {
         isDragging = false;
+        card?.GetComponent<CardVoiceController>()?.PlayCardVoice("DisDrag");
         Debug.Log("[CardHandler]: Mouse End Drag]");
     }
 

@@ -41,6 +41,11 @@ MonoBehaviour:
     m_Localized: Gain {0} Defend Point
     m_Metadata:
       m_Items: []
+  - m_Id: 3293684790591488
+    m_Localized: Generate {0} gradually curving tracking star bullets around yourself
+      in {1} directions
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
