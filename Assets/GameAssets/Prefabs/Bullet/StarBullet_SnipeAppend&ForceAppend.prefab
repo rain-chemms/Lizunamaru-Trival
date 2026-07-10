@@ -20,8 +20,10 @@ GameObject:
   - component: {fileID: 8108089026523485342}
   - component: {fileID: 7329539416007000010}
   - component: {fileID: 8591458916802504313}
+  - component: {fileID: 5322359217242948337}
+  - component: {fileID: 641703185665696994}
   m_Layer: 0
-  m_Name: StarBullet
+  m_Name: StarBullet_SnipeAppend&ForceAppend
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,7 +91,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.45
+  m_Radius: 0.29
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &5382935814754971828
 Animator:
@@ -133,7 +135,7 @@ MonoBehaviour:
   rb: {fileID: 6584189996944205465}
   scale: {x: 1, y: 1, z: 1}
   direction: {x: 0, y: 0, z: 0}
-  force: 10
+  force: 0
   maxSpeed: 0
   forceMode: 2
 --- !u!114 &4701561104346855887
@@ -241,7 +243,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.38883913
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -317,6 +319,44 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5322359217242948337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745992879327320267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b3d63118c4c06a428e3c75b401c76ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 2857681049944608652}
+  haltTime: 2
+  openHalt: 1
+  timeRocorder: 0
+  appendForce: 0.2
+  appendPreFrame: 1
+  haveAppendForce: 0
+--- !u!114 &641703185665696994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745992879327320267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9fa6744c6ec9344e8f0277d2f1889ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 2857681049944608652}
+  haltTime: 2
+  openHalt: 1
+  timeRocorder: 0
+  persistTrace: 0
+  nearestEnermy: {fileID: 0}
+  haveTrace: 0
 --- !u!1001 &6259619460249784980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -325,6 +365,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6059708394529171175}
     m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 5228b9742969897449b40f57b6155d86, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 21.68
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5228b9742969897449b40f57b6155d86, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 21.68
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5228b9742969897449b40f57b6155d86, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 21.68
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5228b9742969897449b40f57b6155d86, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -372,7 +424,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 5228b9742969897449b40f57b6155d86, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 6a2149bd83e37cc45a31c150efe26d50, type: 2}
+      objectReference: {fileID: 2100000, guid: 8580ace02c4f7e04dab8d60b96edd9b6, type: 2}
     - target: {fileID: 919132149155446097, guid: 5228b9742969897449b40f57b6155d86, type: 3}
       propertyPath: m_Name
       value: Star

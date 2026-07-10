@@ -49,12 +49,13 @@ public class SpellCard_MasterSpark : Card
 
     private IEnumerator GenertaeMasterSpark()
     {
-        yield return GetComponent<CardSpellAttackWaker>()?.WakeSpellAttackDisplayer(false);
+        Role role = BattleMessage.instance?.GetRole(
+            (uint)BattleMessage.instance?.GetControlPlayerID(),
+            true
+        );
+        yield return GetComponent<CardSpellAttackWaker>()?.WakeSpellAttackDisplayer((bool)role?.GetSide());
         yield return BattleMessage.instance?.GenerateBullet(
-            BattleMessage.instance?.GetRole(
-                (uint)BattleMessage.instance?.GetControlPlayerID(),
-                true
-            ),//传入产生的Role信息,包含位置等
+            role,//传入产生的Role信息,包含位置等
             bulletPrefab,//子弹预设体
             (Vector2Int)ConcentratePoint.instance?.GetIndex(),//目标位置
             default
