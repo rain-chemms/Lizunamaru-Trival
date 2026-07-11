@@ -1,9 +1,16 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 //卡牌效果:在角色前面一格产生一个剑刃子弹
-public class StrikeCard : Card
+public class StrikeCard : Card,CardBulletDamageGetter
 {
+    [NonSerialized] private float displayDamage;
+    public float GetBulletDamage()
+    {
+        displayDamage = (float)swordEdge?.GetDamage();
+        return (float)swordEdge?.GetDamage();
+    }
     [SerializeField] private Bullet swordEdge;
     public void SetSwordEdge(Bullet swordEdge)
     {
@@ -88,5 +95,10 @@ public class StrikeCard : Card
     public virtual IEnumerator AfterDraw()
     {
         yield return null;
+    }
+
+    void Update()
+    {
+        GetBulletDamage();
     } 
 }

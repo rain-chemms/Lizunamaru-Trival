@@ -141,7 +141,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dceb27aa69943064a940baa87f31e405, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a73a2c60f1a72534fb424d6e1f73069c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -740,6 +740,7 @@ GameObject:
   - component: {fileID: 7690432316974955776}
   - component: {fileID: 5232143668323798303}
   - component: {fileID: 8208130503018390235}
+  - component: {fileID: 8251096492923880819}
   m_Layer: 5
   m_Name: Discription
   m_TagString: Untagged
@@ -882,7 +883,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:c82d369c4328d944ab6b01bb4e351a25
     m_TableEntryReference:
-      m_KeyId: 358383998861312
+      m_KeyId: 3500423670530048
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -964,6 +965,34 @@ MonoBehaviour:
           m_Key: 
         m_FallbackState: 0
         m_WaitForCompletion: 0
+--- !u!114 &8251096492923880819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042923368262764309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c3977945bb395d45a799483e4e49766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:c82d369c4328d944ab6b01bb4e351a25
+    m_TableEntryReference:
+      m_KeyId: 3500423670530048
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  variables:
+  - index: 0
+    value: 0
+    asInteger: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &5648166987132596275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,6 +1152,7 @@ GameObject:
   - component: {fileID: 2609984970971271286}
   - component: {fileID: 6849037216601940225}
   - component: {fileID: 413476355877467771}
+  - component: {fileID: 4361837281956522321}
   m_Layer: 5
   m_Name: StrikeCard
   m_TagString: Untagged
@@ -1254,7 +1284,7 @@ MonoBehaviour:
   riceCost: 0
   cardCategory: 4
   cardKeyWords: 
-  swordEdge: {fileID: 2857681049944608652, guid: 8a4a58fabe83ac148b3529e85b355717, type: 3}
+  swordEdge: {fileID: 7763978380216626810, guid: c593c873384a3504c95b358ce2ffa1a0, type: 3}
 --- !u!114 &5571395713374509513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1525,6 +1555,24 @@ MonoBehaviour:
   card: {fileID: 0}
   displayText: {fileID: 4524002566662319323}
   displayImage: {fileID: 8299132168465391022}
+--- !u!114 &4361837281956522321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa06f77dde20314a99c2c0a861b0ab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 2999450010997887131}
+  indexMapDict:
+    m_keys: 00000000
+    m_values:
+    - displayDamage
+  dynamicValueSetter: {fileID: 8251096492923880819}
 --- !u!1 &6576236267278137396
 GameObject:
   m_ObjectHideFlags: 0

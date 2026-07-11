@@ -4509,6 +4509,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardTemplate (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 9014205762273278572, guid: f1692514d82f63348adb6cdea68f885f, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5740,6 +5744,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardTemplate (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 9014205762273278572, guid: f1692514d82f63348adb6cdea68f885f, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6602,6 +6610,10 @@ PrefabInstance:
     - target: {fileID: 6229160113585097296, guid: f1692514d82f63348adb6cdea68f885f, type: 3}
       propertyPath: m_Name
       value: CardTemplate (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014205762273278572, guid: f1692514d82f63348adb6cdea68f885f, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13390,7 +13402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8809994845351193527, guid: 58570116c0bfbea4fb0123577b907d4d, type: 3}
       propertyPath: direction
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9041119121214467141, guid: 58570116c0bfbea4fb0123577b907d4d, type: 3}
       propertyPath: m_ConstrainProportionsScale
