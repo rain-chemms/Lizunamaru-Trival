@@ -1106,8 +1106,8 @@ GameObject:
   - component: {fileID: 9014205762273278572}
   - component: {fileID: 8145605548122215368}
   - component: {fileID: 2911024134486367286}
+  - component: {fileID: 2999450010997887131}
   - component: {fileID: 5571395713374509513}
-  - component: {fileID: 1652210342211082365}
   - component: {fileID: 1625184676289311345}
   - component: {fileID: 7730907650560054274}
   - component: {fileID: 3623121930064201658}
@@ -1124,7 +1124,7 @@ GameObject:
   - component: {fileID: 6849037216601940225}
   - component: {fileID: 413476355877467771}
   m_Layer: 5
-  m_Name: CardTemplate
+  m_Name: StrikeCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1199,7 +1199,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &8145605548122215368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1239,6 +1239,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2999450010997887131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83f8701ee571174c8c6933c7b3b41ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  riceCost: 0
+  cardCategory: 4
+  cardKeyWords: 
+  swordEdge: {fileID: 2857681049944608652, guid: 8a4a58fabe83ac148b3529e85b355717, type: 3}
 --- !u!114 &5571395713374509513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1251,22 +1267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8251725276e864cb221d894ca39a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1652210342211082365}
---- !u!114 &1652210342211082365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6229160113585097296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4320a054c0c60ff4d817d316b583c42b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  riceCost: 0
-  cardCategory: 0
-  cardKeyWords: 00000000
+  card: {fileID: 2999450010997887131}
 --- !u!114 &1625184676289311345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1283,7 +1284,7 @@ MonoBehaviour:
   isFront: 1
   flipSpeed: 3
   animator: {fileID: 2911024134486367286}
-  card: {fileID: 1652210342211082365}
+  card: {fileID: 2999450010997887131}
 --- !u!114 &7730907650560054274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1315,7 +1316,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 215b5e751c59b4449bcaf260bbf557c9, type: 3}
     - {fileID: 21300000, guid: 1a62cc553514d3246915c65484219abc, type: 3}
     - {fileID: 21300000, guid: 3511564f8bba6714690a5977c7dd5a1a, type: 3}
-  card: {fileID: 1652210342211082365}
+  card: {fileID: 0}
 --- !u!114 &3623121930064201658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1337,7 +1338,7 @@ MonoBehaviour:
   rotateSpeed: 10
   rectTransform: {fileID: 4526820275402633002}
   offSet: {x: 0, y: 0}
-  card: {fileID: 1652210342211082365}
+  card: {fileID: 0}
 --- !u!114 &3420748214366101851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1350,7 +1351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb79ac10f9b141408fc6d3e9561f1f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1652210342211082365}
+  card: {fileID: 0}
   cardSlotUnderCard: {fileID: 0}
 --- !u!114 &6779162895587306998
 MonoBehaviour:
@@ -1364,7 +1365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b11576fcb4ecc0e4fa0394942fc994bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1652210342211082365}
+  card: {fileID: 0}
   returnHandAreaUnderCard: {fileID: 0}
 --- !u!114 &190392096426927164
 MonoBehaviour:
@@ -1378,7 +1379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a433465865397449a0135e2b483c758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 0}
+  card: {fileID: 2999450010997887131}
 --- !u!114 &2576452430711346767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1414,7 +1415,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 1e89396174646814aac5683cad7d4251, type: 3}
     - {fileID: 21300000, guid: 0fc0f343a6534a54eb3793c863905c10, type: 3}
     - {fileID: 21300000, guid: 89d4db625b830db42a82e007b0309de8, type: 3}
-  card: {fileID: 1652210342211082365}
+  card: {fileID: 0}
 --- !u!114 &4213660918345936580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1427,7 +1428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e32158a7222cb3c43953ac2a55180fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1652210342211082365}
+  card: {fileID: 0}
   cardDisplayer: {fileID: 1625184676289311345}
 --- !u!114 &1644728094080825556
 MonoBehaviour:
@@ -1441,7 +1442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a7d93bf3ba102e4495342bf68be67eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1652210342211082365}
+  card: {fileID: 0}
   cardPlayAreaUnderCard: {fileID: 0}
 --- !u!114 &5472395152714624468
 MonoBehaviour:
@@ -1455,7 +1456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d5074cbeb374884d9dd4ae3f3d6da68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1652210342211082365}
+  card: {fileID: 0}
   underCardUI: {fileID: 0}
 --- !u!114 &6918683202723614356
 MonoBehaviour:
@@ -1472,7 +1473,7 @@ MonoBehaviour:
   tableName: CardKeywords
   keyWordText: {fileID: 7690432316974955776}
   localizeEvent: {fileID: 5232143668323798303}
-  card: {fileID: 1652210342211082365}
+  card: {fileID: 0}
   keyWordTextList: []
 --- !u!114 &2609984970971271286
 MonoBehaviour:
@@ -1488,7 +1489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: {x: 1, y: 1, z: 1}
   lerpSpeed: 5
-  card: {fileID: 1652210342211082365}
+  card: {fileID: 0}
 --- !u!114 &6849037216601940225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1501,7 +1502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8413ce38a921c848bc75407ca9732dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1652210342211082365}
+  card: {fileID: 0}
   audioSources:
   - {fileID: 7361698163431172916}
   - {fileID: 1808565358764725864}
@@ -1521,7 +1522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c23b1e208889c004581c404f51fb314b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1652210342211082365}
+  card: {fileID: 0}
   displayText: {fileID: 4524002566662319323}
   displayImage: {fileID: 8299132168465391022}
 --- !u!1 &6576236267278137396
@@ -1746,7 +1747,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.4
+  m_fontSize: 24.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

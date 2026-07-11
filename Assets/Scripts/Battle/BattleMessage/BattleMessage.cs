@@ -364,7 +364,7 @@ public class BattleMessage : MonoBehaviour
         }
     }
     //用于直线子弹,会依据玩家的位置和目标坐标的位置产生子弹
-    public IEnumerator GenerateBullet(Role role, Bullet bulletPrefab, Vector2Int targetIndex, Vector3 posOffset = default)//角色产生一颗子弹,posOffset为这颗子弹的微小位置偏移
+    public IEnumerator GenerateBullet(Role role, Bullet bulletPrefab, Vector2Int targetIndex, Vector3 posOffset = default,bool triggerAnim = true,string roleAnimName = "Skill")//角色产生一颗子弹,posOffset为这颗子弹的微小位置偏移
     {
         if (role == null || bulletPrefab == null)
         {
@@ -401,12 +401,14 @@ public class BattleMessage : MonoBehaviour
             bt.SetDirection(direction);//设置子弹的方向
         }
         //控制玩家动画播放
-        RoleAnimTrigger animTrigger = player?.GetComponent<RoleAnimTrigger>();
-        animTrigger?.TriggerAnim("Skill");
-        AnimatorStateInfo stateInfo = (AnimatorStateInfo)((Animator)animTrigger?.GetComponent<Animator>())?.GetCurrentAnimatorStateInfo(0);
-        yield return (float)stateInfo.normalizedTime * (float)stateInfo.length;
+        if(triggerAnim)
+        {
+            RoleAnimTrigger animTrigger = player?.GetComponent<RoleAnimTrigger>();
+            animTrigger?.TriggerAnim(roleAnimName);
+            AnimatorStateInfo stateInfo = (AnimatorStateInfo)((Animator)animTrigger?.GetComponent<Animator>())?.GetCurrentAnimatorStateInfo(0);
+            yield return (float)stateInfo.normalizedTime * (float)stateInfo.length;
+        }
     }
-
     //能量数值相关
     [SerializeField] private uint ricePoint = 0;//行动点数
     public uint GetRicePoint()
