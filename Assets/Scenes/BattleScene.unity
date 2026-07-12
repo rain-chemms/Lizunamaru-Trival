@@ -13214,15 +13214,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1294101395187999668, guid: 58570116c0bfbea4fb0123577b907d4d, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1294101395187999668, guid: 58570116c0bfbea4fb0123577b907d4d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1294101395187999668, guid: 58570116c0bfbea4fb0123577b907d4d, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1413879791336450453, guid: 58570116c0bfbea4fb0123577b907d4d, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -13354,15 +13354,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5066299067826048200, guid: 58570116c0bfbea4fb0123577b907d4d, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5066299067826048200, guid: 58570116c0bfbea4fb0123577b907d4d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5066299067826048200, guid: 58570116c0bfbea4fb0123577b907d4d, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5673101290383675521, guid: 58570116c0bfbea4fb0123577b907d4d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -13422,7 +13422,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8809994845351193527, guid: 58570116c0bfbea4fb0123577b907d4d, type: 3}
       propertyPath: direction
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9041119121214467141, guid: 58570116c0bfbea4fb0123577b907d4d, type: 3}
       propertyPath: m_ConstrainProportionsScale

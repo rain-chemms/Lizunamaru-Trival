@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using System;
 
 //角色脚本,用于控制角色的数据
 [RequireComponent(typeof(Rigidbody))]
@@ -137,4 +138,28 @@ public class Role : MonoBehaviour
         return spellPrecent;
     }
     [SerializeField] private uint defendPoint = 0;//防御点数:每一点防御点数可以抵挡一次弹幕或近战的伤害
+
+    //角色委托Action事件
+    //方向变化Action
+    public event Action directionChangeAction;//角色朝向发生变化时调用的委托
+    public Action GetDirectionChangeAction()
+    {
+        return directionChangeAction;
+    }
+    
+    //角色内部控制器,用于事件检测
+    void Update()
+    {
+        CheckDirectionChange();
+    }
+
+    [NonSerialized] private BattleDirection lastDirection = BattleDirection.RIGHT;
+    private void CheckDirectionChange()
+    {
+        if(direction != lastDirection)
+        {
+            directionChangeAction?.Invoke();//角色朝向发生变化激活委托
+            lastDirection = direction;
+        }
+    }
 }

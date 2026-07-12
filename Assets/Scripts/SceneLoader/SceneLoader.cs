@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System.Linq;
 
 //场景加载器:使用单例模式
 [RequireComponent(typeof(Animator))]
@@ -29,12 +31,14 @@ public class SceneLoader : MonoBehaviour
         return animator;
     }
 
+    //传入的Action必须为返回类型为空的,传入参数为空的委托
+    //表示在场景加载完之后要执行的逻辑,可以使用一个返回类型为空的且传入参数为空的函数来包装复杂方法
     public void LoadScene(String sceneName,Action callbacks = null)
     {
         StartCoroutine(LoadCoroutine(sceneName,callbacks));
     }
 
-    private IEnumerator LoadCoroutine(String sceneName,Action callbacks = null)
+    private IEnumerator LoadCoroutine(String sceneName,Action actionCallbacks = null)
     {
         animator.SetTrigger("Start");
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
@@ -46,7 +50,13 @@ public class SceneLoader : MonoBehaviour
         {
             yield return null; // 每帧检查一次
         }
-        callbacks?.Invoke();
+        //触发Action功能
+        actionCallbacks?.Invoke();
+        //解构事件
+        foreach(Action ac in actionCallbacks.GetInvocationList().ToList())
+        {
+            if(ac != null) actionCallbacks -= ac;
+        }
         animator.SetTrigger("End");
     }
 }

@@ -823,6 +823,7 @@ GameObject:
   - component: {fileID: 8029779418573460772}
   - component: {fileID: 451682367064963016}
   - component: {fileID: 8995467626218572696}
+  - component: {fileID: 7017637493732890333}
   m_Layer: 5
   m_Name: RoleMessageDisplayer
   m_TagString: Untagged
@@ -896,7 +897,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &8348101609789613266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -973,6 +974,20 @@ MonoBehaviour:
   hpInstant: {fileID: 6553571959074114347}
   defendCanvas: {fileID: 7575708787130769974}
   defendText: {fileID: 2438592517081122765}
+--- !u!114 &7017637493732890333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4017055236993085489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27962b8dafa7d6e44841db93c1df281a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 4344654421444991806}
+  lerpSpeed: 10
 --- !u!1 &4338099320752774121
 GameObject:
   m_ObjectHideFlags: 0
