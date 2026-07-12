@@ -33,6 +33,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-ja
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8bb562906b06c024ea739de4c11ba405
+    m_Address: RoundChangeText_ja
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ja
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c34faf83303d62f478d1d5995db82dd0
     m_Address: MusicExplainTexts_ja
     m_ReadOnly: 1

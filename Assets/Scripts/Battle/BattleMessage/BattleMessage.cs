@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Localization.Settings;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class BattleMessage : MonoBehaviour
 {
@@ -19,6 +22,9 @@ public class BattleMessage : MonoBehaviour
         }
     }
     //回合控制相关
+    [SerializeField] private string roundChangeLocalizeTable = "RoundChangeText";
+    [SerializeField] private string selfTurnTextKey = "RoundChange_SelfTurn";
+    [SerializeField] private string enemyTurnTextKey = "RoundChange_EnermyTurn";
     [SerializeField] private uint round = 0;//回合数数
     public uint GetRound()
     {
@@ -29,6 +35,85 @@ public class BattleMessage : MonoBehaviour
     {
         return isPlayerTurn;
     }
+    public void SetIsPlayerTurn(bool isPlayerTurn)
+    {
+        this.isPlayerTurn = isPlayerTurn;
+    }
+    /*
+        扩展方法1:依据当前的回合进行回合切换
+    */
+    public IEnumerator ChangeTurn()
+    {
+        //丢弃所有手牌到弃牌堆
+        foreach (Card card in handCardList.ToList())
+        {
+            handCardList.Remove(card);
+            //卡槽中的卡不动
+            discardCardList.Add(card);
+        }
+        isPlayerTurn = !isPlayerTurn;//切换回合
+        //并将所有当前回合角色的回合操作设置为非结束
+        foreach (Role role in roleList)
+        {
+            if (role?.GetSide() == isPlayerTurn)
+            {
+                role.SetRoundOperateEnd(false);
+            }
+        }
+        //设置播放本地化文字
+        //寻找本地化键值对
+        
+        //在回合切换之前获取控制的玩家角色的所属阵营
+        //bool showTurn = true;
+        Role controlPlayer = GetControlPlayer();        
+        string key = "";
+        //设置键值
+        if (controlPlayer?.GetSide() == isPlayerTurn)
+        {
+            key = selfTurnTextKey;
+        }
+        else
+        {
+            key = enemyTurnTextKey;
+        }
+        string resultText = "Bugs Turn";
+        // 等待本地化系统初始化完成
+        yield return LocalizationSettings.InitializationOperation;
+        // 异步获取
+        var operation = LocalizationSettings.StringDatabase.GetLocalizedStringAsync(roundChangeLocalizeTable, key);
+        yield return operation;
+        if (operation.Status == AsyncOperationStatus.Succeeded)
+        {
+            string localizedText = operation.Result;
+            resultText = localizedText;//显示文本
+        }
+        resultText += round.ToString();
+        RoundChangeDisplayer.instance.SetDisplayText(resultText);
+        //播放回合切换效果
+        Animator animator = RoundChangeDisplayer.instance?.GetAnimator();
+        animator?.SetTrigger("ChangeTurn");
+        AnimatorStateInfo info = (AnimatorStateInfo)animator?.GetCurrentAnimatorStateInfo(0);
+        //等待动画器结束
+        yield return info.length * info.speed;//显示回合切换效果
+        //检测控制的角色的回合状态
+        controlPlayer = GetControlPlayer();
+        if (controlPlayer?.GetSide() == isPlayerTurn)
+        {
+            int drawCardCount = drawCardPreRound/*要加一些其他的东西影响抽牌数*/;
+            yield return DrawCard(drawCardCount);//抽5张牌
+            ricePoint += riceChargePreRound;
+            icePoint = 0;
+        }
+        else
+        {
+            ricePoint = 0;
+            icePoint += iceChargePreRound;
+        }
+        //增加回合数
+        round++;
+    }
+
+    //敌人玩家角色控制相关
     [SerializeField] private uint controlPlayerID = 0;//控制的玩家的ID,卡牌触发系统从这个id的玩家中生效
     public uint GetControlPlayerID()
     {
@@ -113,6 +198,15 @@ public class BattleMessage : MonoBehaviour
     {
         return handCardList.ToList();
     }
+    [SerializeField] private int drawCardPreRound = 5;//每回合抽牌数
+    public int GetDrawCardPreRound()
+    {
+        return drawCardPreRound;
+    }
+    public void SetDrawCardPreRound(int count)
+    {
+        drawCardPreRound = count;
+    }
     //没有本场战斗消耗的牌堆,个人感觉对于这个项目来说用处不大,加了之后就太像杀戮尖塔了
     //卡牌相关的方法
     //可以将卡牌相关的指令包装为一个Cmd类
@@ -125,7 +219,7 @@ public class BattleMessage : MonoBehaviour
         if (instance.discardCardList.Contains(card) || instance.drawCardList.Contains(card))
         {
             Debug.LogError("[BattleMessage]: The Card<" + card.name + "> is In Draw OR Discard List, Can't Discard!");
-            yield return null;
+            yield break;
         }
         if (handCardList.Contains(card)) handCardList.Remove(card);
         foreach (CardSlot cl in GetAllCardSlot())
@@ -334,7 +428,7 @@ public class BattleMessage : MonoBehaviour
     /*
         10.打出一张卡牌
     */
-    public IEnumerator PlayCard(Card card,bool costRice = true)
+    public IEnumerator PlayCard(Card card, bool costRice = true)
     {
         //打出卡牌
         if (card == null) yield break;
@@ -346,7 +440,7 @@ public class BattleMessage : MonoBehaviour
             //若当前卡牌有消耗关键字,则不将其加入弃牌堆
             if (card != null && !(bool)card.GetCardKeyWords()?.Contains(CardKeyWord.EXHAUST)) instance?.GetDiscardCardList()?.Add(card);
         }
-        else if(!costRice)
+        else if (!costRice)
         {
             //不对费用进行消耗
             yield return ((CardFunctioner)card).AfterPlay();//AfterPlay函数会对消耗字段进行检测,若存在消耗字段则触发消耗的连锁函数
@@ -364,7 +458,7 @@ public class BattleMessage : MonoBehaviour
         }
     }
     //用于直线子弹,会依据玩家的位置和目标坐标的位置产生子弹
-    public IEnumerator GenerateBullet(Role role, Bullet bulletPrefab, Vector2Int targetIndex, Vector3 posOffset = default,bool triggerAnim = true,string roleAnimName = "Skill")//角色产生一颗子弹,posOffset为这颗子弹的微小位置偏移
+    public IEnumerator GenerateBullet(Role role, Bullet bulletPrefab, Vector2Int targetIndex, Vector3 posOffset = default, bool triggerAnim = true, string roleAnimName = "Skill")//角色产生一颗子弹,posOffset为这颗子弹的微小位置偏移
     {
         if (role == null || bulletPrefab == null)
         {
@@ -401,7 +495,7 @@ public class BattleMessage : MonoBehaviour
             bt.SetDirection(direction);//设置子弹的方向
         }
         //控制玩家动画播放
-        if(triggerAnim)
+        if (triggerAnim)
         {
             RoleAnimTrigger animTrigger = player?.GetComponent<RoleAnimTrigger>();
             animTrigger?.TriggerAnim(roleAnimName);

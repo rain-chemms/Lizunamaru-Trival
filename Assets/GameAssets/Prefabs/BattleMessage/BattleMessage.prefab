@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5799584036253591282}
   - component: {fileID: 7147680556464847461}
+  - component: {fileID: 4937374573650469199}
   m_Layer: 0
   m_Name: BattleMessage
   m_TagString: Untagged
@@ -44,8 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918ce7957b811b343b35d7c62166b3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roundChangeLocalizeTable: RoundChangeText
+  selfTurnTextKey: RoundChange_SelfTurn
+  enemyTurnTextKey: RoundChange_EnermyTurn
   round: 0
   isPlayerTurn: 1
+  controlPlayerID: 0
+  roleList: []
   drawCardList: []
   discardCardList: []
   maxHandCardCount: 10
@@ -60,3 +66,16 @@ MonoBehaviour:
   cardSlotListCardSlotCount:
     m_keys: 010000000200000000000000
     m_values: 010000000200000004000000
+--- !u!114 &4937374573650469199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6639802521584255043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26ea54da0e449a74bb6474f75992eda7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleMessage: {fileID: 7147680556464847461}

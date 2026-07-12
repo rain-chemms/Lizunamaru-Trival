@@ -14,6 +14,20 @@ public class Role : MonoBehaviour
     {
         if(rb == null) rb = GetComponent<Rigidbody>();
     }
+    [SerializeField] private bool roundOperateEnd = false;//玩家本回合内的操作是否结束
+    public bool IsRoundOperateEnd()
+    {
+        return roundOperateEnd;
+    }
+    public void SetRoundOperateEnd(bool roundOperateEnd)
+    {
+        this.roundOperateEnd = roundOperateEnd;
+    }
+
+    /*
+        有一个协程,时刻依据BattleMessage.instance.isPlayerTrun检测玩家列表中的玩家是否操作结束
+        若playerTurn情况下,当前side的所有玩家的操作都结束了,则切换到敌方回合
+    */
     [SerializeField] private BattleDirection direction = BattleDirection.RIGHT;//角色的朝向
     public BattleDirection GetDirection()
     {

@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawOrDiscard: 0
-  anchorAppendOffset: {x: 100, y: 100}
+  anchorAppendOffset: {x: 10, y: 0}
   lerpSpeed: 25
   rotateSpeed: 25
   discardAreaRTF: {fileID: 743924074274887298}
@@ -1316,6 +1316,7 @@ GameObject:
   - component: {fileID: 1039455537719327343}
   - component: {fileID: 5870536323069824711}
   - component: {fileID: 6342516547574345119}
+  - component: {fileID: 7812794411446320057}
   m_Layer: 5
   m_Name: RoundEndButton
   m_TagString: Untagged
@@ -1424,7 +1425,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5870536323069824711}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7812794411446320057}
+        m_TargetAssemblyTypeName: RoundEndButton, Assembly-CSharp
+        m_MethodName: OnRoundEndButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7812794411446320057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2927594245508058418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fb27610b08cc334ca1158fa4d1de1a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 6342516547574345119}
 --- !u!1 &3815279262321466290
 GameObject:
   m_ObjectHideFlags: 0
@@ -4208,7 +4234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawOrDiscard: 1
-  anchorAppendOffset: {x: 100, y: 100}
+  anchorAppendOffset: {x: -10, y: 0}
   lerpSpeed: 25
   rotateSpeed: 25
   discardAreaRTF: {fileID: 2025866419698822061}

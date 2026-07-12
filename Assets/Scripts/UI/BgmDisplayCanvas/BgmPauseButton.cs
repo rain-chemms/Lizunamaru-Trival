@@ -6,12 +6,21 @@ using UnityEngine.UI;
 public class BgmPauseButton : MonoBehaviour
 {
     [SerializeField] private Button button;
+    public Button GetButton()
+    {
+        return button;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         if(button == null) button = GetComponent<Button>();
     }
-
+    
+    [SerializeField] private bool isPause = false;
+    public bool IsPause()
+    {
+        return isPause;
+    }
     //暂停当前正在播放的音乐
     public void PauseOrResumeBgm()
     {
@@ -25,6 +34,7 @@ public class BgmPauseButton : MonoBehaviour
                 {
                     //bgm.Pause();
                     BgmController.instance?.StartFade(bgm, 0.0f, true);
+                    isPause = true;
                 }
                 else
                 {
@@ -35,6 +45,7 @@ public class BgmPauseButton : MonoBehaviour
                         bgm.volume = 0f;//初始音量设置为0
                     }
                     BgmController.instance?.StartFade(bgm, 1.0f , true);
+                    isPause = false;
                 }
             }
         }
