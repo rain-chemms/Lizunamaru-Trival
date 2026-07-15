@@ -106,8 +106,8 @@ public class BattleMessage : MonoBehaviour
         }
         else
         {
+            icePoint += iceChargePreRound + ricePoint;//将剩余的ricePoint变为icePoint
             ricePoint = 0;
-            icePoint += iceChargePreRound;
         }
         //增加回合数
         round++;
@@ -598,5 +598,112 @@ public class BattleMessage : MonoBehaviour
     {
         return new SerializableDictionary<CardCategory, int>(cardSlotListCardSlotCount);
     }
+    //主要扩展功能
+    /*
+        1.根据LodeInMessage信息重置场景,包括棋盘格的信息
+    */
+    public void ResetBattleSceneByLodeInMessage(BattleLodeInMessage lodeInMessage)
+    {
+        //确保参数有效
+        if(lodeInMessage == null) 
+        {
+            Debug.LogError("[BattleMessage]: BattleLodeInMessage is null, Please Check!");
+            return;
+        }
+        BattleBoard board = BattleBoard.instance;
+        if(board == null) 
+        {
+            Debug.LogError("[BattleMessage]: BattleBoard is null, Please Check the Instance is really exist!");
+            return;
+        }
+        /*
+            一下部分为清除已有的战斗场景信息
+        */
+        //清除战斗信息中的所有角色(包括控制的玩家)
+        foreach(Role role in roleList)
+        {
+            if(role != null)
+            {
+                roleList.Remove(role);
+                Destroy(role.gameObject);
+            }
+        }
+        //清空卡牌列表
+        foreach(Card card in handCardList)
+        {
+            if(card != null)
+            {
+                handCardList.Remove(card);
+                Destroy(card.gameObject);
+            }
+        }
+        foreach(Card card in discardCardList)
+        {
+            if(card != null)
+            {
+                discardCardList.Remove(card);
+                Destroy(card.gameObject);
+            }
+        }
+        foreach(Card card in drawCardList)
+        {
+            if(card != null)
+            {
+                drawCardList.Remove(card);
+                Destroy(card.gameObject);
+            }
+        }
+        //卡槽中的卡牌
+        foreach(CardSlot cardSlot in GetAllCardSlot().ToList())
+        {
+            if(cardSlot == null) continue;
+            if(cardSlot.GetInnerCard() != null) 
+            {
+                Destroy(cardSlot.GetInnerCard().gameObject);
+                cardSlot.SetInnerCard(null);
+            }
+        }
+        //清空BattleBoard中的棋盘格
+        List<BattleGrid> grids = board.GetBattleGridList();
+        if(grids!=null)
+        {
+            foreach(BattleGrid grid in grids)
+            {
+                grids.Remove(grid);    
+                Destroy(grid.gameObject);
+            }   
+        }
+        /*
+            一下部分为依据LodeInMessage信息初始化战斗场景
+        */
+        int id_append = 0;
 
+        /*
+            这部分需要从玩家信息获取器中实时读取玩家信息
+            信息包括:玩家的默认阵营,玩家血量,玩家最大生命值,玩家金币量,玩家卡牌列表+未加入的其他控制信息
+        */
+        //初始化玩家角色,依据lodeInMessage设置玩家位置,并设置控制的玩家ID为当前玩家
+        Role player = null;
+        //Instantiate(player,board.transform);
+        player?.SetSide(true);
+        player?.SetID((uint)id_append);
+        controlPlayerID = (uint)player?.GetID();
+        //初始化玩家的手牌
+
+        //初始化敌人及其位置
+        foreach(KeyValuePair<Vector2Int, Role> role_pair in lodeInMessage.GetEnermyDict().ToList())
+        {
+            if(role_pair.Value == null) continue;//敌人角色为空时跳过
+            Role role = Instantiate(role_pair.Value,board.transform);//向棋盘中加入角色
+            //初始化敌人角色位置
+            role?.SetGridIndex(role_pair.Key);
+            //初始化敌人角色ID
+            role?.SetID((uint)id_append);
+            //初始化敌人角色的阵营,不同于玩家角色
+            role?.SetSide(!(bool)player?.GetSide());
+            //将敌人加入列表
+            roleList.Add(role);
+            id_append++;
+        }
+    }
 }

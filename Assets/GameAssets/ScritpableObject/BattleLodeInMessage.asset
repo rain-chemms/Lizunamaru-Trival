@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74349d61ab14a1341b42e71195b235ed, type: 3}
+  m_Name: BattleLodeInMessage
+  m_EditorClassIdentifier: 
+  widthAndHeight: {x: 5, y: 5}
+  gapsOfGrids: {x: 2.75, y: 2.75}
+  grid00LocalPosition: {x: 0, y: 0, z: 0}
+  gridPrefab: {fileID: 2000216679627591226, guid: 025c1645eb9a4cb4296f1104632b8297, type: 3}
+  emptyGridsIndex:
+  - {x: 2, y: 2}
+  - {x: 2, y: 4}
+  - {x: 2, y: 0}
+  playerStartIndex: {x: 2, y: 0}
+  battleCategory: 4
+  enermyDict:
+    m_keys: []
+    m_values: []

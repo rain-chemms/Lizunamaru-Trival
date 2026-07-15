@@ -53,6 +53,7 @@ public class SceneLoader : MonoBehaviour
         //触发Action功能
         actionCallbacks?.Invoke();
         //解构事件
+        if(actionCallbacks!=null)
         foreach(Action ac in actionCallbacks.GetInvocationList().ToList())
         {
             if(ac != null) actionCallbacks -= ac;

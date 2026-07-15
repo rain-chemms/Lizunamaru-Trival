@@ -1,6 +1,7 @@
 using UnityEngine;
 
 //该脚本作用为使当前Canvas面朝主摄像机
+//[ExcludeFromPreset]
 [RequireComponent(typeof(Canvas))]
 public class CanvasMainCameraTowardsFunctioner : MonoBehaviour
 {

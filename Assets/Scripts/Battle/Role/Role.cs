@@ -84,7 +84,7 @@ public class Role : MonoBehaviour
     {
         maxHp = nowMaxHp;
     }
-    [SerializeField] private float speed = 5.0f;//高速移动时的速度
+    [NonSerialized] private float speed = 5.0f;//角色当前的速度
     public float GetSpeed()
     {
         return speed;

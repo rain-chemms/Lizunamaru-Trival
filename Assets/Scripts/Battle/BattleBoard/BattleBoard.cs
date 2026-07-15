@@ -27,6 +27,10 @@ public class BattleBoard : MonoBehaviour
     {
         return battleGridList;
     }
+    public List<BattleGrid> GetBattleGridList_Copy()
+    {
+        return battleGridList.ToList();
+    }
     
     [SerializeField] private Vector2 gapsOfGrid = Vector2.one;//格子之间的间隔
     public Vector2 GetGapsOfGrid()
