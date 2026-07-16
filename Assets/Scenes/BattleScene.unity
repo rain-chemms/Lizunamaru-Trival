@@ -13263,6 +13263,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 409387735171398372, guid: 58570116c0bfbea4fb0123577b907d4d, type: 3}
+      propertyPath: isLowSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 409387735171398372, guid: 58570116c0bfbea4fb0123577b907d4d, type: 3}
       propertyPath: switchFlyCosy
       value: 0
       objectReference: {fileID: 0}
