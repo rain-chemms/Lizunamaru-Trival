@@ -23,10 +23,23 @@ public class MMD4FaceController : MonoBehaviour
             morphList.Add(morph);
         }
     }
+
+    public void ResetMorph(MMD4FacceMorphData initMorph = null)
+    {
+        //重置所有的表情
+        if(morphList == null) return ;
+        foreach (MMD4MecanimModelImpl.Morph morph in morphList)
+        {
+            morph.weight = 0f;
+        }
+        if(initMorph != null) SetMorph(initMorph);
+    }
+
     //设置MMD转化后模型的表情权重
     //这个方法在动画器中调用
     public void SetMorph(MMD4FacceMorphData data)
     {
+        if(data == null) return ;
         SerializableDictionary<string, float> morphsDict = data.GetMorphsDict();
         foreach (KeyValuePair<string, float> morphData in morphsDict)
         {

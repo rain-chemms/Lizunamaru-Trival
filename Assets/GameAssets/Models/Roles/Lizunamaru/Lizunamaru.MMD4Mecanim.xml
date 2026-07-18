@@ -143,6 +143,15 @@
     <pmxAssetPath>Assets/GameAssets/Models/Roles/Lizunamaru/Lizunamaru.pmx</pmxAssetPath>
     <vmdAssetPathList>
       <string>Assets/GameAssets/Models/Roles/Lizunamaru/Idle.vmd</string>
+      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Attack.vmd</string>
+      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Behit.vmd</string>
+      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Dash.vmd</string>
+      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Defend.vmd</string>
+      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Fly.vmd</string>
+      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Skill.vmd</string>
+      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Walk.vmd</string>
+      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Dead.vmd</string>
+      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Rotate.vmd</string>
     </vmdAssetPathList>
     <fbxOutputPath>Assets/GameAssets/Models/Roles/Lizunamaru/Lizunamaru.fbx</fbxOutputPath>
     <bulletPhysicsVersion>_275</bulletPhysicsVersion>
@@ -836,7 +845,7 @@
           <string>52._nbou_gomu</string>
           <string>53._nbou</string>
         </materialNames>
-        <isUIFoldout>true</isUIFoldout>
+        <isUIFoldout>false</isUIFoldout>
         <baseColor>
           <r>1</r>
           <g>1</g>
