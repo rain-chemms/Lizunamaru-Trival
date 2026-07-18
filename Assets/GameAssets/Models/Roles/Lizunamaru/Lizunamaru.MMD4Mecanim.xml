@@ -141,7 +141,9 @@
     <vertexScaleByHeight>158</vertexScaleByHeight>
     <waitProcessExitting>false</waitProcessExitting>
     <pmxAssetPath>Assets/GameAssets/Models/Roles/Lizunamaru/Lizunamaru.pmx</pmxAssetPath>
-    <vmdAssetPathList />
+    <vmdAssetPathList>
+      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Idle.vmd</string>
+    </vmdAssetPathList>
     <fbxOutputPath>Assets/GameAssets/Models/Roles/Lizunamaru/Lizunamaru.fbx</fbxOutputPath>
     <bulletPhysicsVersion>_275</bulletPhysicsVersion>
     <useWineFlag>false</useWineFlag>
@@ -256,7 +258,7 @@
         <overrideShadowLum>false</overrideShadowLum>
         <overrideTess>false</overrideTess>
         <tessEnabled>false</tessEnabled>
-        <transparencyCache>Enabled</transparencyCache>
+        <transparencyCache>Disabled</transparencyCache>
       </MaterialProperty>
       <MaterialProperty>
         <materialName>7.shirome</materialName>
@@ -278,7 +280,7 @@
         <overrideShadowLum>false</overrideShadowLum>
         <overrideTess>false</overrideTess>
         <tessEnabled>false</tessEnabled>
-        <transparencyCache>Enabled</transparencyCache>
+        <transparencyCache>Disabled</transparencyCache>
       </MaterialProperty>
       <MaterialProperty>
         <materialName>9.hairaito</materialName>
@@ -300,7 +302,7 @@
         <overrideShadowLum>false</overrideShadowLum>
         <overrideTess>false</overrideTess>
         <tessEnabled>false</tessEnabled>
-        <transparencyCache>Enabled</transparencyCache>
+        <transparencyCache>Disabled</transparencyCache>
       </MaterialProperty>
       <MaterialProperty>
         <materialName>11.hau</materialName>
@@ -322,7 +324,7 @@
         <overrideShadowLum>false</overrideShadowLum>
         <overrideTess>false</overrideTess>
         <tessEnabled>false</tessEnabled>
-        <transparencyCache>Enabled</transparencyCache>
+        <transparencyCache>Disabled</transparencyCache>
       </MaterialProperty>
       <MaterialProperty>
         <materialName>13.maegami</materialName>
@@ -399,7 +401,7 @@
         <overrideShadowLum>false</overrideShadowLum>
         <overrideTess>false</overrideTess>
         <tessEnabled>false</tessEnabled>
-        <transparencyCache>Enabled</transparencyCache>
+        <transparencyCache>Disabled</transparencyCache>
       </MaterialProperty>
       <MaterialProperty>
         <materialName>20.tere</materialName>
@@ -432,7 +434,7 @@
         <overrideShadowLum>false</overrideShadowLum>
         <overrideTess>false</overrideTess>
         <tessEnabled>false</tessEnabled>
-        <transparencyCache>Enabled</transparencyCache>
+        <transparencyCache>Disabled</transparencyCache>
       </MaterialProperty>
       <MaterialProperty>
         <materialName>23.aozame</materialName>
@@ -586,7 +588,7 @@
         <overrideShadowLum>false</overrideShadowLum>
         <overrideTess>false</overrideTess>
         <tessEnabled>false</tessEnabled>
-        <transparencyCache>Enabled</transparencyCache>
+        <transparencyCache>Disabled</transparencyCache>
       </MaterialProperty>
       <MaterialProperty>
         <materialName>37.Tops_01_CLOTH</materialName>
@@ -663,7 +665,7 @@
         <overrideShadowLum>false</overrideShadowLum>
         <overrideTess>false</overrideTess>
         <tessEnabled>false</tessEnabled>
-        <transparencyCache>Enabled</transparencyCache>
+        <transparencyCache>Disabled</transparencyCache>
       </MaterialProperty>
       <MaterialProperty>
         <materialName>44.Glass</materialName>
