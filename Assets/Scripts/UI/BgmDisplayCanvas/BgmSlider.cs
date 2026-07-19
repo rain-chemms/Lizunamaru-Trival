@@ -33,7 +33,7 @@ public class BgmSlider : MonoBehaviour,
     public void WithBgmSetSliderValue()
     {
         if(slider == null) return;
-        AudioSource audio = BgmController.instance.GetBgm(BgmController.instance.GetNowBgm());
+        AudioSource audio = BgmController.instance?.GetBgm(BgmController.instance.GetNowBgm());
         if(audio == null) return;
         slider.value = slider.maxValue * audio.time / audio.clip.length;//设置进度条
     }
