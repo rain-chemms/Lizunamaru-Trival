@@ -10,6 +10,10 @@ public class RoleDirectionSetter : MonoBehaviour
     void Start()
     {
         if(role == null) role = GetComponent<Role>();
+        if(role!=null)
+        {
+            role.GetComponent<RoleMover>()?.ChangeRoleDirection(role.GetDirection());
+        }
     }
 
     void OnEnable()
@@ -35,7 +39,7 @@ public class RoleDirectionSetter : MonoBehaviour
     }
 
     [SerializeField] private Vector3 target = Vector3.forward;
-    [SerializeField] private float lerpSpeed = 3;
+    [SerializeField] private float lerpSpeed = 6;
     public float GetLerpSpeed() => lerpSpeed;
     public void SetLerpSpeed(float newLerpSpeed) => lerpSpeed = newLerpSpeed;
     

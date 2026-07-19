@@ -15,8 +15,48 @@ MonoBehaviour:
   m_GroupName: RoleFaceMorphData
   m_GUID: 1951183ab4634d742b36ba2277df7aba
   m_SerializeEntries:
+  - m_GUID: 13c059dcce0b92e49817e75f753a488d
+    m_Address: Assets/GameAssets/Anims/Roles/Lizunamaru/Morphs/DefendEyes.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21b89bb4b81a3134d91c6f13aa6d22d8
+    m_Address: Assets/GameAssets/Anims/Roles/Lizunamaru/Morphs/Anger.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 42933136fb30cf8499036b09711346ba
     m_Address: Assets/GameAssets/Anims/Roles/Lizunamaru/Shock.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f1da46685694ad4f8d6c354509973bf
+    m_Address: Assets/GameAssets/Anims/Roles/Lizunamaru/Morphs/Calm.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f21e8672e84ef245870428fa7036f0c
+    m_Address: Assets/GameAssets/Anims/Roles/Lizunamaru/Morphs/Normal.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 608f8673fa0bc3a46a63d2c8876efda4
+    m_Address: Assets/GameAssets/Anims/Roles/Lizunamaru/Morphs/SkillRelease.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 946565ffdf689b040a1b83f4a5ba7ba8
+    m_Address: Assets/GameAssets/Anims/Roles/Lizunamaru/Morphs/CloseEyesTear.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2d436ed51ed48f4cb3acb59f29c5a59
+    m_Address: Assets/GameAssets/Anims/Roles/Lizunamaru/Morphs/CloseEyes.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4b9c83fcde101d48b7612a894d6bdf6
+    m_Address: Assets/GameAssets/Anims/Roles/Lizunamaru/Morphs/Smile.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

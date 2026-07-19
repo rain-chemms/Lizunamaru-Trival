@@ -12,12 +12,13 @@ public class DefendCard : Card
     public override IEnumerator AfterPlay()
     {
         base.AfterPlay();
-        //让玩家获取格挡值
-        BattleMessage.instance?.GetRole(
+        //让当前玩家获取格挡值
+        yield return BattleMessage.instance?.GetRole(
             (uint)BattleMessage.instance?.GetControlPlayerID(),
             true
-        )?.GetComponent<RoleDefendGetter>()?.GetDefend(gainDefendPoint);
+        )?.GetComponent<RoleDefendGetter>()?.GetOrLoseDefend(gainDefendPoint);
         yield return null;
+        
     }
     public virtual IEnumerator AfterRemoveFromSolt()
     {

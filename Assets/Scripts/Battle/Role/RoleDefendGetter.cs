@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Role))]
@@ -20,13 +21,15 @@ public class RoleDefendGetter : MonoBehaviour
             1.角色的defend值会在每回合开始时清空,每1点defend可以格挡一次伤害
                 defendPoint为负数时,表示格挡值减少
     */
-    public void GetDefend(int defendPoint)
+    public IEnumerator GetOrLoseDefend(int defendPoint)
     {
-        if(role == null) return ;
+        //只对数值产生变化,操纵动画器
+        if(role == null) yield break;
+        string animName = "Defend";
         if(defendPoint > 0)//获取格挡值
         {
             role.SetDefend(role.GetDefend() + (uint)defendPoint);//格挡值增加
-            if(animTrigger != null) animTrigger.TriggerAnim("Defend");//触发格挡动画  
+            animName = "Defend";
         }
         else if(defendPoint < 0)
         {
@@ -34,8 +37,13 @@ public class RoleDefendGetter : MonoBehaviour
             //格挡值最低为0
             if(temp < 0) role.SetDefend(0);//格挡值减少
             else role.SetDefend((uint)temp);
-            if(animTrigger != null) animTrigger.TriggerAnim("Skill");
+            animName = "Skill";
         }
-        else return;//0时返回
+        else yield break;//0时返回
+        role?.GetComponent<RoleAnimTrigger>()?.TriggerAnim(animName);
+        yield return null;
+        AnimatorStateInfo info = (AnimatorStateInfo) role?.GetComponent<RoleAnimTrigger>()?.GetAnimator().GetCurrentAnimatorStateInfo(0);
+        if(info.speed != 0.0f) yield return info.length * (float)info.normalizedTime;
+        else yield return null;
     }
 }

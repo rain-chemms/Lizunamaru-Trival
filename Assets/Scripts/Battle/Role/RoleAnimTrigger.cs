@@ -5,6 +5,7 @@ using UnityEngine;
 public class RoleAnimTrigger : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    public Animator GetAnimator() => animator;
     void Start()
     {
         if(animator == null) animator = GetComponent<Animator>();

@@ -1,16 +1,21 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+
 //检测并设置处于丢牌堆的卡牌的锚点
 [RequireComponent(typeof(RectTransform))]
 public class StackCardAnchorSetter : MonoBehaviour
 {
-    [SerializeField] private bool drawOrDiscard = true;//抽牌堆还是弃牌堆,true为抽牌堆,false为弃牌堆
+    //[SerializeField] private bool drawOrDiscard = true;//抽牌堆还是弃牌堆,true为抽牌堆,false为弃牌堆
+    /*
     public void SetDrawOrDiscard(bool isDraw)
     {
         this.drawOrDiscard = isDraw;
     }
-
+    */
+    [SerializeField] private string cardListName;//要关联的卡牌列表
+    public void SetCardListName(string name) => cardListName = name;
+    public string GetCardListName(string name) => name;
     [SerializeField] private Vector2 anchorAppendOffset = new Vector2(10f, 10f);//每张卡牌的锚点额外偏移量
     [SerializeField] private float lerpSpeed = 5;//锚点移动速度
     [SerializeField] private float rotateSpeed = 5;//锚点旋转速度
@@ -19,11 +24,21 @@ public class StackCardAnchorSetter : MonoBehaviour
     void Start()
     {
         if (discardAreaRTF == null) discardAreaRTF = GetComponent<RectTransform>();
-        FreshCardListByDrawOrDiscard();
+        //FreshCardListByDrawOrDiscard();
+    }
+
+    void OnEnable()
+    {
+        FreshCardList();
     }
 
     [SerializeField] private List<Card> cardList = null;
     //刷新卡牌列表
+    private void FreshCardList()
+    {
+        cardList = BattleMessage.instance?.GetCardListByName(cardListName);
+    }
+    /*
     public void FreshCardListByDrawOrDiscard()
     {
         if (drawOrDiscard is false)
@@ -35,6 +50,7 @@ public class StackCardAnchorSetter : MonoBehaviour
             cardList = BattleMessage.instance?.GetDrawCardList();//获取抽牌堆的卡牌列表
         }
     }
+    */
 
     //按索引设置弃牌堆中卡牌的层级
     public void SetCardInListSortOrder()
@@ -136,7 +152,8 @@ public class StackCardAnchorSetter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FreshCardListByDrawOrDiscard();
+        //FreshCardList();
+        //FreshCardListByDrawOrDiscard();
         SetCardInListParent();
         LerpAnchorAndRotate();
     }

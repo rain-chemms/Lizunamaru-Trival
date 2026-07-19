@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using System;
+using System.Reflection;
 using UnityEngine.Localization.Settings;
 using UnityEngine.ResourceManagement.AsyncOperations;
+
 
 public class BattleMessage : MonoBehaviour
 {
@@ -26,19 +28,13 @@ public class BattleMessage : MonoBehaviour
     [SerializeField] private string selfTurnTextKey = "RoundChange_SelfTurn";
     [SerializeField] private string enemyTurnTextKey = "RoundChange_EnermyTurn";
     [SerializeField] private uint round = 0;//回合数数
-    public uint GetRound()
-    {
-        return round;
-    }
+    public uint GetRound() => round;
+    
     [SerializeField] private bool isPlayerTurn = true;//是否是玩家回合
-    public bool IsPlayerTurn()
-    {
-        return isPlayerTurn;
-    }
-    public void SetIsPlayerTurn(bool isPlayerTurn)
-    {
-        this.isPlayerTurn = isPlayerTurn;
-    }
+    public bool IsPlayerTurn() => isPlayerTurn;
+    
+    public void SetIsPlayerTurn(bool isPlayerTurn) => this.isPlayerTurn = isPlayerTurn;
+    
     /*
         扩展方法1:依据当前的回合进行回合切换
     */
@@ -115,23 +111,13 @@ public class BattleMessage : MonoBehaviour
 
     //敌人玩家角色控制相关
     [SerializeField] private uint controlPlayerID = 0;//控制的玩家的ID,卡牌触发系统从这个id的玩家中生效
-    public uint GetControlPlayerID()
-    {
-        return controlPlayerID;
-    }
-    public void SetControlPlayerID(uint id)
-    {
-        controlPlayerID = id;
-    }
+    public uint GetControlPlayerID() => controlPlayerID;
+    public void SetControlPlayerID(uint id) => controlPlayerID = id;
+    
     [SerializeField] private List<Role> roleList = new List<Role>();//敌人与玩家对象的列表
-    public List<Role> GetRoleList()
-    {
-        return roleList;
-    }
-    public List<Role> GetRoleList_Copy()
-    {
-        return roleList.ToList();
-    }
+    public List<Role> GetRoleList() => roleList;
+    public List<Role> GetRoleList(bool side) => roleList.Where(role => role.GetSide() == side).ToList();
+    public List<Role> GetRoleList_Copy() => roleList.ToList();
     /*
         扩展方法1:查找某一特定阵营特定ID的角色
             一般来说ID都是唯一的,但是分阵营
@@ -154,62 +140,77 @@ public class BattleMessage : MonoBehaviour
         扩展方法2:依据当前存储的玩家信息,获取目前正在控制的玩家
             依赖扩展方法1
     */
-    public Role GetControlPlayer()//默认获取True阵营的玩家
-    {
-        return GetRole(controlPlayerID, isPlayerTurn);
-    }
+    public Role GetControlPlayer() => GetRole(controlPlayerID, isPlayerTurn);//默认获取True阵营的玩家
+    
     /*
         角色扩展功能
         1.获取防御
     */
     // 卡牌相关
+    //消耗牌堆
+    [SerializeField] private List<Card> exhaustCardList = new List<Card>();
+    public List<Card> GetExhaustCardList() => exhaustCardList;
+    public List<Card> GetExhaustCardList_Copy() => exhaustCardList.ToList();
     //抽牌堆
     [SerializeField] private List<Card> drawCardList = new List<Card>();
-    public List<Card> GetDrawCardList()
-    {
-        return drawCardList;
-    }
-    public List<Card> GetDrawCardList_Copy()
-    {
-        return drawCardList.ToList();
-    }
+    public List<Card> GetDrawCardList() => drawCardList;
+    
+    public List<Card> GetDrawCardList_Copy() => drawCardList.ToList();
     //弃牌堆
     [SerializeField] private List<Card> discardCardList = new List<Card>();
-    public List<Card> GetDiscardCardList()
+    public List<Card> GetDiscardCardList() => discardCardList;
+    public List<Card> GetDiscardCardList_Copy() => discardCardList.ToList();
+    /*
+        通过字符串判断并获取相应的卡牌列表
+    */
+    public List<Card> GetCardListByName(string name)
     {
-        return discardCardList;
+        //依据卡牌列表名称获取卡牌列表
+        FieldInfo field = typeof(BattleMessage).GetField(name,BindingFlags.NonPublic | BindingFlags.Instance);
+        List<Card> result = (List<Card>)field.GetValue(BattleMessage.instance);
+        //获取失败时,进行判断
+        if(result == null)
+        {
+            //若存在消耗"exhaust"关键字
+            if(name.Contains("exhaust", StringComparison.OrdinalIgnoreCase)) result = BattleMessage.instance?.GetExhaustCardList();
+            //若存在消耗"draw"关键字
+            else if(name.Contains("draw", StringComparison.OrdinalIgnoreCase)) result = BattleMessage.instance?.GetDrawCardList();
+            //若存在消耗"discard"关键字
+            else if(name.Contains("discard", StringComparison.OrdinalIgnoreCase)) result = BattleMessage.instance?.GetExhaustCardList();
+        }
+        return result;
     }
-    public List<Card> GetDiscardCardList_Copy()
-    {
-        return discardCardList.ToList();
-    }
+
+
     //手牌
     [SerializeField] private uint maxHandCardCount = 10;//最大手牌数
-    public uint GetMaxHandCardCount()
-    {
-        return maxHandCardCount;
-    }
+    public uint GetMaxHandCardCount() => maxHandCardCount;
     [SerializeField] private List<Card> handCardList = new List<Card>();
-    public List<Card> GetHandCardList()
-    {
-        return handCardList;
-    }
-    public List<Card> GetHandCardList_Copy()
-    {
-        return handCardList.ToList();
-    }
+    public List<Card> GetHandCardList() => handCardList;
+    public List<Card> GetHandCardList_Copy() => handCardList.ToList();
     [SerializeField] private int drawCardPreRound = 5;//每回合抽牌数
-    public int GetDrawCardPreRound()
-    {
-        return drawCardPreRound;
-    }
-    public void SetDrawCardPreRound(int count)
-    {
-        drawCardPreRound = count;
-    }
-    //没有本场战斗消耗的牌堆,个人感觉对于这个项目来说用处不大,加了之后就太像杀戮尖塔了
+    public int GetDrawCardPreRound() => drawCardPreRound;
+    public void SetDrawCardPreRound(int count) => drawCardPreRound = count;
+    //没有本场战斗消耗的牌堆,个人感觉对于这个项目来说用处不大,加了之后就太像杀戮尖塔了:不行,一定要加
     //卡牌相关的方法
     //可以将卡牌相关的指令包装为一个Cmd类
+    /*
+        0_1.判断一张牌是否在手牌中
+    */
+    public bool IsCardInHand(Card card) => (bool)handCardList?.Contains(card);
+    /*
+        0_2.判断一张牌是否在卡槽中
+    */
+    public bool IsCardInSlot(Card card)
+    {
+        if (card == null) return false;
+        foreach(CardSlot cl in GetAllCardSlot().ToList())
+        {
+            if(cl == null) continue;
+            if(cl.GetInnerCard() == card) return true; 
+        }
+        return false;
+    }
     /*
         1.弃掉一张牌
         弃牌时会检测是否有奇巧SLY关键字,若有则将卡牌打出
@@ -386,40 +387,36 @@ public class BattleMessage : MonoBehaviour
                 cardSlot?.SetInnerCard(null);
             }
         });
+        
+        yield return card.AfterExhaust();//触发消耗效果
+        animator?.SetTrigger("Exhaust");//触发消耗动画,由消耗动画触发消耗后的效果
+        //尝试播放卡片的消耗音效
+        card.GetComponent<CardVoiceController>()?.PlayCardVoice("Exhaust");
+        yield return null;//等待消耗动画转移
+        //获取消耗动画的时长
+        AnimatorStateInfo info = (AnimatorStateInfo)animator?.GetCurrentAnimatorStateInfo(0);
+        //将这张卡从牌堆中移除
         //卡牌列表检测
-        if (BattleMessage.instance?.GetHandCardList()?.Contains(card) == true)
+        if ((bool)BattleMessage.instance?.GetHandCardList()?.Contains(card))
         {
             BattleMessage.instance?.GetHandCardList()?.Remove(card);
         }
-        if (BattleMessage.instance?.GetDrawCardList()?.Contains(card) == true)
+        if ((bool)BattleMessage.instance?.GetDrawCardList()?.Contains(card))
         {
             BattleMessage.instance?.GetDrawCardList()?.Remove(card);
         }
-        if (BattleMessage.instance?.GetDiscardCardList()?.Contains(card) == true)
+        if ((bool)BattleMessage.instance?.GetDiscardCardList()?.Contains(card))
         {
             BattleMessage.instance?.GetDiscardCardList()?.Remove(card);
         }
-        animator?.SetTrigger("Exhaust");//触发消耗动画,由消耗动画触发消耗后的效果
-        yield return card.AfterExhaust();//触发消耗效果
-                                         //获取消耗动画的时长
-        AnimationClip[] clips = animator?.runtimeAnimatorController.animationClips;
-        float haltTime = 0;
-        foreach (AnimationClip clip in clips)
-        {
-            if (clip?.name == "Exhaust")
-            {
-                haltTime = (float)clip?.length;
-                break;
-            }
-        }
-        //将这张卡从牌堆中移除
-        if (drawCardList.Contains(card)) drawCardList.Remove(card);
-        if (handCardList.Contains(card)) handCardList.Remove(card);
-        if (discardCardList.Contains(card)) discardCardList.Remove(card);
-        //尝试播放卡片的消耗音效
-        card.GetComponent<CardVoiceController>()?.PlayCardVoice("Exhaust");
+        //if (drawCardList.Contains(card)) drawCardList.Remove(card);
+        //if (handCardList.Contains(card)) handCardList.Remove(card);
+        //if (discardCardList.Contains(card)) discardCardList.Remove(card);
         //等待消耗动画结束
-        yield return haltTime;
+        //Debug.Log("[BattleMessage]: Exhaust Card Animation normalizedTime: " + info.normalizedTime);
+        yield return new WaitForSeconds((float)info.length);
+        //将这张卡牌加入消耗牌堆中
+        exhaustCardList?.Add(card);
     }
 
     /*

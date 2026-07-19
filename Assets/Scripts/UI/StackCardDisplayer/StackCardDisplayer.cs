@@ -38,10 +38,8 @@ public class StackCardDisplayer : MonoBehaviour
     {
         this.cardList = cardList.ToList();
     }
-    public List<Card> GetCardList()
-    {
-        return cardList.ToList();
-    }
+    public List<Card> GetCardList() => cardList;
+    public List<Card> GetCardList_Copy() => cardList.ToList();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     //键是临时生成的卡牌,值是原来的卡牌列表中的卡牌
     [SerializeField] private SerializedDictionary<Card,Card> sourceCardDict;
@@ -77,7 +75,7 @@ public class StackCardDisplayer : MonoBehaviour
         {
             if(card == null) continue;
             Card displayCard = Instantiate(card, content) as Card;
-            //关闭不i要的组件
+            //关闭不要的组件
             displayCard.GetComponent<CardInsertSlotChecker>().enabled = false;
             displayCard.GetComponent<CardInStackChecker>().enabled = false;
             displayCard.GetComponent<CardPlayAreaChecker>().enabled = false;
@@ -92,6 +90,10 @@ public class StackCardDisplayer : MonoBehaviour
             displayCard.transform.localPosition = Vector3.zero;
             displayCard.transform.localRotation = Quaternion.identity;
             displayCard.transform.localScale = Vector3.one;
+            //强制设置animator的动画回到最初选项
+            // 强制立即回到 Front（无视所有过渡）
+            displayCard.GetComponent<Animator>()?.Rebind();
+            displayCard.GetComponent<Animator>()?.Play("Front", 0, 0f);
             //设置Canvas排序
             Canvas disCavs = displayCard.GetComponent<Canvas>();
             if(disCavs!=null) disCavs.sortingOrder = (int)canvas?.sortingOrder + 100;

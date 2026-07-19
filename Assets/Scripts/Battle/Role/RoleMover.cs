@@ -14,6 +14,7 @@ public class RoleMover : MonoBehaviour
     public void ChangeRoleDirection(BattleDirection direction)
     {
         role?.SetDirection(direction);
+        role.GetComponent<RoleAnimTrigger>()?.TriggerAnim("Rotate");
     }
     //每次移动消耗玩家的Rice/IcePoint
     public void MoveRole(BattleDirection direction,int distance,uint costPoint)
@@ -67,6 +68,8 @@ public class RoleMover : MonoBehaviour
         {
             BattleMessage.instance.SetIcePoint(BattleMessage.instance.GetIcePoint() - costPoint);
         }
+        
+        role.GetComponent<RoleAnimTrigger>()?.TriggerAnim("Walk");
     }
 
     public void SwitchFlyState(uint cost = 0)
@@ -95,5 +98,6 @@ public class RoleMover : MonoBehaviour
         {
             BattleMessage.instance.SetIcePoint(BattleMessage.instance.GetIcePoint() - cost);
         }
+        role.GetComponent<RoleAnimTrigger>()?.TriggerAnim("Fly");
     }
 }

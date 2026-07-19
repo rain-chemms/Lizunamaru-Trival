@@ -15,7 +15,6 @@ public class CardAnimatorEvents : MonoBehaviour
     //再消耗动画结束时调用
     public void AfterExhaust()
     {
-        if(card == null) return;
-        Destroy(card.gameObject);
+        card.GetComponent<Animator>()?.SetBool("IsHidden",true);
     }
 }
