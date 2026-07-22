@@ -287,7 +287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449609a00076cb148b79d8e2f49332f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawOrDiscard: 0
+  cardStackName: discardCardList
+  cardList: []
   sortOffset: -20
 --- !u!1 &275849587715428329
 GameObject:
@@ -4472,7 +4473,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449609a00076cb148b79d8e2f49332f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawOrDiscard: 0
+  cardStackName: exhaustCardList
+  cardList: []
   sortOffset: -20
 --- !u!1 &7478395392113486428
 GameObject:
@@ -4989,7 +4991,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449609a00076cb148b79d8e2f49332f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawOrDiscard: 1
+  cardStackName: drawCardList
+  cardList: []
   sortOffset: -20
 --- !u!1001 &898626553149311540
 PrefabInstance:

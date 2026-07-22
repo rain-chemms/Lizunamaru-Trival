@@ -24,8 +24,8 @@ public class CardInStackChecker : MonoBehaviour
 
     private void CheckCardInStack()
     {
-        List<Card> drawStack = BattleMessage.instance.GetDrawCardList();
-        List<Card> discardStack = BattleMessage.instance.GetDiscardCardList();
+        List<Card> drawStack = BattleMessage.instance?.GetDrawCardList();
+        List<Card> discardStack = BattleMessage.instance?.GetDiscardCardList();
         if((bool)drawStack?.Contains(card) || (bool)discardStack?.Contains(card))
         {
             if(!cardDisplayer.IsInStack()) cardDisplayer?.SetInStack(true);

@@ -166,17 +166,19 @@ public class BattleMessage : MonoBehaviour
     public List<Card> GetCardListByName(string name)
     {
         //依据卡牌列表名称获取卡牌列表
-        FieldInfo field = typeof(BattleMessage).GetField(name,BindingFlags.NonPublic | BindingFlags.Instance);
-        List<Card> result = (List<Card>)field.GetValue(BattleMessage.instance);
-        //获取失败时,进行判断
+        List<Card> result = null;
+        //若存在消耗"exhaust"关键字
+        if(name.Contains("exhaust", StringComparison.OrdinalIgnoreCase)) result = BattleMessage.instance?.GetExhaustCardList();
+        //若存在消耗"draw"关键字
+        else if(name.Contains("draw", StringComparison.OrdinalIgnoreCase)) result = BattleMessage.instance?.GetDrawCardList();
+        //若存在消耗"discard"关键字
+        else if(name.Contains("discard", StringComparison.OrdinalIgnoreCase)) result = BattleMessage.instance?.GetDiscardCardList();
+        
+        //获取失败时,进行名称匹配
         if(result == null)
         {
-            //若存在消耗"exhaust"关键字
-            if(name.Contains("exhaust", StringComparison.OrdinalIgnoreCase)) result = BattleMessage.instance?.GetExhaustCardList();
-            //若存在消耗"draw"关键字
-            else if(name.Contains("draw", StringComparison.OrdinalIgnoreCase)) result = BattleMessage.instance?.GetDrawCardList();
-            //若存在消耗"discard"关键字
-            else if(name.Contains("discard", StringComparison.OrdinalIgnoreCase)) result = BattleMessage.instance?.GetExhaustCardList();
+            FieldInfo field = typeof(BattleMessage).GetField(name,BindingFlags.NonPublic | BindingFlags.Public);
+            result = (List<Card>)field.GetValue(BattleMessage.instance);
         }
         return result;
     }

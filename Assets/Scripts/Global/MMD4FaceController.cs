@@ -18,7 +18,7 @@ public class MMD4FaceController : MonoBehaviour
     private void FreshMorphList()
     {
         morphList.Clear();
-        foreach (MMD4MecanimModelImpl.Morph morph in model.morphList.ToList())
+        foreach (MMD4MecanimModelImpl.Morph morph in model?.morphList.ToList())
         {
             morphList.Add(morph);
         }
