@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: InTurnAutoActions
+  m_EditorClassIdentifier: 
+  m_GroupName: InTurnAutoActions
+  m_GUID: 428ab566d988d784cae8a54da48e23a3
+  m_SerializeEntries:
+  - m_GUID: c21f07a2766e3f546b4da36c69fe8702
+    m_Address: Assets/GameAssets/ScritpableObject/InTurnAutoActioner/Marisa_Debug/Marisa_Debug_InTurnAction_1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: e8888f07cbfd2fc48b162c127f18c7e3, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 10ddd1b6352adde4aae227e4e2d295bc, type: 2}
+    - {fileID: 11400000, guid: 1339f3b691abda145b7b00c08a10d855, type: 2}

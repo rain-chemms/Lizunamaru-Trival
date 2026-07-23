@@ -12,7 +12,7 @@ public class RoleDirectionSetter : MonoBehaviour
         if(role == null) role = GetComponent<Role>();
         if(role!=null)
         {
-            role.GetComponent<RoleMover>()?.ChangeRoleDirection(role.GetDirection());
+            role.SetDirection(role.GetDirection());
         }
     }
 

@@ -3,7 +3,7 @@ using UnityEngine;
 
 //角色移动器,专门控制Role的飞行,移动和方向的
 [RequireComponent(typeof(Role))]
-public class RoleMover : MonoBehaviour
+public class PlayerMover : MonoBehaviour
 {
     [SerializeField] private Role role;
     void Start()

@@ -26,7 +26,7 @@ public class BattleRoundController : MonoBehaviour
         bool side = BattleMessage.instance.IsPlayerTurn();
         foreach (Role role in BattleMessage.instance.GetRoleList().ToList())
         {
-            if (role.GetSide() == side)//是当前回合的玩家角色
+            if ((bool)role?.GetSide() == side)//是当前回合的玩家角色
             {
                 if (!role.IsRoundOperateEnd()) return;
             }

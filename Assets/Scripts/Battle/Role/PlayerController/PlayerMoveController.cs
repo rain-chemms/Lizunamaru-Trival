@@ -8,7 +8,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 //玩家控制器,负责检查并控制玩家移动
 [RequireComponent(typeof(Role))]
-[RequireComponent(typeof(RoleMover))]
+[RequireComponent(typeof(PlayerMover))]
 public class PlayerMoveController : MonoBehaviour
 {
     [SerializeField] private uint switchFlyCosy = 0;
@@ -25,7 +25,7 @@ public class PlayerMoveController : MonoBehaviour
     [SerializeField] private InputActionAsset inputSystem;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private Role role;
-    [SerializeField] private RoleMover roleMover;
+    [SerializeField] private PlayerMover roleMover;
     async void Start()
     {
         if(inputSystem == null) 
@@ -42,7 +42,7 @@ public class PlayerMoveController : MonoBehaviour
                 Debug.LogError("[PlayerMoveController] Failed To Get The InputActionAsset!");
             }
         }
-        if(roleMover == null) roleMover = GetComponent<RoleMover>();
+        if(roleMover == null) roleMover = GetComponent<PlayerMover>();
         if(role == null) role = GetComponent<Role>();
     }
 

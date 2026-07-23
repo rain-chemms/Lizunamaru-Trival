@@ -29,12 +29,12 @@ public class BattleMessage : MonoBehaviour
     [SerializeField] private string enemyTurnTextKey = "RoundChange_EnermyTurn";
     [SerializeField] private uint round = 0;//回合数数
     public uint GetRound() => round;
-    
+
     [SerializeField] private bool isPlayerTurn = true;//是否是玩家回合
     public bool IsPlayerTurn() => isPlayerTurn;
-    
+
     public void SetIsPlayerTurn(bool isPlayerTurn) => this.isPlayerTurn = isPlayerTurn;
-    
+
     /*
         扩展方法1:依据当前的回合进行回合切换
     */
@@ -43,6 +43,13 @@ public class BattleMessage : MonoBehaviour
         //丢弃所有手牌到弃牌堆
         foreach (Card card in handCardList.ToList())
         {
+            //如果说卡牌存在虚无关键字,则直接消耗卡牌
+            if (card.GetCardKeyWords().Contains(CardKeyWord.ETHEREAL))
+            {
+                //消耗卡牌
+                yield return ExhaustCard(card);
+                continue;
+            }
             handCardList.Remove(card);
             //卡槽中的卡不动
             discardCardList.Add(card);
@@ -54,14 +61,16 @@ public class BattleMessage : MonoBehaviour
             if (role?.GetSide() == isPlayerTurn)
             {
                 role.SetRoundOperateEnd(false);
+                //若当前角色存在自动操作操作脚本(AI控制),则执行的自动操作
             }
         }
+
         //设置播放本地化文字
         //寻找本地化键值对
-        
+
         //在回合切换之前获取控制的玩家角色的所属阵营
         //bool showTurn = true;
-        Role controlPlayer = GetControlPlayer();        
+        Role controlPlayer = GetControlPlayer();
         string key = "";
         //设置键值
         if (controlPlayer?.GetSide() == isPlayerTurn)
@@ -105,6 +114,16 @@ public class BattleMessage : MonoBehaviour
             icePoint += iceChargePreRound + ricePoint;//将剩余的ricePoint变为icePoint
             ricePoint = 0;
         }
+
+        //玩家获取能量之后
+        //若当前角色存在自动操作操作脚本(AI控制),则执行的自动操作        
+        foreach (Role role in roleList)
+        {
+            if (role?.GetSide() == isPlayerTurn)
+            {
+                yield return role.GetComponent<InTurnAutoFuntioner>()?.Excute();
+            }
+        }
         //增加回合数
         round++;
     }
@@ -113,7 +132,7 @@ public class BattleMessage : MonoBehaviour
     [SerializeField] private uint controlPlayerID = 0;//控制的玩家的ID,卡牌触发系统从这个id的玩家中生效
     public uint GetControlPlayerID() => controlPlayerID;
     public void SetControlPlayerID(uint id) => controlPlayerID = id;
-    
+
     [SerializeField] private List<Role> roleList = new List<Role>();//敌人与玩家对象的列表
     public List<Role> GetRoleList() => roleList;
     public List<Role> GetRoleList(bool side) => roleList.Where(role => role.GetSide() == side).ToList();
@@ -129,7 +148,8 @@ public class BattleMessage : MonoBehaviour
         if (roleList == null) return null;
         foreach (Role role in roleList)
         {
-            if (role.GetID() == id && role.GetSide() == side)
+            if (role == null) continue;
+            if (role?.GetID() == id && role?.GetSide() == side)
             {
                 return role;
             }
@@ -140,8 +160,39 @@ public class BattleMessage : MonoBehaviour
         扩展方法2:依据当前存储的玩家信息,获取目前正在控制的玩家
             依赖扩展方法1
     */
+    /*
+        扩展方法3:获取距离自身最近的敌方Role
+    */
+    public Role GetNearestEnermy(Role self)
+    {
+        if (self == null) return null;
+
+        var roleList = BattleMessage.instance?.roleList;
+        if (roleList == null || roleList.Count == 0) return null;
+
+        Role targetRole = null;
+        long minSqrDist = long.MaxValue; //用long避免溢出
+        Vector2Int selfPos = self.GetGridIndex(); //缓存自身坐标
+
+        foreach (Role role in roleList)
+        {
+            if (role == null) continue;
+            if (self.GetSide() == role.GetSide()) continue;
+
+            Vector2Int diff = role.GetGridIndex() - selfPos; //只算一次差值
+            long sqrDist = (long)diff.x * diff.x + (long)diff.y * diff.y; //手动转 long 防溢出
+
+            if (sqrDist < minSqrDist)//严格小于，结果稳定
+            {
+                minSqrDist = sqrDist;
+                targetRole = role;
+            }
+        }
+        return targetRole;
+    }
+
     public Role GetControlPlayer() => GetRole(controlPlayerID, isPlayerTurn);//默认获取True阵营的玩家
-    
+
     /*
         角色扩展功能
         1.获取防御
@@ -154,7 +205,7 @@ public class BattleMessage : MonoBehaviour
     //抽牌堆
     [SerializeField] private List<Card> drawCardList = new List<Card>();
     public List<Card> GetDrawCardList() => drawCardList;
-    
+
     public List<Card> GetDrawCardList_Copy() => drawCardList.ToList();
     //弃牌堆
     [SerializeField] private List<Card> discardCardList = new List<Card>();
@@ -168,16 +219,16 @@ public class BattleMessage : MonoBehaviour
         //依据卡牌列表名称获取卡牌列表
         List<Card> result = null;
         //若存在消耗"exhaust"关键字
-        if(name.Contains("exhaust", StringComparison.OrdinalIgnoreCase)) result = BattleMessage.instance?.GetExhaustCardList();
+        if (name.Contains("exhaust", StringComparison.OrdinalIgnoreCase)) result = BattleMessage.instance?.GetExhaustCardList();
         //若存在消耗"draw"关键字
-        else if(name.Contains("draw", StringComparison.OrdinalIgnoreCase)) result = BattleMessage.instance?.GetDrawCardList();
+        else if (name.Contains("draw", StringComparison.OrdinalIgnoreCase)) result = BattleMessage.instance?.GetDrawCardList();
         //若存在消耗"discard"关键字
-        else if(name.Contains("discard", StringComparison.OrdinalIgnoreCase)) result = BattleMessage.instance?.GetDiscardCardList();
-        
+        else if (name.Contains("discard", StringComparison.OrdinalIgnoreCase)) result = BattleMessage.instance?.GetDiscardCardList();
+
         //获取失败时,进行名称匹配
-        if(result == null)
+        if (result == null)
         {
-            FieldInfo field = typeof(BattleMessage).GetField(name,BindingFlags.NonPublic | BindingFlags.Public);
+            FieldInfo field = typeof(BattleMessage).GetField(name, BindingFlags.NonPublic | BindingFlags.Public);
             result = (List<Card>)field.GetValue(BattleMessage.instance);
         }
         return result;
@@ -206,10 +257,10 @@ public class BattleMessage : MonoBehaviour
     public bool IsCardInSlot(Card card)
     {
         if (card == null) return false;
-        foreach(CardSlot cl in GetAllCardSlot().ToList())
+        foreach (CardSlot cl in GetAllCardSlot().ToList())
         {
-            if(cl == null) continue;
-            if(cl.GetInnerCard() == card) return true; 
+            if (cl == null) continue;
+            if (cl.GetInnerCard() == card) return true;
         }
         return false;
     }
@@ -389,7 +440,7 @@ public class BattleMessage : MonoBehaviour
                 cardSlot?.SetInnerCard(null);
             }
         });
-        
+
         yield return card.AfterExhaust();//触发消耗效果
         animator?.SetTrigger("Exhaust");//触发消耗动画,由消耗动画触发消耗后的效果
         //尝试播放卡片的消耗音效
@@ -604,13 +655,13 @@ public class BattleMessage : MonoBehaviour
     public void ResetBattleSceneByLodeInMessage(BattleLodeInMessage lodeInMessage)
     {
         //确保参数有效
-        if(lodeInMessage == null) 
+        if (lodeInMessage == null)
         {
             Debug.LogError("[BattleMessage]: BattleLodeInMessage is null, Please Check!");
             return;
         }
         BattleBoard board = BattleBoard.instance;
-        if(board == null) 
+        if (board == null)
         {
             Debug.LogError("[BattleMessage]: BattleBoard is null, Please Check the Instance is really exist!");
             return;
@@ -619,44 +670,44 @@ public class BattleMessage : MonoBehaviour
             一下部分为清除已有的战斗场景信息
         */
         //清除战斗信息中的所有角色(包括控制的玩家)
-        foreach(Role role in roleList)
+        foreach (Role role in roleList)
         {
-            if(role != null)
+            if (role != null)
             {
                 roleList.Remove(role);
                 Destroy(role.gameObject);
             }
         }
         //清空卡牌列表
-        foreach(Card card in handCardList)
+        foreach (Card card in handCardList)
         {
-            if(card != null)
+            if (card != null)
             {
                 handCardList.Remove(card);
                 Destroy(card.gameObject);
             }
         }
-        foreach(Card card in discardCardList)
+        foreach (Card card in discardCardList)
         {
-            if(card != null)
+            if (card != null)
             {
                 discardCardList.Remove(card);
                 Destroy(card.gameObject);
             }
         }
-        foreach(Card card in drawCardList)
+        foreach (Card card in drawCardList)
         {
-            if(card != null)
+            if (card != null)
             {
                 drawCardList.Remove(card);
                 Destroy(card.gameObject);
             }
         }
         //卡槽中的卡牌
-        foreach(CardSlot cardSlot in GetAllCardSlot().ToList())
+        foreach (CardSlot cardSlot in GetAllCardSlot().ToList())
         {
-            if(cardSlot == null) continue;
-            if(cardSlot.GetInnerCard() != null) 
+            if (cardSlot == null) continue;
+            if (cardSlot.GetInnerCard() != null)
             {
                 Destroy(cardSlot.GetInnerCard().gameObject);
                 cardSlot.SetInnerCard(null);
@@ -664,13 +715,13 @@ public class BattleMessage : MonoBehaviour
         }
         //清空BattleBoard中的棋盘格
         List<BattleGrid> grids = board.GetBattleGridList();
-        if(grids!=null)
+        if (grids != null)
         {
-            foreach(BattleGrid grid in grids)
+            foreach (BattleGrid grid in grids)
             {
-                grids.Remove(grid);    
+                grids.Remove(grid);
                 Destroy(grid.gameObject);
-            }   
+            }
         }
         /*
             一下部分为依据LodeInMessage信息初始化战斗场景
@@ -690,10 +741,10 @@ public class BattleMessage : MonoBehaviour
         //初始化玩家的手牌
 
         //初始化敌人及其位置
-        foreach(KeyValuePair<Vector2Int, Role> role_pair in lodeInMessage.GetEnermyDict().ToList())
+        foreach (KeyValuePair<Vector2Int, Role> role_pair in lodeInMessage.GetEnermyDict().ToList())
         {
-            if(role_pair.Value == null) continue;//敌人角色为空时跳过
-            Role role = Instantiate(role_pair.Value,board.transform);//向棋盘中加入角色
+            if (role_pair.Value == null) continue;//敌人角色为空时跳过
+            Role role = Instantiate(role_pair.Value, board.transform);//向棋盘中加入角色
             //初始化敌人角色位置
             role?.SetGridIndex(role_pair.Key);
             //初始化敌人角色ID
