@@ -34,6 +34,12 @@ public class InTurnAutoAction : ScriptableObject
     [Header("是否开启攻击行为")]
     [SerializeField] private bool attackCtgOpen = false;
     [SerializeField] private List<AttackAction> bulletDict = new List<AttackAction>();//子弹及其攻击方式字典
+    [Header("是否显示符卡界面")]
+    [SerializeField] private bool openSpellDisplay = false;
+    [SerializeField] private bool leftOrRightSD = false;//是在左侧还是右侧进行符卡的显示
+    [SerializeField] private Sprite spellSprite;//符卡的人物立绘Sprite
+    [SerializeField] private string spellTextKey = "Spell_Debug";//符卡的文本的本地化键值
+    [SerializeField] private string searchTable = "SpellDisplayTexts";//搜索本地字典
 
     [Header("是否开启召唤行为")]
     [SerializeField] private bool summonCtgOpen = false;
@@ -45,6 +51,11 @@ public class InTurnAutoAction : ScriptableObject
     public IEnumerator ActionExcute(Role role)
     {
         if(role == null) yield break;
+        //优先检测并先显示符卡
+        if(openSpellDisplay)
+        {
+            yield return SpellAttackDisplayer.instance?.WakeDisplayer(spellSprite,leftOrRightSD,spellTextKey,searchTable);
+        }
         //产生移动和改变飞行状态
         //不对玩家的能量系统产生变化
         if(moveCtgOpen)
@@ -77,6 +88,7 @@ public class InTurnAutoAction : ScriptableObject
                 else if(target.y >= BattleBoard.instance?.GetWidthAndHeight().y) target.y = (int)BattleBoard.instance?.GetWidthAndHeight().y - 1;
                 //移动
                 role.SetGridIndex(target);
+                role.SetDirection(move.direction);//设置移动方向
             }  
         }
         //攻击

@@ -91,7 +91,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Dead
-  m_Speed: 3.5
+  m_Speed: 4.5
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -139,7 +139,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Walk
-  m_Speed: 3.5
+  m_Speed: 4.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -7057255555957697163}
@@ -191,7 +191,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Attack
-  m_Speed: 3.5
+  m_Speed: 4.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 727167994549220349}
@@ -218,7 +218,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Dash
-  m_Speed: 3.5
+  m_Speed: 4.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 2919034890960709430}
@@ -245,7 +245,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Fly
-  m_Speed: 3.5
+  m_Speed: 4.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1981717147991905745}
@@ -518,7 +518,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Behit
-  m_Speed: 3.5
+  m_Speed: 4.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 8189279208002713226}
@@ -614,7 +614,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Defend
-  m_Speed: 3.5
+  m_Speed: 4.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 153626832810912300}
@@ -663,7 +663,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Rotate
-  m_Speed: 3.5
+  m_Speed: 4.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 7789050925407761655}
@@ -690,7 +690,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Skill
-  m_Speed: 3.5
+  m_Speed: 4.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -2163874839926104277}

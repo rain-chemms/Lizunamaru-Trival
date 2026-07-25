@@ -15,6 +15,16 @@ MonoBehaviour:
   m_GroupName: RoleFaceMorphData
   m_GUID: 1951183ab4634d742b36ba2277df7aba
   m_SerializeEntries:
+  - m_GUID: 01691f4dfca4b104cace1d0e26ac4143
+    m_Address: Assets/GameAssets/Anims/Roles/Marisa/Morphs/Marisa_Normal.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 04f1bf482474b2f4c83520b868773e71
+    m_Address: Assets/GameAssets/Anims/Roles/Marisa/Morphs/Marisa_Skill.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 13c059dcce0b92e49817e75f753a488d
     m_Address: Assets/GameAssets/Anims/Roles/Lizunamaru/Morphs/DefendEyes.asset
     m_ReadOnly: 0
@@ -40,8 +50,28 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 503d2a0c87d980242bd298a0a12e7887
+    m_Address: Assets/GameAssets/Anims/Roles/Marisa/Morphs/Marisa_Rotate.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 590135b845a06d042aa9e7d00053e209
+    m_Address: Assets/GameAssets/Anims/Roles/Marisa/Morphs/Marisa_Attack.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 608f8673fa0bc3a46a63d2c8876efda4
     m_Address: Assets/GameAssets/Anims/Roles/Lizunamaru/Morphs/SkillRelease.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 70e9d41d60a45234a8833047fff0c6dd
+    m_Address: Assets/GameAssets/Anims/Roles/Marisa/Morphs/Marisa_Dash.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86e861d64ca1bed43805a4025e339a24
+    m_Address: Assets/GameAssets/Anims/Roles/Marisa/Morphs/Marisa_Fly.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -50,8 +80,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d4ccd008d4f24d4ab473c172113e7e4
+    m_Address: Assets/GameAssets/Anims/Roles/Marisa/Morphs/Marisa_Defend.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd8bfbda111f12249b1793d481b515e3
+    m_Address: Assets/GameAssets/Anims/Roles/Marisa/Morphs/Marisa_Dead.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e2d436ed51ed48f4cb3acb59f29c5a59
     m_Address: Assets/GameAssets/Anims/Roles/Lizunamaru/Morphs/CloseEyes.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: efdd9e81393322148972f035ef75c67b
+    m_Address: Assets/GameAssets/Anims/Roles/Marisa/Morphs/Marisa_Behit.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

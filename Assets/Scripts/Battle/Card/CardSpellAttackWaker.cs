@@ -1,14 +1,9 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.Localization.Components;
 using UnityEngine.Localization.Settings;
-using System.Linq;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using System;
-using UnityEngine.Events;
 
 
 //该脚本用于激活SpellAttackDisplayer释放相应的特效
@@ -46,6 +41,7 @@ public class CardSpellAttackWaker : MonoBehaviour
     }
     public IEnumerator WakeSpellAttackDisplayer(bool leftOrRight = true)
     {
+        /*
         SpellAttackDisplayer instance = SpellAttackDisplayer.instance;
         //设置图像
         Image img = instance?.GetRoleImage();
@@ -81,5 +77,7 @@ public class CardSpellAttackWaker : MonoBehaviour
             float length = stateInfo.length;
             yield return new WaitForSeconds(length / animator.speed); //等待动画播放完毕 
         }
+        */
+        yield return SpellAttackDisplayer.instance?.WakeDisplayer(sprite,leftOrRight,textKey,searchTable);
     }
 }

@@ -44,17 +44,30 @@ public class BattleMessage : MonoBehaviour
         foreach (Card card in handCardList.ToList())
         {
             //如果说卡牌存在虚无关键字,则直接消耗卡牌
+            if(card == null)//确保每张牌有效 
+            {
+                handCardList.Remove(card);
+                continue;
+            }
             if (card.GetCardKeyWords().Contains(CardKeyWord.ETHEREAL))
             {
                 //消耗卡牌
                 yield return ExhaustCard(card);
                 continue;
             }
-            handCardList.Remove(card);
-            //卡槽中的卡不动
-            discardCardList.Add(card);
+            //扔掉手中不含保留关键字的牌
+            //卡槽中的牌不动
+            if(!card.GetCardKeyWords().Contains(CardKeyWord.RETAIN))
+            {
+                handCardList.Remove(card);
+                discardCardList.Add(card);    
+            }
         }
-        isPlayerTurn = !isPlayerTurn;//切换回合
+        /*
+            切换回合
+        */
+        isPlayerTurn = !isPlayerTurn;
+    
         //并将所有当前回合角色的回合操作设置为非结束
         foreach (Role role in roleList)
         {
@@ -68,11 +81,9 @@ public class BattleMessage : MonoBehaviour
         //设置播放本地化文字
         //寻找本地化键值对
 
-        //在回合切换之前获取控制的玩家角色的所属阵营
-        //bool showTurn = true;
-        Role controlPlayer = GetControlPlayer();
         string key = "";
         //设置键值
+        Role controlPlayer = GetControlPlayer();//获取你控制的角色
         if (controlPlayer?.GetSide() == isPlayerTurn)
         {
             key = selfTurnTextKey;
@@ -101,7 +112,7 @@ public class BattleMessage : MonoBehaviour
         //等待动画器结束
         yield return info.length * info.speed;//显示回合切换效果
         //检测控制的角色的回合状态
-        controlPlayer = GetControlPlayer();
+        //controlPlayer = GetControlPlayer();
         if (controlPlayer?.GetSide() == isPlayerTurn)
         {
             int drawCardCount = drawCardPreRound/*要加一些其他的东西影响抽牌数*/;
@@ -132,6 +143,10 @@ public class BattleMessage : MonoBehaviour
     [SerializeField] private uint controlPlayerID = 0;//控制的玩家的ID,卡牌触发系统从这个id的玩家中生效
     public uint GetControlPlayerID() => controlPlayerID;
     public void SetControlPlayerID(uint id) => controlPlayerID = id;
+    
+    [SerializeField] private bool yourSide = true;//目前玩家所处的阵营
+    public bool GetYourSide() => yourSide;
+    public void SetYourSide(bool side) => yourSide = side;
 
     [SerializeField] private List<Role> roleList = new List<Role>();//敌人与玩家对象的列表
     public List<Role> GetRoleList() => roleList;
@@ -191,7 +206,7 @@ public class BattleMessage : MonoBehaviour
         return targetRole;
     }
 
-    public Role GetControlPlayer() => GetRole(controlPlayerID, isPlayerTurn);//默认获取True阵营的玩家
+    public Role GetControlPlayer() => GetRole(controlPlayerID, yourSide);//默认获取True阵营的玩家
 
     /*
         角色扩展功能

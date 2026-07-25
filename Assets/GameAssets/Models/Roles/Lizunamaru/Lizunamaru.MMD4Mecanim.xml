@@ -142,18 +142,19 @@
     <waitProcessExitting>false</waitProcessExitting>
     <pmxAssetPath>Assets/GameAssets/Models/Roles/Lizunamaru/Lizunamaru.pmx</pmxAssetPath>
     <vmdAssetPathList>
-      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Idle.vmd</string>
-      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Attack.vmd</string>
-      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Behit.vmd</string>
-      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Dash.vmd</string>
-      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Defend.vmd</string>
-      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Fly.vmd</string>
-      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Skill.vmd</string>
-      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Walk.vmd</string>
-      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Dead.vmd</string>
-      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Rotate.vmd</string>
+      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Anims/Attack.vmd</string>
+      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Anims/Behit.vmd</string>
+      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Anims/Dash.vmd</string>
+      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Anims/Dead.vmd</string>
+      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Anims/Defend.vmd</string>
+      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Anims/Fly.vmd</string>
+      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Anims/Idle.vmd</string>
+      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Anims/Rotate.vmd</string>
+      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Anims/Skill.vmd</string>
+      <string>Assets/GameAssets/Models/Roles/Lizunamaru/Anims/Walk.vmd</string>
     </vmdAssetPathList>
     <fbxOutputPath>Assets/GameAssets/Models/Roles/Lizunamaru/Lizunamaru.fbx</fbxOutputPath>
+    <fbxAssetPath>Assets/GameAssets/Models/Roles/Lizunamaru/Lizunamaru.fbx</fbxAssetPath>
     <bulletPhysicsVersion>_275</bulletPhysicsVersion>
     <useWineFlag>false</useWineFlag>
     <wine>Manual</wine>

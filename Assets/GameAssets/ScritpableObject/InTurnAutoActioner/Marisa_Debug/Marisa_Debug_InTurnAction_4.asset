@@ -21,6 +21,11 @@ MonoBehaviour:
   bulletDict:
   - bullet: {fileID: 6982345808307623780, guid: f73bf400300806a40a870797ab6da781, type: 3}
     attackCategory: 1
+  openSpellDisplay: 1
+  leftOrRightSD: 0
+  spellSprite: {fileID: 21300000, guid: aa511451f39e6044ba6eeaaf5c38fd31, type: 3}
+  spellTextKey: Spell_Debug
+  searchTable: SpellDisplayTexts
   summonCtgOpen: 0
   defendCtgOpen: 1
   defendPoint: 1
