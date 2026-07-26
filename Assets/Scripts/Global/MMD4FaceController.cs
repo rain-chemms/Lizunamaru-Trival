@@ -20,6 +20,7 @@ public class MMD4FaceController : MonoBehaviour
         morphList.Clear();
         foreach (MMD4MecanimModelImpl.Morph morph in model?.morphList.ToList())
         {
+            if(morph == null) continue;
             morphList.Add(morph);
         }
     }
@@ -30,6 +31,7 @@ public class MMD4FaceController : MonoBehaviour
         if(morphList == null) return ;
         foreach (MMD4MecanimModelImpl.Morph morph in morphList)
         {
+            if(morph == null) continue;
             morph.weight = 0f;
         }
         if(initMorph != null) SetMorph(initMorph);
@@ -46,7 +48,8 @@ public class MMD4FaceController : MonoBehaviour
             string dataName = morphData.Key;
             float weight = morphData.Value > 1f? 1f : morphData.Value < 0f ? 0f : morphData.Value;
             foreach (MMD4MecanimModelImpl.Morph morph in morphList)
-            {
+            {            
+                if(morph == null) continue;
                 if (morph.name.Equals(dataName))
                 {
                     morph.weight = weight;
