@@ -34,6 +34,12 @@ public enum MapNodeCategory
     BONUS//奖励箱
 }
 
+//地图区域类别:妖怪之山,人间之里,雾之湖(红魔馆)
+public enum MapAreaCategory
+{
+    MonsterMount,//妖怪之山
+}
+
 //卡牌关键字
 public enum CardKeyWord
 {
