@@ -31,8 +31,8 @@ namespace MapSystem{
         public List<MapNode> GetNodeList() => nodeList;
         public List<MapNode> GetNodeList_Copy() => nodeList?.ToList();
         //地图的链接数据
-        [SerializeField] private Dictionary<Vector2Int,List<Vector2Int>> linkData = new Dictionary<Vector2Int, List<Vector2Int>>();
-        public Dictionary<Vector2Int,List<Vector2Int>> GetLinkData() => linkData;
+        [SerializeField] private SerializableDictionary<Vector2Int,List<Vector2Int>> linkData = new SerializableDictionary<Vector2Int, List<Vector2Int>>();
+        public SerializableDictionary<Vector2Int,List<Vector2Int>> GetLinkData() => linkData;
         //地图所处的区域
         [SerializeField] private MapAreaCategory mapArea;
         public MapAreaCategory GetMapArea() => mapArea;

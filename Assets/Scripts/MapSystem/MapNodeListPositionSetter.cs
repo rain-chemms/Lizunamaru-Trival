@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,6 +32,9 @@ namespace MapSystem
         public Vector2 GetGaps() => _gaps;
         public void SetGaps(Vector2 gaps) => _gaps = gaps;
         [SerializeField] private MapDisplayControlData controlSettings;
+        public bool VertialOrHorizontal() => controlSettings.verticalOrHorizontal;
+        public bool IsIncreaseX() => controlSettings.dlOrIc_x ? false : true;
+        public bool IsIncreaseY() => controlSettings.dlOrIc_y ? false : true;
         public void FreshTheMapNodePosition()
         {
             if(map == null) return;
@@ -43,8 +47,8 @@ namespace MapSystem
                 Vector2Int index = node.GetIndex();
                 //计算偏移量
                 Vector2 offset = new Vector2(
-                    (controlSettings.dlOrIc_x ? -1.0f : 1.0f) * (controlSettings.verticalOrHorizontal ? _gaps.x : _gaps.y) * index.x,
-                    (controlSettings.dlOrIc_y ? -1.0f : 1.0f) * (controlSettings.verticalOrHorizontal ?_gaps.y : _gaps.x) * index.y
+                    (controlSettings.dlOrIc_x ? -1.0f : 1.0f) * (controlSettings.verticalOrHorizontal ? index.x : index.y) * _gaps.x,
+                    (controlSettings.dlOrIc_y ? -1.0f : 1.0f) * (controlSettings.verticalOrHorizontal ? index.y: index.x) * _gaps.y
                 );
                 //尝试设置RectTransform
                 node.GetComponent<RectTransform>().localPosition = new Vector3(

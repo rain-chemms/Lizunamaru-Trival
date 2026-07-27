@@ -75,6 +75,98 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1213845296348480628
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 133988760229253538}
+  - component: {fileID: 1934814791297409542}
+  m_Layer: 0
+  m_Name: Spline
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &133988760229253538
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213845296348480628}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -346.98688, y: -720, z: 3386.4473}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4200053680380055561}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1934814791297409542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213845296348480628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: 0
+        y: 0
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -0
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0
+      Rotation:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+    m_MetaData:
+    - Mode: 0
+      Tension: 0.5
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Knots:
+    m_KnotsLink: []
 --- !u!1 &1265492310043092195
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,6 +181,7 @@ GameObject:
   - component: {fileID: 6394968697876999078}
   - component: {fileID: 8208616566129945358}
   - component: {fileID: 7206164471346142004}
+  - component: {fileID: 6405362129999519473}
   m_Layer: 5
   m_Name: Map
   m_TagString: Untagged
@@ -117,6 +210,7 @@ RectTransform:
   - {fileID: 1919553369255137932}
   - {fileID: 5714376332592515750}
   - {fileID: 920905653554927851}
+  - {fileID: 133988760229253538}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -208,6 +302,8 @@ MonoBehaviour:
   - {fileID: 2342405074541960576}
   - {fileID: 8462246523465205162}
   - {fileID: 3955792488567166951}
+  linkData:
+    m_keys: []
   mapArea: 0
   mapSize: {x: 0, y: 0}
 --- !u!114 &7206164471346142004
@@ -227,9 +323,26 @@ MonoBehaviour:
   _00Position: {x: 275, y: -250}
   _gaps: {x: 300, y: 300}
   controlSettings:
-    verticalOrHorizontal: 0
+    verticalOrHorizontal: 1
     dlOrIc_x: 0
     dlOrIc_y: 1
+--- !u!114 &6405362129999519473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265492310043092195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13393f2bd1ccf954eacf888ec44045d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  map: {fileID: 8208616566129945358}
+  mapNPS: {fileID: 7206164471346142004}
+  pathPrefab: {fileID: 9219212359597080645, guid: f57ab6c37935b3b45bce084175075090, type: 3}
+  pathList: []
+  scrollRect: {fileID: 2775713448418222348}
 --- !u!1 &2131095759800473983
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,7 +539,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1704.2849, y: -559.0237}
+  m_AnchoredPosition: {x: 1704.3, y: -559.0237}
   m_SizeDelta: {x: 3408.5303, y: 1118.0474}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5001815530430370600
@@ -1169,6 +1282,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapNodeTemplate (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5065806865956586785, guid: 923e0b15386152a4dbafa58aa9594df3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6768207873822850987, guid: 923e0b15386152a4dbafa58aa9594df3, type: 3}
       propertyPath: index.x
       value: 1
@@ -1285,6 +1402,10 @@ PrefabInstance:
     - target: {fileID: 5065806865956586785, guid: 923e0b15386152a4dbafa58aa9594df3, type: 3}
       propertyPath: m_Name
       value: MapNodeTemplate (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065806865956586785, guid: 923e0b15386152a4dbafa58aa9594df3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6768207873822850987, guid: 923e0b15386152a4dbafa58aa9594df3, type: 3}
       propertyPath: index.x
@@ -1407,6 +1528,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapNodeTemplate (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5065806865956586785, guid: 923e0b15386152a4dbafa58aa9594df3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6768207873822850987, guid: 923e0b15386152a4dbafa58aa9594df3, type: 3}
       propertyPath: index.x
       value: 4
@@ -1524,6 +1649,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapNodeTemplate (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5065806865956586785, guid: 923e0b15386152a4dbafa58aa9594df3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6768207873822850987, guid: 923e0b15386152a4dbafa58aa9594df3, type: 3}
       propertyPath: index.x
       value: 2
@@ -1640,6 +1769,10 @@ PrefabInstance:
     - target: {fileID: 5065806865956586785, guid: 923e0b15386152a4dbafa58aa9594df3, type: 3}
       propertyPath: m_Name
       value: MapNodeTemplate (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065806865956586785, guid: 923e0b15386152a4dbafa58aa9594df3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6768207873822850987, guid: 923e0b15386152a4dbafa58aa9594df3, type: 3}
       propertyPath: index.x
@@ -1762,6 +1895,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapNodeTemplate
       objectReference: {fileID: 0}
+    - target: {fileID: 5065806865956586785, guid: 923e0b15386152a4dbafa58aa9594df3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7480474226211188903, guid: 923e0b15386152a4dbafa58aa9594df3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1874,6 +2011,10 @@ PrefabInstance:
     - target: {fileID: 5065806865956586785, guid: 923e0b15386152a4dbafa58aa9594df3, type: 3}
       propertyPath: m_Name
       value: MapNodeTemplate (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065806865956586785, guid: 923e0b15386152a4dbafa58aa9594df3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6768207873822850987, guid: 923e0b15386152a4dbafa58aa9594df3, type: 3}
       propertyPath: index.x

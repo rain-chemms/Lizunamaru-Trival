@@ -5,7 +5,8 @@
 */
 using UnityEngine;
 using System.Collections.Generic;
-
+using System.Linq;
+using System;
 namespace MapSystem
 {
     //单例模式:使用地图加载器控制地图数据并加载关卡
@@ -31,7 +32,8 @@ namespace MapSystem
         }
         [SerializeField] private MapNode nodePrefab;//地图节点预制体模板
         public MapNode GetNodePrefab() => nodePrefab;
-        //依据种子重新生成一张地图
+        [SerializeField] public const int maxJumpDis = 2;//规定两层节点之间最大的跨越距离,不可以变
+        //依据相关信息重现一张地图
         //需要一个通用性的函数:只要调用它就可以通过种子完全重现出一摸一样的地图信息,即生成Map的连接信息和节点信息
         public void RecurMap(
             int seed/*地图种子*/,
@@ -43,6 +45,10 @@ namespace MapSystem
             Map map = Map.instance;
             if(map == null) return;
             //清除旧的节点以及连接信息
+            foreach(MapNode node in map.GetNodeList())
+            {
+                Destroy(node.gameObject);
+            }
             map.GetNodeList()?.Clear();
             map.GetLinkData()?.Clear();
             //设置基础数据
@@ -51,16 +57,138 @@ namespace MapSystem
             map.SetPlayerPos(playerIndex);
             //获取地图节点列表和连接信息的引用
             List<MapNode> mapNodes = map.GetNodeList();
-            Dictionary<Vector2Int, List<Vector2Int>> links = map.GetLinkData();//临接表
+            SerializableDictionary<Vector2Int, List<Vector2Int>> links = map.GetLinkData();//临接表
             /*
                 随机生长一个地图
                 地图不能存在路径交叉
             */
+            int effectLoop = 0; 
+            int ptrStrX = -1;    
+            //初始化随机数生成器
+            System.Random random = new System.Random(seed + effectLoop);
+            while(effectLoop < size.x)//循环地图列数次
+            {
+                //每两次选择不同的节点,依据种子随机选取起始点
+                int str = random.Next(0,size.x);//生成[0,列数-1]范围的整数
+                if(ptrStrX == str) continue;//本次循环无效
+                else ptrStrX = str;
 
-
-
-
+                //每次生长一棵树
+                int layer = 0;//初始层数为0
+                for(layer = 0;layer < size.y;layer++)
+                {
+                    //随机选取下一层的一个点范围内的点
+                    int min = 0;//最小限制,去左侧点中最大的节点
+                    int max = size.x - 1;//最大限制,去左侧点中最小的节点
+                    //确定最小范围和最大范围
+                    foreach(KeyValuePair<Vector2Int,List<Vector2Int>> kv in links)
+                    {
+                        Vector2Int key = kv.Key;
+                        List<Vector2Int> value = kv.Value;
+                        //点必须是同层的
+                        if(key.y == layer)
+                        {
+                            //查找所有大于str的点,获取max    
+                            if(key.x > str)
+                            {
+                                //遍历所有连接的下层节点
+                                foreach(Vector2Int data in value.ToList())
+                                {
+                                    //确保是下一层的节点且路径小于max值的
+                                    if(data.y == (key.y + 1) && data.x < max)
+                                    {
+                                        max = data.x;
+                                    }
+                                    else//否则删除无效的节点数据
+                                    {
+                                        value.Remove(data);
+                                    }    
+                                }
+                            }
+                            //查找所有小于str的点,获取min
+                            else if(key.x < str)
+                            {
+                                //遍历所有连接的下层节点
+                                foreach(Vector2Int data in value.ToList())
+                                {
+                                    //确保是下一层的节点且路径小于max值的
+                                    if(data.y == (key.y + 1) && data.x > min)
+                                    {
+                                        min = data.x;
+                                    }
+                                    else//否则删除无效的节点数据
+                                    {
+                                        value.Remove(data);
+                                    }
+                                
+                                }
+                            }
+                        }
+                    }
+                    //在有效范围内随机选择一个节点
+                    Vector2Int nextLayerIndex = new Vector2Int(
+                        random.Next(min,max + 1),
+                        layer
+                    );
+                    //若不存在当前索引的节点则创建一个新的节点
+                    bool haveNode = false;
+                    foreach(MapNode node in mapNodes.ToList())
+                    {
+                        //确保数据有效
+                        if(node == null) 
+                        {
+                            mapNodes.Remove(node);
+                            continue;
+                        }
+                        Vector2Int idx = node.GetIndex();
+                        if(idx.x == str && idx.y == layer)
+                        {
+                            haveNode = true;
+                            break;
+                        }
+                    }
+                    if(!haveNode)//创建一个新的节点
+                    {
+                        MapNode node = Instantiate(nodePrefab);
+                        //随机化节点的类型
+                        int si = Enum.GetValues(typeof(MapNodeCategory)).Length;
+                        node.SetCategory((MapNodeCategory)random.Next(0,si));//设置节点类型
+                        node.SetIndex(new Vector2Int(str,layer));//设置节点的索引
+                        //尝试刷新外观
+                        node.GetComponent<MapNodeSpriteSetter>()?.FreshNodeOutSight();
+                        mapNodes.Add(node);
+                    }
+                    //存入连接数据
+                    foreach(KeyValuePair<Vector2Int,List<Vector2Int>> kv in links)
+                    {
+                        //获取节点
+                        Vector2Int key = kv.Key;
+                        List<Vector2Int> value = kv.Value;
+                        //加入新的连接数据
+                        if(key.x == str && key.y == layer)
+                        {
+                            value.Add(nextLayerIndex);
+                        }
+                    }
+                    //切换str的位置到下一个节点处
+                    str = nextLayerIndex.x;
+                }
+                effectLoop++;
+            }
+            //尝试刷新地图的显示
+            map.GetComponent<MapNodeListPositionSetter>()?.FreshTheMapNodePosition();
+            map.GetComponent<MapNodePathDisplayer>()?.FreshMapPath();
         }
 
+        //测试一下
+        void Start()
+        {
+            RecurMap(
+                (int)SeedSetter.instance?.GetSeed_Int(),
+                new Vector2Int(5,15),
+                MapAreaCategory.MonsterMount,
+                new Vector2Int(0,0)
+            );
+        }
     }
 }
