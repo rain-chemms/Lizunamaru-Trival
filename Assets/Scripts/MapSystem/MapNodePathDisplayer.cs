@@ -30,6 +30,7 @@ namespace MapSystem
             if(map == null) return;          
             if(pathList == null) return;  
             if(map.GetLinkData() == null) return;
+            //Debug.Log("[MapNodePathDisplayer]: Map Links Number: <"+map?.GetLinkData()?.Count+">");
             //清除旧的连接信息
             foreach(Image path in pathList)
             {
@@ -67,13 +68,19 @@ namespace MapSystem
                     //所有条件都符合
                     //创建一条新的路径
                     Image pa = Instantiate(pathPrefab);
-                    pa.transform.SetParent(scrollRect.transform);//设置父节点为Map的ScrollRect
+                    pa.transform.SetParent(scrollRect.content.transform);//设置父节点为Map的ScrollRect
                     //设置路径的位置旋转
-                    Vector3 centerPos = (startNode.transform.position + endNode.transform.position) * 0.5f;//中心点位置
+                    //Vector3 centerPos = ((Vector3)startNode.GetComponent<RectTransform>()?.localPosition + (Vector3)endNode.GetComponent<RectTransform>()?.localPosition) * 0.5f;//中心点位置
                     //获取两个节点之差的方向
-                    Quaternion rotate = Quaternion.LookRotation(
-                        endNode.transform.position - startNode.transform.position
+                    Vector2 dir = (endNode.transform.position - startNode.transform.position).normalized;
+                    float angleZ = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                    Quaternion rotate = Quaternion.Euler(0f, 0f, angleZ);
+                    /*
+                    Quaternion.LookRotation(
+                       dir,
+                       Vector3.up
                     );//旋转的大小为起始点望向终点
+                    */
                     //依据旋转的大小计和地图节点设置器的信息计算算实际width
                     Vector2 _gaps = mapNPS.GetGaps();//获取间隔
                     bool vOrH = mapNPS.VertialOrHorizontal();//获取地图的走向
@@ -89,10 +96,11 @@ namespace MapSystem
                     RectTransform rtf = pa.GetComponent<RectTransform>();
                     if(rtf!=null)
                     {
-                        rtf.pivot = new Vector2(0.0f, 0.0f);
+                        //rtf.pivot = new Vector2(0.0f, 0.0f);
                         rtf.sizeDelta = new Vector2(width,rtf.sizeDelta.y);//设置大小
-                        rtf.rotation = rotate;
+                        rtf.localRotation = rotate;
                     }
+                    rtf.localPosition = startNode.transform.localPosition;//设置位置
                     pathList.Add(pa);//添加到路径列表
                 }
             }
