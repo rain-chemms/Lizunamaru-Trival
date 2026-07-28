@@ -23,6 +23,15 @@ namespace MapSystem{
             }
         }
 
+        [SerializeField] private Canvas canvas;
+        [SerializeField] private bool isDisplay = false;//是否显示地图
+        public bool IsDisplay() => isDisplay;
+        public void SetDisplay(bool isDisplay) => this.isDisplay = isDisplay;
+        void OnEnable()
+        {
+            if(canvas == null) canvas = GetComponent<Canvas>();
+        }
+        
         [SerializeField] private Vector2Int playerIndex;//玩家当前的位置
         public Vector2Int GetPlayerPos() => playerIndex;
         public void SetPlayerPos(Vector2Int pos) => playerIndex = pos;

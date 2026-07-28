@@ -2816,7 +2816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8559928122864879979, guid: eafa28d92558afc46b75341c92ea6698, type: 3}
       propertyPath: seed
-      value: ADSBC23457
+      value: ADSBC2345D
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3432,8 +3432,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map
       objectReference: {fileID: 0}
+    - target: {fileID: 2148162838376981840, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
+      propertyPath: m_ReferencePixelsPerUnit
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2775713448418222348, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: m_Inertia
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775713448418222348, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
+      propertyPath: m_MovementType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4200053680380055561, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
@@ -3567,6 +3575,10 @@ PrefabInstance:
     - target: {fileID: 7323987704774986867, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8208616566129945358, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
+      propertyPath: isDisplay
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
