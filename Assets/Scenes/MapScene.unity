@@ -456,6 +456,63 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1001 &1420668962
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 55aa921214374e14c9f7321cdfd2a5a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 670.91
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 55aa921214374e14c9f7321cdfd2a5a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 458.44528
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 55aa921214374e14c9f7321cdfd2a5a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1033.28
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 55aa921214374e14c9f7321cdfd2a5a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6575238
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 55aa921214374e14c9f7321cdfd2a5a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.65752333
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 55aa921214374e14c9f7321cdfd2a5a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.26012084
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 55aa921214374e14c9f7321cdfd2a5a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.26012057
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 55aa921214374e14c9f7321cdfd2a5a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 55aa921214374e14c9f7321cdfd2a5a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 55aa921214374e14c9f7321cdfd2a5a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 43.168
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 55aa921214374e14c9f7321cdfd2a5a5, type: 3}
+      propertyPath: m_Name
+      value: YinyangJade_Round
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 55aa921214374e14c9f7321cdfd2a5a5, type: 3}
 --- !u!1001 &1466479340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -577,3 +634,4 @@ SceneRoots:
   - {fileID: 464593369}
   - {fileID: 178769786}
   - {fileID: 1466479340}
+  - {fileID: 1420668962}
