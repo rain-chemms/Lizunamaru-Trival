@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using CardSystem;
 
 // 卡牌显示器
 // 必须挂载在卡牌的节点上

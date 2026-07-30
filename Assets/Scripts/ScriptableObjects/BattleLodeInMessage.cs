@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using GridObjectSystem.RoleSystem;
+
 
 [CreateAssetMenu(fileName = "BattleLodeInMessage", menuName = "Scriptable Objects/BattleLodeInMessage")]
 public class BattleLodeInMessage : ScriptableObject

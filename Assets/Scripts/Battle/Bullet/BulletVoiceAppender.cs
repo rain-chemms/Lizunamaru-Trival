@@ -2,60 +2,63 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
-public class BulletVoiceAppender : BulletAppender
+namespace BulletSystem
 {
-    [SerializeField] private List<AudioSource> audioSources = new List<AudioSource>();
-    public List<AudioSource> GetAudioSources()
+    public class BulletVoiceAppender : BulletAppender
     {
-        return audioSources;
-    }
-    public List<AudioSource> GetAudioSources_Copy()
-    {
-        return audioSources.ToList();
-    }
-    protected override void Start()
-    {
-        base.Start();
-        if(audioSources == null) audioSources = new List<AudioSource>();
-        List<AudioSource> allAss = GetComponentsInChildren<AudioSource>().ToList();
-        foreach (AudioSource aus in allAss)
+        [SerializeField] private List<AudioSource> audioSources = new List<AudioSource>();
+        public List<AudioSource> GetAudioSources()
         {
-            if(aus == null) continue;
-            if(audioSources.Contains(aus)) continue;
-            audioSources.Add(aus);
+            return audioSources;
         }
-        havePlay = false;
-    }
-
-    protected override void Update()
-    {
-        base.Update();
-    }
-    [SerializeField] private List<string> playList = new List<string>();
-    [SerializeField] private bool havePlay = false;
-    protected override void AfterHaltFunctionPreFrame()
-    {
-        if(!havePlay)
+        public List<AudioSource> GetAudioSources_Copy()
         {
-            if(audioSources == null) 
+            return audioSources.ToList();
+        }
+        protected override void Start()
+        {
+            base.Start();
+            if (audioSources == null) audioSources = new List<AudioSource>();
+            List<AudioSource> allAss = GetComponentsInChildren<AudioSource>().ToList();
+            foreach (AudioSource aus in allAss)
             {
-                havePlay = true;
-                return;
+                if (aus == null) continue;
+                if (audioSources.Contains(aus)) continue;
+                audioSources.Add(aus);
             }
-            foreach(string str in playList)
+            havePlay = false;
+        }
+
+        protected override void Update()
+        {
+            base.Update();
+        }
+        [SerializeField] private List<string> playList = new List<string>();
+        [SerializeField] private bool havePlay = false;
+        protected override void AfterHaltFunctionPreFrame()
+        {
+            if (!havePlay)
             {
-                foreach(AudioSource aus in audioSources)
+                if (audioSources == null)
                 {
-                    if(aus == null) continue;
-                    if(aus.clip == null) continue;
-                    if(aus.name.Equals(str))
+                    havePlay = true;
+                    return;
+                }
+                foreach (string str in playList)
+                {
+                    foreach (AudioSource aus in audioSources)
                     {
-                        aus.Play();
-                        break;
+                        if (aus == null) continue;
+                        if (aus.clip == null) continue;
+                        if (aus.name.Equals(str))
+                        {
+                            aus.Play();
+                            break;
+                        }
                     }
                 }
+                havePlay = true;
             }
-            havePlay = true;
         }
     }
 }

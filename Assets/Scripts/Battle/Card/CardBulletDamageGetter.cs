@@ -1,6 +1,11 @@
 using UnityEngine;
 
-public interface CardBulletDamageGetter
+namespace CardSystem
 {
-    public float GetBulletDamage();
+
+    public interface CardBulletDamageGetter
+    {
+        public float GetBulletDamage();
+    }
+
 }

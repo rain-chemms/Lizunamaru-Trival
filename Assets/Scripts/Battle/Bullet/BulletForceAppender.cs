@@ -2,45 +2,47 @@ using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
 
-//这个脚本只修改Bullet的方向参数
-[RequireComponent(typeof(Bullet))]
-public class BulletForceAppender : BulletAppender
+namespace BulletSystem
 {
-    [SerializeField] private float appendForce = 1.0f;//追加的力
-    [SerializeField] private bool appendPreFrame = false;//是否在每帧都追加力
-    [SerializeField] private bool haveAppendForce = false;//是否有追加力
-    protected override void Start()
+    //这个脚本只修改Bullet的方向参数
+    [RequireComponent(typeof(Bullet))]
+    public class BulletForceAppender : BulletAppender
     {
-        base.Start();
-        haveAppendForce = false;
-    }
-
-    protected override void Update()
-    {
-        base.Update();
-    }
-
-    protected override void AfterHaltFunctionPreFrame()
-    {
-        base.AfterHaltFunctionPreFrame();
-        if(!appendPreFrame)
+        [SerializeField] private float appendForce = 1.0f;//追加的力
+        [SerializeField] private bool appendPreFrame = false;//是否在每帧都追加力
+        [SerializeField] private bool haveAppendForce = false;//是否有追加力
+        protected override void Start()
         {
-            if(!haveAppendForce)
+            base.Start();
+            haveAppendForce = false;
+        }
+
+        protected override void Update()
+        {
+            base.Update();
+        }
+
+        protected override void AfterHaltFunctionPreFrame()
+        {
+            base.AfterHaltFunctionPreFrame();
+            if (!appendPreFrame)
+            {
+                if (!haveAppendForce)
+                {
+                    AppendForceToBullet();
+                    haveAppendForce = true;
+                }
+            }
+            else
             {
                 AppendForceToBullet();
-                haveAppendForce = true;
             }
         }
-        else
+
+        private void AppendForceToBullet()
         {
-            AppendForceToBullet();
+            if (bullet == null) return;
+            bullet.SetForce(bullet.GetForce() + appendForce);
         }
     }
-
-    private void AppendForceToBullet()
-    {
-        if(bullet == null) return;
-        bullet.SetForce(bullet.GetForce() + appendForce);
-    }
 }
-

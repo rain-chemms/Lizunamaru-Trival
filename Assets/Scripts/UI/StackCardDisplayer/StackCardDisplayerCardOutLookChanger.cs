@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.Serialization;
 using UnityEngine.Rendering;
 using System.Linq;
+using CardSystem;
 
 
 [RequireComponent(typeof(StackCardDisplayer))]

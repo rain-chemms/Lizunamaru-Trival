@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using CardSystem;
 
 [RequireComponent(typeof(RectTransform))]
 public class HandCardDisplayer : MonoBehaviour

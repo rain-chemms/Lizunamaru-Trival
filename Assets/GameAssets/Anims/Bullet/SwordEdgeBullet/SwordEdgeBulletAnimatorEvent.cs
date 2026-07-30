@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using BulletSystem;
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Bullet))]
 public class SwordEdgeBulletAnimatorEvent : MonoBehaviour

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using CardSystem;
 
 [RequireComponent(typeof(Card))]
 public class CardReturnHandChecker : MonoBehaviour,

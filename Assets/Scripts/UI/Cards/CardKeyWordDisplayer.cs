@@ -8,6 +8,7 @@ using System.Linq;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using System;
 using UnityEngine.Events;
+using CardSystem;
 
 [RequireComponent(typeof(Card))]
 public class CardKeyWordDisplayer : MonoBehaviour

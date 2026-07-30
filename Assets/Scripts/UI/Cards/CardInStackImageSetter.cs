@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using CardSystem;
 
 [RequireComponent(typeof(Card))]
 public class CardInStackImageSetter : MonoBehaviour

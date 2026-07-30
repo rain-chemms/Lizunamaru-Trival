@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using CardSystem;
 
 [RequireComponent(typeof(Card))]
 public class CardInsertSlotChecker : MonoBehaviour, IEndDragHandler, IDragHandler

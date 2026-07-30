@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using CardSystem;
 
 //战斗时的游戏卡槽
 [RequireComponent(typeof(Image))]

@@ -6,7 +6,12 @@ using System;
 using System.Reflection;
 using UnityEngine.Localization.Settings;
 using UnityEngine.ResourceManagement.AsyncOperations;
-
+using GridObjectSystem.RoleSystem;
+using GridObjectSystem.RoleSystem.AutoSystem;
+using BulletSystem;
+using CardSystem;
+using GridObjectSystem;
+using GridObjectSystem.GadgetSystem;
 
 public class BattleMessage : MonoBehaviour
 {
@@ -23,6 +28,13 @@ public class BattleMessage : MonoBehaviour
             Destroy(this);
         }
     }
+
+    private void OnEnable()
+    {
+        //刷新道具列表
+        FreshTheGadgetList();
+    }
+
     //回合控制相关
     [SerializeField] private string roundChangeLocalizeTable = "RoundChangeText";
     [SerializeField] private string selfTurnTextKey = "RoundChange_SelfTurn";
@@ -38,6 +50,20 @@ public class BattleMessage : MonoBehaviour
     /*
         扩展方法1:依据当前的回合进行回合切换
     */
+    [SerializeField] private List<Gadget> gadgetList = new List<Gadget>();//道具列表
+    public List<Gadget> GetGadgetList() => gadgetList;//获取道具列表,用道具列表对召唤的道具进行管理
+    /// <summary>
+    /// 该方法用于检测场景中所有含有Gadget脚本的物体,并将不在列表中的物体添加到gadgetList中
+    /// 注意: 这个方法不能在Update中调用
+    /// </summary>
+    public void FreshTheGadgetList()
+    {
+        //只寻找激活的物体,且不对列表进行排序
+        gadgetList?.Clear();
+        gadgetList = FindObjectsByType<Gadget>(FindObjectsInactive.Exclude,FindObjectsSortMode.None)?.ToList();
+    }
+
+
     public IEnumerator ChangeTurn()
     {
         //丢弃所有手牌到弃牌堆
@@ -63,6 +89,15 @@ public class BattleMessage : MonoBehaviour
                 discardCardList.Add(card);    
             }
         }
+        //切换回合之前触发对应的GadgetList中的道具的TurnEnd功能
+        foreach (Gadget gadget in gadgetList)
+        {
+            if (gadget?.GetSide() == isPlayerTurn)
+            {
+                yield return gadget.OnEveryRoundEnd();
+            }
+        }
+
         /*
             切换回合
         */
@@ -125,8 +160,16 @@ public class BattleMessage : MonoBehaviour
             icePoint += iceChargePreRound + ricePoint;//将剩余的ricePoint变为icePoint
             ricePoint = 0;
         }
-
         //玩家获取能量之后
+        //触发所有的GadgetList中的道具的TurnStart功能
+        foreach (Gadget gadget in gadgetList)
+        {
+            if(gadget?.GetSide() == isPlayerTurn)
+            {
+                yield return gadget.OnEveryRoundStart();
+            }
+        }
+        
         //若当前角色存在自动操作操作脚本(AI控制),则执行的自动操作        
         foreach (Role role in roleList)
         {
@@ -522,15 +565,24 @@ public class BattleMessage : MonoBehaviour
             yield return null;
         }
     }
-    //用于直线子弹,会依据玩家的位置和目标坐标的位置产生子弹
-    public IEnumerator GenerateBullet(Role role, Bullet bulletPrefab, Vector2Int targetIndex, Vector3 posOffset = default, bool triggerAnim = true, string roleAnimName = "Skill")//角色产生一颗子弹,posOffset为这颗子弹的微小位置偏移
+    /// <summary>
+    /// 用于直线子弹,会依据玩家的位置和目标坐标的位置产生子弹
+    /// </summary>
+    /// <param name="startObject">产生子弹的物体,需要用到它的坐标作为初始位置</param>
+    /// <param name="bulletPrefab">子弹预制体,每次产生1个</param>
+    /// <param name="targetIndex">目标的棋盘格索引</param>
+    /// <param name="posOffset">起始点的偏移量,用于细化控制</param>
+    /// <param name="triggerAnim">是否尝试通过AnimTrigger触发startObject的动画</param>
+    /// <param name="roleAnimName">触发的动画名称,只有triggerAnim为true是才有效</param>
+    /// <returns></returns>
+    public IEnumerator GenerateBullet(GridObject startObject, Bullet bulletPrefab, Vector2Int targetIndex, Vector3 posOffset = default, bool triggerAnim = true, string roleAnimName = "Skill")//角色产生一颗子弹,posOffset为这颗子弹的微小位置偏移
     {
-        if (role == null || bulletPrefab == null)
+        if (startObject == null || bulletPrefab == null)
         {
             Debug.LogError("[BattleMessage]: Role or Bullet is Null, Generate Bullet Error ,Please Check!");
             yield break;
         }
-        Role player = role;
+        GridObject player = startObject;
         Vector2Int index = targetIndex;
         //依据选择的地块和玩家当前的高度执行射击
         //获取对应索引的棋盘格的XZ坐标
@@ -562,7 +614,7 @@ public class BattleMessage : MonoBehaviour
         //控制玩家动画播放
         if (triggerAnim)
         {
-            RoleAnimTrigger animTrigger = player?.GetComponent<RoleAnimTrigger>();
+            AnimTrigger animTrigger = player?.GetComponent<AnimTrigger>();
             animTrigger?.TriggerAnim(roleAnimName);
             AnimatorStateInfo stateInfo = (AnimatorStateInfo)((Animator)animTrigger?.GetComponent<Animator>())?.GetCurrentAnimatorStateInfo(0);
             yield return (float)stateInfo.normalizedTime * (float)stateInfo.length;

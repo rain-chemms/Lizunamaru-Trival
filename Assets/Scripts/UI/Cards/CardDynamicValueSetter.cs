@@ -3,6 +3,7 @@ using System.Linq;
 using System.Reflection;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
+using CardSystem;
 
 [RequireComponent(typeof(Card))]
 public class CardDynamicValueSetter : MonoBehaviour

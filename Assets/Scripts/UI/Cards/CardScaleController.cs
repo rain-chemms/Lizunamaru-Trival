@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using CardSystem;
 
 [RequireComponent(typeof(Card))]
 public class CardScaleController : MonoBehaviour

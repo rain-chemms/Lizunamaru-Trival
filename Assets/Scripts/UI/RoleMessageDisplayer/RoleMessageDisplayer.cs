@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using GridObjectSystem.RoleSystem;
+using BulletSystem;
 
 [RequireComponent(typeof(Canvas))]
 [RequireComponent(typeof(RectTransform))]

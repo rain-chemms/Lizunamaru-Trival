@@ -9,7 +9,7 @@ public class MMD4FaceController : MonoBehaviour
     [SerializeField] private MMD4MecanimModel model;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void OnEnable()
     {
         if (model == null) model = GetComponent<MMD4MecanimModel>();
         FreshMorphList();
@@ -17,8 +17,8 @@ public class MMD4FaceController : MonoBehaviour
     [SerializeField] List<MMD4MecanimModelImpl.Morph> morphList = new List<MMD4MecanimModelImpl.Morph>();
     private void FreshMorphList()
     {
-        morphList.Clear();
-        foreach (MMD4MecanimModelImpl.Morph morph in model?.morphList.ToList())
+        morphList?.Clear();
+        foreach (MMD4MecanimModelImpl.Morph morph in model?.morphList?.ToList())
         {
             if(morph == null) continue;
             morphList.Add(morph);

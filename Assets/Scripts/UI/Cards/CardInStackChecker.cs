@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Collections;
+using CardSystem;
 
 [RequireComponent(typeof(Card))]
 [RequireComponent(typeof(CardDisplayer))]

@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using CardSystem;
 
 
 //用于设置卡槽中的卡的锚点

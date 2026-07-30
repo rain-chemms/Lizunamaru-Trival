@@ -1,7 +1,6 @@
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
-
+using CardSystem;
 [RequireComponent(typeof(RectTransform))]
 [RequireComponent(typeof(StackCardAnchorSetter))]
 public class StackCardSortOrderSetter : MonoBehaviour

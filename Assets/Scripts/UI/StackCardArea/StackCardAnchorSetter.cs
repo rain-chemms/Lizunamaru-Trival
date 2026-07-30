@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using CardSystem;
 
 
 //检测并设置处于丢牌堆的卡牌的锚点

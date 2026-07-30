@@ -1,4 +1,5 @@
 using UnityEngine;
+using BulletSystem;
 
 [RequireComponent(typeof(Bullet))]
 public class StarBulletAnimatorEvent : MonoBehaviour

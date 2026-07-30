@@ -1,4 +1,5 @@
 using UnityEngine;
+using CardSystem;
 
 [RequireComponent(typeof(Card))]
 public class SpellCardDisplaySpriteSetter : MonoBehaviour

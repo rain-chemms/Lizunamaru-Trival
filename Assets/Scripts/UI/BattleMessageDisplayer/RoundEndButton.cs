@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using GridObjectSystem.RoleSystem;
 
 [RequireComponent(typeof(Button))]
 public class RoundEndButton : MonoBehaviour

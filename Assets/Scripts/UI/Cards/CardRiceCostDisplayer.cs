@@ -4,6 +4,7 @@ using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using CardSystem;
 
 [RequireComponent(typeof(Card))]
 public class CardRiceCostDisplayer : MonoBehaviour

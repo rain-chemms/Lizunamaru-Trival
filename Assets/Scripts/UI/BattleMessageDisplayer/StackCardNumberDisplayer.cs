@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
+using CardSystem;
 
 [RequireComponent(typeof(TMP_Text))]
 public class StackCardNumberDisplayer : MonoBehaviour

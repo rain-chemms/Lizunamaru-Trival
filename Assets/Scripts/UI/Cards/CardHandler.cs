@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using CardSystem;
 
 [RequireComponent(typeof(Card))]
 [RequireComponent(typeof(Canvas))]

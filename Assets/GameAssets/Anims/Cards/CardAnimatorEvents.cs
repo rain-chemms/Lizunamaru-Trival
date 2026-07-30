@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using CardSystem;
 
 [RequireComponent(typeof(Card))]
 public class CardAnimatorEvents : MonoBehaviour

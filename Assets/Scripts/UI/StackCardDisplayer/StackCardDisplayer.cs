@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using System.Linq;
 using UnityEngine.Rendering;
+using CardSystem;
 
 //必须是一个下滑UI物体才能显示
 [RequireComponent(typeof(RectTransform))]

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CardSystem;
 
 [RequireComponent(typeof(Card))]
 public class InHandCardOverrideSortingController : MonoBehaviour

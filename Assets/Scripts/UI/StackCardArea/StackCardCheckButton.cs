@@ -1,7 +1,7 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using CardSystem;
 
 [RequireComponent(typeof(Button))]
 public class StackCardCheckButton : MonoBehaviour
