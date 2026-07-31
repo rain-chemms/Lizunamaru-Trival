@@ -1,18 +1,21 @@
 using UnityEngine;
 using BulletSystem;
-[RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(Bullet))]
-public class SwordEdgeBulletAnimatorEvent : MonoBehaviour
+namespace AnimatorEventSystem
 {
-    [SerializeField] private Bullet bullet;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [RequireComponent(typeof(Animator))]
+    [RequireComponent(typeof(Bullet))]
+    public class SwordEdgeBulletAnimatorEvent : MonoBehaviour
     {
-        if(bullet == null) bullet = GetComponent<Bullet>();
-    }
+        [SerializeField] private Bullet bullet;
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        void OnEnable()
+        {
+            if (bullet == null) bullet = GetComponent<Bullet>();
+        }
 
-    public void AfterBulletMoveOver()
-    {
-        Destroy(bullet?.gameObject);
+        public void AfterBulletMoveOver()
+        {
+            Destroy(bullet?.gameObject);
+        }
     }
 }

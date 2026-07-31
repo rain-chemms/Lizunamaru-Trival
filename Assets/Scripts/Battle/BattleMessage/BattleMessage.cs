@@ -586,6 +586,7 @@ public class BattleMessage : MonoBehaviour
         Vector2Int index = targetIndex;
         //依据选择的地块和玩家当前的高度执行射击
         //获取对应索引的棋盘格的XZ坐标
+        /*
         List<BattleGrid> grids = BattleBoard.instance?.GetBattleGridList();
         BattleGrid grid = null;
         foreach (BattleGrid g in grids)
@@ -602,6 +603,21 @@ public class BattleMessage : MonoBehaviour
             player == null ? 0.0f : (float)player?.transform.position.y,
             grid == null ? 0.0f : (float)grid?.transform.position.z
         );
+        */
+        //改良方案:通过棋盘的信息和发射玩家的信息产生子弹,不依赖棋盘格
+        Vector2 _gaps = (Vector2)BattleBoard.instance?.GetGapsOfGrid();
+        Vector3 _00LoPos = (Vector3)BattleBoard.instance?.GetGrid00LocalPosition();
+        Vector3 _boardPos = (Vector3)BattleBoard.instance?.transform.position;
+        Vector3 target = _boardPos + 
+            new Vector3(
+                _00LoPos.x,
+                0.0f,_00LoPos.z
+            ) + new Vector3(
+            (float)(index.x * _gaps.x),
+            player.transform.position.y,
+            (float)(index.y * _gaps.y)
+        );
+
         Vector3 direction = (target - (Vector3)player?.transform.position).normalized;
         //产生子弹实体并设置其方向和初始位置
         Bullet bt = Instantiate(bulletPrefab, target, Quaternion.identity);

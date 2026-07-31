@@ -185,7 +185,7 @@ MonoBehaviour:
   isFly: 0
   gridIndex: {x: 0, y: 0}
   belongRole: {fileID: 0}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 102217478766054249, guid: 1be96bd4e6f117d4482a2862ff33a955, type: 3}
   bulletNumberPreRound: 0
   shootInterval: 0
 --- !u!114 &7279553951804804130
@@ -203,6 +203,7 @@ MonoBehaviour:
   gadget: {fileID: 2480450097327994863}
   isPosSyncOpen: 1
   isDirSyncOpen: 1
+  isFlySyncOpen: 1
   gapsToRole: {x: 0, y: 0}
 --- !u!114 &3899666590901648346
 MonoBehaviour:
@@ -216,6 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a35a110469b2343befd17b1d97d29b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  landHeightOffset: 1
   flyHeight: 3
   grandYOffset: 1.1
   gridObject: {fileID: 2480450097327994863}

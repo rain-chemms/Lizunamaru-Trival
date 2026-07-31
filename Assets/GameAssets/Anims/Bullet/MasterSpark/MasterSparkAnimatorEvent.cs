@@ -1,21 +1,25 @@
 using UnityEngine;
-
-public class MasterSparkAnimatorEvent : MonoBehaviour
+using BulletSystem;
+namespace AnimatorEventSystem
 {
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private Transform masterSpark;
-    public void OnMAsterSparkAnimaOver()//播放结束时候销毁特效物体
+    [RequireComponent(typeof(Bullet))]
+    public class MasterSparkAnimatorEvent : MonoBehaviour
     {
-        Destroy(masterSpark.gameObject);
-    }
+        [SerializeField] private AudioSource audioSource;
+        [SerializeField] private Transform masterSpark;
+        public void OnMAsterSparkAnimaOver()//播放结束时候销毁特效物体
+        {
+            Destroy(masterSpark.gameObject);
+        }
 
-    public void StopAudio()
-    {
-        if(audioSource != null) audioSource.Stop();
-    }
+        public void StopAudio()
+        {
+            if (audioSource != null) audioSource.Stop();
+        }
 
-    public void PlayAudio()
-    {
-        if(audioSource != null) audioSource.Play();
+        public void PlayAudio()
+        {
+            if (audioSource != null) audioSource.Play();
+        }
     }
 }

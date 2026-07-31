@@ -17,50 +17,54 @@ namespace GridObjectSystem.GadgetSystem.YinyangJades
         public override IEnumerator OnGadgetEffect()
         {
             yield return base.OnGadgetEffect();
-            for(uint i = 0;i < bulletNumberPreRound;i++)
+            for (uint i = 0; i < bulletNumberPreRound; i++)
             {
-                Vector2Int target = GetGridIndex();
-                switch(GetDirection())
-                {
-                    case BattleDirection.RIGHT:
-                        target.x += 1;
-                        break;
-                    case BattleDirection.LEFT:
-                        target.x -= 1;
-                        break;
-                    case BattleDirection.DOWN:
-                        target.y -= 1;
-                        break;
-                    case BattleDirection.UP:
-                    default:
-                        target.y += 1;
-                        break;
-                }
-
-                //调起子弹产生协程并传入参数
-                yield return BattleMessage.instance?.GenerateBullet(
-                    this,//传入产生的Role信息,包含位置等
-                    bulletPrefab,//子弹预设体
-                    target,//目标位置
-                    default,
-                    true,
-                    "Effect"
-                );
+                yield return GenerateBullet();
                 yield return new WaitForSeconds(shootInterval);//进行射击等待
             }
         }
         //
         public override IEnumerator OnEveryRoundEnd()
         {
-            yield return base.OnEveryRoundEnd();
-            yield return OnGadgetEffect();
+            //触发一次攻击
+            yield return GenerateBullet();
         }
 
         public override IEnumerator OnEveryRoundStart()
         {
-            yield return base.OnEveryRoundStart();
-            yield return OnGadgetEffect();
-            yield return OnGadgetEffect();
+            //无功能
+            yield return null;
+        }
+
+        private IEnumerator GenerateBullet()
+        {
+            Vector2Int target = GetGridIndex();
+            switch (GetDirection())
+            {
+                case BattleDirection.RIGHT:
+                    target.x += 1;
+                    break;
+                case BattleDirection.LEFT:
+                    target.x -= 1;
+                    break;
+                case BattleDirection.DOWN:
+                    target.y -= 1;
+                    break;
+                case BattleDirection.UP:
+                default:
+                    target.y += 1;
+                    break;
+            }
+
+            //调起子弹产生协程并传入参数
+            yield return BattleMessage.instance?.GenerateBullet(
+                this,//传入产生的Role信息,包含位置等
+                bulletPrefab,//子弹预设体
+                target,//目标位置
+                default,
+                true,
+                "Effect"
+            );
         }
     }
 }

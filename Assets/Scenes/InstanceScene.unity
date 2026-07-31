@@ -202,10 +202,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3899666590901648346, guid: 0cbbfff2292f98e4692035af70a0ad4e, type: 3}
-      propertyPath: landHeightOffset
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4535200667107058158, guid: 0cbbfff2292f98e4692035af70a0ad4e, type: 3}
       propertyPath: m_Name
       value: YinyangJade_Blue
@@ -223,6 +219,84 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3871851405882407764, guid: 0cbbfff2292f98e4692035af70a0ad4e, type: 3}
   m_PrefabInstance: {fileID: 200860384}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &226910153
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1031241045}
+    m_Modifications:
+    - target: {fileID: 2480450097327994863, guid: e2f671171a2bd634c94a54dc297037af, type: 3}
+      propertyPath: belongRole
+      value: 
+      objectReference: {fileID: 849048716}
+    - target: {fileID: 3871851405882407764, guid: e2f671171a2bd634c94a54dc297037af, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 22.499998
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871851405882407764, guid: e2f671171a2bd634c94a54dc297037af, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 11.575432
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871851405882407764, guid: e2f671171a2bd634c94a54dc297037af, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.75627303
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871851405882407764, guid: e2f671171a2bd634c94a54dc297037af, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.731
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871851405882407764, guid: e2f671171a2bd634c94a54dc297037af, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.481502
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871851405882407764, guid: e2f671171a2bd634c94a54dc297037af, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871851405882407764, guid: e2f671171a2bd634c94a54dc297037af, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871851405882407764, guid: e2f671171a2bd634c94a54dc297037af, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871851405882407764, guid: e2f671171a2bd634c94a54dc297037af, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871851405882407764, guid: e2f671171a2bd634c94a54dc297037af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871851405882407764, guid: e2f671171a2bd634c94a54dc297037af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871851405882407764, guid: e2f671171a2bd634c94a54dc297037af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4535200667107058158, guid: e2f671171a2bd634c94a54dc297037af, type: 3}
+      propertyPath: m_Name
+      value: YinyangJade_Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 7279553951804804130, guid: e2f671171a2bd634c94a54dc297037af, type: 3}
+      propertyPath: gapsToRole.x
+      value: -1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e2f671171a2bd634c94a54dc297037af, type: 3}
+--- !u!4 &226910154 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3871851405882407764, guid: e2f671171a2bd634c94a54dc297037af, type: 3}
+  m_PrefabInstance: {fileID: 226910153}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &286931251
 PrefabInstance:
@@ -2366,6 +2440,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Marisa_CPU
       objectReference: {fileID: 0}
+    - target: {fileID: 1807231021091460480, guid: c1fb35b1372842142ae48504272a1f86, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3955644754421548568, guid: c1fb35b1372842142ae48504272a1f86, type: 3}
       propertyPath: side
       value: 0
@@ -2639,6 +2717,18 @@ PrefabInstance:
       propertyPath: widthAndHeight.y
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4664889070188849211, guid: 7ddb802b9d6f7f34daa1cca11124ecf5, type: 3}
+      propertyPath: grid00LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664889070188849211, guid: 7ddb802b9d6f7f34daa1cca11124ecf5, type: 3}
+      propertyPath: grid00LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664889070188849211, guid: 7ddb802b9d6f7f34daa1cca11124ecf5, type: 3}
+      propertyPath: grid00LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4845295916663337862, guid: 7ddb802b9d6f7f34daa1cca11124ecf5, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
@@ -2857,6 +2947,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1859618444976127882, guid: 7ddb802b9d6f7f34daa1cca11124ecf5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 200860385}
+    - targetCorrespondingSourceObject: {fileID: 1859618444976127882, guid: 7ddb802b9d6f7f34daa1cca11124ecf5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 226910154}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ddb802b9d6f7f34daa1cca11124ecf5, type: 3}
 --- !u!1001 &1422813362970793510

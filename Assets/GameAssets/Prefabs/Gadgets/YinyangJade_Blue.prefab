@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a35a110469b2343befd17b1d97d29b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  landHeightOffset: 0
+  landHeightOffset: 1
   flyHeight: 3
   grandYOffset: 1.1
   gridObject: {fileID: 2480450097327994863}
