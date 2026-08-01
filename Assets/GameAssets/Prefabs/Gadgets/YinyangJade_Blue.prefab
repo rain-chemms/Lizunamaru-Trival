@@ -101,6 +101,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 55aa921214374e14c9f7321cdfd2a5a5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3899666590901648346}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 55aa921214374e14c9f7321cdfd2a5a5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5836820804632920476}
   m_SourcePrefab: {fileID: 100100000, guid: 55aa921214374e14c9f7321cdfd2a5a5, type: 3}
 --- !u!1 &4535200667107058158 stripped
 GameObject:
@@ -246,3 +249,18 @@ MonoBehaviour:
   flyHeight: 3
   grandYOffset: 1.1
   gridObject: {fileID: 2480450097327994863}
+--- !u!114 &5836820804632920476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4535200667107058158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb32073b1b09904b82f2dd5f741e4f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  role: {fileID: 2480450097327994863}
+  target: {x: 0, y: 0, z: 1}
+  lerpSpeed: 6

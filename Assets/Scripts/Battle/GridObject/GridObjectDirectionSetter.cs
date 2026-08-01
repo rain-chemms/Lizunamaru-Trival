@@ -2,16 +2,16 @@ using System;
 using System.Linq;
 using UnityEngine;
 
-namespace GridObjectSystem.RoleSystem
+namespace GridObjectSystem
 {
-    [RequireComponent(typeof(Role))]
-    public class RoleDirectionSetter : MonoBehaviour
+    [RequireComponent(typeof(GridObject))]
+    public class GridObjectDirectionSetter : MonoBehaviour
     {
-        [SerializeField] private Role role;
+        [SerializeField] private GridObject role;
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-            if (role == null) role = GetComponent<Role>();
+            if (role == null) role = GetComponent<GridObject>();
             if (role != null)
             {
                 role.SetDirection(role.GetDirection());

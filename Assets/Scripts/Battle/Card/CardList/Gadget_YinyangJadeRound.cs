@@ -24,7 +24,7 @@ namespace CardSystem.AllCardHub
                 gadget.GetComponent<AnimTrigger>()?.SetBoolValue("Open", false);
                 yield return null;//暂停一帧
                 AnimatorStateInfo info = gadget.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
-                yield return new WaitForSeconds(info.length / gadget.GetComponent<Animator>().speed);
+                yield return new WaitForSeconds(0.15f);//等待动画播放完毕
                 //将这个道具从BattleMessage中删除
                 BattleMessage.instance?.GetGadgetList()?.Remove(gadget);
                 //销毁这个道具
@@ -74,7 +74,6 @@ namespace CardSystem.AllCardHub
         /// <returns></returns>
         public override IEnumerator AfterPlay()
         {
-            yield return base.AfterPlay();
             Gadget newJade = Instantiate(jadePrefab);
             //设置蓝阴阳玉的基础信息
             //将阴阳玉加入棋盘中
@@ -86,6 +85,8 @@ namespace CardSystem.AllCardHub
             //设置阴阳玉的坐标位置
             GridObject player = BattleMessage.instance?.GetControlPlayer();//获取当前控制的玩家实体
             newJade.SetBelongRole(player);//设置道具的归属玩家
+            //设置阴阳玉的初始位置
+            if(player!=null && newJade!=null) newJade.transform.position = player.transform.position;
             Vector2Int offset = Vector2Int.zero;
             switch (player?.GetDirection())
             {
@@ -109,6 +110,7 @@ namespace CardSystem.AllCardHub
             syncer?.SetPosSyncOpen(true);//开启位置同步
             syncer?.SetFlySyncOpen(true);//开启飞行状态
             syncer?.SetDirSyncOpen(true);//开启朝向同步
+            yield return base.AfterPlay();
         }
 
         public override IEnumerator AfterTriggerEffective()
@@ -148,10 +150,9 @@ namespace CardSystem.AllCardHub
         /// 当道具类的卡牌被消耗时,需要清空其控制的道具列表中的所有道具
         /// </summary>
         /// <returns></returns>
-        public override IEnumerator AfterExhaust()
+        new public virtual IEnumerator AfterExhaust()
         {
             //优先对道具列表进行处理
-            yield return base.AfterExhaust();
             yield return DestoryAllGadgetEntities();
             
         }

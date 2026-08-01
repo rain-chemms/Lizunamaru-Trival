@@ -1,21 +1,23 @@
 using System.Collections;
 using UnityEngine;
 using CardSystem;
-
-[RequireComponent(typeof(Card))]
-public class CardAnimatorEvents : MonoBehaviour
+namespace AnimatorEventSystem
 {
-    [SerializeField] private Card card;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [RequireComponent(typeof(Card))]
+    public class CardAnimatorEvents : MonoBehaviour
     {
-        //尝试自动获取
-        if(card == null) card = GetComponent<Card>();     
-    }
+        [SerializeField] private Card card;
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        void Start()
+        {
+            //尝试自动获取
+            if (card == null) card = GetComponent<Card>();
+        }
 
-    //再消耗动画结束时调用
-    public void AfterExhaust()
-    {
-        card.GetComponent<Animator>()?.SetBool("IsHidden",true);
+        //再消耗动画结束时调用
+        public void AfterExhaust()
+        {
+            card.GetComponent<Animator>()?.SetBool("IsHidden", true);
+        }
     }
 }

@@ -36,7 +36,9 @@ namespace BulletSystem
             {
                 if (animatorControl)//动画器控制的条件下
                 {
-                    animator?.SetTrigger("Destroy");//触发动画器
+                    AnimTrigger atr = bullet.GetComponent<AnimTrigger>();
+                    if(atr == null) animator?.SetTrigger("Destroy");//触发动画器
+                    else atr.TriggerAnim("Destroy");
                 }
                 else//非动画器控制的条件下
                 {

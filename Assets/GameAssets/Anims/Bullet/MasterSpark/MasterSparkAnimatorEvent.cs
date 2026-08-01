@@ -1,5 +1,6 @@
 using UnityEngine;
 using BulletSystem;
+
 namespace AnimatorEventSystem
 {
     [RequireComponent(typeof(Bullet))]
