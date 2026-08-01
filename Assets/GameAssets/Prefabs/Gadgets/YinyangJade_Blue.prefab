@@ -85,6 +85,9 @@ PrefabInstance:
       addedObject: {fileID: 4570547280475044572}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 55aa921214374e14c9f7321cdfd2a5a5, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 6413848151844640086}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 55aa921214374e14c9f7321cdfd2a5a5, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 3217004063404082740}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 55aa921214374e14c9f7321cdfd2a5a5, type: 3}
       insertIndex: -1
@@ -126,6 +129,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!135 &6413848151844640086
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4535200667107058158}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.020405747
+  m_Center: {x: -0.000000005587935, y: -0.0000000046566133, z: 0}
 --- !u!54 &3217004063404082740
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -185,9 +209,9 @@ MonoBehaviour:
   isFly: 0
   gridIndex: {x: 0, y: 0}
   belongRole: {fileID: 0}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 102217478766054249, guid: 1be96bd4e6f117d4482a2862ff33a955, type: 3}
   bulletNumberPreRound: 2
-  shootInterval: 0.5
+  shootInterval: 0.25
 --- !u!114 &7279553951804804130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,6 +228,7 @@ MonoBehaviour:
   isPosSyncOpen: 1
   isDirSyncOpen: 1
   isFlySyncOpen: 1
+  revertFlyState: 0
   gapsToRole: {x: 0, y: 0}
 --- !u!114 &3899666590901648346
 MonoBehaviour:

@@ -142,7 +142,7 @@ public class CardDynamicValueSetter : MonoBehaviour
             if(fields.Contains(info)) continue;
             fields.Add(info);
         }
-        Debug.Log($"[CardDynamicValueSetter]: Get {fields.Count} fields");
+        //Debug.Log($"[CardDynamicValueSetter]: Get {fields.Count} fields");
     }
     //获取所有检测属性
     public void CheckTheCardProperty()
@@ -155,6 +155,6 @@ public class CardDynamicValueSetter : MonoBehaviour
             if(properties.Contains(info)) continue;
             properties.Add(info);
         }
-        Debug.Log($"[CardDynamicValueSetter]: Get {properties.Count} properties");
+        //Debug.Log($"[CardDynamicValueSetter]: Get {properties.Count} properties");
     }
 }

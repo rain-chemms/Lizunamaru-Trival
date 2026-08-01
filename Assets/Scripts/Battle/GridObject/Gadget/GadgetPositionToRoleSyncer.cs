@@ -25,6 +25,9 @@ namespace GridObjectSystem.GadgetSystem
         [SerializeField] private bool isFlySyncOpen = true;//是否开启飞行同步
         public bool IsFlySyncOpen() => isFlySyncOpen;
         public void SetFlySyncOpen(bool isOpen) => isFlySyncOpen = isOpen;
+        [SerializeField] private bool revertFlyState = false;//是否反转飞行状态控制
+        public bool IsFlyRevert() => revertFlyState; 
+        public void SetRevertFlyState(bool isRevert) => revertFlyState = isRevert;
         [SerializeField] private Vector2Int gapsToRole;//道具与角色之间的坐标值间隔
         public Vector2Int GetGapsToRole() => gapsToRole;
         public void SetGapsToRole(Vector2Int gaps) => gapsToRole = gaps;
@@ -55,7 +58,9 @@ namespace GridObjectSystem.GadgetSystem
         {
             if(!isFlySyncOpen) return;
             if(gadget == null || gadget.GetBelongRole() == null) return;
-            gadget.SetFly(gadget.GetBelongRole().IsFly());
+            bool fly = gadget.GetBelongRole().IsFly();
+            if(revertFlyState) fly = !fly;
+            gadget.SetFly(fly);
         }
     
     }

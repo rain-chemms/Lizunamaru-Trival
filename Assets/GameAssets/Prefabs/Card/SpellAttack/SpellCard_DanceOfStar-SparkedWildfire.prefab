@@ -1612,7 +1612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   riceCost: 6
   cardCategory: 3
-  cardKeyWords: 
+  cardKeyWords: 01000000
   bulletPrefab: {fileID: 2857681049944608652, guid: 8a4a58fabe83ac148b3529e85b355717, type: 3}
   generateLoopTime: 10
   generateLineCount: 5

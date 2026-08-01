@@ -9,9 +9,9 @@ namespace GridObjectSystem.GadgetSystem
     //道具系统基础
     public class Gadget : GridObject,GadgetFunctioner
     {
-        [SerializeField] private Role belongRole;//所属的玩家,可以为空
-        public Role GetBelongRole() => belongRole;
-        public void SetBelongRole(Role role) => belongRole = role;
+        [SerializeField] private GridObject belongRole;//所属的玩家,可以为空
+        public GridObject GetBelongRole() => belongRole;
+        public void SetBelongRole(GridObject role) => belongRole = role;
         // Update is called once per frame
         protected virtual void Update()
         {

@@ -43,6 +43,7 @@ namespace CardSystem
         //卡牌接口的空实现
         public virtual IEnumerator AfterInsertToSolt()
         {
+            Debug.Log("[Card]:" + name + " have InsertToSolt!");
             yield return null;
         }
         public virtual IEnumerator AfterPlay()
@@ -93,6 +94,8 @@ namespace CardSystem
 
         public virtual IEnumerator AfterExhaust()
         {
+            //尝试播放卡片的消耗音效
+            GetComponent<CardVoiceController>()?.PlayCardVoice("Exhaust");
             yield return null;
         }
     }

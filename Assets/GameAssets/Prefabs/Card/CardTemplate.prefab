@@ -740,6 +740,7 @@ GameObject:
   - component: {fileID: 7690432316974955776}
   - component: {fileID: 5232143668323798303}
   - component: {fileID: 8208130503018390235}
+  - component: {fileID: 7442307497571269767}
   m_Layer: 5
   m_Name: Discription
   m_TagString: Untagged
@@ -796,7 +797,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: <color=red>There Are some Bugs Appear</color>
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 58f1e42671e28ad46932fe2f4a003e36, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4a865f057b0ea3f4f97bfc18a6011851, type: 2}
   m_sharedMaterial: {fileID: 5840968175975424431, guid: 58f1e42671e28ad46932fe2f4a003e36, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -863,7 +864,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &5232143668323798303
@@ -964,6 +965,31 @@ MonoBehaviour:
           m_Key: 
         m_FallbackState: 0
         m_WaitForCompletion: 0
+--- !u!114 &7442307497571269767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042923368262764309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c3977945bb395d45a799483e4e49766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:c82d369c4328d944ab6b01bb4e351a25
+    m_TableEntryReference:
+      m_KeyId: 358383998861312
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  variables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &5648166987132596275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,6 +1149,7 @@ GameObject:
   - component: {fileID: 2609984970971271286}
   - component: {fileID: 6849037216601940225}
   - component: {fileID: 413476355877467771}
+  - component: {fileID: 8733297926563790165}
   m_Layer: 5
   m_Name: CardTemplate
   m_TagString: Untagged
@@ -1199,7 +1226,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &8145605548122215368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1524,6 +1551,23 @@ MonoBehaviour:
   card: {fileID: 1652210342211082365}
   displayText: {fileID: 4524002566662319323}
   displayImage: {fileID: 8299132168465391022}
+--- !u!114 &8733297926563790165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa06f77dde20314a99c2c0a861b0ab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 1652210342211082365}
+  indexMapDict:
+    m_keys: 
+    m_values: []
+  dynamicValueSetter: {fileID: 7442307497571269767}
 --- !u!1 &6576236267278137396
 GameObject:
   m_ObjectHideFlags: 0
@@ -1746,7 +1790,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.1
+  m_fontSize: 22.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

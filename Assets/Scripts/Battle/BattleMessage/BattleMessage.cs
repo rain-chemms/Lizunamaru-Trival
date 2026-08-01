@@ -501,8 +501,7 @@ public class BattleMessage : MonoBehaviour
 
         yield return card.AfterExhaust();//触发消耗效果
         animator?.SetTrigger("Exhaust");//触发消耗动画,由消耗动画触发消耗后的效果
-        //尝试播放卡片的消耗音效
-        card.GetComponent<CardVoiceController>()?.PlayCardVoice("Exhaust");
+        //卡牌得烧毁音效由卡牌自己播放
         yield return null;//等待消耗动画转移
         //获取消耗动画的时长
         AnimatorStateInfo info = (AnimatorStateInfo)animator?.GetCurrentAnimatorStateInfo(0);
@@ -611,7 +610,8 @@ public class BattleMessage : MonoBehaviour
         Vector3 target = _boardPos + 
             new Vector3(
                 _00LoPos.x,
-                0.0f,_00LoPos.z
+                0.0f,
+                _00LoPos.z
             ) + new Vector3(
             (float)(index.x * _gaps.x),
             player.transform.position.y,

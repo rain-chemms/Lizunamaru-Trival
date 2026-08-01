@@ -12,8 +12,12 @@ namespace GridObjectSystem.GadgetSystem.YinyangJades
     public class YinyangJade_Round : Gadget
     {
         [SerializeField] private Bullet bulletPrefab;//存储的子弹,依据不同种类的阴阳玉分别设置
+        public Bullet GetBulletPrefab() => bulletPrefab;
         [SerializeField] private uint bulletNumberPreRound;//每回合产生多少颗对应的子弹
+        public uint GetBulletNumberPreRound() => bulletNumberPreRound;
+        public void SetBulletNumberPreRound(uint preRound) => bulletNumberPreRound = preRound;
         [SerializeField] private float shootInterval;//两发子弹的射击间隔
+        public float GetShootInterval() => shootInterval;
         public override IEnumerator OnGadgetEffect()
         {
             yield return base.OnGadgetEffect();
@@ -27,7 +31,7 @@ namespace GridObjectSystem.GadgetSystem.YinyangJades
         public override IEnumerator OnEveryRoundEnd()
         {
             //触发一次攻击
-            yield return GenerateBullet();
+            yield return OnGadgetEffect();
         }
 
         public override IEnumerator OnEveryRoundStart()

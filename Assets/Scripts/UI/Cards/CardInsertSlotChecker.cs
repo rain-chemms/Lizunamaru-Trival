@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using CardSystem;
+using System.Collections;
 
 [RequireComponent(typeof(Card))]
 public class CardInsertSlotChecker : MonoBehaviour, IEndDragHandler, IDragHandler
@@ -47,7 +48,7 @@ public class CardInsertSlotChecker : MonoBehaviour, IEndDragHandler, IDragHandle
                 if (cardInSlot != null)
                 {
                     BattleMessage.instance.GetDiscardCardList().Add(cardInSlot);
-                    ((CardFunctioner)cardInSlot).AfterRemoveFromSolt();//触发卡牌的移除效果
+                    StartCoroutine(((CardFunctioner)cardInSlot)?.AfterRemoveFromSolt());//触发卡牌的移除效果
                     cardSlotUnderCard.SetInnerCard(null);
                 }
 
@@ -57,7 +58,9 @@ public class CardInsertSlotChecker : MonoBehaviour, IEndDragHandler, IDragHandle
                 //若在手牌中,将其从手牌中移除
                 BattleMessage.instance.GetHandCardList().Remove(card);
                 //触发卡牌的插入效果
-                ((CardFunctioner)card).AfterInsertToSolt();
+                StartCoroutine(((CardFunctioner)card)?.AfterInsertToSolt());//必须启动协程才能调用
+                
+                
                 Debug.Log("[CardInsertSlotChecker]: Set the CardSlot:<" +
                     cardSlotUnderCard.name + "|" + cardSlotUnderCard.GetSlotCardCategory().ToString() + "(" + (int)cardSlotUnderCard.GetSlotCardCategory() + ")" + "> to the Card:<" +
                     card.name + "|" + card.GetCardCategory().ToString() + "(" + (int)card.GetCardCategory() + ")" + ">!");

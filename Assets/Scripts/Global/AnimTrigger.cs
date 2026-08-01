@@ -13,4 +13,9 @@ public class AnimTrigger : MonoBehaviour
     {
         animator?.SetTrigger(animName);
     }
+
+    public void SetBoolValue(string name, bool value)
+    {
+        animator?.SetBool(name, value);
+    }
 }
