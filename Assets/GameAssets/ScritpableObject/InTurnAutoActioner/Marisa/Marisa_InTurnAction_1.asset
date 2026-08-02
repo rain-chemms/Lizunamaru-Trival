@@ -33,6 +33,19 @@ MonoBehaviour:
     attackCategory: 0
   - bullet: {fileID: 2857681049944608652, guid: 3cbd61cca239eca40b455315c5cc341c, type: 3}
     attackCategory: 0
-  summonCtgOpen: 0
+  openVfx: 1
+  vfxList:
+  - NuclearCaution
+  openSpellDisplay: 0
+  leftOrRightSD: 0
+  spellSprite: {fileID: 0}
+  spellTextKey: Spell_Debug
+  searchTable: SpellDisplayTexts
+  summonCtgOpen: 1
+  inTurnRenforce:
+  - offset: {x: -1, y: 0}
+    renforcePrefab: {fileID: 5313409892159371577, guid: 0770d0b8592639a45bbb1155d5b9b27e, type: 3}
+  - offset: {x: 1, y: 0}
+    renforcePrefab: {fileID: 3955644754421548568, guid: c1fb35b1372842142ae48504272a1f86, type: 3}
   defendCtgOpen: 1
   defendPoint: 1

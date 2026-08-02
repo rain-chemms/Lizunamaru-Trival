@@ -52,6 +52,7 @@ public class BattleMessage : MonoBehaviour
     */
     [SerializeField] private List<Gadget> gadgetList = new List<Gadget>();//道具列表
     public List<Gadget> GetGadgetList() => gadgetList;//获取道具列表,用道具列表对召唤的道具进行管理
+    public List<Gadget> GetGadgetList_Copy() => gadgetList?.ToList();
     /// <summary>
     /// 该方法用于检测场景中所有含有Gadget脚本的物体,并将不在列表中的物体添加到gadgetList中
     /// 注意: 这个方法不能在Update中调用
@@ -171,7 +172,7 @@ public class BattleMessage : MonoBehaviour
         }
         
         //若当前角色存在自动操作操作脚本(AI控制),则执行的自动操作        
-        foreach (Role role in roleList)
+        foreach (Role role in roleList.ToList())
         {
             if (role?.GetSide() == isPlayerTurn)
             {
@@ -195,12 +196,14 @@ public class BattleMessage : MonoBehaviour
     public List<Role> GetRoleList() => roleList;
     public List<Role> GetRoleList(bool side) => roleList.Where(role => role.GetSide() == side).ToList();
     public List<Role> GetRoleList_Copy() => roleList.ToList();
+    //获取某一阵营最大玩家ID
+    public uint GetSideMaxRoleID(bool side) => roleList.Where(role => role.GetSide() == side).Max(role => role.GetID());
     /*
         扩展方法1:查找某一特定阵营特定ID的角色
             一般来说ID都是唯一的,但是分阵营
             当前情况下:True阵营的ID = 1的角色一般 不与 False阵营ID = 1的角色冲突,因为可以使用阵营区别两者
     */
-
+    
     public Role GetRole(uint id, bool side)
     {
         if (roleList == null) return null;

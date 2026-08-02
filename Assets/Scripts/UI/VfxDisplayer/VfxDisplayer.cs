@@ -4,7 +4,8 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
 
-namespace VfxDisplaySystem{
+namespace VfxDisplaySystem
+{
     [RequireComponent(typeof(Canvas))]
     public class VfxDisplayer : MonoBehaviour
     {
@@ -113,10 +114,12 @@ namespace VfxDisplaySystem{
         }
 
         //测试代码
+        /*
         IEnumerator Start()
         {   
             yield return new WaitForSeconds(5.0f);
             StartCoroutine(DisplayVfx("NuclearCaution"));
         }
+        */
     }
 }

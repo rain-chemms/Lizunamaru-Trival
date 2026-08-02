@@ -3,6 +3,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using BulletSystem;
+using GridObjectSystem.GadgetSystem;
+using System.Linq;
+using VfxDisplaySystem;
 
 namespace GridObjectSystem.RoleSystem.AutoSystem
 {
@@ -30,6 +33,13 @@ namespace GridObjectSystem.RoleSystem.AutoSystem
             public AttackCategory attackCategory;
         }
 
+        [Serializable]
+        internal struct RenforceAction
+        {
+            public Vector2Int offset;
+            public GridObject renforcePrefab;
+        }
+
         [Header("是否开启移动行为")]
         [SerializeField] private bool moveCtgOpen = false;
         [SerializeField] private List<MoveAction> moveList = new List<MoveAction>();//Role当前回合得移动列表
@@ -38,6 +48,9 @@ namespace GridObjectSystem.RoleSystem.AutoSystem
         [Header("是否开启攻击行为")]
         [SerializeField] private bool attackCtgOpen = false;
         [SerializeField] private List<AttackAction> bulletDict = new List<AttackAction>();//子弹及其攻击方式字典
+        [Header("是否显示Vfx")]
+        [SerializeField] private bool openVfx = false;
+        [SerializeField] List<string> vfxList = new List<string>();//要显示的Vfx名称
         [Header("是否显示符卡界面")]
         [SerializeField] private bool openSpellDisplay = false;
         [SerializeField] private bool leftOrRightSD = false;//是在左侧还是右侧进行符卡的显示
@@ -47,15 +60,22 @@ namespace GridObjectSystem.RoleSystem.AutoSystem
 
         [Header("是否开启召唤行为")]
         [SerializeField] private bool summonCtgOpen = false;
-        //[SerializeField] private List<Gadget> inTurnRenforce = new List<Gadget>();//召唤支援物体
+        [SerializeField] private List<RenforceAction> inTurnRenforce = new List<RenforceAction>();//召唤支援物体行为
         [Header("是否开启防御行为")]
         [SerializeField] private bool defendCtgOpen = false;
         [SerializeField] private int defendPoint = 0;//获得或失去的防御点数
-                                                     //专注于执行Role的行为,不对Role中的状态进行修改
+        //专注于执行Role的行为,不对Role中的状态进行修改
         public IEnumerator ActionExcute(Role role)
         {
             if (role == null) yield break;
             //优先检测并先显示符卡
+            if (openVfx)
+            {
+                foreach (string vfxName in vfxList)
+                {
+                    yield return VfxDisplayer.instance?.DisplayVfx(vfxName,false,0.0f);
+                }
+            }
             if (openSpellDisplay)
             {
                 yield return SpellAttackDisplayer.instance?.WakeDisplayer(spellSprite, leftOrRightSD, spellTextKey, searchTable);
@@ -152,10 +172,41 @@ namespace GridObjectSystem.RoleSystem.AutoSystem
                     cycleTime++;
                 }
             }
+            
             //如果存在召唤行为
             if (summonCtgOpen)
             {
-
+                //循环产生召唤
+                foreach(RenforceAction inTurnRenforce in inTurnRenforce.ToList())
+                {
+                    //获取召唤的预制体
+                    GridObject prefab =  inTurnRenforce.renforcePrefab;
+                    Vector2Int offset = inTurnRenforce.offset;
+                    //在对应的格子召唤物体
+                    //设置基础属性
+                    GridObject newRenforce = Instantiate(prefab,BattleBoard.instance?.transform);
+                    newRenforce?.SetSide((bool)role?.GetSide());//设置新的物体的阵营
+                    newRenforce?.SetDirection((BattleDirection)role?.GetDirection());
+                    if(newRenforce!=null) newRenforce.transform.position = (Vector3)role?.transform.position;//设置初始位置
+                    
+                    //如果是Gadget
+                    Gadget gd = newRenforce as Gadget;
+                    GadgetPositionToRoleSyncer syncer = gd?.GetComponent<GadgetPositionToRoleSyncer>();
+                    syncer?.SetGapsToRole(offset);//开启全部同步
+                    syncer?.SetPosSyncOpen(true);
+                    syncer?.SetFlySyncOpen(true);
+                    syncer?.SetDirSyncOpen(true);
+                    gd?.SetBelongRole(role);
+                    if(gd!=null) BattleMessage.instance?.GetGadgetList()?.Add(gd);
+                    
+                    //若为玩家类
+                    Role newRole = newRenforce as Role;
+                    newRole?.SetGridIndex((Vector2Int)role?.GetGridIndex() + offset);
+                    newRole?.SetHp((float)newRole?.GetMaxHp());//设置新的角色的血量
+                    newRole?.SetID((uint)BattleMessage.instance?.GetSideMaxRoleID((bool)newRole?.GetSide()) + 1);//设置新的角色的ID
+                    newRole?.SetRoundOperateEnd(true);//设置新的角色已结束本回合的移动行为
+                    if(newRole!=null) BattleMessage.instance?.GetRoleList()?.Add(newRole);//尝试添加新的角色
+                }
             }
 
             //如果存在防御行为

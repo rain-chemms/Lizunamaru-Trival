@@ -1778,6 +1778,10 @@ PrefabInstance:
       propertyPath: gapsToRole.x
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 3689250299695373638, guid: 84cdede07f4b33e439ab959e7c300e16, type: 3}
+      propertyPath: isDirSyncOpen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5313409892159371577, guid: 84cdede07f4b33e439ab959e7c300e16, type: 3}
       propertyPath: belongRole
       value: 
