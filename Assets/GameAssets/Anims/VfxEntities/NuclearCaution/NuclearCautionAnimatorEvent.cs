@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace AnimatorEventSystem
@@ -6,14 +8,21 @@ namespace AnimatorEventSystem
     public class NuclearCautionAnimatorEvent : MonoBehaviour
     {
         // Start is called once before the first execution of Update after the MonoBehaviour is created
-        [SerializeField] private AudioSource audioSource;
+        [SerializeField] private List<AudioSource> audioList = new List<AudioSource>();
         void OnEnable()
         {
-            if (audioSource == null) audioSource = GetComponent<AudioSource>();
+            foreach (AudioSource item in GetComponentsInChildren<AudioSource>().ToList())
+            {
+                if(item == null) continue;
+                if(!audioList.Contains(item))
+                {
+                    audioList.Add(item);
+                }   
+            }
         }
-        void PlayerVoice()
+        public void PlayerVoice()
         {
-            audioSource?.Play();
+            foreach (AudioSource aS in audioList) aS?.Play();
         }
     }
 }

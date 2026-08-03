@@ -114,12 +114,14 @@ namespace VfxDisplaySystem
         }
 
         //测试代码
-        /*
+        ///*
         IEnumerator Start()
         {   
+            //yield return new WaitForSeconds(5.0f);
+            //StartCoroutine(DisplayVfx("NuclearCaution"));
             yield return new WaitForSeconds(5.0f);
-            StartCoroutine(DisplayVfx("NuclearCaution"));
+            StartCoroutine(DisplayVfx("ButterFlyDance"));
         }
-        */
+        //*/
     }
 }
