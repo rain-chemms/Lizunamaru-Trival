@@ -197,7 +197,7 @@ namespace GridObjectSystem.RoleSystem.AutoSystem
                     syncer?.SetFlySyncOpen(true);
                     syncer?.SetDirSyncOpen(true);
                     gd?.SetBelongRole(role);
-                    if(gd!=null) BattleMessage.instance?.GetGadgetList()?.Add(gd);
+                    if(gd!=null && !(bool)BattleMessage.instance?.GetGadgetList()?.Contains(gd)) BattleMessage.instance?.GetGadgetList()?.Add(gd);
                     
                     //若为玩家类
                     Role newRole = newRenforce as Role;
@@ -205,7 +205,7 @@ namespace GridObjectSystem.RoleSystem.AutoSystem
                     newRole?.SetHp((float)newRole?.GetMaxHp());//设置新的角色的血量
                     newRole?.SetID((uint)BattleMessage.instance?.GetSideMaxRoleID((bool)newRole?.GetSide()) + 1);//设置新的角色的ID
                     newRole?.SetRoundOperateEnd(true);//设置新的角色已结束本回合的移动行为
-                    if(newRole!=null) BattleMessage.instance?.GetRoleList()?.Add(newRole);//尝试添加新的角色
+                    if(newRole!=null && !(bool)BattleMessage.instance?.GetRoleList()?.Contains(newRole)) BattleMessage.instance?.GetRoleList()?.Add(newRole);//尝试添加新的角色
                 }
             }
 

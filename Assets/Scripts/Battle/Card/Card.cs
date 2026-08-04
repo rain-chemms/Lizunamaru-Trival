@@ -98,5 +98,38 @@ namespace CardSystem
             GetComponent<CardVoiceController>()?.PlayCardVoice("Exhaust");
             yield return null;
         }
+
+        //不在卡牌列表中且有效的卡牌默认加入弃牌堆中
+        protected virtual void OnEnable()
+        {
+            BattleMessage bi = BattleMessage.instance;//不在卡槽,手中,三个牌堆中的卡牌
+            if(!(bool)bi?.IsCardInDiscardStack(this)
+             && !(bool)bi?.IsCardInDrawStack(this)
+             && !(bool)bi?.IsCardInHand(this)
+             && !(bool)bi?.IsCardInExhaustStack(this)
+             && !(bool)bi?.IsCardInSlot(this))
+            {
+                //将其加入底牌堆中
+                bi?.GetDiscardCardList().Add(this);
+            }
+            
+        }
+
+        protected virtual void OnDisable()//非激活状态的牌移除出控制列表
+        {
+            BattleMessage bi = BattleMessage.instance;//不在卡槽,手中,三个牌堆中的卡牌
+            if((bool)bi?.IsCardInDiscardStack(this)) bi?.GetDiscardCardList().Remove(this);
+            if((bool)bi?.IsCardInDrawStack(this)) bi?.GetDrawCardList().Remove(this);
+            if((bool)bi?.IsCardInHand(this)) bi?.GetHandCardList().Remove(this);
+            if((bool)bi?.IsCardInExhaustStack(this)) bi?.GetExhaustCardList().Remove(this);
+            if((bool)bi?.IsCardInSlot(this))
+            {
+                foreach (CardSlot slot in bi?.GetAllCardSlot())
+                {
+                    if((bool)slot.GetInnerCard() == this) slot.SetInnerCard(null);
+                }
+            }
+            
+        }
     }
 }

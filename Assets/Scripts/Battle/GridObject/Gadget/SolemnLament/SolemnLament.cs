@@ -16,6 +16,7 @@ namespace GridObjectSystem.GadgetSystem.Guns
         public override IEnumerator OnGadgetEffect()
         {
             yield return base.OnGadgetEffect();
+            if(!enabled) yield break;
             for (uint i = 0; i < bulletNumberPreRound; i++)
             {
                 yield return GenerateBullet();
@@ -25,11 +26,15 @@ namespace GridObjectSystem.GadgetSystem.Guns
         //每回合开始和结束时都触发射击
         public override IEnumerator OnEveryRoundEnd()
         {
+            yield return base.OnEveryRoundEnd();
+            if(!enabled) yield break;
             yield return OnGadgetEffect();
         }
 
         public override IEnumerator OnEveryRoundStart()
         {
+            yield return base.OnEveryRoundStart();
+            if(!enabled) yield break;
             yield return OnGadgetEffect();
         }
 

@@ -21,6 +21,7 @@ namespace GridObjectSystem.GadgetSystem.YinyangJades
         public override IEnumerator OnGadgetEffect()
         {
             yield return base.OnGadgetEffect();
+            if(!enabled) yield break;
             for (uint i = 0; i < bulletNumberPreRound; i++)
             {
                 yield return GenerateBullet();
@@ -31,12 +32,16 @@ namespace GridObjectSystem.GadgetSystem.YinyangJades
         public override IEnumerator OnEveryRoundEnd()
         {
             //触发一次攻击
+            yield return base.OnEveryRoundEnd();
+            if(!enabled) yield break;
             yield return OnGadgetEffect();
         }
 
         public override IEnumerator OnEveryRoundStart()
         {
             //无功能
+            yield return base.OnEveryRoundStart();
+            if(!enabled) yield break;
             yield return null;
         }
 

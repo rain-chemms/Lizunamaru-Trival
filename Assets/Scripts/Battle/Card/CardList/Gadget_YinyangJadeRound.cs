@@ -14,6 +14,16 @@ namespace CardSystem.AllCardHub
         public Gadget GetGadgetPrefab() => jadePrefab;
         [SerializeField] private List<Gadget> gameEntities;//当前道具卡管理的道具实例列表,需要同步操作BattleMessage中的道具列表 
         
+        void OnDestroy() //卡牌被清除时一并清除所有阴阳玉
+        {
+            foreach(Gadget gadget in gameEntities.ToList())
+            {
+                if(gadget == null) continue;
+                BattleMessage.instance?.GetGadgetList()?.Remove(gadget);
+                Destroy(gadget.gameObject);
+            }
+        }
+
         //用于销毁所有道具
         private IEnumerator DestoryAllGadgetEntities()
         {
@@ -79,7 +89,7 @@ namespace CardSystem.AllCardHub
             //将阴阳玉加入棋盘中
             newJade.transform.SetParent(BattleBoard.instance?.transform);
             //加入控制列表中
-            BattleMessage.instance?.GetGadgetList()?.Add(newJade);
+            if(!(bool)BattleMessage.instance?.GetGadgetList()?.Contains(newJade)) BattleMessage.instance?.GetGadgetList()?.Add(newJade);
             gameEntities.Add(newJade);
             newJade.GetComponent<AnimTrigger>()?.SetBoolValue("Open", true);//播放打开动画
             //设置阴阳玉的坐标位置

@@ -163,7 +163,7 @@ public class BattleMessage : MonoBehaviour
         }
         //玩家获取能量之后
         //触发所有的GadgetList中的道具的TurnStart功能
-        foreach (Gadget gadget in gadgetList)
+        foreach (Gadget gadget in gadgetList.ToList())
         {
             if(gadget?.GetSide() == isPlayerTurn)
             {
@@ -309,9 +309,15 @@ public class BattleMessage : MonoBehaviour
     //卡牌相关的方法
     //可以将卡牌相关的指令包装为一个Cmd类
     /*
+        0_0.刷新卡牌列表,清除无效的卡牌
+    */
+    /*
         0_1.判断一张牌是否在手牌中
     */
     public bool IsCardInHand(Card card) => (bool)handCardList?.Contains(card);
+    public bool IsCardInDrawStack(Card card) => (bool)drawCardList?.Contains(card);
+    public bool IsCardInDiscardStack(Card card) => (bool)discardCardList?.Contains(card);
+    public bool IsCardInExhaustStack(Card card) => (bool)exhaustCardList?.Contains(card);
     /*
         0_2.判断一张牌是否在卡槽中
     */

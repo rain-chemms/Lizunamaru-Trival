@@ -88,7 +88,7 @@ public class StackCardAnchorSetter : MonoBehaviour
             int index = 0;
             foreach (Card card in cardList)
             {
-                if(card.GetComponent<CardHandler>().IsDragging()) continue;
+                if(card == null || (bool)card?.GetComponent<CardHandler>()?.IsDragging()) continue;
                 //获取卡牌的锚点
                 RectTransform cardRTF = card.GetComponent<RectTransform>();
                 //获取卡牌的锚点在目标区域的位置
