@@ -103,6 +103,7 @@ namespace CardSystem
         protected virtual void OnEnable()
         {
             BattleMessage bi = BattleMessage.instance;//不在卡槽,手中,三个牌堆中的卡牌
+            if(bi == null) return;
             if(!(bool)bi?.IsCardInDiscardStack(this)
              && !(bool)bi?.IsCardInDrawStack(this)
              && !(bool)bi?.IsCardInHand(this)

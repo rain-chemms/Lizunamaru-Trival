@@ -12,8 +12,7 @@ namespace CardSystem.AllCardHub
     {
         [SerializeField] private Gadget jadePrefab;//对应的道具的预制体
         public Gadget GetGadgetPrefab() => jadePrefab;
-        [SerializeField] private List<Gadget> gameEntities;//当前道具卡管理的道具实例列表,需要同步操作BattleMessage中的道具列表 
-        
+        [SerializeField] private List<Gadget> gameEntities = new List<Gadget>();//当前道具卡管理的道具实例列表,需要同步操作BattleMessage中的道具列表
         void OnDestroy() //卡牌被清除时一并清除所有阴阳玉
         {
             foreach(Gadget gadget in gameEntities.ToList())

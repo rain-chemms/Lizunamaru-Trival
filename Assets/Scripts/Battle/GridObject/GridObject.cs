@@ -18,6 +18,7 @@ namespace GridObjectSystem
         {
             if(rb == null) rb = GetComponent<Rigidbody>();
             lastDirection = direction;//缓存上次的朝向
+            transform.SetParent(BattleBoard.instance?.transform);//挂载在棋盘上
         }
         //棋盘物体的方向
         [SerializeField] protected BattleDirection direction = BattleDirection.RIGHT;//角色的朝向

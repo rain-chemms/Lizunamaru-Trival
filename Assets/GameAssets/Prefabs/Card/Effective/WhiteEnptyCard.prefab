@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 19669732259262801}
   - component: {fileID: 8894894109992386665}
   - component: {fileID: 8334214255690898920}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5623291518843007019}
   - component: {fileID: 5185368315565693024}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Exhaust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 5552659437684856272}
   - component: {fileID: 7080197002401759028}
   - component: {fileID: 8564044042788094000}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: CardFace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 4679164743054015943}
   - component: {fileID: 7031893358515764276}
   - component: {fileID: 8740498199869185062}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: RiceCost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 4129405820496123548}
   - component: {fileID: 4525302107700560573}
   - component: {fileID: 4293944683411892456}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,7 +442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8814690161212618485}
   - component: {fileID: 6140821022128992057}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Drag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -574,7 +574,7 @@ GameObject:
   - component: {fileID: 7690432316974955776}
   - component: {fileID: 5417963785666043808}
   - component: {fileID: 638532073884341526}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Discription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -825,7 +825,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1097174255016671735}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AudioList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -883,7 +883,7 @@ GameObject:
   - component: {fileID: 2600697479038610853}
   - component: {fileID: 1060043160940584855}
   - component: {fileID: 8746879603567666350}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: WhiteEnptyCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -935,7 +935,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 101
   m_TargetDisplay: 0
 --- !u!114 &9014205762273278572
 MonoBehaviour:
@@ -1294,7 +1294,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8959273955674019085}
   - component: {fileID: 8800832280978762918}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1425,7 +1425,7 @@ GameObject:
   - component: {fileID: 3314403758812087181}
   - component: {fileID: 3647718533986470558}
   - component: {fileID: 8570864719203879925}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: RiceCostPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1506,7 +1506,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.4
+  m_fontSize: 24.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1620,7 +1620,7 @@ GameObject:
   - component: {fileID: 4363033643773023444}
   - component: {fileID: 5826203836947067345}
   - component: {fileID: 3653664144557802328}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InStack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1694,7 +1694,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1006152355768626616}
   - component: {fileID: 8126169086116505245}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Draw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1823,7 +1823,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2884136666923913303}
   - component: {fileID: 7059942915169309921}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Discard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1952,7 +1952,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2109934356454411432}
   - component: {fileID: 5629762604161122680}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DisDrag
   m_TagString: Untagged
   m_Icon: {fileID: 0}

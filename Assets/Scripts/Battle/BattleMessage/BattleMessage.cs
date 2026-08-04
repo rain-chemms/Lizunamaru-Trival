@@ -91,8 +91,9 @@ public class BattleMessage : MonoBehaviour
             }
         }
         //切换回合之前触发对应的GadgetList中的道具的TurnEnd功能
-        foreach (Gadget gadget in gadgetList)
+        foreach (Gadget gadget in gadgetList.ToList())
         {
+            if(gadget == null) continue;
             if (gadget?.GetSide() == isPlayerTurn)
             {
                 yield return gadget.OnEveryRoundEnd();
@@ -165,6 +166,7 @@ public class BattleMessage : MonoBehaviour
         //触发所有的GadgetList中的道具的TurnStart功能
         foreach (Gadget gadget in gadgetList.ToList())
         {
+            if(gadget == null) continue;
             if(gadget?.GetSide() == isPlayerTurn)
             {
                 yield return gadget.OnEveryRoundStart();

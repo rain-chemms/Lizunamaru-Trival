@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -5451801547922167944}
   - component: {fileID: 2016263376608874416}
   - component: {fileID: 5476432352587092916}
+  - component: {fileID: 3229384238759320521}
   m_Layer: 5
   m_Name: GadgetCardSlot
   m_TagString: Untagged
@@ -170,6 +171,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 6254782294947846744}
   boxCollider2D: {fileID: 2016263376608874416}
+--- !u!114 &3229384238759320521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8706124032673402397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6376e8014b9bda046a7e97d5b77d9828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardSlot: {fileID: 497130544065930605}
 --- !u!1001 &2423031811702913697
 PrefabInstance:
   m_ObjectHideFlags: 0

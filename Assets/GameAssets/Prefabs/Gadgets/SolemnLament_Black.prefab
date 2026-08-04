@@ -242,7 +242,7 @@ MonoBehaviour:
   gridIndex: {x: 0, y: 0}
   belongRole: {fileID: 0}
   bulletPrefab: {fileID: 8715951260973823654, guid: 84dfc6d53aeb71e40b826f0056f0773a, type: 3}
-  bulletNumberPreRound: 6
+  bulletNumberPreRound: 2
   shootInterval: 0.4
 --- !u!114 &8413767215954934315
 MonoBehaviour:

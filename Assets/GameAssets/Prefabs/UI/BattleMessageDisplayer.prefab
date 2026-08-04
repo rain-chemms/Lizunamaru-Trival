@@ -963,7 +963,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 100
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &2261609854782664910
 MonoBehaviour:
@@ -1717,6 +1717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardStackName: exhaustCardList
+  cardList: []
 --- !u!1 &2927594245508058418
 GameObject:
   m_ObjectHideFlags: 0
@@ -4364,6 +4365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardStackName: discardCardList
+  cardList: []
 --- !u!1 &7325167823111628478
 GameObject:
   m_ObjectHideFlags: 0
@@ -4635,6 +4637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardStackName: drawCardList
+  cardList: []
 --- !u!1 &7532126199897759904
 GameObject:
   m_ObjectHideFlags: 0

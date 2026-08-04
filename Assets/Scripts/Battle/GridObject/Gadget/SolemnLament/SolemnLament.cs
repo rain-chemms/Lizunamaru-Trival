@@ -8,7 +8,7 @@ namespace GridObjectSystem.GadgetSystem.Guns
     {
         [SerializeField] private Bullet bulletPrefab;//存储的子弹,依据不同种类的阴阳玉分别设置
         public Bullet GetBulletPrefab() => bulletPrefab;
-        [SerializeField] private uint bulletNumberPreRound = 6;//每回合产生多少颗对应的子弹
+        [SerializeField] private uint bulletNumberPreRound = 2;//每回合产生多少颗对应的子弹
         public uint GetBulletNumberPreRound() => bulletNumberPreRound;
         public void SetBulletNumberPreRound(uint preRound) => bulletNumberPreRound = preRound;
         [SerializeField] private float shootInterval;//两发子弹的射击间隔
