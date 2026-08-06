@@ -226,8 +226,10 @@ namespace MapSystem
         }
 
         //测试一下
+        /*
         void Start()
         {
+            
             RecurMap(
                 (int)SeedSetter.instance?.GetSeed_Int(),
                 new Vector2Int(5, 15),
@@ -235,5 +237,6 @@ namespace MapSystem
                 new Vector2Int(0, 0)
             );
         }
+        //*/
     }
 }

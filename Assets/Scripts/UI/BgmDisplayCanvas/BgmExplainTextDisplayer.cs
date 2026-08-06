@@ -9,7 +9,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 [RequireComponent(typeof(TMP_Text))]
 public class BgmExplainTextDisplayer : MonoBehaviour
 {
-    [SerializeField] private string tableName = "MusicExplainText";//指定查找的Table列表
+    [SerializeField] private string tableName = "MusicExplainTexts";//指定查找的Table列表
     public void SetTableName(string name)
     {
         tableName = name;

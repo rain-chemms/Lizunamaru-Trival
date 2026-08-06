@@ -14,7 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TableCollectionName: MusicExplainTexts
   m_TableCollectionNameGuidString: 3a24db60751b30e46a0b9de70907581e
-  m_Entries: []
+  m_Entries:
+  - m_Id: 11379118624079872
+    m_Key: Cirno9_BattleBgm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11384766682234880
+    m_Key: KirisameMagicShop
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
