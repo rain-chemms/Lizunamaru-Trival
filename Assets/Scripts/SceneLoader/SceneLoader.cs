@@ -33,18 +33,18 @@ public class SceneLoader : MonoBehaviour
 
     //传入的Action必须为返回类型为空的,传入参数为空的委托
     //表示在场景加载完之后要执行的逻辑,可以使用一个返回类型为空的且传入参数为空的函数来包装复杂方法
-    public void LoadScene(String sceneName,Action callbacks = null)
+    public void LoadScene(String sceneName,Action callbacks = null,LoadSceneMode mode = LoadSceneMode.Single)
     {
-        StartCoroutine(LoadCoroutine(sceneName,callbacks));
+        StartCoroutine(LoadCoroutine(sceneName,callbacks,mode));
     }
 
-    private IEnumerator LoadCoroutine(String sceneName,Action actionCallbacks = null)
+    private IEnumerator LoadCoroutine(String sceneName,Action actionCallbacks = null,LoadSceneMode mode = LoadSceneMode.Single)
     {
         animator.SetTrigger("Start");
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
         yield return new WaitForSeconds(stateInfo.length);//等待动画播放完毕
         SceneManager.LoadScene(sceneName);
-        AsyncOperation asyncOperation =  SceneManager.LoadSceneAsync(sceneName,LoadSceneMode.Single);
+        AsyncOperation asyncOperation =  SceneManager.LoadSceneAsync(sceneName,mode);
         //等待加载完成
         while (!asyncOperation.isDone)
         {
