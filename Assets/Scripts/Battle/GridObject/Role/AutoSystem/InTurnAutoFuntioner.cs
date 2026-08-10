@@ -18,7 +18,9 @@ namespace GridObjectSystem.RoleSystem.AutoSystem
         [SerializeField] private List<InTurnAutoAction> actionList;
         public List<InTurnAutoAction> GetActionList() => actionList;
         public List<InTurnAutoAction> GetActionList_Copy() => new List<InTurnAutoAction>(actionList);
+        public void SetActionList(List<InTurnAutoAction> newActionList) => actionList = newActionList;
         [SerializeField] private Role role = null;
+        public Role GetRole() => role;
         void Start()
         {
             if (role == null) role = GetComponent<Role>();
@@ -33,8 +35,13 @@ namespace GridObjectSystem.RoleSystem.AutoSystem
         public IEnumerator Excute()
         {
             yield return new WaitForSeconds(waitTime);//延迟执行
-            yield return actionList[index]?.ActionExcute(role);
-            index = ++index % actionList.Count;//索引改变
+            InTurnAutoAction action =  actionList?[index > actionList.Count - 1 ? actionList.Count - 1: index < 0 ? 0 : index];
+            yield return action?.ActionExcute(role);
+            if((bool)action?.IsJumpLogicOpen())//若跳转逻辑开启
+            {
+                index = (int)action?.GetNextLogicIndex();//索引跳转
+            }
+            else index = ++index % actionList.Count;//不跳转则索引+1
             role?.SetRoundOperateEnd(true);//设置当前角色的回合结束
         }
     }

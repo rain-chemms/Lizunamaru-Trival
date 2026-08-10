@@ -7,6 +7,7 @@ using GridObjectSystem.GadgetSystem;
 using System.Linq;
 using VfxDisplaySystem;
 
+
 namespace GridObjectSystem.RoleSystem.AutoSystem
 {
     //该脚本规定了AI操控的Role在一个回合到达时的行为
@@ -41,31 +42,53 @@ namespace GridObjectSystem.RoleSystem.AutoSystem
         }
 
         [Header("是否开启移动行为")]
+        [HideInherited]
         [SerializeField] private bool moveCtgOpen = false;
+        [HideInherited]
         [SerializeField] private List<MoveAction> moveList = new List<MoveAction>();//Role当前回合得移动列表
+        [HideInherited]
         [SerializeField] private bool changeFly = false;//是否改变飞行状态
 
         [Header("是否开启攻击行为")]
+        [HideInherited]
         [SerializeField] private bool attackCtgOpen = false;
+        [HideInherited]
         [SerializeField] private List<AttackAction> bulletDict = new List<AttackAction>();//子弹及其攻击方式字典
         [Header("是否显示Vfx")]
+        [HideInherited]
         [SerializeField] private bool openVfx = false;
+        [HideInherited]
         [SerializeField] List<string> vfxList = new List<string>();//要显示的Vfx名称
         [Header("是否显示符卡界面")]
+        [HideInherited]
         [SerializeField] private bool openSpellDisplay = false;
+        [HideInherited]
         [SerializeField] private bool leftOrRightSD = false;//是在左侧还是右侧进行符卡的显示
+        [HideInherited]
         [SerializeField] private Sprite spellSprite;//符卡的人物立绘Sprite
+        [HideInherited]
         [SerializeField] private string spellTextKey = "Spell_Debug";//符卡的文本的本地化键值
+        [HideInherited]
         [SerializeField] private string searchTable = "SpellDisplayTexts";//搜索本地字典
 
         [Header("是否开启召唤行为")]
+        [HideInherited]
         [SerializeField] private bool summonCtgOpen = false;
+        [HideInherited]
         [SerializeField] private List<RenforceAction> inTurnRenforce = new List<RenforceAction>();//召唤支援物体行为
         [Header("是否开启防御行为")]
+        [HideInherited]
         [SerializeField] private bool defendCtgOpen = false;
-        [SerializeField] private int defendPoint = 0;//获得或失去的防御点数
+        [SerializeField] [HideInherited] private int defendPoint = 0;//获得或失去的防御点数
+        
+        //一下部分用于扩展重写
+        [Header("是否开启InTurnAutoAction跳转逻辑")]
+        [SerializeField] protected bool jumpLogicOpen = false;//是否开启跳转逻辑
+        public bool IsJumpLogicOpen() => jumpLogicOpen;
+        [SerializeField] protected int nextLogicIndex = -1;//下一个InTurnAutoAction的索引
+        public virtual int GetNextLogicIndex() => nextLogicIndex;
         //专注于执行Role的行为,不对Role中的状态进行修改
-        public IEnumerator ActionExcute(Role role)
+        public virtual IEnumerator ActionExcute(Role role)
         {
             if (role == null) yield break;
             //优先检测并先显示符卡
@@ -127,7 +150,7 @@ namespace GridObjectSystem.RoleSystem.AutoSystem
                         case AttackCategory.RANDOM:
                             //依据种子获取随机数选择随机的格子
                             Vector2Int widAndhei = (Vector2Int)BattleBoard.instance?.GetWidthAndHeight();//获取棋盘的宽高  
-                            int seed = (int)SeedSetter.instance?.GetSeed_Int() + cycleTime;//获取随机种子
+                            int seed = (int)SeedSetter.instance?.GetSeed_Int() + cycleTime + (int)BattleMessage.instance?.GetRound();//获取随机种子
                                                                                            //依据Random类生成int随机数作为棋盘的索引
                             System.Random rng = new System.Random(seed);
                             targetIndex = new Vector2Int(

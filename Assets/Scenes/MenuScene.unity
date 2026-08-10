@@ -9631,6 +9631,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 900415494553137493, guid: d3e038752e7ee7b44858b32302a8ef9a, type: 3}
+      propertyPath: m_fontSize
+      value: 58.85
+      objectReference: {fileID: 0}
     - target: {fileID: 2402037418841581592, guid: d3e038752e7ee7b44858b32302a8ef9a, type: 3}
       propertyPath: m_Name
       value: MenuUI
@@ -9717,7 +9721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4524300564482985532, guid: d3e038752e7ee7b44858b32302a8ef9a, type: 3}
       propertyPath: m_fontSize
-      value: 61.05
+      value: 58.85
       objectReference: {fileID: 0}
     - target: {fileID: 5628018951516895232, guid: d3e038752e7ee7b44858b32302a8ef9a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

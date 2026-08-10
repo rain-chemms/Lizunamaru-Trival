@@ -207,10 +207,13 @@ PrefabInstance:
       addedObject: {fileID: 8449993656050816587}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9c17f1b4cde64c24b9a14dbce2a6c849, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 7257819609609004197}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9c17f1b4cde64c24b9a14dbce2a6c849, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 9013316202566219870}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9c17f1b4cde64c24b9a14dbce2a6c849, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7257819609609004197}
+      addedObject: {fileID: 7221517261962082232}
     - targetCorrespondingSourceObject: {fileID: -6155432799563052717, guid: 9c17f1b4cde64c24b9a14dbce2a6c849, type: 3}
       insertIndex: -1
       addedObject: {fileID: 593932086117183288}
@@ -3216,6 +3219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78cc26caf5d9c8747ba7444217dd0d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  side: 0
   rb: {fileID: 8614355079002232047}
   direction: 2
   speed: 5
@@ -3223,7 +3227,6 @@ MonoBehaviour:
   gridIndex: {x: 0, y: 0}
   roundOperateEnd: 0
   id: 0
-  side: 0
   hp: 100
   defend: 0
   maxHp: 100
@@ -3286,6 +3289,22 @@ MonoBehaviour:
   role: {fileID: 3955644754421548568}
   target: {x: 0, y: 0, z: 1}
   lerpSpeed: 6
+--- !u!114 &7257819609609004197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807231021091460480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0a35a110469b2343befd17b1d97d29b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  landHeightOffset: 0
+  flyHeight: 3
+  grandYOffset: 1.1
+  gridObject: {fileID: 3955644754421548568}
 --- !u!114 &9013316202566219870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3305,8 +3324,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8ee1257d56842e543bb035ddec5f9b97, type: 2}
   - {fileID: 11400000, guid: 1c90dc712a80c3648890f4e5c6a71f57, type: 2}
   - {fileID: 11400000, guid: b404cad86da57554995dfa7940980d81, type: 2}
+  - {fileID: 11400000, guid: 64d7cdf649f7b3a45bb52c0b22d05a43, type: 2}
   role: {fileID: 3955644754421548568}
---- !u!114 &7257819609609004197
+--- !u!114 &7221517261962082232
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3315,12 +3335,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1807231021091460480}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0a35a110469b2343befd17b1d97d29b, type: 3}
+  m_Script: {fileID: 11500000, guid: bd85966797b71614fa4dbacadc8c835e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flyHeight: 3
-  grandYOffset: 1.1
-  gridObject: {fileID: 3955644754421548568}
+  autoFuntioner: {fileID: 0}
+  conditions:
+  - state:
+      openBloodCheck: 1
+      belowPrecent: 0.1
+      openRoleNumberCheck: 0
+      checkNumber: 0
+      checkSelfSide: 0
+      uptoOrBelow: 0
+    activateActionList:
+    - {fileID: 11400000, guid: b404cad86da57554995dfa7940980d81, type: 2}
 --- !u!1 &1842820164490329699 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8338702828521695566, guid: 9c17f1b4cde64c24b9a14dbce2a6c849, type: 3}

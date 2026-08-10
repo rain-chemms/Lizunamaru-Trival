@@ -287,6 +287,22 @@ MonoBehaviour:
     m_Key: BattleScene/RoundChangeDisplayer/BackImage/DisplayText 1
     m_Metadata:
       m_Items: []
+  - m_Id: 12517675266867200
+    m_Key: Logo/Logo/StatementText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12517675338170368
+    m_Key: Logo/Logo/StatementText 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12523875710664704
+    m_Key: Logo/Logo/Loading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12523875777773568
+    m_Key: Logo/Logo/Loading 1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 816146740363657316
@@ -496,6 +512,18 @@ MonoBehaviour:
           - zh
           - zh-Hant
           - ja
+        - m_KeyId: 12517675266867200
+          m_TableCodes:
+          - en
+          - ja
+          - zh
+          - zh-Hant
+        - m_KeyId: 12523875710664704
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
         m_TypeString: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
     - rid: 816146740363657319
@@ -689,6 +717,18 @@ MonoBehaviour:
           - zh-Hant
           - ja
         - m_KeyId: 2185808386850816
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 12517675338170368
+          m_TableCodes:
+          - en
+          - ja
+          - zh
+          - zh-Hant
+        - m_KeyId: 12523875777773568
           m_TableCodes:
           - en
           - zh

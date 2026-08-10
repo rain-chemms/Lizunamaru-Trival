@@ -178,6 +178,8 @@ public class BattleMessage : MonoBehaviour
         {
             if (role?.GetSide() == isPlayerTurn)
             {
+                //每回合检查并切换条件
+                yield return role.GetComponent<InTurnConditionController>()?.CheckAndShiftCondition();
                 yield return role.GetComponent<InTurnAutoFuntioner>()?.Excute();
             }
         }
