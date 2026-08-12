@@ -2,13 +2,19 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using MapSystem;
 
 //战斗网格控制器:用于控制棋盘的数据
 [RequireComponent(typeof(BattleBoard))]
 public class BattleBoardController : MonoBehaviour
 {
-    private BattleBoard battleBoard;
+    
+    [SerializeField] private BattleBoard battleBoard;
     public static BattleBoardController instance;
+    //记录每种场景的不同种类棋盘格
+    [SerializeField] private BattleGrid defaultGridPrefab;
+    [SerializeField] private float gridInitYOffset = -1.0f;
+    [SerializeField] private SerializableDictionary<MapAreaCategory,BattleGrid> gridPrefabDict = new SerializableDictionary<MapAreaCategory,BattleGrid>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -22,8 +28,8 @@ public class BattleBoardController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    void Start()
+    
+    void OnEnable()
     {
         {//尝试自动获取
             if(battleBoard == null) battleBoard = GetComponent<BattleBoard>();//尝试从脚本中获取
@@ -31,6 +37,13 @@ public class BattleBoardController : MonoBehaviour
         }
         DestroyOutOfBoundaryGrids();
         DestroyRepeatBattleGrid();
+        for(int i = 0; i < battleBoard?.GetWidthAndHeight().x; i++)
+        {
+            for(int j =0;j< battleBoard?.GetWidthAndHeight().y; j++)
+            {
+                TryFillTheEmptyGrid(new Vector2Int(i,j));
+            }
+        }
     }
 
     void Update()
@@ -144,6 +157,33 @@ public class BattleBoardController : MonoBehaviour
             if(!isRepeat) repeatIndex.Add(index);//非重复项添加索引
         }
     }
+    
+    //填上一个空缺的格子,创建对应的格子实体
+    public void TryFillTheEmptyGrid(Vector2Int tarIdx)
+    {
+        //确保索引在棋盘内
+        if(tarIdx.x < 0 || tarIdx.x >= battleBoard.GetWidthAndHeight().x) return;
+        if(tarIdx.y < 0 || tarIdx.y >= battleBoard.GetWidthAndHeight().y) return;
+        foreach(BattleGrid grid in battleBoard?.GetBattleGridList_Copy())
+        {
+            if(grid.GetIndex().x == tarIdx.x && grid.GetIndex().y == tarIdx.y) return;//检测到目标索引已经存在
+        }
+        MapAreaCategory area = Map.instance.GetMapArea();
+        BattleGrid prefab = null;
+        gridPrefabDict.TryGetValue(area, out prefab);
+        if(prefab == null) prefab = defaultGridPrefab;
+        BattleGrid newGrid = Instantiate(prefab, battleBoard?.transform);//以棋盘格为父物体
+        //加入控制列表
+        battleBoard?.GetBattleGridList()?.Add(newGrid);
+        //设置初始位置
+        newGrid.transform.localPosition = (Vector3)battleBoard?.GetGrid00LocalPosition() +
+            new Vector3((float)battleBoard?.GetGapsOfGrid().x * tarIdx.x,
+            gridInitYOffset,
+            (float)battleBoard?.GetGapsOfGrid().y * tarIdx.y
+        );
+        //设置目标索引
+        newGrid?.SetIndex(tarIdx);
+    }    
 
     //刷新目前棋盘内格子的位置
     public void FreshBattleBoardGridsPosition()

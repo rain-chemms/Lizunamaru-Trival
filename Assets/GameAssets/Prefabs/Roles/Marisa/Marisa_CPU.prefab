@@ -3320,11 +3320,11 @@ MonoBehaviour:
   waitTime: 1.5
   index: 0
   actionList:
-  - {fileID: 11400000, guid: 3fff1cf14e24d52428e32aac709a790b, type: 2}
-  - {fileID: 11400000, guid: 8ee1257d56842e543bb035ddec5f9b97, type: 2}
-  - {fileID: 11400000, guid: 1c90dc712a80c3648890f4e5c6a71f57, type: 2}
-  - {fileID: 11400000, guid: b404cad86da57554995dfa7940980d81, type: 2}
-  - {fileID: 11400000, guid: 64d7cdf649f7b3a45bb52c0b22d05a43, type: 2}
+  - {fileID: 11400000, guid: f47c6b6100a20ed44b220b18e5cb8d7b, type: 2}
+  - {fileID: 11400000, guid: cdd4d32e4903ba440be2a7fd30a94bf3, type: 2}
+  - {fileID: 11400000, guid: 388c05f97966c1046aa136702a0c6342, type: 2}
+  - {fileID: 11400000, guid: 1bb88aabaf2b1464e84e869e53c36804, type: 2}
+  - {fileID: 11400000, guid: fe285349c9511be4a97ad7387e89a1a9, type: 2}
   role: {fileID: 3955644754421548568}
 --- !u!114 &7221517261962082232
 MonoBehaviour:
@@ -3338,17 +3338,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd85966797b71614fa4dbacadc8c835e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoFuntioner: {fileID: 0}
+  autoFuntioner: {fileID: 9013316202566219870}
   conditions:
   - state:
       openBloodCheck: 1
-      belowPrecent: 0.1
+      belowPrecent: 0.6
       openRoleNumberCheck: 0
       checkNumber: 0
       checkSelfSide: 0
       uptoOrBelow: 0
-    activateActionList:
-    - {fileID: 11400000, guid: b404cad86da57554995dfa7940980d81, type: 2}
+    activateActionList: []
+  - state:
+      openBloodCheck: 1
+      belowPrecent: 0.2
+      openRoleNumberCheck: 0
+      checkNumber: 0
+      checkSelfSide: 0
+      uptoOrBelow: 0
+    activateActionList: []
 --- !u!1 &1842820164490329699 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8338702828521695566, guid: 9c17f1b4cde64c24b9a14dbce2a6c849, type: 3}

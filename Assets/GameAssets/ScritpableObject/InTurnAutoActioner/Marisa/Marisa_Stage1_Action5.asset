@@ -10,15 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cb7300507b34ff4f8977ec01320b6db, type: 3}
-  m_Name: Marisa_InTurnAction_2
+  m_Name: Marisa_Stage1_Action5
   m_EditorClassIdentifier: 
-  moveCtgOpen: 1
-  moveList:
-  - direction: 1
-    distance: 2
-  changeFly: 1
+  moveCtgOpen: 0
+  moveList: []
   attackCtgOpen: 0
   bulletDict: []
+  openVfx: 0
+  vfxList: []
+  openSpellDisplay: 0
+  leftOrRightSD: 0
+  spellSprite: {fileID: 0}
+  spellTextKey: Spell_Debug
+  searchTable: SpellDisplayTexts
   summonCtgOpen: 0
-  defendCtgOpen: 1
-  defendPoint: 1
+  inTurnRenforce: []
+  defendCtgOpen: 0
+  defendPoint: 0
+  jumpLogicOpen: 1
+  nextLogicIndex: 1

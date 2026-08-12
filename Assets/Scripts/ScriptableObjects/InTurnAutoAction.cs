@@ -16,6 +16,7 @@ namespace GridObjectSystem.RoleSystem.AutoSystem
     {
         internal enum AttackCategory
         {
+            DEFAULT,//默认攻击,设置的方向只于GridOffset有关
             RANDOM,//随机方向子弹
             SNIPE,//狙击弹
             DIRECTION,//方向子弹,朝着角色的面向的方向射击    
@@ -24,12 +25,19 @@ namespace GridObjectSystem.RoleSystem.AutoSystem
         [Serializable]
         internal struct MoveAction
         {
+            public float beforeMoveInterval;
+            public float afterMoveInterval;
             public BattleDirection direction;
             public int distance;
+            public bool changeFly;//是否改变飞行状态
         }
         [Serializable]
         internal struct AttackAction
         {
+            public float beforeBulletInterval;//子弹发射之前的间隔时间
+            public  float afterBulletInterval;//子弹发射之后的间隔时间
+            public Vector3 offset;//子弹发射时距离发射者的偏移
+            public Vector2Int gridOffset;//角色目标格子的偏移,一般为0
             public Bullet bullet;
             public AttackCategory attackCategory;
         }
@@ -47,15 +55,14 @@ namespace GridObjectSystem.RoleSystem.AutoSystem
         [HideInherited]
         [SerializeField] private List<MoveAction> moveList = new List<MoveAction>();//Role当前回合得移动列表
         [HideInherited]
-        [SerializeField] private bool changeFly = false;//是否改变飞行状态
+        
 
         [Header("是否开启攻击行为")]
-        [HideInherited]
         [SerializeField] private bool attackCtgOpen = false;
         [HideInherited]
         [SerializeField] private List<AttackAction> bulletDict = new List<AttackAction>();//子弹及其攻击方式字典
-        [Header("是否显示Vfx")]
         [HideInherited]
+        [Header("是否显示Vfx")]
         [SerializeField] private bool openVfx = false;
         [HideInherited]
         [SerializeField] List<string> vfxList = new List<string>();//要显示的Vfx名称
@@ -107,7 +114,6 @@ namespace GridObjectSystem.RoleSystem.AutoSystem
             //不对玩家的能量系统产生变化
             if (moveCtgOpen)
             {
-                if (changeFly) role.SetFly(!role.IsFly());
                 foreach (MoveAction move in moveList)
                 {
                     Vector2Int target = Vector2Int.zero;
@@ -134,8 +140,11 @@ namespace GridObjectSystem.RoleSystem.AutoSystem
                     if (target.y < 0) target.y = 0;
                     else if (target.y >= BattleBoard.instance?.GetWidthAndHeight().y) target.y = (int)BattleBoard.instance?.GetWidthAndHeight().y - 1;
                     //移动
+                    yield return new WaitForSeconds(move.beforeMoveInterval);
+                    if (move.changeFly) role.SetFly(!role.IsFly());
                     role.SetGridIndex(target);
                     role.SetDirection(move.direction);//设置移动方向
+                    yield return new WaitForSeconds(move.afterMoveInterval);
                 }
             }
             //攻击
@@ -144,9 +153,11 @@ namespace GridObjectSystem.RoleSystem.AutoSystem
                 int cycleTime = 0;
                 foreach (AttackAction attack in bulletDict)
                 {
-                    Vector2Int targetIndex = role.GetGridIndex();
+                    Vector2Int targetIndex = role.GetGridIndex() + attack.gridOffset;
                     switch (attack.attackCategory)
                     {
+                        case AttackCategory.DEFAULT: 
+                            break;
                         case AttackCategory.RANDOM:
                             //依据种子获取随机数选择随机的格子
                             Vector2Int widAndhei = (Vector2Int)BattleBoard.instance?.GetWidthAndHeight();//获取棋盘的宽高  
@@ -184,14 +195,18 @@ namespace GridObjectSystem.RoleSystem.AutoSystem
                             break;
                     }
                     Bullet bt = attack.bullet;
+                    //进行射击前的等待
+                    yield return new WaitForSeconds(attack.beforeBulletInterval);
                     //产生具体的子弹
                     yield return BattleMessage.instance?.GenerateBullet(
                         role,
                         bt,
                         targetIndex,
-                        default,
+                        attack.offset,
                         true
                     );
+                    //进行射击后的等待
+                    yield return new WaitForSeconds(attack.afterBulletInterval);
                     cycleTime++;
                 }
             }
