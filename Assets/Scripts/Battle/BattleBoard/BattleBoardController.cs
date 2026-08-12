@@ -37,11 +37,16 @@ public class BattleBoardController : MonoBehaviour
         }
         DestroyOutOfBoundaryGrids();
         DestroyRepeatBattleGrid();
-        for(int i = 0; i < battleBoard?.GetWidthAndHeight().x; i++)
+    }
+
+    void Start()
+    {
+        Vector2Int gridSize = (Vector2Int)battleBoard?.GetWidthAndHeight();
+        for(int i = 0; i < gridSize.x; i++)
         {
-            for(int j =0;j< battleBoard?.GetWidthAndHeight().y; j++)
+            for(int j =0;j< gridSize.y; j++)
             {
-                TryFillTheEmptyGrid(new Vector2Int(i,j));
+                this.TryFillTheEmptyGrid(new Vector2Int(i,j));
             }
         }
     }
