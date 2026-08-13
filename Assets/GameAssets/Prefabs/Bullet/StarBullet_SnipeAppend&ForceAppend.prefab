@@ -137,7 +137,7 @@ MonoBehaviour:
   rb: {fileID: 6584189996944205465}
   scale: {x: 1, y: 1, z: 1}
   direction: {x: 0, y: 0, z: 0}
-  force: 0
+  force: 5
   maxSpeed: 0
   forceMode: 2
 --- !u!114 &4701561104346855887

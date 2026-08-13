@@ -9,18 +9,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cb7300507b34ff4f8977ec01320b6db, type: 3}
-  m_Name: Marisa_Stage1_Action2
+  m_Script: {fileID: 11500000, guid: 61a27bd8770d4c743b0e9fb3a627d14f, type: 3}
+  m_Name: Attack_EightDirectionShoot
   m_EditorClassIdentifier: 
-  moveCtgOpen: 0
-  moveList: []
-  changeFly: 0
-  attackCtgOpen: 1
-  bulletDict:
+  actionName: MasterSpark
+  isActionOpen: 1
+  vfxList: []
+  openSpellDisplay: 0
+  leftOrRightSD: 0
+  spellSprite: {fileID: 0}
+  spellTextKey: Spell_Debug
+  searchTable: SpellDisplayTexts
+  shootList:
   - beforeBulletInterval: 0
     afterBulletInterval: 0
     offset: {x: 0, y: 0, z: 0}
     gridOffset: {x: 1, y: 1}
+    bullet: {fileID: 2857681049944608652, guid: 3cbd61cca239eca40b455315c5cc341c, type: 3}
+    attackCategory: 0
+  - beforeBulletInterval: 0
+    afterBulletInterval: 0
+    offset: {x: 0, y: 0, z: 0}
+    gridOffset: {x: -1, y: -1}
+    bullet: {fileID: 2857681049944608652, guid: 3cbd61cca239eca40b455315c5cc341c, type: 3}
+    attackCategory: 0
+  - beforeBulletInterval: 0
+    afterBulletInterval: 0
+    offset: {x: 0, y: 0, z: 0}
+    gridOffset: {x: 1, y: -1}
+    bullet: {fileID: 2857681049944608652, guid: 3cbd61cca239eca40b455315c5cc341c, type: 3}
+    attackCategory: 0
+  - beforeBulletInterval: 0
+    afterBulletInterval: 0
+    offset: {x: 0, y: 0, z: 0}
+    gridOffset: {x: -1, y: 1}
     bullet: {fileID: 2857681049944608652, guid: 3cbd61cca239eca40b455315c5cc341c, type: 3}
     attackCategory: 0
   - beforeBulletInterval: 0
@@ -38,12 +60,6 @@ MonoBehaviour:
   - beforeBulletInterval: 0
     afterBulletInterval: 0
     offset: {x: 0, y: 0, z: 0}
-    gridOffset: {x: -1, y: 1}
-    bullet: {fileID: 2857681049944608652, guid: 3cbd61cca239eca40b455315c5cc341c, type: 3}
-    attackCategory: 0
-  - beforeBulletInterval: 0
-    afterBulletInterval: 0
-    offset: {x: 0, y: 0, z: 0}
     gridOffset: {x: 0, y: 1}
     bullet: {fileID: 2857681049944608652, guid: 3cbd61cca239eca40b455315c5cc341c, type: 3}
     attackCategory: 0
@@ -53,28 +69,3 @@ MonoBehaviour:
     gridOffset: {x: 0, y: -1}
     bullet: {fileID: 2857681049944608652, guid: 3cbd61cca239eca40b455315c5cc341c, type: 3}
     attackCategory: 0
-  - beforeBulletInterval: 0
-    afterBulletInterval: 0
-    offset: {x: 0, y: 0, z: 0}
-    gridOffset: {x: -1, y: -1}
-    bullet: {fileID: 2857681049944608652, guid: 3cbd61cca239eca40b455315c5cc341c, type: 3}
-    attackCategory: 0
-  - beforeBulletInterval: 0
-    afterBulletInterval: 0
-    offset: {x: 0, y: 0, z: 0}
-    gridOffset: {x: 1, y: -1}
-    bullet: {fileID: 2857681049944608652, guid: 3cbd61cca239eca40b455315c5cc341c, type: 3}
-    attackCategory: 0
-  openVfx: 0
-  vfxList: []
-  openSpellDisplay: 0
-  leftOrRightSD: 0
-  spellSprite: {fileID: 0}
-  spellTextKey: Spell_Debug
-  searchTable: SpellDisplayTexts
-  summonCtgOpen: 0
-  inTurnRenforce: []
-  defendCtgOpen: 0
-  defendPoint: 0
-  jumpLogicOpen: 0
-  nextLogicIndex: -1

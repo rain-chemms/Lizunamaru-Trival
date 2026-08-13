@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb7300507b34ff4f8977ec01320b6db, type: 3}
+  m_Name: Marisa_Stage1_Action5
+  m_EditorClassIdentifier: 
+  actionList:
+  - {fileID: 11400000, guid: ef2001171f846c74f9f3f5a671c7101c, type: 2}
+  jumpLogicOpen: 1
+  nextLogicIndex: 1

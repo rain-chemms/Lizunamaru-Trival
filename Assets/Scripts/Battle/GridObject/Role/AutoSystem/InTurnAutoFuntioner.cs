@@ -35,13 +35,19 @@ namespace GridObjectSystem.RoleSystem.AutoSystem
         public IEnumerator Excute()
         {
             yield return new WaitForSeconds(waitTime);//延迟执行
-            InTurnAutoAction action =  actionList?[index > actionList.Count - 1 ? actionList.Count - 1: index < 0 ? 0 : index];
-            yield return action?.ActionExcute(role);
-            if((bool)action?.IsJumpLogicOpen())//若跳转逻辑开启
+            if (actionList != null && actionList.Count > 0)
             {
-                index = (int)action?.GetNextLogicIndex();//索引跳转
+                InTurnAutoAction action = actionList?[index > actionList.Count - 1 ? actionList.Count - 1 : index < 0 ? 0 : index];
+                if(action != null)
+                {
+                    yield return action?.ActionExcute(role);
+                    if ((bool)action?.IsJumpLogicOpen())//若跳转逻辑开启
+                    {
+                        index = (int)action?.GetNextLogicIndex();//索引跳转
+                    }
+                    else index = ++index % actionList.Count;//不跳转则索引+1
+                }
             }
-            else index = ++index % actionList.Count;//不跳转则索引+1
             role?.SetRoundOperateEnd(true);//设置当前角色的回合结束
         }
     }

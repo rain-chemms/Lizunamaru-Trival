@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a27bd8770d4c743b0e9fb3a627d14f, type: 3}
+  m_Name: Attack_RedSnipeStar
+  m_EditorClassIdentifier: 
+  actionName: RedSnipeStar
+  isActionOpen: 1
+  openVfx: 0
+  vfxList: []
+  openSpellDisplay: 0
+  leftOrRightSD: 0
+  spellSprite: {fileID: 0}
+  spellTextKey: Spell_Debug
+  searchTable: SpellDisplayTexts
+  shootList:
+  - beforeBulletInterval: 0
+    afterBulletInterval: 0.5
+    offset: {x: 0, y: 0, z: 0}
+    gridOffset: {x: 0, y: 0}
+    bullet: {fileID: 2857681049944608652, guid: 8a4a58fabe83ac148b3529e85b355717, type: 3}
+    attackCategory: 1
+  - beforeBulletInterval: 0
+    afterBulletInterval: 0.5
+    offset: {x: 0, y: 0, z: 0}
+    gridOffset: {x: 0, y: 0}
+    bullet: {fileID: 2857681049944608652, guid: 8a4a58fabe83ac148b3529e85b355717, type: 3}
+    attackCategory: 1
+  - beforeBulletInterval: 0
+    afterBulletInterval: 0.5
+    offset: {x: 0, y: 0, z: 0}
+    gridOffset: {x: 0, y: 0}
+    bullet: {fileID: 2857681049944608652, guid: 8a4a58fabe83ac148b3529e85b355717, type: 3}
+    attackCategory: 1
+  - beforeBulletInterval: 0
+    afterBulletInterval: 0.5
+    offset: {x: 0, y: 0, z: 0}
+    gridOffset: {x: 0, y: 0}
+    bullet: {fileID: 2857681049944608652, guid: 8a4a58fabe83ac148b3529e85b355717, type: 3}
+    attackCategory: 1
+  - beforeBulletInterval: 0
+    afterBulletInterval: 0.5
+    offset: {x: 0, y: 0, z: 0}
+    gridOffset: {x: 0, y: 0}
+    bullet: {fileID: 2857681049944608652, guid: 8a4a58fabe83ac148b3529e85b355717, type: 3}
+    attackCategory: 1
+  - beforeBulletInterval: 0
+    afterBulletInterval: 0.5
+    offset: {x: 0, y: 0, z: 0}
+    gridOffset: {x: 0, y: 0}
+    bullet: {fileID: 2857681049944608652, guid: 8a4a58fabe83ac148b3529e85b355717, type: 3}
+    attackCategory: 1

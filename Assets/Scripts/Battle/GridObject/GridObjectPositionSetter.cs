@@ -45,6 +45,7 @@ namespace GridObjectSystem
             if (rb == null) return;
             Vector2Int index = gridObject.GetGridIndex();
             Vector3 _00Pos = btb.GetGrid00LocalPosition();
+            //_00Pos += btb.transform.position;
             Vector2 _gaps = btb.GetGapsOfGrid();
             bool isFly = gridObject.IsFly();
             //实时计算role的相对位置

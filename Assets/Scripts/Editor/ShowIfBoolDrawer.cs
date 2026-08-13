@@ -6,68 +6,46 @@ public class ShowIfBoolDrawer : PropertyDrawer
 {
     private ShowIfBoolAttribute Attr => (ShowIfBoolAttribute)attribute;
 
-    /// <summary>
-    /// 获取当前属性的父级路径。
-    /// 例如：
-    /// "parent.child.target" -> "parent.child"
-    /// "list.Array.data[0].target" -> "list.Array.data[0]"
-    /// "target" (根级) -> ""
-    /// </summary>
     private string GetParentPath(SerializedProperty property)
     {
-        string path = property.propertyPath;
-        int lastDot = path.LastIndexOf('.');
-        return lastDot > 0 ? path.Substring(0, lastDot) : "";
+        int lastDot = property.propertyPath.LastIndexOf('.');
+        return lastDot > 0 ? property.propertyPath.Substring(0, lastDot) : "";
     }
 
-    /// <summary>
-    /// 根据父级路径和字段名，安全地找到同级的 bool 属性。
-    /// </summary>
     private SerializedProperty GetBoolProperty(SerializedProperty property)
     {
-        string parentPath = GetParentPath(property);
-        string boolPath = string.IsNullOrEmpty(parentPath) 
-            ? Attr.BoolFieldName 
-            : $"{parentPath}.{Attr.BoolFieldName}";
-
+        string boolPath = string.IsNullOrEmpty(GetParentPath(property))
+            ? Attr.BoolFieldName
+            : $"{GetParentPath(property)}.{Attr.BoolFieldName}";
         return property.serializedObject.FindProperty(boolPath);
+    }
+
+    private bool ShouldShow(SerializedProperty property)
+    {
+        var boolProp = GetBoolProperty(property);
+        if (boolProp == null || boolProp.propertyType != SerializedPropertyType.Boolean)
+            return true; // 降级显示
+        return Attr.Invert ? !boolProp.boolValue : boolProp.boolValue;
     }
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
-        var boolProp = GetBoolProperty(property);
-
-        // 如果找不到目标 bool 字段，降级处理：显示错误提示并正常绘制原字段（防止 Inspector 崩溃）
-        if (boolProp == null || boolProp.propertyType != SerializedPropertyType.Boolean)
-        {
-            EditorGUI.HelpBox(position, $"[ShowIfBool] 找不到同级 bool 字段: '{Attr.BoolFieldName}'", MessageType.Warning);
-            EditorGUI.PropertyField(position, property, label, true);
+        // ✅ 关键：如果不应显示，直接 return —— 不绘制任何东西（包括标题！）
+        if (!ShouldShow(property))
             return;
-        }
 
-        bool shouldShow = Attr.Invert ? !boolProp.boolValue : boolProp.boolValue;
-
-        if (shouldShow)
-        {
-            EditorGUI.PropertyField(position, property, label, true);
-        }
-        // 如果不显示，则什么都不画（配合 GetPropertyHeight 返回 0 实现隐藏）
+        // ✅ 正常绘制：显式传 includeChildren=true 确保列表完整展开
+        EditorGUI.PropertyField(position, property, label, true);
     }
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
-        var boolProp = GetBoolProperty(property);
+        // ✅ 隐藏时必须返回 0，但更重要的是 OnGUI 不绘制标题
+        if (!ShouldShow(property))
+            return 0f;
 
-        // 找不到字段时，返回默认高度（避免 NullReferenceException 导致 Inspector 空白）
-        if (boolProp == null || boolProp.propertyType != SerializedPropertyType.Boolean)
-        {
-            return EditorGUI.GetPropertyHeight(property, label, true);
-        }
-
-        bool shouldShow = Attr.Invert ? !boolProp.boolValue : boolProp.boolValue;
-
-        return shouldShow
-            ? EditorGUI.GetPropertyHeight(property, label, true)
-            : 0f; // ⭐ 核心：隐藏时高度归零
+        // ⚠️ 注意：对于列表，必须用 includeChildren=true 获取真实高度
+        // 否则可能返回单行高度（如 16px），导致布局错位
+        return EditorGUI.GetPropertyHeight(property, label, true);
     }
 }

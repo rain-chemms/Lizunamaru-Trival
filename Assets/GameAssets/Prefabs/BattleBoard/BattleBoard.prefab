@@ -99,6 +99,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87b3ac16b4ba3cc4287709e625088ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleBoard: {fileID: 0}
+  defaultGridPrefab: {fileID: 0}
+  gridInitYOffset: -1
+  gridPrefabDict:
+    m_keys: 
+    m_values: []
 --- !u!114 &7848590913677720928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +142,7 @@ MonoBehaviour:
   rotateSpeed: 5
   stopDistance: 0.1
   stopRotateDistance: 0.1
-  board: {fileID: 0}
+  board: {fileID: 4664889070188849211}
   cinemachineCamera: {fileID: 0}
 --- !u!1 &1561694602180378740
 GameObject:
