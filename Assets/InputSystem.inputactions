@@ -645,6 +645,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "NightBlindness",
+            "id": "33b96ee2-f91f-44b6-8ac3-aad196fb36fa",
+            "actions": [
+                {
+                    "name": "CenterPosition",
+                    "type": "Value",
+                    "id": "387c5778-062b-49d0-a122-e541b38b1207",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "be71f8dc-61e6-4e4c-a708-44b9301e39c2",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Touch",
+                    "action": "CenterPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
