@@ -119,6 +119,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &116930268
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: e70b064971fcc7f4585899a7e62b0b9f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 457
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e70b064971fcc7f4585899a7e62b0b9f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 549.659
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e70b064971fcc7f4585899a7e62b0b9f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2081.175
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e70b064971fcc7f4585899a7e62b0b9f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e70b064971fcc7f4585899a7e62b0b9f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e70b064971fcc7f4585899a7e62b0b9f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e70b064971fcc7f4585899a7e62b0b9f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e70b064971fcc7f4585899a7e62b0b9f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e70b064971fcc7f4585899a7e62b0b9f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e70b064971fcc7f4585899a7e62b0b9f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e70b064971fcc7f4585899a7e62b0b9f, type: 3}
+      propertyPath: m_Name
+      value: Shameimaru_Aya
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e70b064971fcc7f4585899a7e62b0b9f, type: 3}
 --- !u!114 &118901513 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7579218334084500482, guid: 2940ba056d6bf3a4691d214f7e5a86ef, type: 3}
@@ -4452,3 +4509,4 @@ SceneRoots:
   - {fileID: 716129434}
   - {fileID: 1429983856}
   - {fileID: 265278752}
+  - {fileID: 116930268}
