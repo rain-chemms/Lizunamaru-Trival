@@ -169,7 +169,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.1
+  m_fontSize: 20.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1448,7 +1448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8251725276e864cb221d894ca39a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 0}
+  card: {fileID: 794175598821437183}
 --- !u!114 &794175598821437183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1721,7 +1721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textKey: Spell_MasterSpark
   searchTable: SpellDisplayTexts
-  sprite: {fileID: 21300000, guid: aa511451f39e6044ba6eeaaf5c38fd31, type: 3}
+  sprite: {fileID: 21300000, guid: 0f242983bcaa67749b5f0ac13542dddf, type: 3}
 --- !u!114 &1094227001857776020
 MonoBehaviour:
   m_ObjectHideFlags: 0

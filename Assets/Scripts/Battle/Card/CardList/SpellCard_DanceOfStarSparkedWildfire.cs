@@ -149,7 +149,7 @@ namespace CardSystem.AllCardHub
             yield return BattleMessage.instance?.GenerateBullet(
                 role,//传入产生的Role信息,包含位置等
                 bulletPrefab,//子弹预设体
-                (Vector2Int)ConcentratePoint.instance?.GetIndex(),//目标位置
+                (Vector2Int)role?.GetGridIndex(),//目标位置
                 offset
             );
         }
