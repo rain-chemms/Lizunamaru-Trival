@@ -446,6 +446,30 @@ public class BattleMessage : MonoBehaviour
         }
     }
     /*
+        5.0.将已经存在的一张牌加入手牌中
+        已存在代表其在抽牌弃牌消耗牌堆手牌中时(代表已经生成的卡牌实体)
+    */
+    public IEnumerator AddExistCardToHand(Card existCard)
+    {
+        if (handCardList == null)
+        {
+            Debug.LogError("[BattleMessage]: Hand Card List is Full, Please Check!");
+            yield break;
+        }
+        if (discardCardList == null)
+        {
+            Debug.LogError("[BattleMessage]: Draw Card List is Null, Please Check!");
+            yield break;
+        }
+
+        if (handCardList.Count < maxHandCardCount)
+        {
+            handCardList.Add(existCard);
+        }
+        else discardCardList.Add(existCard);//爆牌时移到弃牌堆
+    }
+
+    /*
         5.生成一张牌并加入手中
     */
     public IEnumerator GenerateCardAndAddToHand(Card cardTemplate)
@@ -453,7 +477,7 @@ public class BattleMessage : MonoBehaviour
         if (handCardList == null)
         {
             Debug.LogError("[BattleMessage]: Hand Card List is Full, Please Check!");
-            yield return null;
+            yield break;
         }
         if (handCardList.Count < maxHandCardCount)
         {
@@ -472,7 +496,7 @@ public class BattleMessage : MonoBehaviour
         if (drawCardList == null)
         {
             Debug.LogError("[BattleMessage]: Draw Card List is Null, Please Check!");
-            yield return null;
+            yield break;
         }
         Card newCard = Instantiate(cardTemplate);//按照卡牌模板产生一张新卡
         //将新的卡牌加入抽牌堆
@@ -487,7 +511,7 @@ public class BattleMessage : MonoBehaviour
         if (discardCardList == null)
         {
             Debug.LogError("[BattleMessage]: Discard Card List is Null, Please Check!");
-            yield return null;
+            yield break;
         }
         Card newCard = Instantiate(cardTemplate);//按照卡牌模板产生一张新卡
         //将新的卡牌加入弃牌堆后喜爱

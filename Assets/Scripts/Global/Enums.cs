@@ -9,6 +9,12 @@ public enum BattleDirection
     RIGHT
 }
 
+//卡片操作的种类,这个还与操作器操作卡牌数量的字段有关
+public enum CardOperateCategory
+{
+    AT_LEAST,//不少于,所选择的操作牌少于这个数时无法执行(除非可选牌的数量小于这个数)
+    AT_MOST,//至多
+}
 
 //卡片的种类
 //用于标记卡槽,卡槽列表,卡片的种类

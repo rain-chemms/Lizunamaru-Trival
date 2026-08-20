@@ -1166,6 +1166,7 @@ GameObject:
   - component: {fileID: 6849037216601940225}
   - component: {fileID: 413476355877467771}
   - component: {fileID: 8733297926563790165}
+  - component: {fileID: 6184976758018434419}
   m_Layer: 3
   m_Name: CardTemplate
   m_TagString: Untagged
@@ -1242,7 +1243,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &8145605548122215368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1567,7 +1568,6 @@ MonoBehaviour:
   card: {fileID: 1652210342211082365}
   displayText: {fileID: 4524002566662319323}
   displayImage: {fileID: 8299132168465391022}
-  riceCost: {fileID: 0}
 --- !u!114 &8733297926563790165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1585,6 +1585,19 @@ MonoBehaviour:
     m_keys: 
     m_values: []
   dynamicValueSetter: {fileID: 7442307497571269767}
+--- !u!114 &6184976758018434419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034b963387ef8b9458ec12b7353d4eab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 1652210342211082365}
 --- !u!1 &6576236267278137396
 GameObject:
   m_ObjectHideFlags: 0

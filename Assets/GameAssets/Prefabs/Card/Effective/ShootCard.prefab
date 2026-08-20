@@ -1460,7 +1460,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.1
+  m_fontSize: 20.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1593,6 +1593,7 @@ GameObject:
   - component: {fileID: 2609984970971271286}
   - component: {fileID: 8880979369591673089}
   - component: {fileID: 8394339560881957313}
+  - component: {fileID: 670580240056227434}
   m_Layer: 3
   m_Name: ShootCard
   m_TagString: Untagged
@@ -1669,7 +1670,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &8145605548122215368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1995,7 +1996,19 @@ MonoBehaviour:
   card: {fileID: 1100431790119186882}
   displayText: {fileID: 7474117452803037900}
   displayImage: {fileID: 5368689914174730265}
-  riceCost: {fileID: 0}
+--- !u!114 &670580240056227434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034b963387ef8b9458ec12b7353d4eab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 1100431790119186882}
 --- !u!1 &8117196228549574974
 GameObject:
   m_ObjectHideFlags: 0

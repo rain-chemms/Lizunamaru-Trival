@@ -1298,6 +1298,7 @@ GameObject:
   - component: {fileID: 6849037216601940225}
   - component: {fileID: 413476355877467771}
   - component: {fileID: 1295871064004266776}
+  - component: {fileID: -4787098376448106881}
   m_Layer: 3
   m_Name: DefendCard
   m_TagString: Untagged
@@ -1374,7 +1375,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &8145605548122215368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1700,7 +1701,6 @@ MonoBehaviour:
   card: {fileID: 4204945852005887696}
   displayText: {fileID: 4524002566662319323}
   displayImage: {fileID: 8299132168465391022}
-  riceCost: {fileID: 0}
 --- !u!114 &1295871064004266776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1719,6 +1719,19 @@ MonoBehaviour:
     m_values:
     - gainDefendPoint
   dynamicValueSetter: {fileID: 1124073209602526179}
+--- !u!114 &-4787098376448106881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034b963387ef8b9458ec12b7353d4eab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 4204945852005887696}
 --- !u!1 &7133820692861440476
 GameObject:
   m_ObjectHideFlags: 0
@@ -1812,7 +1825,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.1
+  m_fontSize: 20.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

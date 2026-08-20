@@ -169,7 +169,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.1
+  m_fontSize: 20.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1498,6 +1498,7 @@ GameObject:
   - component: {fileID: 3836733597650342495}
   - component: {fileID: 1094227001857776020}
   - component: {fileID: 1139034737754822940}
+  - component: {fileID: 5044731463119979555}
   m_Layer: 3
   m_Name: SpellCard_DanceOfStar-SparkedWildfire
   m_TagString: Untagged
@@ -1920,7 +1921,6 @@ MonoBehaviour:
   card: {fileID: 0}
   displayText: {fileID: 8690290307639590085}
   displayImage: {fileID: 8937301076113714598}
-  riceCost: {fileID: 0}
 --- !u!114 &1139034737754822940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1940,6 +1940,19 @@ MonoBehaviour:
     - generateLoopTime
     - generateLineCount
   dynamicValueSetter: {fileID: 7408779446282283468}
+--- !u!114 &5044731463119979555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034b963387ef8b9458ec12b7353d4eab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 1359237969543802621}
 --- !u!1 &8117196228549574974
 GameObject:
   m_ObjectHideFlags: 0

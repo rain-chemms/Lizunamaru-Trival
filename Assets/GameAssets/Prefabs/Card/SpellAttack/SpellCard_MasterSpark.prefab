@@ -169,7 +169,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.1
+  m_fontSize: 20.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1336,6 +1336,7 @@ GameObject:
   - component: {fileID: 6849037216601940225}
   - component: {fileID: 3836733597650342495}
   - component: {fileID: 1094227001857776020}
+  - component: {fileID: -7070801700419345713}
   m_Layer: 3
   m_Name: SpellCard_MasterSpark
   m_TagString: Untagged
@@ -1753,7 +1754,19 @@ MonoBehaviour:
   card: {fileID: 794175598821437183}
   displayText: {fileID: 8690290307639590085}
   displayImage: {fileID: 8937301076113714598}
-  riceCost: {fileID: 0}
+--- !u!114 &-7070801700419345713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034b963387ef8b9458ec12b7353d4eab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 794175598821437183}
 --- !u!1 &7860232067587682358
 GameObject:
   m_ObjectHideFlags: 0
