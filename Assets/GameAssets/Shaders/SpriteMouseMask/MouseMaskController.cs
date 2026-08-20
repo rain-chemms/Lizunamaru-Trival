@@ -64,7 +64,7 @@ public class MouseMaskController : MonoBehaviour
         // 获取相机
         if (renderCamera == null) return;
         Vector2 ctrPos = (Vector2)centerPosition?.ReadValue<Vector2>();
-        Debug.Log("ctrPos: x:"+ ctrPos.x +" y:" + ctrPos.y);
+        //Debug.Log("ctrPos: x:"+ ctrPos.x +" y:" + ctrPos.y);
 
         
         RectTransform rt = image.rectTransform;

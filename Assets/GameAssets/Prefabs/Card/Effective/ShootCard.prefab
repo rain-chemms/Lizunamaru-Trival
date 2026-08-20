@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 3862320910305413448}
   - component: {fileID: 3091200728147146683}
   - component: {fileID: 5368689914174730265}
+  - component: {fileID: 5341306935394201511}
   m_Layer: 3
   m_Name: RiceCost
   m_TagString: Untagged
@@ -227,6 +228,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5341306935394201511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123015223034630417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12db83adf452aba428b38fe58238dc63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 1100431790119186882}
+  riceCostImage: {fileID: 5368689914174730265}
+  cardFunctioner: {fileID: 7474117452803037900}
 --- !u!1 &2217683979254272093
 GameObject:
   m_ObjectHideFlags: 0
@@ -1979,6 +1995,7 @@ MonoBehaviour:
   card: {fileID: 1100431790119186882}
   displayText: {fileID: 7474117452803037900}
   displayImage: {fileID: 5368689914174730265}
+  riceCost: {fileID: 0}
 --- !u!1 &8117196228549574974
 GameObject:
   m_ObjectHideFlags: 0

@@ -102,6 +102,7 @@ namespace CardSystem
         //不在卡牌列表中且有效的卡牌默认加入弃牌堆中
         protected virtual void OnEnable()
         {
+            /*
             BattleMessage bi = BattleMessage.instance;//不在卡槽,手中,三个牌堆中的卡牌
             if(bi == null) return;
             if(!(bool)bi?.IsCardInDiscardStack(this)
@@ -112,12 +113,13 @@ namespace CardSystem
             {
                 //将其加入底牌堆中
                 bi?.GetDiscardCardList().Add(this);
-            }
+            }*/
             
         }
 
         protected virtual void OnDisable()//非激活状态的牌移除出控制列表
         {
+            /*
             BattleMessage bi = BattleMessage.instance;//不在卡槽,手中,三个牌堆中的卡牌
             if((bool)bi?.IsCardInDiscardStack(this)) bi?.GetDiscardCardList().Remove(this);
             if((bool)bi?.IsCardInDrawStack(this)) bi?.GetDrawCardList().Remove(this);
@@ -130,7 +132,7 @@ namespace CardSystem
                     if((bool)slot.GetInnerCard() == this) slot.SetInnerCard(null);
                 }
             }
-            
+            */
         }
     }
 }

@@ -58,6 +58,15 @@ MonoBehaviour:
       Paper,Red Shoot Needle'
     m_Metadata:
       m_Items: []
+  - m_Id: 17905495724654592
+    m_Localized: 'When Drawn, gain {0} energy
+
+      When Discarded, draw {1} cards
+
+      When
+      Exhaust, trigger both extra energy and card draw'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

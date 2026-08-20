@@ -11,25 +11,13 @@ public class CardRiceCostDisplayer : MonoBehaviour
 {
     [SerializeField] private Card card;
     [SerializeField] private TMP_Text displayText;//费用显示文本
-    public void SetDisplayText(TMP_Text dt)
-    {
-        displayText = dt;
-    }
-    public TMP_Text GetDisplayText()
-    {
-        return displayText;
-    }
+    public void SetDisplayText(TMP_Text dt) => displayText = dt;
+    public TMP_Text GetDisplayText() => displayText;
     [SerializeField] private Image displayImage;//这个用来设置图标背景
-    public void SetDisplayImage(Image img)
-    {
-        displayImage = img;
-    }
-    public Image GetDisplayImage()
-    {
-        return displayImage;
-    }
+    public void SetDisplayImage(Image img) => displayImage = img;
+    public Image GetDisplayImage() => displayImage;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void OnEnable()
     {
         //尝试自动获取
         if(card == null) card = GetComponent<Card>();
@@ -68,6 +56,7 @@ public class CardRiceCostDisplayer : MonoBehaviour
     private void CheckAndDisplayCardCost()
     {
         if(card == null || displayText == null) return;
+        //设置文本
         displayText.text = card.GetRiceCost().ToString();
     }
 }
