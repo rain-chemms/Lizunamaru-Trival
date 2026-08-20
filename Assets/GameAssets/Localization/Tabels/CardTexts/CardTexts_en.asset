@@ -67,6 +67,15 @@ MonoBehaviour:
       Exhaust, trigger both extra energy and card draw'
     m_Metadata:
       m_Items: []
+  - m_Id: 18066960368664576
+    m_Localized: 'When Drawn, draw {0} cards
+
+      When Discarded, gain {1} energy
+
+      When
+      Exhaust, trigger both extra energy and card draw'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
