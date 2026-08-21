@@ -107,6 +107,8 @@ public class HandCardOperator : MonoBehaviour
         }
 
         yield return OperateFuncToSelectedCards();
+        //执行后清空已选择的卡牌列表
+        selectedCards.Clear();
         //关闭选择器
         hoCtr?.SetOpen(false);
     }
