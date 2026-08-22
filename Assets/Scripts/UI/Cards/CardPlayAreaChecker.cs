@@ -9,7 +9,7 @@ public class CardPlayAreaChecker : MonoBehaviour,
     [SerializeField] private Card card;
     [SerializeField] private CardPlayArea cardPlayAreaUnderCard;//卡牌打出区域
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void OnEnable()
     {
         //尝试自动获取
         if (card == null) card = GetComponent<Card>();
@@ -41,7 +41,7 @@ public class CardPlayAreaChecker : MonoBehaviour,
         cardPlayAreaUnderCard = null;
         foreach (var hit2D in hit2Ds)
         {    
-            //判断是否是卡槽对象
+            //判断是否是打出区域对象
             if (hit2D.collider.GetComponent<CardPlayArea>() != null)
             {        
                 //检测第一个卡槽

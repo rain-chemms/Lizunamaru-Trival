@@ -9,17 +9,20 @@ public class CardInsertSlotChecker : MonoBehaviour, IEndDragHandler, IDragHandle
 {
     [SerializeField] private Card card;
     [SerializeField] private CardSlot cardSlotUnderCard;//在卡牌图片下方的卡槽对象
-    void Start()
+    void OnEnable()
     {
         //尝试自动获取
         if (card == null) card = GetComponent<Card>();
     }
 
+    /*
     void Update()
     {
         //检测卡牌图片下方是否存在卡槽对象
         //CheckCardSlotUnderCard();
     }
+    */
+
 
     public void OnDrag(PointerEventData eventData)
     {

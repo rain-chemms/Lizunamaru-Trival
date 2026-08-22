@@ -7,12 +7,11 @@ public class UnderCardUIChecker : MonoBehaviour,
     IEndDragHandler, IDragHandler
 {
     [SerializeField] private Card card;
-    void Start()
+    void OnEnable()
     {
         if (card == null) card = GetComponent<Card>();
     }
-
-    // Update is called once per frame
+    
     public void OnDrag(PointerEventData eventData)
     {
         CheckUnderCardUI();

@@ -29,6 +29,11 @@ public class HandCardOperatorInnerCardSetter : MonoBehaviour
     [SerializeField] private float rotateLerpSpeed = 0.0f;
     public float GetRotateLerpSpeed() => rotateLerpSpeed;
     public void SetRotateLerpSpeed(float speed) => rotateLerpSpeed = speed;
+    //要从LayoutGroup中获取卡牌的大小信息
+    [SerializeField] private GridLayoutGroup gridLayoutGroup;
+    public GridLayoutGroup GetGridLayoutGroup() => gridLayoutGroup;
+    [SerializeField] private float sizeLerpSpeed = 1.0f;
+
     private void CheckAndSetCardInHandCardOperator()
     {
         //获取所有载ScrollRect.content中显示的卡牌实体
@@ -55,6 +60,13 @@ public class HandCardOperatorInnerCardSetter : MonoBehaviour
             Vector2 anchor = new Vector2(squeezePercent + (index - 1) * seperate, 0.5f); 
             rtf.anchorMin = new Vector2(anchor.x, anchor.y);
             rtf.anchorMax = new Vector2(anchor.x, anchor.y);
+            //若存在GridLayoutGroup,则获取长宽以设置卡牌的长宽
+            if(gridLayoutGroup != null)
+            {
+                Vector2 size = gridLayoutGroup.cellSize;
+                rtf.sizeDelta = Vector2.Lerp(rtf.sizeDelta, size, sizeLerpSpeed * Time.deltaTime);
+            }
+
             //卡片处于非拖拽状态时尝试将其旋转到正常位置
             CardHandler handler = card.GetComponent<CardHandler>();
             if(handler!=null && !(bool)handler?.IsDragging())

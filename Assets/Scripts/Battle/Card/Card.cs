@@ -98,7 +98,8 @@ namespace CardSystem
             GetComponent<CardVoiceController>()?.PlayCardVoice("Exhaust");
             yield return null;
         }
-
+        
+        
         //不在卡牌列表中且有效的卡牌默认加入弃牌堆中
         protected virtual void OnEnable()
         {

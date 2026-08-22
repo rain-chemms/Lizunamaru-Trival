@@ -111,7 +111,7 @@ PrefabInstance:
       addedObject: {fileID: 8581602001666676130}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4630d9cab36fbaf4bb64a6b87f9fab3e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8214816820016813608}
+      addedObject: {fileID: 7465181147718977362}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4630d9cab36fbaf4bb64a6b87f9fab3e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6897999621959906066}
@@ -6148,8 +6148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 2879418338783372549}
---- !u!136 &8214816820016813608
-CapsuleCollider:
+--- !u!135 &7465181147718977362
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6166,11 +6166,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.15
-  m_Height: 0.91
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.6, z: 0}
+  serializedVersion: 3
+  m_Radius: 0.16
+  m_Center: {x: 0, y: 0.57, z: 0.02}
 --- !u!54 &6897999621959906066
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6210,6 +6208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78cc26caf5d9c8747ba7444217dd0d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  side: 1
   rb: {fileID: 6897999621959906066}
   direction: 0
   speed: 5
@@ -6217,7 +6216,6 @@ MonoBehaviour:
   gridIndex: {x: 0, y: 0}
   roundOperateEnd: 0
   id: 0
-  side: 1
   hp: 100
   defend: 0
   maxHp: 100
@@ -6337,6 +6335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a35a110469b2343befd17b1d97d29b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  landHeightOffset: 0
   flyHeight: 3
   grandYOffset: 1.1
   gridObject: {fileID: 7867947059795645700}

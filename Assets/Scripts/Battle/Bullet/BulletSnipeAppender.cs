@@ -51,8 +51,7 @@ namespace BulletSystem
 
         private void TrackTheEnermy()
         {
-            if (nearestEnermy == null) return;
-            Vector3 direction = (nearestEnermy.transform.position - transform.position).normalized;
+            Vector3 direction = ((Vector3)nearestEnermy?.GetRigidBody()?.worldCenterOfMass - (Vector3)bullet?.GetRigidBody()?.worldCenterOfMass).normalized;
             bullet?.SetDirection(direction);
         }
 

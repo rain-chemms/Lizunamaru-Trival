@@ -41,8 +41,7 @@ namespace BulletSystem
 
         private void AppendForceToBullet()
         {
-            if (bullet == null) return;
-            bullet.SetForce(bullet.GetForce() + appendForce);
+            bullet?.SetForce(bullet.GetForce() + appendForce);
         }
     }
 }

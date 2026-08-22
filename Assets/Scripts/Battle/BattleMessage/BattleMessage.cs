@@ -640,6 +640,8 @@ public class BattleMessage : MonoBehaviour
             grid == null ? 0.0f : (float)grid?.transform.position.z
         );
         */
+
+        Vector3 playerRbCenter = (Vector3)player?.GetRigidBody().worldCenterOfMass;
         //改良方案:通过棋盘的信息和发射玩家的信息产生子弹,不依赖棋盘格
         Vector2 _gaps = (Vector2)BattleBoard.instance?.GetGapsOfGrid();
         Vector3 _00LoPos = (Vector3)BattleBoard.instance?.GetGrid00LocalPosition();
@@ -651,17 +653,25 @@ public class BattleMessage : MonoBehaviour
                 _00LoPos.z
             ) + new Vector3(
             (float)(index.x * _gaps.x),
-            player.transform.position.y,
+            playerRbCenter.y,//(float)player?.transform.position.y,
             (float)(index.y * _gaps.y)
         );
 
-        Vector3 direction = (target - (Vector3)player?.transform.position).normalized;
+        Vector3 direction = (target - playerRbCenter/*(Vector3)player?.transform.position*/).normalized;
+        //检测Target与Player的Index
+        //如果相同,则direction = Vector3.zero;
+        Vector2Int playerIndex = (Vector2Int)player?.GetGridIndex();
+        if(playerIndex.x == index.x && playerIndex.y == index.y)
+        {
+            direction = Vector3.zero;
+        }
+        
         //产生子弹实体并设置其方向和初始位置
         Bullet bt = Instantiate(bulletPrefab, target, Quaternion.identity);
         if (bt != null)
         {
             bt.SetSide(player.GetSide());//设置子弹的阵营
-            bt.transform.position = (Vector3)player?.transform.position + posOffset;//设置子弹的初始位置
+            bt.transform.position = playerRbCenter/*(Vector3)player?.transform.position*/ + posOffset;//设置子弹的初始位置
             bt.SetDirection(direction);//设置子弹的方向
         }
         //控制玩家动画播放

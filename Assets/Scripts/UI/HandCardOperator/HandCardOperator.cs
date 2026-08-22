@@ -83,8 +83,16 @@ public class HandCardOperator : MonoBehaviour
         foreach(Card card in handCards)
         {
             if(card == null) continue;
+            //控制卡牌的UI打出脚本类
+            //开启检测器
             CardHandCardOperatorController ctr = card.GetComponent<CardHandCardOperatorController>();
             if(ctr!=null) ctr.enabled = true;
+            //关闭打出区域检测器
+            CardPlayAreaChecker cpaChecker = card.GetComponent<CardPlayAreaChecker>();
+            if(cpaChecker!=null) cpaChecker.enabled = false;
+            //关闭卡槽插入检测器
+            CardInsertSlotChecker cslChecker = card.GetComponent<CardInsertSlotChecker>();
+            if(cslChecker!=null) cslChecker.enabled = false;
         }
         //牌量足够时等待选择结束
         if(cardCount > operateCount) yield return new WaitUntil(() => selectOver);
@@ -98,12 +106,19 @@ public class HandCardOperator : MonoBehaviour
             }
         }
         selectOver = false;//重置选择结束状态
-        //关闭卡牌选择器
+        //对于可选择的卡牌
         foreach(Card card in handCards)
         {
+            //关闭卡牌选择器
             if(card == null) continue;
             CardHandCardOperatorController ctr = card.GetComponent<CardHandCardOperatorController>();
-            if(ctr!=null) ctr.enabled = false;
+            if(ctr != null) ctr.enabled = false;
+            //重新开启打出区域检测器
+            CardPlayAreaChecker cpaChecker = card.GetComponent<CardPlayAreaChecker>();
+            if(cpaChecker != null) cpaChecker.enabled = true;
+            //重新开启卡槽插入检测器
+            CardInsertSlotChecker cslChecker = card.GetComponent<CardInsertSlotChecker>();
+            if(cslChecker != null) cslChecker.enabled = true;
         }
 
         yield return OperateFuncToSelectedCards();
