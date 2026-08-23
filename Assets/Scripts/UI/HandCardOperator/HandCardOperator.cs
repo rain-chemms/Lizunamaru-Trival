@@ -26,14 +26,15 @@ public class HandCardOperator : MonoBehaviour
 
     [SerializeField] public Func<Card,IEnumerator> operateFunc;//操作函数,每次调用时必须传入当前需要对卡牌进新的操作,返回协程对象并传入Card
     public void SetOperateFunc(Func<Card,IEnumerator> operateFunc) => this.operateFunc = operateFunc;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     [SerializeField] private List<Card> selectedCards;//当前选中的卡牌
     public List<Card> GetSelectedCards() => selectedCards;
     public List<Card> GetSelectedCards_Copy() => selectedCards.ToList();
-    
+    //执行的数量
     [SerializeField] private uint operateCount;
     public uint GetOperateCount() => operateCount;
     public void SetOperateCount(uint count) => operateCount = count;
+    //执行的类别
     [SerializeField] private CardOperateCategory operateCategory;
     public CardOperateCategory GetOperateCategory() => operateCategory;
     public void SetOperateCategory(CardOperateCategory operateCategory) => this.operateCategory = operateCategory;
@@ -94,8 +95,9 @@ public class HandCardOperator : MonoBehaviour
             CardInsertSlotChecker cslChecker = card.GetComponent<CardInsertSlotChecker>();
             if(cslChecker!=null) cslChecker.enabled = false;
         }
-        //牌量足够时等待选择结束
-        if(cardCount > operateCount) yield return new WaitUntil(() => selectOver);
+        //牌量足够时等待选择结束,处于At_Least模式时等待选择结束
+        //At_Most条件下一定要等待选择因为可以不选
+        if(cardCount > operateCount || operateCategory == CardOperateCategory.AT_MOST) yield return new WaitUntil(() => selectOver);
         else
         {
             //牌量不够时将剩余的卡牌直接加入选择器中

@@ -1167,6 +1167,7 @@ GameObject:
   - component: {fileID: 413476355877467771}
   - component: {fileID: 8733297926563790165}
   - component: {fileID: 6184976758018434419}
+  - component: {fileID: 576896758676793475}
   m_Layer: 3
   m_Name: CardTemplate
   m_TagString: Untagged
@@ -1243,7 +1244,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &8145605548122215368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1598,6 +1599,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 1652210342211082365}
+--- !u!114 &576896758676793475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4372df27cb22e54193b24c17f1007d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 1652210342211082365}
+  isSelected: 0
 --- !u!1 &6576236267278137396
 GameObject:
   m_ObjectHideFlags: 0
@@ -1820,7 +1835,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.1
+  m_fontSize: 20.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

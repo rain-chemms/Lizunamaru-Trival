@@ -10,7 +10,7 @@ public class HandCardOperatorExcuteButton : MonoBehaviour
         if(button == null) button = GetComponent<Button>();
         if(handCardOperator == null) handCardOperator = HandCardOperator.instance;
     }
-
+    //关联的手牌执行器
     [SerializeField] private HandCardOperator handCardOperator;
     public HandCardOperator GetHandCardOperator() => handCardOperator;
 
@@ -36,7 +36,7 @@ public class HandCardOperatorExcuteButton : MonoBehaviour
                 button.interactable = false;
             }
         }
-        else if(handCardOperator.GetOperateCategory() == CardOperateCategory.AT_MOST)
+        else if(operateCategory == CardOperateCategory.AT_MOST)
         {
             //至多选择时时刻保持按钮开启
             button.interactable = true;

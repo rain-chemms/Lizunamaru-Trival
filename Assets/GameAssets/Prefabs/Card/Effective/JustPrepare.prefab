@@ -141,7 +141,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a73a2c60f1a72534fb424d6e1f73069c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dceb27aa69943064a940baa87f31e405, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 3563539366122245155}
   - component: {fileID: 7042500987649107369}
   - component: {fileID: 8299132168465391022}
-  - component: {fileID: 7171883689679702728}
+  - component: {fileID: 8013309354242526690}
   m_Layer: 3
   m_Name: RiceCost
   m_TagString: Untagged
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7171883689679702728
+--- !u!114 &8013309354242526690
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12db83adf452aba428b38fe58238dc63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 2999450010997887131}
+  card: {fileID: 0}
   riceCostImage: {fileID: 8299132168465391022}
   cardFunctioner: {fileID: 4524002566662319323}
 --- !u!1 &2112233035275972938
@@ -756,7 +756,7 @@ GameObject:
   - component: {fileID: 7690432316974955776}
   - component: {fileID: 5232143668323798303}
   - component: {fileID: 8208130503018390235}
-  - component: {fileID: 8251096492923880819}
+  - component: {fileID: 7442307497571269767}
   m_Layer: 3
   m_Name: Discription
   m_TagString: Untagged
@@ -813,7 +813,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: <color=red>There Are some Bugs Appear</color>
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 58f1e42671e28ad46932fe2f4a003e36, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4a865f057b0ea3f4f97bfc18a6011851, type: 2}
   m_sharedMaterial: {fileID: 5840968175975424431, guid: 58f1e42671e28ad46932fe2f4a003e36, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -880,7 +880,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &5232143668323798303
@@ -899,7 +899,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:c82d369c4328d944ab6b01bb4e351a25
     m_TableEntryReference:
-      m_KeyId: 3500423670530048
+      m_KeyId: 19013006712242176
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -981,7 +981,7 @@ MonoBehaviour:
           m_Key: 
         m_FallbackState: 0
         m_WaitForCompletion: 0
---- !u!114 &8251096492923880819
+--- !u!114 &7442307497571269767
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -997,15 +997,12 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:c82d369c4328d944ab6b01bb4e351a25
     m_TableEntryReference:
-      m_KeyId: 3500423670530048
+      m_KeyId: 19013006712242176
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  variables:
-  - index: 0
-    value: 0
-    asInteger: 0
+  variables: []
   references:
     version: 2
     RefIds: []
@@ -1151,7 +1148,7 @@ GameObject:
   - component: {fileID: 9014205762273278572}
   - component: {fileID: 8145605548122215368}
   - component: {fileID: 2911024134486367286}
-  - component: {fileID: 2999450010997887131}
+  - component: {fileID: 7629816621772240239}
   - component: {fileID: 5571395713374509513}
   - component: {fileID: 1625184676289311345}
   - component: {fileID: 7730907650560054274}
@@ -1168,11 +1165,11 @@ GameObject:
   - component: {fileID: 2609984970971271286}
   - component: {fileID: 6849037216601940225}
   - component: {fileID: 413476355877467771}
-  - component: {fileID: 4361837281956522321}
-  - component: {fileID: -1185975911563526187}
-  - component: {fileID: 594075391406779168}
+  - component: {fileID: 8733297926563790165}
+  - component: {fileID: 6184976758018434419}
+  - component: {fileID: -527940074075168346}
   m_Layer: 3
-  m_Name: StrikeCard
+  m_Name: JustPrepare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1188,7 +1185,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 19669732259262801}
   - {fileID: 4129405820496123548}
@@ -1287,7 +1284,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2999450010997887131
+--- !u!114 &7629816621772240239
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1296,13 +1293,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6229160113585097296}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f83f8701ee571174c8c6933c7b3b41ba, type: 3}
+  m_Script: {fileID: 11500000, guid: a5b05b0072b420845a8c11898ec0516f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   riceCost: 0
   cardCategory: 4
   cardKeyWords: 
-  swordEdge: {fileID: 7763978380216626810, guid: c593c873384a3504c95b358ce2ffa1a0, type: 3}
+  drawCardCount: 2
+  discardCardCount: 2
 --- !u!114 &5571395713374509513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1315,7 +1313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8251725276e864cb221d894ca39a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 2999450010997887131}
+  card: {fileID: 7629816621772240239}
 --- !u!114 &1625184676289311345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1332,7 +1330,7 @@ MonoBehaviour:
   isFront: 1
   flipSpeed: 3
   animator: {fileID: 2911024134486367286}
-  card: {fileID: 2999450010997887131}
+  card: {fileID: 7629816621772240239}
 --- !u!114 &7730907650560054274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1364,7 +1362,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 215b5e751c59b4449bcaf260bbf557c9, type: 3}
     - {fileID: 21300000, guid: 1a62cc553514d3246915c65484219abc, type: 3}
     - {fileID: 21300000, guid: 3511564f8bba6714690a5977c7dd5a1a, type: 3}
-  card: {fileID: 0}
+  card: {fileID: 7629816621772240239}
 --- !u!114 &3623121930064201658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1386,7 +1384,7 @@ MonoBehaviour:
   rotateSpeed: 10
   rectTransform: {fileID: 4526820275402633002}
   offSet: {x: 0, y: 0}
-  card: {fileID: 0}
+  card: {fileID: 7629816621772240239}
 --- !u!114 &3420748214366101851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1399,7 +1397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb79ac10f9b141408fc6d3e9561f1f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 0}
+  card: {fileID: 7629816621772240239}
   cardSlotUnderCard: {fileID: 0}
 --- !u!114 &6779162895587306998
 MonoBehaviour:
@@ -1413,7 +1411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b11576fcb4ecc0e4fa0394942fc994bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 0}
+  card: {fileID: 7629816621772240239}
   returnHandAreaUnderCard: {fileID: 0}
 --- !u!114 &190392096426927164
 MonoBehaviour:
@@ -1427,7 +1425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a433465865397449a0135e2b483c758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 2999450010997887131}
+  card: {fileID: 7629816621772240239}
 --- !u!114 &2576452430711346767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1440,8 +1438,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f78dce3599b64249857ddd328e6c2b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardDisplayer: {fileID: 0}
-  cardHandler: {fileID: 0}
+  cardDisplayer: {fileID: 1625184676289311345}
+  cardHandler: {fileID: 3623121930064201658}
 --- !u!114 &1212176832038870220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1463,7 +1461,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 1e89396174646814aac5683cad7d4251, type: 3}
     - {fileID: 21300000, guid: 0fc0f343a6534a54eb3793c863905c10, type: 3}
     - {fileID: 21300000, guid: 89d4db625b830db42a82e007b0309de8, type: 3}
-  card: {fileID: 0}
+  card: {fileID: 7629816621772240239}
 --- !u!114 &4213660918345936580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1476,7 +1474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e32158a7222cb3c43953ac2a55180fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 0}
+  card: {fileID: 7629816621772240239}
   cardDisplayer: {fileID: 1625184676289311345}
 --- !u!114 &1644728094080825556
 MonoBehaviour:
@@ -1490,7 +1488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a7d93bf3ba102e4495342bf68be67eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 0}
+  card: {fileID: 7629816621772240239}
   cardPlayAreaUnderCard: {fileID: 0}
 --- !u!114 &5472395152714624468
 MonoBehaviour:
@@ -1504,7 +1502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d5074cbeb374884d9dd4ae3f3d6da68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 0}
+  card: {fileID: 7629816621772240239}
   underCardUI: {fileID: 0}
 --- !u!114 &6918683202723614356
 MonoBehaviour:
@@ -1521,7 +1519,7 @@ MonoBehaviour:
   tableName: CardKeywords
   keyWordText: {fileID: 7690432316974955776}
   localizeEvent: {fileID: 5232143668323798303}
-  card: {fileID: 0}
+  card: {fileID: 7629816621772240239}
   keyWordTextList: []
 --- !u!114 &2609984970971271286
 MonoBehaviour:
@@ -1537,7 +1535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: {x: 1, y: 1, z: 1}
   lerpSpeed: 5
-  card: {fileID: 0}
+  card: {fileID: 7629816621772240239}
 --- !u!114 &6849037216601940225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1550,7 +1548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8413ce38a921c848bc75407ca9732dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 0}
+  card: {fileID: 7629816621772240239}
   audioSources:
   - {fileID: 7361698163431172916}
   - {fileID: 1808565358764725864}
@@ -1570,10 +1568,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c23b1e208889c004581c404f51fb314b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 0}
+  card: {fileID: 7629816621772240239}
   displayText: {fileID: 4524002566662319323}
   displayImage: {fileID: 8299132168465391022}
---- !u!114 &4361837281956522321
+--- !u!114 &8733297926563790165
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1585,13 +1583,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfa06f77dde20314a99c2c0a861b0ab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 2999450010997887131}
+  card: {fileID: 7629816621772240239}
   indexMapDict:
-    m_keys: 00000000
+    m_keys: 0000000001000000
     m_values:
-    - displayDamage
-  dynamicValueSetter: {fileID: 8251096492923880819}
---- !u!114 &-1185975911563526187
+    - drawCardCount
+    - discardCardCount
+  dynamicValueSetter: {fileID: 7442307497571269767}
+--- !u!114 &6184976758018434419
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1603,8 +1602,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034b963387ef8b9458ec12b7353d4eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 2999450010997887131}
---- !u!114 &594075391406779168
+  card: {fileID: 7629816621772240239}
+--- !u!114 &-527940074075168346
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1616,7 +1615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4372df27cb22e54193b24c17f1007d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 2999450010997887131}
+  card: {fileID: 7629816621772240239}
   isSelected: 0
 --- !u!1 &6576236267278137396
 GameObject:

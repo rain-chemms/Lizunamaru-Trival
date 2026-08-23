@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &19669732259262801
 RectTransform:
   m_ObjectHideFlags: 0
@@ -389,7 +389,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4129405820496123548
 RectTransform:
   m_ObjectHideFlags: 0
@@ -900,6 +900,7 @@ GameObject:
   - component: {fileID: 1060043160940584855}
   - component: {fileID: 8746879603567666350}
   - component: {fileID: 4742977883852709560}
+  - component: {fileID: 5333505471649181608}
   m_Layer: 3
   m_Name: WhiteEnptyCard
   m_TagString: Untagged
@@ -1314,6 +1315,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 9152005910634175684}
+--- !u!114 &5333505471649181608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4372df27cb22e54193b24c17f1007d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 9152005910634175684}
+  isSelected: 0
 --- !u!1 &7380033851092740391
 GameObject:
   m_ObjectHideFlags: 0

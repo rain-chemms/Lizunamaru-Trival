@@ -1167,6 +1167,7 @@ GameObject:
   - component: {fileID: 8733297926563790165}
   - component: {fileID: 2145812960117333130}
   - component: {fileID: 1114576248485648261}
+  - component: {fileID: 5363807309606663850}
   m_Layer: 3
   m_Name: SolemnLament
   m_TagString: Untagged
@@ -1603,6 +1604,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 0}
+--- !u!114 &5363807309606663850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4372df27cb22e54193b24c17f1007d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 2145812960117333130}
+  isSelected: 0
 --- !u!1 &6576236267278137396
 GameObject:
   m_ObjectHideFlags: 0

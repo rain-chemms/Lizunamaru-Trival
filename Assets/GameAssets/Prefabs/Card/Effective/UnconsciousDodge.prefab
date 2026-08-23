@@ -1173,6 +1173,7 @@ GameObject:
   - component: {fileID: 413476355877467771}
   - component: {fileID: 8733297926563790165}
   - component: {fileID: 3861591289507057383}
+  - component: {fileID: 4099438503016363606}
   m_Layer: 3
   m_Name: UnconsciousDodge
   m_TagString: Untagged
@@ -1608,6 +1609,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 5031954957368995087}
+--- !u!114 &4099438503016363606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4372df27cb22e54193b24c17f1007d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 5031954957368995087}
+  isSelected: 0
 --- !u!1 &6576236267278137396
 GameObject:
   m_ObjectHideFlags: 0

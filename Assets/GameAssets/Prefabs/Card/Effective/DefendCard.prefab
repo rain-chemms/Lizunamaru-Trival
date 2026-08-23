@@ -1299,6 +1299,7 @@ GameObject:
   - component: {fileID: 413476355877467771}
   - component: {fileID: 1295871064004266776}
   - component: {fileID: -4787098376448106881}
+  - component: {fileID: -7694703055828382660}
   m_Layer: 3
   m_Name: DefendCard
   m_TagString: Untagged
@@ -1732,6 +1733,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 4204945852005887696}
+--- !u!114 &-7694703055828382660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4372df27cb22e54193b24c17f1007d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 4204945852005887696}
+  isSelected: 0
 --- !u!1 &7133820692861440476
 GameObject:
   m_ObjectHideFlags: 0
