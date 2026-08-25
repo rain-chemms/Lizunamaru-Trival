@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: MasterSpark
   isActionOpen: 1
+  openVfx: 0
   vfxList: []
   openSpellDisplay: 0
   leftOrRightSD: 0
@@ -25,19 +26,19 @@ MonoBehaviour:
     afterBulletInterval: 0
     offset: {x: 0, y: 0, z: 0}
     gridOffset: {x: 1, y: 1}
-    bullet: {fileID: 2857681049944608652, guid: 3cbd61cca239eca40b455315c5cc341c, type: 3}
+    bullet: {fileID: 6532616564487544047, guid: cc92e50072ce244478f88e8f998383af, type: 3}
     attackCategory: 0
   - beforeBulletInterval: 0
     afterBulletInterval: 0
     offset: {x: 0, y: 0, z: 0}
     gridOffset: {x: -1, y: -1}
-    bullet: {fileID: 2857681049944608652, guid: 3cbd61cca239eca40b455315c5cc341c, type: 3}
+    bullet: {fileID: 6532616564487544047, guid: cc92e50072ce244478f88e8f998383af, type: 3}
     attackCategory: 0
   - beforeBulletInterval: 0
     afterBulletInterval: 0
     offset: {x: 0, y: 0, z: 0}
     gridOffset: {x: 1, y: -1}
-    bullet: {fileID: 2857681049944608652, guid: 3cbd61cca239eca40b455315c5cc341c, type: 3}
+    bullet: {fileID: 6532616564487544047, guid: cc92e50072ce244478f88e8f998383af, type: 3}
     attackCategory: 0
   - beforeBulletInterval: 0
     afterBulletInterval: 0

@@ -15,7 +15,7 @@ Material:
   - SELFSHADOW_ON
   m_InvalidKeywords:
   - _ENABLEOUTLINE_ON
-  - _MAINTEXALPHAUSE_NONE
+  - _MAINTEXALPHAUSE_ALPHATEST
   - _METALMATERIAL_ON
   - _OUTLINENORMALCHANNEL_NORMAL
   - _RENDERTYPE_BODY
@@ -134,7 +134,7 @@ Material:
     - _AddLightToonMin: 0.5
     - _AddPrecomputedVelocity: 0
     - _Alpha: 1
-    - _AlphaClip: 0
+    - _AlphaClip: 0.1
     - _AlphaToMask: 0
     - _AmbientToDiffuse: 5
     - _Blend: 0
@@ -153,7 +153,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _DstBlendModeAlpha: 0
+    - _DstBlendModeAlpha: 10
     - _DstBlendModeColor: 0
     - _EdgeScale: 0.001
     - _EdgeSize: 0.0005
@@ -179,14 +179,17 @@ Material:
     - _MTSpecularAttenInShadow: 0.2
     - _MTSpecularScale: 15
     - _MTUseSpecularRamp: 0
-    - _MainTexAlphaUse: 0
-    - _MainTexCutOff: 0.5
+    - _MainTexAlphaUse: 3
+    - _MainTexCutOff: 0.1
     - _MetalMaterial: 1
     - _Metallic: 0
     - _Mode: 0
     - _NoShadowCasting: 0
     - _OcclusionStrength: 1
+    - _OnlyOutlineAndRim: 0
     - _OutlineNormalChannel: 0
+    - _OutlineOnly: 0
+    - _OutlineOnlyMode: 0
     - _OutlineScale: 1
     - _OutlineWidth: 0.1
     - _OutlineZOffset: 0.2
@@ -203,7 +206,7 @@ Material:
     - _RimLightBrightness: 2.5
     - _RimLightFadeout: 1
     - _RimLightThreshold: 1
-    - _RimLightWidth: 2.65
+    - _RimLightWidth: 3.61
     - _ShadowLum: 1.5
     - _Shininess: 0
     - _Shininess2: 10
@@ -220,7 +223,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
-    - _SrcBlendModeAlpha: 1
+    - _SrcBlendModeAlpha: 0
     - _SrcBlendModeColor: 1
     - _Surface: 0
     - _TessEdgeLength: 5
