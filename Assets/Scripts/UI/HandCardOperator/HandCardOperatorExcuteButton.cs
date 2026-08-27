@@ -7,8 +7,8 @@ public class HandCardOperatorExcuteButton : MonoBehaviour
     [SerializeField] private Button button;
     void OnEnable()
     {
-        if(button == null) button = GetComponent<Button>();
-        if(handCardOperator == null) handCardOperator = HandCardOperator.instance;
+        if (button == null) button = GetComponent<Button>();
+        if (handCardOperator == null) handCardOperator = HandCardOperator.instance;
     }
     //关联的手牌执行器
     [SerializeField] private HandCardOperator handCardOperator;
@@ -21,25 +21,35 @@ public class HandCardOperatorExcuteButton : MonoBehaviour
 
     private void CheckButtonEnable()
     {
-        if(handCardOperator == null || button == null) return;
+        if (handCardOperator == null || button == null) return;
         CardOperateCategory operateCategory = handCardOperator.GetOperateCategory();
         //至少的选择
-        if(operateCategory == CardOperateCategory.AT_LEAST)
+        int num = (int)handCardOperator?.GetSelectedCards()?.Count;
+        bool canOver = false;
+        switch (operateCategory)
         {
-            int num = (int)handCardOperator?.GetSelectedCards()?.Count;
-            if(num >= (int)handCardOperator.GetOperateCount())//手牌数量满足要求,激活按钮
-            {
-                button.interactable = true;
-            }
-            else //手牌数量不满足要求,禁用按钮
-            {
-                button.interactable = false;
-            }
+            case CardOperateCategory.EQUAL:
+                canOver = num == (int)handCardOperator.GetOperateCount();
+                break;
+            case CardOperateCategory.AT_LEAST:
+                canOver = num >= (int)handCardOperator.GetOperateCount();
+                break;
+            case CardOperateCategory.NOT_ABOVE:
+                canOver = num <= (int)handCardOperator.GetOperateCount();
+                break;
+            case CardOperateCategory.AT_MOST:
+            default:
+                canOver = true;
+                break;
         }
-        else if(operateCategory == CardOperateCategory.AT_MOST)
+
+        if (canOver)//手牌数量满足要求,激活按钮
         {
-            //至多选择时时刻保持按钮开启
             button.interactable = true;
+        }
+        else //手牌数量不满足要求,禁用按钮
+        {
+            button.interactable = false;
         }
     }
 }

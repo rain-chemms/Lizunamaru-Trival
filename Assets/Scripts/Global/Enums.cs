@@ -12,6 +12,8 @@ public enum BattleDirection
 //卡片操作的种类,这个还与操作器操作卡牌数量的字段有关
 public enum CardOperateCategory
 {
+    EQUAL,//等于,必须等于当前值才能执行
+    NOT_ABOVE,//不能超过,所选择的操作牌多于这个数时无法执行(除非可选牌数量小于这个数)
     AT_LEAST,//不少于,所选择的操作牌少于这个数时无法执行(除非可选牌的数量小于这个数)
     AT_MOST,//至多
 }

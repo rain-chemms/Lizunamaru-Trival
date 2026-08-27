@@ -127,7 +127,8 @@ public class CardSelectOperator : MonoBehaviour
         //获取有效的卡牌数量
         int cardCount = willSelectCardList.ToList().Count;
         //判断卡牌数量是否充足,处于At_Most条件下可以不做选择因此一定要打开
-        if(cardCount > operateCount  || operateCategory == CardOperateCategory.AT_MOST) yield return new WaitUntil(() => selectOver);//充足时等待玩家选择结束
+        //EQUAL不能多也不能少,但如果卡牌数量不够,那EQUAL按照AT_LEAST处理
+        if(cardCount > operateCount  || operateCategory == CardOperateCategory.AT_MOST || operateCategory ==  CardOperateCategory.NOT_ABOVE) yield return new WaitUntil(() => selectOver);//充足时等待玩家选择结束
         else
         {
             //牌量不够时的逻辑:将所有牌标记为已经选择

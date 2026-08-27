@@ -97,7 +97,7 @@ public class HandCardOperator : MonoBehaviour
         }
         //牌量足够时等待选择结束,处于At_Least模式时等待选择结束
         //At_Most条件下一定要等待选择因为可以不选
-        if(cardCount > operateCount || operateCategory == CardOperateCategory.AT_MOST) yield return new WaitUntil(() => selectOver);
+        if(cardCount > operateCount || operateCategory == CardOperateCategory.AT_MOST || operateCategory == CardOperateCategory.NOT_ABOVE) yield return new WaitUntil(() => selectOver);
         else
         {
             //牌量不够时将剩余的卡牌直接加入选择器中

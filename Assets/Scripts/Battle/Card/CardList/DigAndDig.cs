@@ -28,7 +28,7 @@ namespace CardSystem.AllCardHub
                 cpList.Add((card,parent));
             }
             //调起CardSelectOperator
-            yield return CardSelectOperator.instance.CallTheCardSelectOperator(searchCount,CardOperateCategory.AT_LEAST,cpList);
+            yield return CardSelectOperator.instance.CallTheCardSelectOperator(searchCount,CardOperateCategory.EQUAL,cpList);
             yield return base.AfterPlay();
         }
 
