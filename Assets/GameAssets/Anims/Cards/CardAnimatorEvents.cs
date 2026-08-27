@@ -36,7 +36,12 @@ namespace AnimatorEventSystem
         //再消耗动画结束时调用
         public void AfterExhaust()
         {
-            card.GetComponent<Animator>()?.SetBool("IsHidden", true);
+            card?.GetComponent<Animator>()?.SetBool("IsHidden", true);
+        }
+
+        public void PlayExhaustAudio()
+        {
+            card?.GetComponent<CardVoiceController>()?.PlayCardVoice("Exhaust");
         }
     }
 }

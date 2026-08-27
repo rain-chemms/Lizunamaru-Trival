@@ -6,7 +6,8 @@ using CardSystem;
 [RequireComponent(typeof(RectTransform))]
 public class HandCardDisplayer : MonoBehaviour
 {
-    [SerializeField] private Vector2 offset = new Vector2(0, 0);//卡牌的索引偏移
+    [SerializeField] private Vector2 posOffset = new Vector2(0, 0);//
+    [SerializeField] private Vector2 indexOffset = new Vector2(0, 0);//卡牌的索引偏移
     [SerializeField] private float lerpSpeed = 1.0f;//偏移速度
     [SerializeField] private float maxRotate = 27.0f;//角度制  
 
@@ -122,9 +123,9 @@ public class HandCardDisplayer : MonoBehaviour
             //检测是否正在拖拽
             if((bool)card.GetComponent<CardHandler>()?.IsDragging()) continue;
             Vector2 allLerp = new Vector2(
-                offset.x * (index - center),
-                -Mathf.Abs(offset.y * (index - center))//y方向全部向下
-            );
+                indexOffset.x * (index - center),
+                -Mathf.Abs(indexOffset.y * (index - center))//y方向全部向下
+            ) + posOffset;
             //获取并设置位置
             RectTransform cardRTF = card.GetComponent<RectTransform>();
             Vector2 target = baseCardAnchor.anchoredPosition + allLerp;

@@ -270,10 +270,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardListName: discardCardList
-  anchorAppendOffset: {x: 10, y: 0}
-  lerpSpeed: 25
-  rotateSpeed: 25
-  discardAreaRTF: {fileID: 743924074274887298}
+  anchorAppendOffset: {x: 5, y: 5}
+  lerpSpeed: 10
+  rotateSpeed: 24
+  areaRTF: {fileID: 0}
   cardList: []
 --- !u!114 &80567950923663517
 MonoBehaviour:
@@ -1185,7 +1185,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.7
+  m_fontSize: 18
   m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1959,7 +1959,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
+  m_fontSize: 37.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2929,7 +2929,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23.75
+  m_fontSize: 18
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3479,7 +3479,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48.7
+  m_fontSize: 30.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3690,7 +3690,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.4
+  m_fontSize: 27.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4458,10 +4458,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardListName: exhaustCardList
-  anchorAppendOffset: {x: 10, y: 0}
-  lerpSpeed: 25
-  rotateSpeed: 25
-  discardAreaRTF: {fileID: 2467097146700859023}
+  anchorAppendOffset: {x: 5, y: 5}
+  lerpSpeed: 10
+  rotateSpeed: 24
+  areaRTF: {fileID: 0}
   cardList: []
 --- !u!114 &3504584274012543006
 MonoBehaviour:
@@ -4768,7 +4768,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.7
+  m_fontSize: 29.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4977,10 +4977,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardListName: drawCardList
-  anchorAppendOffset: {x: -10, y: 0}
-  lerpSpeed: 25
-  rotateSpeed: 25
-  discardAreaRTF: {fileID: 2025866419698822061}
+  anchorAppendOffset: {x: 5, y: 5}
+  lerpSpeed: 10
+  rotateSpeed: 24
+  areaRTF: {fileID: 0}
   cardList: []
 --- !u!114 &6425134295791723150
 MonoBehaviour:
@@ -5112,9 +5112,9 @@ PrefabInstance:
       value: HandCardController
       objectReference: {fileID: 0}
     - target: {fileID: 5703567442359132453, guid: db14eb1df8cb9dc49a4ddb7657d5f908, type: 3}
-      propertyPath: baseCardAnchor
-      value: 
-      objectReference: {fileID: 6816343251339326424}
+      propertyPath: posOffset.y
+      value: -320
+      objectReference: {fileID: 0}
     - target: {fileID: 8380253742937980020, guid: db14eb1df8cb9dc49a4ddb7657d5f908, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5129,23 +5129,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8380253742937980020, guid: db14eb1df8cb9dc49a4ddb7657d5f908, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.27783337
+      value: 0.43444446
       objectReference: {fileID: 0}
     - target: {fileID: 8380253742937980020, guid: db14eb1df8cb9dc49a4ddb7657d5f908, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.41229686
+      value: 0.41182816
       objectReference: {fileID: 0}
     - target: {fileID: 8380253742937980020, guid: db14eb1df8cb9dc49a4ddb7657d5f908, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.050750002
+      value: 0.20713893
       objectReference: {fileID: 0}
     - target: {fileID: 8380253742937980020, guid: db14eb1df8cb9dc49a4ddb7657d5f908, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -0.0001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8380253742937980020, guid: db14eb1df8cb9dc49a4ddb7657d5f908, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 18.4146
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8380253742937980020, guid: db14eb1df8cb9dc49a4ddb7657d5f908, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5177,11 +5177,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8380253742937980020, guid: db14eb1df8cb9dc49a4ddb7657d5f908, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000045776367
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8380253742937980020, guid: db14eb1df8cb9dc49a4ddb7657d5f908, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -8.927307
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8380253742937980020, guid: db14eb1df8cb9dc49a4ddb7657d5f908, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

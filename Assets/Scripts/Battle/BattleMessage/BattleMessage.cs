@@ -352,8 +352,13 @@ public class BattleMessage : MonoBehaviour
             if (cl == null) continue;
             if (cl.GetInnerCard() == card) cl.SetInnerCard(null);//移除卡槽中的卡牌
         }
-        yield return ((CardFunctioner)card).AfterDiscard();//触发卡牌丢弃时的效果
+
+        yield return ((CardFunctioner)card).AfterDiscard();//优先触发卡牌丢弃时的效果
         discardCardList.Add(card);
+        if((bool)card?.GetCardKeyWords()?.Contains(CardKeyWord.SLY))//检测是否有奇巧
+        {
+            yield return card.AfterPlay();//含有奇巧的牌在丢弃时会打出
+        }
     }
     /*
         2.将弃牌堆的卡牌转移到抽牌堆

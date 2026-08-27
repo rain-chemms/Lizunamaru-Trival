@@ -114,7 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84102f71f8be18645814f6468beb13ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 120, y: 20}
+  posOffset: {x: 0, y: -220}
+  indexOffset: {x: 120, y: 20}
   lerpSpeed: 5
   maxRotate: -36
   rotateSpeed: 5

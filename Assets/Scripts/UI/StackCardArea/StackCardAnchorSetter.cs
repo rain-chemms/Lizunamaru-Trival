@@ -20,11 +20,11 @@ public class StackCardAnchorSetter : MonoBehaviour
     [SerializeField] private Vector2 anchorAppendOffset = new Vector2(10f, 10f);//每张卡牌的锚点额外偏移量
     [SerializeField] private float lerpSpeed = 5;//锚点移动速度
     [SerializeField] private float rotateSpeed = 5;//锚点旋转速度
-    [SerializeField] private RectTransform discardAreaRTF;
+    [SerializeField] private RectTransform areaRTF;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (discardAreaRTF == null) discardAreaRTF = GetComponent<RectTransform>();
+        if (areaRTF == null) areaRTF = GetComponent<RectTransform>();
         FreshCardList();
     }
 
@@ -71,19 +71,19 @@ public class StackCardAnchorSetter : MonoBehaviour
     //设置所有卡牌列表中的卡牌的父物体为目标区域的父物体
     public void SetCardInListParent()
     {
-        if (discardAreaRTF == null) return;
+        if (areaRTF == null) return;
         if(cardList == null) return;
         foreach (Card card in cardList)
         {
             if (card == null) continue;
-            card.transform.SetParent(discardAreaRTF.transform.parent);
+            card.transform.SetParent(areaRTF.transform.parent);
         }
     }
     // 设置所有弃牌堆的卡牌锚点移动
     private void LerpAnchorAndRotate()
     {
         //目标区域不为空时且牌堆的卡牌列表不为空时
-        if (discardAreaRTF != null && cardList != null)
+        if (areaRTF != null && cardList != null)
         {
             int index = 0;
             foreach (Card card in cardList)
@@ -95,54 +95,67 @@ public class StackCardAnchorSetter : MonoBehaviour
                 if (cardRTF != null)//卡牌RectTransform不为空时
                 {
                     //设置锚点
-                    if (Vector2.Distance(cardRTF.anchorMax, discardAreaRTF.anchorMax) > 5.0f)
+                    //查看卡牌的距离
+                    //if (Vector2.Distance(cardRTF.anchorMax, discardAreaRTF.anchorMax) > 5.0f)
+                    if (Vector2.Distance(cardRTF.position, areaRTF.position) > 5.0f)
                     {
                         cardRTF.anchorMax = Vector2.Lerp(
                             cardRTF.anchorMax,
-                            discardAreaRTF.anchorMax,
+                            areaRTF.anchorMax,
                             lerpSpeed * Time.deltaTime
                         );
                         cardRTF.anchorMin = Vector2.Lerp(
                             cardRTF.anchorMin,
-                            discardAreaRTF.anchorMin,
+                            areaRTF.anchorMin,
                             lerpSpeed * Time.deltaTime
                         );
                     }
                     else
                     {
-                        cardRTF.anchorMax = discardAreaRTF.anchorMax;
-                        cardRTF.anchorMin = discardAreaRTF.anchorMin;
+                        cardRTF.anchorMax = areaRTF.anchorMax;
+                        cardRTF.anchorMin = areaRTF.anchorMin;
                     }
                     //设置偏移量
-                    if (Vector2.Distance(cardRTF.anchoredPosition, discardAreaRTF.anchoredPosition + anchorAppendOffset * index) > 5.0f)
+                    //是否已经处于目标区域中
+                    bool inTheArea = Vector2.Distance(cardRTF.anchoredPosition, areaRTF.anchoredPosition + anchorAppendOffset * index) > 5.0f;
+                    if (inTheArea)
                     {
                         cardRTF.anchoredPosition = Vector2.Lerp(
                             cardRTF.anchoredPosition,
-                            discardAreaRTF.anchoredPosition + anchorAppendOffset * index,
+                            areaRTF.anchoredPosition + anchorAppendOffset * index,
                             lerpSpeed * Time.deltaTime
                         );
                     }
                     else
                     {
-                        cardRTF.anchoredPosition = discardAreaRTF.anchoredPosition + anchorAppendOffset * index;
+                        cardRTF.anchoredPosition = areaRTF.anchoredPosition + anchorAppendOffset * index;
                     }
                     //同步尺寸
-                    if (Vector2.Distance(cardRTF.sizeDelta, discardAreaRTF.sizeDelta) > 5.0f)
+                    if (Vector2.Distance(cardRTF.sizeDelta, areaRTF.sizeDelta) > 5.0f)
                     {
                         cardRTF.sizeDelta = Vector2.Lerp(
                             cardRTF.sizeDelta,
-                            discardAreaRTF.sizeDelta,
+                            areaRTF.sizeDelta,
                             lerpSpeed * Time.deltaTime
                         );
                     }
                     else
                     {
-                        cardRTF.sizeDelta = discardAreaRTF.sizeDelta;
+                        cardRTF.sizeDelta = areaRTF.sizeDelta;
                     }
-                    //同步旋转
+                    //计算卡牌与areaRTF之间的夹角
+                    float angle = Vector2.Angle(areaRTF.position,cardRTF.position);
+                    Quaternion tarQut = Quaternion.Euler(0f, 0f ,angle + 180.0f);
+                    //同步旋转,若卡牌已经处于目标区域中,则与目标区域同步
+                    /*
+                    if(inTheArea)
+                    {
+                        tarQut = areaRTF.rotation;
+                    }
+                    */
                     cardRTF.rotation = Quaternion.Lerp(
                         cardRTF.rotation,
-                        discardAreaRTF.rotation,
+                        tarQut,
                         rotateSpeed * Time.deltaTime
                     );
                 }
