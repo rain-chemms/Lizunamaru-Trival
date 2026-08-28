@@ -19,7 +19,7 @@ public class LogoAnimatorEvent : MonoBehaviour
         BattleMessageDisplayer.instance?.gameObject?.SetActive(false);//战斗信息显示器
         BattleBoard.instance?.gameObject?.SetActive(false);//战斗棋盘
         ConcentratePoint.instance?.gameObject?.SetActive(false);//瞄准点
-        RoundChangeDisplayer.instance?.gameObject?.SetActive(false);//回合显示器
+        RoundChangeDisplayer.instance?.gameObject?.SetActive(false);//回合显示器   
     }
 
     [SerializeField] public string afterLoadBgm = "MenuBgm";

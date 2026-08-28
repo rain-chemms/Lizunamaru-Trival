@@ -1143,6 +1143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partSelectView: {fileID: 7409788254742944435}
   displayArea: {fileID: 3395589861402375419}
+  audioMixer: {fileID: 24100000, guid: 6967adf163725cf40adc839b6ddd6cf1, type: 2}
   displayConent: {fileID: 0}
 --- !u!114 &6387909881745588810
 MonoBehaviour:

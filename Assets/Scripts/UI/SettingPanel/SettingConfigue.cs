@@ -1,5 +1,5 @@
 //当前脚本存储具体的设置信息,用于json文件的序列化和反序列化
-//纯数据类,不设计使用
+//纯数据类,不包含使用方法
 using System;
 using UnityEngine;
 
