@@ -95,6 +95,82 @@ MonoBehaviour:
     m_Localized: Loading
     m_Metadata:
       m_Items: []
+  - m_Id: 21467114098524160
+    m_Localized: Audio Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21468107351654400
+    m_Localized: Display Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21469123258220544
+    m_Localized: Audio Panel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21470046336450560
+    m_Localized: Main Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21470523266564096
+    m_Localized: BGM Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21471125535064064
+    m_Localized: Human Voice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21471908301242368
+    m_Localized: UI Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21472584716648448
+    m_Localized: SFX Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21472964854808576
+    m_Localized: Ambient Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21474175892979712
+    m_Localized: Display Panel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21474834595840000
+    m_Localized: VSync
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21475412071809024
+    m_Localized: Resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21477083971715072
+    m_Localized: FullScreenMode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21483324324315136
+    m_Localized: ExclusiveFullScreen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21485266425479168
+    m_Localized: FullScreenWindow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21485641966682112
+    m_Localized: MaximizedWindow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21485959441940480
+    m_Localized: Windowed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21497226961485824
+    m_Localized: Refresh Rate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21507420110061568
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

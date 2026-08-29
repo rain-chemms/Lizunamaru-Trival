@@ -3,9 +3,9 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 using System.IO;
 using System;
-using UnityEngine.Rendering;
 using System.Collections;
-using System.Threading;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 //设置面板:使用单例模式
 public class SettingPanel : MonoBehaviour
@@ -40,7 +40,7 @@ public class SettingPanel : MonoBehaviour
     public void ApplyVoiceSettingsToGame()
     {
         audioMixer.SetFloat("MasterVolume", LinearToDb((float)settingConfigue?.masterVolume));
-        audioMixer.SetFloat("AmibienceVolume", LinearToDb((float)settingConfigue?.ambienceVolume));
+        audioMixer.SetFloat("AmbienceVolume", LinearToDb((float)settingConfigue?.ambienceVolume));
         audioMixer.SetFloat("BgmVolume", LinearToDb((float)settingConfigue?.bgmVolume));
         audioMixer.SetFloat("HumanVoiceVolume", LinearToDb((float)settingConfigue?.humanVoiceVloume));
         audioMixer.SetFloat("SFXVolume", LinearToDb((float)settingConfigue?.sfxVolume));
@@ -58,6 +58,30 @@ public class SettingPanel : MonoBehaviour
         );//应用分辨率
         Application.targetFrameRate = (int)settingConfigue?.refreshRate;//应用刷新率
         QualitySettings.vSyncCount = (int)settingConfigue?.vSyncCount;//应用垂直同步
+        
+    }
+
+    //应用语言设置
+    public void ApplyLanguageSettingsToGame()
+    {
+        StartCoroutine(SetLanguageSettings());
+    }
+
+    //用于设置语言
+    private IEnumerator SetLanguageSettings()
+    {
+        yield return LocalizationSettings.InitializationOperation;
+        Locale targetLocale = LocalizationSettings.AvailableLocales.GetLocale(settingConfigue?.localeCode);
+        if(targetLocale != null)
+        {
+            //设置选择的语言
+            LocalizationSettings.SelectedLocale = targetLocale;
+        }
+        {
+            // 存储的语言已不存在（可能被移除），回退到默认
+            Debug.LogWarning($"[SettingPanel]: Locale '{settingConfigue?.localeCode}' not found, falling back to default.");
+            // LocalizationSettings 会自动使用 Project Settings 中的默认语言
+        }
     }
 
 
@@ -133,6 +157,8 @@ public class SettingPanel : MonoBehaviour
         ApplyVoiceSettingsToGame();
         //应用画面设置
         ApplyDisplaySettingsToGame();
+        //应用语言设置
+        ApplyLanguageSettingsToGame();
     }
 
     ///清除所有displayContent中的子物体
