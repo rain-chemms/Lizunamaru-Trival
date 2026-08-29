@@ -15,7 +15,7 @@ namespace MapSystem{
             if(instance == null)
             {
                 instance = this;
-                DontDestroyOnLoad(this);
+                DontDestroyOnLoad(gameObject);
             }
             else
             {

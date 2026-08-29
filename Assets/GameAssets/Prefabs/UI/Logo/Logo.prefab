@@ -217,7 +217,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eeaf9b68db77744d87090540cbe78cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useIndex: 0
   loadSceneName: MenuScene
+  loadSceneIndex: 1
+  afterLoadBgm: MenuBgm
 --- !u!1 &5870389758847496427
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +372,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 3
@@ -681,7 +684,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4143972351
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 3

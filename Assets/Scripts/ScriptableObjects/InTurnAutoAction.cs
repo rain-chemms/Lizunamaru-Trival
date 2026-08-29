@@ -14,9 +14,9 @@ namespace GridObjectSystem.RoleSystem.AutoSystem
     [CreateAssetMenu(fileName = "InTurnAutoAction", menuName = "InTurnAutoAction/InTurnAutoAction")]
     public class InTurnAutoAction : ScriptableObject
     {
-        [SerializeField] private List<TurnAction> actionList = new List<TurnAction>();
-        public List<TurnAction> GetActionList() => actionList;
-        public List<TurnAction> GetActionList_Copy() => actionList.ToList();
+        [SerializeField] private List<TurnAction> turnActions = new List<TurnAction>();
+        public List<TurnAction> GetActionList() => turnActions;
+        public List<TurnAction> GetActionList_Copy() => turnActions.ToList();
         //一下部分用于扩展重写和循环跳转的实现
         [Header("是否开启InTurnAutoAction跳转逻辑")]
         [SerializeField] protected bool jumpLogicOpen = false;//是否开启跳转逻辑
@@ -28,7 +28,7 @@ namespace GridObjectSystem.RoleSystem.AutoSystem
         {
             if (role == null) yield break;
 
-            foreach(TurnAction action in actionList)
+            foreach(TurnAction action in turnActions)
             {
                 yield return action?.Excute(role);
             }

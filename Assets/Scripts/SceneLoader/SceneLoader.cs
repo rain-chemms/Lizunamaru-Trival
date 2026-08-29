@@ -37,6 +37,34 @@ public class SceneLoader : MonoBehaviour
     {
         StartCoroutine(LoadCoroutine(sceneName,callbacks,mode));
     }
+    //索引加载
+    public void LoadScene(int sceneIndex,Action callbacks = null,LoadSceneMode mode = LoadSceneMode.Single)
+    {
+        StartCoroutine(LoadCoroutine(sceneIndex,callbacks,mode));
+    }
+
+    private IEnumerator LoadCoroutine(int sceneIndex,Action actionCallbacks = null,LoadSceneMode mode = LoadSceneMode.Single)
+    {
+        animator.SetTrigger("Start");
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        yield return new WaitForSeconds(stateInfo.length);//等待动画播放完毕
+        SceneManager.LoadScene(sceneIndex);
+        AsyncOperation asyncOperation =  SceneManager.LoadSceneAsync(sceneIndex,mode);
+        //等待加载完成
+        while (!asyncOperation.isDone)
+        {
+            yield return null; // 每帧检查一次
+        }
+        //触发Action功能
+        actionCallbacks?.Invoke();
+        //解构事件
+        if(actionCallbacks!=null)
+        foreach(Action ac in actionCallbacks.GetInvocationList().ToList())
+        {
+            if(ac != null) actionCallbacks -= ac;
+        }
+        animator.SetTrigger("End");
+    }
 
     private IEnumerator LoadCoroutine(String sceneName,Action actionCallbacks = null,LoadSceneMode mode = LoadSceneMode.Single)
     {

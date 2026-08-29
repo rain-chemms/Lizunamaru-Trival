@@ -25,9 +25,10 @@ namespace CardSystem.AllCardHub
             return swordEdge;
         }
         //卡牌接口的空实现
-        public virtual IEnumerator AfterInsertToSolt()
+        public override IEnumerator AfterInsertToSolt()
         {
             yield return null;
+            yield return base.AfterInsertToSolt();
         }
         public override IEnumerator AfterPlay()
         {
@@ -71,34 +72,40 @@ namespace CardSystem.AllCardHub
             );
             yield return null;
         }
-        public virtual IEnumerator AfterRemoveFromSolt()
+        public override IEnumerator AfterRemoveFromSolt()
         {
             yield return null;
+            yield return base.AfterRemoveFromSolt();
         }
-        public virtual IEnumerator AfterTriggerEffective()
+        public override IEnumerator AfterTriggerEffective()
         {
             yield return null;
+            yield return base.AfterTriggerEffective();
         }
-        public virtual IEnumerator AfterRoundEnd()
+        public override IEnumerator AfterRoundEnd()
         {
             yield return null;
+            yield return base.AfterRoundEnd();
         }
         //回合开始时触发
-        public virtual IEnumerator AfterRoundStart()
+        public override IEnumerator AfterRoundStart()
         {
             yield return null;
+            yield return base.AfterRoundStart();
         }
 
         //在你的回合丢弃时触发
-        public virtual IEnumerator AfterDiscard()
+        public override IEnumerator AfterDiscard()
         {
             yield return null;
+            yield return base.AfterDiscard();
         }
 
         //在抽到卡牌时触发
-        public virtual IEnumerator AfterDraw()
+        public override IEnumerator AfterDraw()
         {
             yield return null;
+            yield return base.AfterDraw();
         }
 
         void Update()

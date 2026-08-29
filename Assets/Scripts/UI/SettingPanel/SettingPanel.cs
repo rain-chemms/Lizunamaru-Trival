@@ -3,6 +3,7 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 using System.IO;
 using System;
+using UnityEngine.Rendering;
 using System.Collections;
 using System.Threading;
 
@@ -15,11 +16,11 @@ public class SettingPanel : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
     [SerializeField] private ScrollRect partSelectView;//设置选择面板
@@ -31,7 +32,7 @@ public class SettingPanel : MonoBehaviour
     [NonSerialized] private SettingConfigue settingConfigue;
     public SettingConfigue GetSettingConfigue() => settingConfigue;
     public void SetSettingConfigue(SettingConfigue settingConfigue) => this.settingConfigue = settingConfigue;
-    [NonSerialized] private string savePath = Path.Combine(Application.persistentDataPath, "game_settings.json");
+    [NonSerialized] private string savePath = "";//Path.Combine(Application.persistentDataPath, "game_settings.json");
 
     //混音器
     [SerializeField] private AudioMixer audioMixer;
@@ -44,14 +45,21 @@ public class SettingPanel : MonoBehaviour
         audioMixer.SetFloat("HumanVoiceVolume", LinearToDb((float)settingConfigue?.humanVoiceVloume));
         audioMixer.SetFloat("SFXVolume", LinearToDb((float)settingConfigue?.sfxVolume));
         audioMixer.SetFloat("UIVolume", LinearToDb((float)settingConfigue?.uiVolume));
-        Debug.Log("[ApplyTime]: Value of Sfx:" + settingConfigue.sfxVolume);
-        Debug.Log("[ApplyTime]: Value of Ui:" + settingConfigue.uiVolume);
-        Debug.Log("[ApplyTime]: Value of Ambience:" + settingConfigue.ambienceVolume);
-        Debug.Log("[ApplyTime]: Value of Bgm:" + settingConfigue.bgmVolume);
-        Debug.Log("[ApplyTime]: Value of HumanVoice:" + settingConfigue.humanVoiceVloume);
-        Debug.Log("[ApplyTime]: Value of Master:" + settingConfigue.masterVolume);
-        Debug.Log($"[SettingPanel]: Applied the Settings Configue to the AudioMixer.");
     }
+
+    //应用画面设置
+    public void ApplyDisplaySettingsToGame()
+    {
+        Screen.fullScreenMode = (FullScreenMode)settingConfigue?.fullScreenMode;
+        Screen.SetResolution(
+            (int)settingConfigue?.resolutionWidth, 
+            (int)settingConfigue?.resolutionHeight, 
+            (FullScreenMode)settingConfigue?.fullScreenMode
+        );//应用分辨率
+        Application.targetFrameRate = (int)settingConfigue?.refreshRate;//应用刷新率
+        QualitySettings.vSyncCount = (int)settingConfigue?.vSyncCount;//应用垂直同步
+    }
+
 
     //用于将音量的1-0映射到-80dB-0dB
     public static float LinearToDb(float linear)
@@ -104,7 +112,7 @@ public class SettingPanel : MonoBehaviour
     //尝试自动获取ScrollRect
     void OnEnable()
     {
-        savePath = Path.Combine(Application.persistentDataPath, "game_settings.json");
+        savePath = Path.Combine(Application.persistentDataPath, "game_settings.json");//默认保存路径
         foreach (RectTransform child in transform)
         {
             if (child.name.Equals("DisplayArea")) { displayArea = child; continue; }
@@ -122,7 +130,9 @@ public class SettingPanel : MonoBehaviour
         //加载设置,等待其加载结束
         LoadInSettingsFromFile();
         //应用音量设置
-        ApplyVoiceSettingsToGame();    
+        ApplyVoiceSettingsToGame();
+        //应用画面设置
+        ApplyDisplaySettingsToGame();
     }
 
     ///清除所有displayContent中的子物体

@@ -9,6 +9,7 @@ public class SettingConfigue
     // 视频设置
     public int resolutionWidth = 1920;
     public int resolutionHeight = 1080;
+    public float refreshRate = 60f;//刷新率
     public FullScreenMode fullScreenMode = FullScreenMode.FullScreenWindow;
     public int vSyncCount = 1;
     //音频设置:和混音器有关

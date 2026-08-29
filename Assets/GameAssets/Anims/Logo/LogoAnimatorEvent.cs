@@ -1,17 +1,24 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class LogoAnimatorEvent : MonoBehaviour
 {
     //Logo播放完之后加载主场景
+    [SerializeField] private bool useIndex = false; 
     [SerializeField] private string loadSceneName = "MenuScene";
+    [SerializeField] private int loadSceneIndex = 0;
     public void AfterTheLoadEnd()
     {
-        SceneLoader.instance.LoadScene(loadSceneName);
+        Action act = null;
+        act += InitialTheInstances;
+        act += PlayDefaultBgm;
+        if(useIndex) SceneLoader.instance?.LoadScene(loadSceneIndex,act); 
+        else SceneLoader.instance?.LoadScene(loadSceneName,act);
     }
 
     //初始化单例对象,关闭一些单例
-    public void InitialTheInstances()
+    private void InitialTheInstances()
     {
         //关闭的单例物体
         //战斗系统相关

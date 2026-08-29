@@ -32,7 +32,7 @@ namespace MapSystem
         }
         [SerializeField] private MapNode nodePrefab;//地图节点预制体模板
         public MapNode GetNodePrefab() => nodePrefab;
-        [SerializeField] public const int maxJumpDis = 2;//规定两层节点之间最大的跨越距离,不可以变
+        [SerializeField] private const int maxJumpDis = 2;//规定两层节点之间最大的跨越距离,不可以变
         //依据相关信息重现一张地图
         //需要一个通用性的函数:只要调用它就可以通过种子完全重现出一摸一样的地图信息,即生成Map的连接信息和节点信息
         public void RecurMap(

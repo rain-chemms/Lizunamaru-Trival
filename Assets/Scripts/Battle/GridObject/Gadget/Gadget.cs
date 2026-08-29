@@ -13,7 +13,7 @@ namespace GridObjectSystem.GadgetSystem
         public GridObject GetBelongRole() => belongRole;
         public void SetBelongRole(GridObject role) => belongRole = role;
         // Update is called once per frame
-        protected virtual void Update()
+        protected override void Update()
         {
             base.Update();
         }
@@ -35,7 +35,7 @@ namespace GridObjectSystem.GadgetSystem
             BattleMessage.instance?.GetGadgetList()?.Remove(this);
         }
 
-        [SerializeField] public Action effectAction;
+        [SerializeField] private Action effectAction;
         public Action GetEffectAction() => effectAction;
         //在道具生效的时候调用
         public virtual IEnumerator OnGadgetEffect()

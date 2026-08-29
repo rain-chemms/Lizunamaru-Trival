@@ -8,11 +8,11 @@ public class SeedSetter : MonoBehaviour
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
     private const uint hash = 5381;//种子的基数,写死的不能变

@@ -7,30 +7,30 @@ namespace GridObjectSystem
     [RequireComponent(typeof(GridObject))]
     public class GridObjectDirectionSetter : MonoBehaviour
     {
-        [SerializeField] private GridObject role;
+        [SerializeField] private GridObject gridObject;
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-            if (role == null) role = GetComponent<GridObject>();
-            if (role != null)
+            if (gridObject == null) gridObject = GetComponent<GridObject>();
+            if (gridObject != null)
             {
-                role.SetDirection(role.GetDirection());
+                gridObject.SetDirection(gridObject.GetDirection());
             }
         }
 
         void OnEnable()
         {
-            if (role != null)
+            if (gridObject != null)
             {
-                role.directionChangeAction += CaculateRoleDirection;
+                gridObject.directionChangeAction += CaculateRoleDirection;
             }
         }
 
         void OnDisable()
         {
-            if (role != null)
+            if (gridObject != null)
             {
-                role.directionChangeAction -= CaculateRoleDirection;
+                gridObject.directionChangeAction -= CaculateRoleDirection;
             }
         }
 
@@ -47,8 +47,8 @@ namespace GridObjectSystem
 
         private void CaculateRoleDirection()
         {
-            if (role == null) return;
-            BattleDirection direction = role.GetDirection();
+            if (gridObject == null) return;
+            BattleDirection direction = gridObject.GetDirection();
             target = Vector3.zero;
             switch (direction)
             {
@@ -70,9 +70,9 @@ namespace GridObjectSystem
 
         private void LerpRoleDirection()
         {
-            if (role == null) return;
-            role.transform.rotation = Quaternion.Lerp(
-                role.transform.rotation,//当前方向
+            if (gridObject == null) return;
+            gridObject.transform.rotation = Quaternion.Lerp(
+                gridObject.transform.rotation,//当前方向
                 Quaternion.LookRotation(target),//目标方向
                 lerpSpeed * Time.deltaTime//插值速度
             );

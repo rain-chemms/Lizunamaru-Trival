@@ -105,7 +105,7 @@ public class BattleBoardCameraSetter : MonoBehaviour
     {
         ////摄像机旋转处理
         if (board == null) resetRot = false;
-        Vector3 nowRot = cinemachineCamera.transform.rotation.eulerAngles;
+        Vector3 nowRot = (Vector3)cinemachineCamera?.transform?.rotation.eulerAngles;
         Quaternion endRot = Quaternion.Euler(
             rotOffset.x,
             rotOffset.y,
