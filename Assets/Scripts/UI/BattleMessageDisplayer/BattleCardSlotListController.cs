@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using CardSystem;
+using System.Linq;
 //挂载在战斗UI显示器上
 [RequireComponent(typeof(BattleMessageDisplayer))]
 public class BattleCardSlotListController : MonoBehaviour
@@ -14,11 +15,19 @@ public class BattleCardSlotListController : MonoBehaviour
         FreshCardSlotListCount();
     }
 
-    // Update is called once per frame
-    void Update()
+    //删除卡槽时要将内部的卡牌放回手中
+    private void DestoryACardSlot(CardSlot cardSlot)
     {
-        
-    }
+        if(cardSlot != null)
+        {
+            Card innerCard = cardSlot.GetInnerCard();
+            if(innerCard!=null)
+            {
+                BattleMessage.instance.AddExistCardToHand(innerCard);
+            }
+            Destroy(cardSlot.gameObject);
+        }
+    } 
 
     //删除所有卡槽列表中类型不匹配的卡槽
     public void DeleteAllCardSlotCategoryNotMatch()
@@ -26,15 +35,19 @@ public class BattleCardSlotListController : MonoBehaviour
         List<CardSlotList> cardSlotListList = BattleMessage.instance.GetCardSlotListList();
         foreach(CardSlotList cardSlotList in cardSlotListList)
         {
+            if(cardSlotList == null) continue;//跳过null值卡槽列表
             List<CardSlot> cardSlotList1 = cardSlotList.GetCardSlotList();
             if(cardSlotList1 == null || cardSlotList1.Count <= 0) continue;
             CardCategory listCategory = cardSlotList.GetSlotListCardCategory();
-            foreach(CardSlot cardSlot in cardSlotList1)
+            foreach(CardSlot cardSlot in cardSlotList1.ToList())
             {
                 if(cardSlot.GetSlotCardCategory() != listCategory)
                 {
+                    //在卡槽列表中移除不匹配的卡槽
+                    cardSlotList.GetCardSlotList().Remove(cardSlot);
                     Debug.Log("[BattleCardSlotListController]: Checked the CardSlot:<"+cardSlot.name+"> is not in the same category as the CardSlotList:<"+cardSlotList.name+">!Have Delete it!");
-                    Destroy(cardSlot.gameObject);//删除不匹配的卡槽
+                    //Destroy(cardSlot.gameObject);//删除不匹配的卡槽
+                    DestoryACardSlot(cardSlot);
                 }
             }
         }
@@ -50,12 +63,15 @@ public class BattleCardSlotListController : MonoBehaviour
             if(cardSlotList1 == null || cardSlotList1.Count <= 0) continue;
             CardCategory nowListCategory = cardSlotList.GetSlotListCardCategory();
             if(nowListCategory != checkListCategory) continue;//列表类别与输入类别不一致时跳过当前的卡槽列表检测
-            foreach(CardSlot cardSlot in cardSlotList1)
+            foreach(CardSlot cardSlot in cardSlotList1.ToList())
             {
                 if(cardSlot.GetSlotCardCategory() != nowListCategory)
                 {
+                    //在卡槽列表中移除不匹配的卡槽
+                    cardSlotList.GetCardSlotList().Remove(cardSlot);
                     Debug.Log("[BattleCardSlotListController]: Checked the CardSlot:<"+cardSlot.name+"> is not in the same category as the CardSlotList:<"+cardSlotList.name+">!Have Delete it!");
-                    Destroy(cardSlot.gameObject);//删除不匹配的卡槽
+                    //Destroy(cardSlot.gameObject);//删除不匹配的卡槽
+                    DestoryACardSlot(cardSlot);
                 }
             }
         }
@@ -71,6 +87,8 @@ public class BattleCardSlotListController : MonoBehaviour
         //遍历所有的卡槽列表
         foreach(CardSlotList cardSlotList in cardSlotListList)
         {
+            //跳过null值卡槽列表
+            if(cardSlotList == null) continue;
             //清空null值卡槽
             RemoveAllNullValueCardSlotInList(cardSlotList);
             //获取当前卡槽的类别
@@ -148,8 +166,8 @@ public class BattleCardSlotListController : MonoBehaviour
                         if(cardSlot.GetInnerCard() != null) BattleMessage.instance.GetHandCardList()?.Add(cardSlot.GetInnerCard());
                         //将当前卡槽从卡槽列表中删除
                         cardSlotList.GetCardSlotList().Remove(cardSlot);
-                        //删除游戏物体
-                        Destroy(cardSlot.gameObject);
+                        //删除对应的卡槽游戏物体
+                        DestoryACardSlot(cardSlot);
                         haveDeleteCount++;
                     }
                 }

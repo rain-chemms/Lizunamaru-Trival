@@ -37,9 +37,5 @@ public class BattleMessageDisplayer : MonoBehaviour
         //更新UI的显示状态
         if(mainCanvas?.enabled != isShow) mainCanvas.enabled = isShow;
         //依据战斗信息实时更新UI显示
-        
     }
-
-
-
 }

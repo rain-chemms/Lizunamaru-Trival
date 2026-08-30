@@ -20,6 +20,12 @@ namespace GridObjectSystem
             lastDirection = direction;//缓存上次的朝向
             if(BattleBoard.instance != null) transform.SetParent(BattleBoard.instance?.transform);//挂载在棋盘上
         }
+
+        void Start()
+        {
+            if(BattleBoard.instance != null) transform.SetParent(BattleBoard.instance?.transform);//挂载在棋盘上    
+        }
+
         //棋盘物体的方向
         [SerializeField] protected BattleDirection direction = BattleDirection.RIGHT;//角色的朝向
         public BattleDirection GetDirection() => direction;
