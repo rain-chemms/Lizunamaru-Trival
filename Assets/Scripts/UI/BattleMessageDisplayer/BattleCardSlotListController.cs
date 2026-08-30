@@ -9,28 +9,38 @@ public class BattleCardSlotListController : MonoBehaviour
 {   
     [SerializeField] private SerializableDictionary<CardCategory,CardSlot> prefabDict;//卡槽预制体
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    IEnumerator Start()
     {
-        DeleteAllCardSlotCategoryNotMatch();
-        FreshCardSlotListCount();
+        yield return DeleteAllCardSlotCategoryNotMatch();
+        yield return FreshCardSlotListCount();
     }
 
     //删除卡槽时要将内部的卡牌放回手中
-    private void DestoryACardSlot(CardSlot cardSlot)
+    private IEnumerator DestoryACardSlot(CardSlot cardSlot)
     {
         if(cardSlot != null)
         {
             Card innerCard = cardSlot.GetInnerCard();
             if(innerCard!=null)
             {
-                BattleMessage.instance.AddExistCardToHand(innerCard);
+                //打个补丁:尝试将卡牌大小的暂时设置为0:其父级销毁时,这个对象的大小会突变,设置长宽为0便于其渐变
+                RectTransform cardRtf = innerCard.GetComponent<RectTransform>();
+                RectTransform slotRtf = cardSlot.GetComponent<RectTransform>();
+                slotRtf.anchorMin = new Vector2(0.5f, 0.5f);
+                slotRtf.anchorMax = new Vector2(0.5f, 0.5f);
+                cardRtf.GetComponent<RectTransform>().offsetMin = Vector2.zero;
+                cardRtf.GetComponent<RectTransform>().offsetMax = Vector2.zero;
+                //激活卡牌的移出卡槽时的效果
+                yield return innerCard?.AfterRemoveFromSolt();
+                //添加卡牌到手牌,确保删除卡槽时其中的卡牌优先在手上
+                yield return BattleMessage.instance?.AddExistCardToHand(innerCard);//添加卡牌到手牌
             }
             Destroy(cardSlot.gameObject);
         }
     } 
 
     //删除所有卡槽列表中类型不匹配的卡槽
-    public void DeleteAllCardSlotCategoryNotMatch()
+    public IEnumerator DeleteAllCardSlotCategoryNotMatch()
     {
         List<CardSlotList> cardSlotListList = BattleMessage.instance.GetCardSlotListList();
         foreach(CardSlotList cardSlotList in cardSlotListList)
@@ -47,14 +57,14 @@ public class BattleCardSlotListController : MonoBehaviour
                     cardSlotList.GetCardSlotList().Remove(cardSlot);
                     Debug.Log("[BattleCardSlotListController]: Checked the CardSlot:<"+cardSlot.name+"> is not in the same category as the CardSlotList:<"+cardSlotList.name+">!Have Delete it!");
                     //Destroy(cardSlot.gameObject);//删除不匹配的卡槽
-                    DestoryACardSlot(cardSlot);
+                    yield return DestoryACardSlot(cardSlot);
                 }
             }
         }
     }
 
     //依据特定的卡槽类型删除所有卡槽列表中类型不匹配的卡槽
-    public void DeleteAllCardSlotCategoryNotMatch(CardCategory checkListCategory)
+    public IEnumerator DeleteAllCardSlotCategoryNotMatch(CardCategory checkListCategory)
     {
         List<CardSlotList> cardSlotListList = BattleMessage.instance.GetCardSlotListList();
         foreach(CardSlotList cardSlotList in cardSlotListList)
@@ -71,14 +81,14 @@ public class BattleCardSlotListController : MonoBehaviour
                     cardSlotList.GetCardSlotList().Remove(cardSlot);
                     Debug.Log("[BattleCardSlotListController]: Checked the CardSlot:<"+cardSlot.name+"> is not in the same category as the CardSlotList:<"+cardSlotList.name+">!Have Delete it!");
                     //Destroy(cardSlot.gameObject);//删除不匹配的卡槽
-                    DestoryACardSlot(cardSlot);
+                    yield return DestoryACardSlot(cardSlot);
                 }
             }
         }
     }
 
     //依据卡槽列表数量刷新卡槽数量
-    public void FreshCardSlotListCount()
+    public IEnumerator FreshCardSlotListCount()
     {
         //读取BattleMessage单例中的信息
         SerializableDictionary<CardCategory,int> cardSlotListCardSlotCount = BattleMessage.instance.GetCardSlotListCardSlotCount();
@@ -146,7 +156,7 @@ public class BattleCardSlotListController : MonoBehaviour
                 //对当前进行卡槽删除
                 int deleteCount = cardSlotCount - cardSlotCountInDict;
                 int haveDeleteCount = 0;
-                foreach(CardSlot cardSlot in cardSlotList.GetCardSlotList())
+                foreach(CardSlot cardSlot in cardSlotList.GetCardSlotList().ToList())
                 {
                     //判断是否还需要删除卡槽
                     if(haveDeleteCount >= deleteCount)
@@ -167,7 +177,7 @@ public class BattleCardSlotListController : MonoBehaviour
                         //将当前卡槽从卡槽列表中删除
                         cardSlotList.GetCardSlotList().Remove(cardSlot);
                         //删除对应的卡槽游戏物体
-                        DestoryACardSlot(cardSlot);
+                        yield return DestoryACardSlot(cardSlot);
                         haveDeleteCount++;
                     }
                 }

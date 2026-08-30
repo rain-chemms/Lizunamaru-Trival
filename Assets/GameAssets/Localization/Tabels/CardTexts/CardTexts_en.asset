@@ -100,6 +100,14 @@ MonoBehaviour:
     m_Localized: In This Battle, Attack Slot Increase by 1
     m_Metadata:
       m_Items: []
+  - m_Id: 21734425690767360
+    m_Localized: 'Exhaust {0} Power Slot
+
+      Draw {1} Card
+
+      Get {2} IcePoint'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

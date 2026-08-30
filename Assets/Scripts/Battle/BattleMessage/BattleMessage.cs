@@ -466,7 +466,23 @@ public class BattleMessage : MonoBehaviour
             Debug.LogError("[BattleMessage]: Draw Card List is Null, Please Check!");
             yield break;
         }
+        if (exhaustCardList == null)
+        {
+            Debug.LogError("[BattleMessage]: Exhaust Card List is Null, Please Check!");
+            yield break;
+        }
+        if (drawCardList == null)
+        {
+            Debug.LogError("[BattleMessage]: Draw Card List is Null, Please Check!");
+            yield break;
+        }
 
+        //暂时将卡牌移除出去
+        if(discardCardList.Contains(existCard)) discardCardList.Remove(existCard);
+        if(drawCardList.Contains(existCard)) drawCardList.Remove(existCard);
+        if(handCardList.Contains(existCard)) handCardList.Remove(existCard);
+        if(exhaustCardList.Contains(existCard)) exhaustCardList.Remove(existCard);
+        //这样写可以实现手中的卡牌让其排到手牌队列的末尾
         if (handCardList.Count < maxHandCardCount)
         {
             handCardList.Add(existCard);

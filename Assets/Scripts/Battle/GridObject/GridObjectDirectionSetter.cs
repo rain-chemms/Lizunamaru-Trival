@@ -8,20 +8,13 @@ namespace GridObjectSystem
     public class GridObjectDirectionSetter : MonoBehaviour
     {
         [SerializeField] private GridObject gridObject;
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+
+        void OnEnable()
         {
             if (gridObject == null) gridObject = GetComponent<GridObject>();
             if (gridObject != null)
             {
                 gridObject.SetDirection(gridObject.GetDirection());
-            }
-        }
-
-        void OnEnable()
-        {
-            if (gridObject != null)
-            {
                 gridObject.directionChangeAction += CaculateRoleDirection;
             }
         }

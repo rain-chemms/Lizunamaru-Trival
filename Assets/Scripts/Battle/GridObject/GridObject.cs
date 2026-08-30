@@ -17,13 +17,13 @@ namespace GridObjectSystem
         protected virtual void OnEnable()
         {
             if(rb == null) rb = GetComponent<Rigidbody>();
-            lastDirection = direction;//缓存上次的朝向
             if(BattleBoard.instance != null) transform.SetParent(BattleBoard.instance?.transform);//挂载在棋盘上
         }
 
         void Start()
         {
             if(BattleBoard.instance != null) transform.SetParent(BattleBoard.instance?.transform);//挂载在棋盘上    
+            lastDirection = direction;//缓存上次的朝向
         }
 
         //棋盘物体的方向
@@ -44,13 +44,14 @@ namespace GridObjectSystem
 
         //角色委托Action事件
         //方向变化Action
-        public event Action directionChangeAction;//角色朝向发生变化时调用的委托
+        public event Action directionChangeAction = null;//角色朝向发生变化时调用的委托
         public Action GetDirectionChangeAction() => directionChangeAction;
         [NonSerialized] private BattleDirection lastDirection = BattleDirection.RIGHT;
         private void CheckDirectionChange()
         {
             if(direction != lastDirection)
             {
+                Debug.Log("Action numbers: " + directionChangeAction.GetInvocationList().Length);
                 directionChangeAction?.Invoke();//角色朝向发生变化激活委托
                 lastDirection = direction;
             }
