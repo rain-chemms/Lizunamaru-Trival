@@ -64,6 +64,18 @@ public class BattleMessage : MonoBehaviour
         gadgetList = FindObjectsByType<Gadget>(FindObjectsInactive.Exclude,FindObjectsSortMode.None)?.ToList();
     }
 
+    private event Action selfTurnEndAction = null;
+    public Action SelfTurnEndAction
+    {
+        get => selfTurnEndAction;
+        set => selfTurnEndAction = value;   
+    }
+    private event Action selfTurnStartAction = null;
+    public Action SelfTurnStartAction
+    {
+        get => selfTurnStartAction;
+        set => selfTurnStartAction = value;
+    }
 
     public IEnumerator ChangeTurn()
     {
@@ -156,11 +168,13 @@ public class BattleMessage : MonoBehaviour
             yield return DrawCard(drawCardCount);//抽5张牌
             ricePoint += riceChargePreRound;
             icePoint = 0;
+            selfTurnStartAction?.Invoke();
         }
         else
         {
             icePoint += iceChargePreRound + ricePoint;//将剩余的ricePoint变为icePoint
             ricePoint = 0;
+            selfTurnEndAction?.Invoke();
         }
         //玩家获取能量之后
         //触发所有的GadgetList中的道具的TurnStart功能
@@ -632,6 +646,13 @@ public class BattleMessage : MonoBehaviour
     /// <param name="triggerAnim">是否尝试通过AnimTrigger触发startObject的动画</param>
     /// <param name="roleAnimName">触发的动画名称,只有triggerAnim为true是才有效</param>
     /// <returns></returns>
+    private event Action<Bullet> bulletPostProcess = null;
+    public Action<Bullet> BulletPostProcess
+    {
+        get => bulletPostProcess;
+        set => bulletPostProcess = value;    
+    }
+
     public IEnumerator GenerateBullet(GridObject startObject, Bullet bulletPrefab, Vector2Int targetIndex, Vector3 posOffset = default, bool triggerAnim = true, string roleAnimName = "Skill")//角色产生一颗子弹,posOffset为这颗子弹的微小位置偏移
     {
         if (startObject == null || bulletPrefab == null)
@@ -694,6 +715,7 @@ public class BattleMessage : MonoBehaviour
             bt.SetSide(player.GetSide());//设置子弹的阵营
             bt.transform.position = playerRbCenter/*(Vector3)player?.transform.position*/ + posOffset;//设置子弹的初始位置
             bt.SetDirection(direction);//设置子弹的方向
+            bulletPostProcess?.Invoke(bt);//添加子弹后处理
         }
         //控制玩家动画播放
         if (triggerAnim)

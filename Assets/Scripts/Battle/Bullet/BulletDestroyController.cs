@@ -3,20 +3,20 @@ using UnityEngine;
 namespace BulletSystem
 {
     [RequireComponent(typeof(Bullet))]
-    [RequireComponent(typeof(BulletDamageTriggger))]
+    [RequireComponent(typeof(BulletDamageTrigger))]
     [RequireComponent(typeof(Animator))]
     public class BulletDestroyController : MonoBehaviour
     {
         [SerializeField] private Bullet bullet;
         [SerializeField] private Animator animator;
-        [SerializeField] private BulletDamageTriggger damageTriggger;
+        [SerializeField] private BulletDamageTrigger damageTriggger;
         [SerializeField] private bool animatorControl = false;// 是否由动画控制销毁
         void Start()
         {
             //尝试自动获取
             if (bullet == null) bullet = GetComponent<Bullet>();
             if (animator == null) animator = GetComponent<Animator>();
-            if (damageTriggger == null) damageTriggger = GetComponent<BulletDamageTriggger>();
+            if (damageTriggger == null) damageTriggger = GetComponent<BulletDamageTrigger>();
             haveTriggered = false;//设置为未触发
         }
         // Update is called once per frame

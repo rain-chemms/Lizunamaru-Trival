@@ -108,6 +108,20 @@ MonoBehaviour:
       Get {2} IcePoint'
     m_Metadata:
       m_Items: []
+  - m_Id: 21903064159092736
+    m_Localized: 'When inserting into the slot, summon dual guns "SolemnLament".
+
+      When
+      removing from the slot, retract the dual guns.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21929263405072384
+    m_Localized: 'At the start of your turn,
+
+      You recover {0} health each time
+      you hit an enemy while shooting.'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -1,10 +1,11 @@
 using UnityEngine;
 using GridObjectSystem.RoleSystem;
+using System;
 
 namespace BulletSystem
 {
     [RequireComponent(typeof(Bullet))]
-    public class BulletDamageTriggger : MonoBehaviour
+    public class BulletDamageTrigger : MonoBehaviour
     {
         /*
             激光模式下,造成的伤害按帧计算,每一帧造成一次伤害
@@ -20,6 +21,22 @@ namespace BulletSystem
         }
         [SerializeField] private Bullet bullet;
         // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+        //进入时触发的事件
+        private event Action enterTrigger = null;
+        public Action EnterTrigger
+        {
+            get => enterTrigger;
+            set => enterTrigger = value;
+        }
+        //激光状态持续时的事件
+        private event Action stateTrigger = null;
+        public Action StateTrigger
+        {
+            get => stateTrigger;
+            set => stateTrigger = value;
+        } 
+
         void Start()
         {
             //尝试自动获取
@@ -28,22 +45,23 @@ namespace BulletSystem
 
         void OnTriggerEnter(Collider other)
         {
-            //单次伤害再非激光模式下有效逻辑中只处理一次
+            //单次伤害在非激光模式下有效逻辑中只处理一次
             //只检测含Role标签的物体
-            if (!laserMode)
+            //if (!laserMode)
+            //{
+            if (other.gameObject.tag == "Role")
             {
-                if (other.gameObject.tag == "Role")
+                Role role = other.gameObject.GetComponent<Role>();
+                RoleDamageGetter damageGetter = other.gameObject.GetComponent<RoleDamageGetter>();
+                //伤害只对不同阵营的物体有效
+                if (role?.GetSide() != bullet?.GetSide())
                 {
-                    Role role = other.gameObject.GetComponent<Role>();
-                    RoleDamageGetter damageGetter = other.gameObject.GetComponent<RoleDamageGetter>();
-                    //伤害只对不同阵营的物体有效
-                    if (role?.GetSide() != bullet?.GetSide())
-                    {
-                        damageGetter?.GetDamage(bullet.GetDamage());
-                        bullet.SetPierce(bullet.GetPierce() - 1);//减穿透数
-                    }
+                    damageGetter?.GetDamage(bullet.GetDamage());
+                    bullet.SetPierce(bullet.GetPierce() - 1);//减穿透数
+                    enterTrigger?.Invoke();
                 }
             }
+            //}
         }
 
         void OnTriggerStay(Collider other)
@@ -59,6 +77,7 @@ namespace BulletSystem
                     if (role?.GetSide() != bullet?.GetSide())
                     {
                         damageGetter?.GetDamage(bullet.GetDamage());
+                        stateTrigger?.Invoke();
                     }
                 }
             }

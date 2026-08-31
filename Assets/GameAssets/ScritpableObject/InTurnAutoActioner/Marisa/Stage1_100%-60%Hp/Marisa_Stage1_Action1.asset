@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb7300507b34ff4f8977ec01320b6db, type: 3}
   m_Name: Marisa_Stage1_Action1
   m_EditorClassIdentifier: 
-  actionList:
+  turnActions:
   - {fileID: 11400000, guid: ef2001171f846c74f9f3f5a671c7101c, type: 2}
-  - {fileID: 11400000, guid: 177ab1d0f1856084b9683fc2a00f1b10, type: 2}
+  - {fileID: 11400000, guid: f04a3833a4fb03a4ea927a1e6dca29d4, type: 2}
   jumpLogicOpen: 0
   nextLogicIndex: -1

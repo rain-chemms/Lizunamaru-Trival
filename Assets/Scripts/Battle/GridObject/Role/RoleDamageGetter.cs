@@ -34,7 +34,9 @@ namespace GridObjectSystem.RoleSystem
                 return;
             }
             //无防御点数或不检查防御值时直接受到伤害
-            role.SetHp(role.GetHp() - damage);
+            float nowHp = role.GetHp() - damage;
+            if(nowHp <= 0) nowHp = 0;
+            role.SetHp(nowHp);
             if (animTrigger != null) animTrigger.TriggerAnim("Behit");
         }
     }

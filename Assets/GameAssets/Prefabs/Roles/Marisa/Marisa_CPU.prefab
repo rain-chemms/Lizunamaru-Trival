@@ -3284,7 +3284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb32073b1b09904b82f2dd5f741e4f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  role: {fileID: 3955644754421548568}
+  gridObject: {fileID: 0}
   target: {x: 0, y: 0, z: 1}
   lerpSpeed: 6
 --- !u!114 &7257819609609004197
@@ -3317,7 +3317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitTime: 1.5
   index: 0
-  actionList:
+  inTurnActions:
   - {fileID: 11400000, guid: fe285349c9511be4a97ad7387e89a1a9, type: 2}
   - {fileID: 11400000, guid: f47c6b6100a20ed44b220b18e5cb8d7b, type: 2}
   - {fileID: 11400000, guid: cdd4d32e4903ba440be2a7fd30a94bf3, type: 2}
