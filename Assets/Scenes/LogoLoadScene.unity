@@ -868,17 +868,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4526820275402633002, guid: 3354abc3bcbdba342ac164f4a49befa3, type: 3}
   m_PrefabInstance: {fileID: 571863775}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &571863777 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1652210342211082365, guid: 3354abc3bcbdba342ac164f4a49befa3, type: 3}
-  m_PrefabInstance: {fileID: 571863775}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4320a054c0c60ff4d817d316b583c42b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!21 &605734859
 Material:
   serializedVersion: 8
@@ -1032,6 +1021,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6df04d49e60a277429a52edd3bf5241a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &676668970 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5310232801699679650, guid: 3354abc3bcbdba342ac164f4a49befa3, type: 3}
+  m_PrefabInstance: {fileID: 571863775}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b58724cb313d7742a060a9854f10c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &708661900 stripped
@@ -3690,7 +3690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5377839125887077738, guid: 4623d1f8b21928544900449f64c96569, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00015458638
+      value: 0.0000600417
       objectReference: {fileID: 0}
     - target: {fileID: 5893908045203971205, guid: 4623d1f8b21928544900449f64c96569, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5242,7 +5242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6882525413638256956, guid: e0672d45908d66e45b4a04692eef967d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000037394664
+      value: -0.00009251176
       objectReference: {fileID: 0}
     - target: {fileID: 7774419729841060065, guid: e0672d45908d66e45b4a04692eef967d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -5859,7 +5859,7 @@ PrefabInstance:
     - target: {fileID: 7147680556464847461, guid: 1843b34ff4490c34cb457431c9a4087c, type: 3}
       propertyPath: 'drawCardList.Array.data[9]'
       value: 
-      objectReference: {fileID: 571863777}
+      objectReference: {fileID: 676668970}
     - target: {fileID: 7147680556464847461, guid: 1843b34ff4490c34cb457431c9a4087c, type: 3}
       propertyPath: 'handCardList.Array.data[0]'
       value: 
