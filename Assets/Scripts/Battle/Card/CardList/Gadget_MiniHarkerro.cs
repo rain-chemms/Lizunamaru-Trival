@@ -10,13 +10,11 @@ namespace CardSystem.AllCardHub
 {
     // 插入卡槽时,在角色正前方召唤一个迷你八卦炉,不在卡槽中时移除,
     // 丢弃此牌时,激活一次本方的所"八卦炉"类(class of MiniHarkero)的道具
-
-
     public class Gadget_MiniHakerro : Card
     {
         [SerializeField] private MiniHakerro miniHarkerroPrefab;
         //弃牌的时候激活本方两个八卦炉之间的时间间隔
-        [SerializeField] private float invokeHalt = 0.5f;
+        [SerializeField] private float invokeHalt = 0.1f;
         public float GetInvokeHalt() => invokeHalt;
         //一张卡牌只能召唤一个八卦炉
         [SerializeField] private Gadget hakEntity;
@@ -31,11 +29,11 @@ namespace CardSystem.AllCardHub
             //加入控制列表中
             if (!(bool)BattleMessage.instance?.GetGadgetList()?.Contains(hak)) BattleMessage.instance?.GetGadgetList()?.Add(hak);
             hakEntity = hak;
-            //设置初始位置
+            //设置八卦炉初始位置
             hak.transform.position = (Vector3)role?.transform.position;
-            //设置wGun和bGun的归属玩家
+            //设置八卦炉的归属玩家
             hak.SetBelongRole(role);
-            //设置双枪的玩家位置同步器
+            //设置八卦炉玩家位置同步器
             GadgetPositionToRoleSyncer bSyncer = hak.GetComponent<GadgetPositionToRoleSyncer>();
             bSyncer?.SetPosSyncOpen(true);
             bSyncer?.SetDirSyncOpen(true);
@@ -135,16 +133,17 @@ namespace CardSystem.AllCardHub
         private IEnumerator DestroyHakEntity()
         {
             if (hakEntity == null) yield break;//不存在八卦炉,则返回
+            Gadget gt = hakEntity;
+            hakEntity = null;
             //等待动画播放完毕
-            hakEntity.GetComponent<AnimTrigger>()?.SetBoolValue("Open", false);
+            gt.GetComponent<AnimTrigger>()?.SetBoolValue("Open", false);
             yield return null;//暂停一帧
-            AnimatorStateInfo info = (AnimatorStateInfo)hakEntity.GetComponent<Animator>()?.GetCurrentAnimatorStateInfo(0);
+            AnimatorStateInfo info = (AnimatorStateInfo)gt.GetComponent<Animator>()?.GetCurrentAnimatorStateInfo(0);
             yield return new WaitForSeconds(info.length / info.speed);//等待动画播放完毕,固定数值大约时0.15
             //将这个道具从BattleMessage中删除
-            BattleMessage.instance?.GetGadgetList()?.Remove(hakEntity);
+            BattleMessage.instance?.GetGadgetList()?.Remove(gt);
             //销毁这个道具
-            Destroy(hakEntity.gameObject);
-            hakEntity = null;
+            Destroy(gt.gameObject);
         }
 
         void OnDestroy()

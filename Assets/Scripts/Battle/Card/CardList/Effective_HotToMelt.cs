@@ -33,7 +33,7 @@ namespace CardSystem.AllCardHub
             if((bool)dict?.ContainsKey(CardCategory.POWER))
             {
                 dict[CardCategory.POWER] -= (int)number;
-                if(dict[CardCategory.GADGET] < 0) dict[CardCategory.GADGET] = 0;
+                if(dict[CardCategory.POWER] < 0) dict[CardCategory.POWER] = 0;
             }
             //*/
             /*用Gadget进行测试

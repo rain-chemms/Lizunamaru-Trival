@@ -1313,6 +1313,7 @@ MonoBehaviour:
   cardCategory: 1
   cardKeyWords: 04000000
   miniHarkerroPrefab: {fileID: -7384134482777836567, guid: 5c81ab042a327984b9e526066f9817c7, type: 3}
+  invokeHalt: 0.05
   hakEntity: {fileID: 0}
 --- !u!114 &1625184676289311345
 MonoBehaviour:
@@ -1837,7 +1838,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.4
+  m_fontSize: 24.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

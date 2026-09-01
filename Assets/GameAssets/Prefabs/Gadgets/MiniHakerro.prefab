@@ -303,7 +303,7 @@ MonoBehaviour:
   isDirSyncOpen: 1
   isFlySyncOpen: 1
   revertFlyState: 0
-  gapsToRole: {x: 0, y: 1}
+  gapsToRole: {x: 0, y: 0}
 --- !u!1001 &460104933351462565
 PrefabInstance:
   m_ObjectHideFlags: 0
