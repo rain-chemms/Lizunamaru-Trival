@@ -33,7 +33,7 @@ namespace CardSystem.AllCardHub
                 gadget.GetComponent<AnimTrigger>()?.SetBoolValue("Open", false);
                 yield return null;//暂停一帧
                 AnimatorStateInfo info = gadget.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
-                yield return new WaitForSeconds(0.15f);//等待动画播放完毕
+                yield return new WaitForSeconds(info.length / info.speed);//等待动画播放完毕,固定数值大约时0.15
                 //将这个道具从BattleMessage中删除
                 BattleMessage.instance?.GetGadgetList()?.Remove(gadget);
                 //销毁这个道具

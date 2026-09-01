@@ -1314,8 +1314,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   riceCost: 0
   cardCategory: 0
-  cardKeyWords: 
+  cardKeyWords: 04000000
   hpRecover: 2
+  bPPAdded: 0
 --- !u!114 &1625184676289311345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1840,7 +1841,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.1
+  m_fontSize: 20.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
