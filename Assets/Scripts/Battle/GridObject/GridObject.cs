@@ -25,7 +25,7 @@ namespace GridObjectSystem
             if(BattleBoard.instance != null) transform.SetParent(BattleBoard.instance?.transform);//挂载在棋盘上
         }
 
-        void Start()
+        protected virtual void Start()
         {
             if(BattleBoard.instance != null) transform.SetParent(BattleBoard.instance?.transform);//挂载在棋盘上    
             lastDirection = direction;//缓存上次的朝向
@@ -48,8 +48,8 @@ namespace GridObjectSystem
         public void SetGridIndex(int x,int y) => gridIndex = new Vector2Int(x,y);
         //棋盘物体拥有的能力字典
         //存储格式:能力种类,能力层数
-        [SerializeField] protected SerializableDictionary<Ability,int> abilityDict = new SerializableDictionary<Ability,int>();
-        public SerializableDictionary<Ability,int> GetAbilityDict() => abilityDict;//获取能力字典
+        [NonSerialized] protected Dictionary<Ability,int> abilityDict = new Dictionary<Ability,int>();
+        public Dictionary<Ability,int> GetAbilityDict() => abilityDict;//获取能力字典
         //为物体添加一种能力,添加的层数可以为负数
         public IEnumerator AddAbility<AbilityType>(int addLayer) where AbilityType : Ability,new()
         {
@@ -60,7 +60,7 @@ namespace GridObjectSystem
                 int nowLayer = kv.Value;
                 if(ability == null) continue;
                 //若当前类型的能力已存在,则更新层数
-                if(ability.GetType() == typeof(AbilityType))
+                if(ability.GetType().Equals(typeof(AbilityType)))
                 {
                     //存在当前能力
                     haveAbility = true;
@@ -79,14 +79,14 @@ namespace GridObjectSystem
                     if(newLayer == 0)//当前类型abilities已不存在时,移除该能力
                     {
                         //触发移除该能力时的效果
-                        yield return ability.AfterAbilityAmountChanged(this);
-                        yield return ability.AfterAbilityRemoved(this);
+                        yield return ((IAbilityFunctioner)ability)?.AfterAbilityAmountChanged(this);
+                        yield return ((IAbilityFunctioner)ability)?.AfterAbilityRemoved(this);
                         abilityDict.Remove(ability);
                         Debug.Log("[GridObject]: "+ name.ToString() +" Remove Ability: " + typeof(AbilityType).ToString() + " Because Now Number is 0!");
                         break;
                     }
                     //触发层数改变
-                    yield return ability.AfterAbilityAmountChanged(this);
+                    yield return ((IAbilityFunctioner)ability)?.AfterAbilityAmountChanged(this);
                     abilityDict[ability] = newLayer;
                     break;
                 }
@@ -96,8 +96,8 @@ namespace GridObjectSystem
                 Debug.Log("[GridObject]: "+ name.ToString() +" Add New Ability: " + typeof(AbilityType).ToString() +", Now Number:"+ addLayer);
                 if(addLayer == 0) yield break;//层数为0时,不添加
                 Ability abt = new AbilityType();
-                yield return abt.AfterAbilityAdded(this);
-                yield return abt.AfterAbilityAmountChanged(this);
+                yield return ((IAbilityFunctioner)abt)?.AfterAbilityAdded(this);
+                yield return ((IAbilityFunctioner)abt)?.AfterAbilityAmountChanged(this);
                 abilityDict.Add(abt,addLayer);
             }
         }
@@ -130,14 +130,14 @@ namespace GridObjectSystem
                     if(newLayer == 0)//当前类型abilities已不存在时,移除该能力
                     {
                         //触发移除该能力时的效果
-                        yield return ability.AfterAbilityAmountChanged(this);
-                        yield return ability.AfterAbilityRemoved(this);
+                        yield return ((IAbilityFunctioner)ability)?.AfterAbilityAmountChanged(this);
+                        yield return ((IAbilityFunctioner)ability)?.AfterAbilityRemoved(this);
                         abilityDict.Remove(ability);
                         Debug.Log("[GridObject]: "+ name.ToString() +" Remove Ability: " + abilityName + " Because Now Number is 0!");
                         break;
                     }
                     //触发层数改变
-                    yield return ability.AfterAbilityAmountChanged(this);
+                    yield return ((IAbilityFunctioner)ability).AfterAbilityAmountChanged(this);
                     abilityDict[ability] = newLayer;
                     break;
                 }
@@ -157,8 +157,8 @@ namespace GridObjectSystem
                 if(type != null)
                 {
                     Ability abt = (Ability)Activator.CreateInstance(type);//创建能力实例
-                    yield return abt.AfterAbilityAdded(this);
-                    yield return abt.AfterAbilityAmountChanged(this);
+                    yield return ((IAbilityFunctioner)abt)?.AfterAbilityAdded(this);
+                    yield return ((IAbilityFunctioner)abt)?.AfterAbilityAmountChanged(this);
                     abilityDict.Add(abt,addLayer);//添加该能力
                 }
             }

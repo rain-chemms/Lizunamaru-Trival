@@ -15,6 +15,6 @@ public class SpellSlideValueDisplayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = ((int)(BattleMessage.instance.GetSpellPrecent() * 100)).ToString()+ "%";
+        text.text = ((int)((float)BattleMessage.instance?.GetControlPlayer()?.GetSpellPrecent() * 100)).ToString()+ "%";
     }
 }

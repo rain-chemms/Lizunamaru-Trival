@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using System;
+using GridObjectSystem.AbilitySystem.AllAbilities;
 
 namespace GridObjectSystem.RoleSystem
 {
@@ -16,6 +17,15 @@ namespace GridObjectSystem.RoleSystem
             if(rb == null) rb = GetComponent<Rigidbody>();
         }
         */
+        ///*能力测试代码
+        protected override void Start()
+        {
+            base.Start();
+            StartCoroutine(AddAbility<Ability_Velocity>(3));
+        }
+        //*/
+        
+
         protected override void OnEnable()
         {
             base.OnEnable();
@@ -77,23 +87,12 @@ namespace GridObjectSystem.RoleSystem
         public void SetGridIndex(int x,int y) => gridIndex = new Vector2Int(x,y);
         */
         [SerializeField] private uint missBulltetNumber = 0;//擦弹的数目
-        public uint GetMissBulletNumber()
-        {
-            return missBulltetNumber;
-        }
-        public void SetMissBulletNumber(uint newMissNumber)
-        {
-            missBulltetNumber = newMissNumber;
-        }
+        public uint GetMissBulletNumber() => missBulltetNumber;
+        public void SetMissBulletNumber(uint newMissNumber) => missBulltetNumber = newMissNumber;
         [SerializeField] private float spellPrecent = 0.0f;//符卡充能百分比
-        public void SetSpellPrecent(float precent)
-        {
-            spellPrecent = precent;
-        }
-        public float GetSpellPrecent()
-        {
-            return spellPrecent;
-        }
+        public void SetSpellPrecent(float precent) => spellPrecent = precent;
+        public float GetSpellPrecent() => spellPrecent;
+        
         [SerializeField] private uint defendPoint = 0;//防御点数:每一点防御点数可以抵挡一次弹幕或近战的伤害
         protected override void Update()
         {

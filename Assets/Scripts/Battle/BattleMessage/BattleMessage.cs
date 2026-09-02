@@ -111,11 +111,12 @@ public class BattleMessage : MonoBehaviour
             if (gadget?.GetSide() == isPlayerTurn)
             {
                 //触发道具回合结束的所有能力的效果
-                SerializableDictionary<Ability,int> abilityDict = gadget?.GetAbilityDict();
+                Dictionary<Ability,int> abilityDict = gadget?.GetAbilityDict();
                 foreach(KeyValuePair<Ability,int> ability in abilityDict)
                 {
                     //触发道具的TurnEnd功能
-                    yield return ability.Key?.AfterRoundEnd(gadget);
+                    Ability abt = ability.Key;
+                    yield return ((IAbilityFunctioner)abt)?.AfterRoundEnd(gadget);
                 }
                 Debug.Log("[BattleMessage]: " + typeof(Gadget).ToString()+"|"+ gadget?.name.ToString() + " Trigger The End Function Of Ability Dictionary!");
                 yield return gadget?.OnEveryRoundEnd();
@@ -127,13 +128,14 @@ public class BattleMessage : MonoBehaviour
             if (role?.GetSide() == isPlayerTurn)
             {
                 //触发角色回合结束的所有能力的效果
-                SerializableDictionary<Ability,int> abilityDict = role?.GetAbilityDict();
+                Dictionary<Ability,int> abilityDict = role?.GetAbilityDict();
                 foreach(KeyValuePair<Ability,int> ability in abilityDict)
                 {
                     //触发道具的TurnEnd功能
-                    yield return ability.Key?.AfterRoundEnd(role);
+                    Ability abt = ability.Key;
+                    yield return ((IAbilityFunctioner)abt)?.AfterRoundEnd(role);
                 }
-                Debug.Log("[BattleMessage]: " + typeof(Role).ToString()+"|"+ role?.name.ToString() + " Trigger The End Function Of Ability Dictionary!");
+                Debug.Log("[BattleMessage]: <Ability Number:" + abilityDict.Count + "> "+ typeof(Role).ToString()+"|"+ role?.name.ToString() + " Trigger The End Function Of Ability Dictionary!");
             }
         }
 
@@ -150,13 +152,15 @@ public class BattleMessage : MonoBehaviour
                 //若当前角色存在自动操作操作脚本(AI控制),则执行的自动操作
                 role.SetRoundOperateEnd(false);
                 //触发角色的能力字典
-                SerializableDictionary<Ability,int> abilityDict = role?.GetAbilityDict();
+                Dictionary<Ability,int> abilityDict = role?.GetAbilityDict();
                 foreach(KeyValuePair<Ability,int> ability in abilityDict)
                 {
                     //触发角色的RoundStart功能
-                    yield return ability.Key?.AfterRoundStart(role);
+                    Ability abt = ability.Key;
+                    yield return ((IAbilityFunctioner)abt)?.AfterRoundStart(role);
                 }
-                Debug.Log("[BattleMessage]: " + typeof(Role).ToString()+"|"+role?.name.ToString() + " Trigger The Start Function Of Ability Dictionary!");
+                Debug.Log("[BattleMessage]: <Ability Number:" + abilityDict.Count + "> "+ typeof(Role).ToString()+"|"+role?.name.ToString() + " Trigger The Start Function Of Ability Dictionary!");
+                
             }
         }
 
@@ -218,11 +222,12 @@ public class BattleMessage : MonoBehaviour
             if(gadget?.GetSide() == isPlayerTurn)
             {
                 //触发道具回合切换的所有能力的效果
-                SerializableDictionary<Ability,int> abilityDict = gadget?.GetAbilityDict();
+                Dictionary<Ability,int> abilityDict = gadget?.GetAbilityDict();
                 foreach(KeyValuePair<Ability,int> ability in abilityDict)
                 {
                     //触发道具的TurnEnd功能
-                    yield return ability.Key?.AfterRoundStart(gadget);
+                    Ability abt = ability.Key;
+                    yield return ((IAbilityFunctioner)abt)?.AfterRoundStart(gadget);
                 }
                 Debug.Log("[BattleMessage]: " + typeof(Gadget).ToString()+"|"+ gadget?.name.ToString() + " Trigger The Start Function Of Ability Dictionary!");
                 yield return gadget?.OnEveryRoundStart();
@@ -682,10 +687,11 @@ public class BattleMessage : MonoBehaviour
         foreach(Gadget gd in gadgetList)
         {
             //道具的能力接口
-            SerializableDictionary<Ability,int> abilityDict = gd?.GetAbilityDict();
+            Dictionary<Ability,int> abilityDict = gd?.GetAbilityDict();
             foreach(var kv in abilityDict)
             {
-                yield return kv.Key?.AfterACardPlayed(gd);//触发道具效果
+                Ability abt = kv.Key;
+                yield return ((IAbilityFunctioner)abt)?.AfterACardPlayed(gd);//触发道具效果
             }
             //道具自身的接口
             yield return gd?.AfterACardPlayed();
@@ -693,10 +699,11 @@ public class BattleMessage : MonoBehaviour
         //检测角色
         foreach(Role rl in roleList)
         {
-            SerializableDictionary<Ability,int> abilityDict = rl?.GetAbilityDict();
+            Dictionary<Ability,int> abilityDict = rl?.GetAbilityDict();
             foreach(var kv in abilityDict)
             {
-                yield return kv.Key?.AfterACardPlayed(rl);//触发道具效果
+                Ability abt = kv.Key;
+                yield return ((IAbilityFunctioner)abt)?.AfterACardPlayed(rl);//触发道具效果
             }
         }
         //其他卡牌相关的功能
@@ -810,7 +817,7 @@ public class BattleMessage : MonoBehaviour
         {
             AnimTrigger animTrigger = player?.GetComponent<AnimTrigger>();
             animTrigger?.TriggerAnim(roleAnimName);
-            AnimatorStateInfo stateInfo = (AnimatorStateInfo)((Animator)animTrigger?.GetComponent<Animator>())?.GetCurrentAnimatorStateInfo(0);
+            AnimatorStateInfo stateInfo = (AnimatorStateInfo)(animTrigger?.GetComponent<Animator>())?.GetCurrentAnimatorStateInfo(0);
             yield return (float)stateInfo.normalizedTime * (float)stateInfo.length;
         }
     }
@@ -843,12 +850,7 @@ public class BattleMessage : MonoBehaviour
     {
         return iceChargePreRound;
     }
-
-    [SerializeField] private float spellPrecent = 0.0f;//符卡攻击的充能情况
-    public float GetSpellPrecent()
-    {
-        return spellPrecent;
-    }
+    //符卡的充能百分比和擦弹数目跟目前控制的玩家有关
     //卡槽相关
     [Header("所有的卡槽列表")]
     [SerializeField] private List<CardSlotList> cardSlotListList = new List<CardSlotList>();//所有卡槽列表的管理器

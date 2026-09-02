@@ -3,6 +3,7 @@ using UnityEngine;
 namespace GridObjectSystem.RoleSystem.PlayerSystem
 {
     //角色移动器,专门控制Role的飞行,移动和方向的
+    //提供方法给RoleMoverController
     [RequireComponent(typeof(Role))]
     public class PlayerMover : MonoBehaviour
     {
@@ -53,13 +54,19 @@ namespace GridObjectSystem.RoleSystem.PlayerSystem
                     targetIndex.y += distance;
                     break;
             }
+            /*
             //规定了棋盘格最小索引为(0,0),最大为BattleMessage.instance.
             if (targetIndex.x < 0 ||
                 targetIndex.y < 0 ||
                 targetIndex.x > BattleBoard.instance.GetWidthAndHeight().x - 1 ||
                 targetIndex.y > BattleBoard.instance.GetWidthAndHeight().y - 1
             ) return;//超出棋盘边界了
-                     //未超出边界时执行移动和point消耗
+            */
+            //限制物体移动的范围为棋盘内
+            targetIndex.x = Mathf.Clamp(targetIndex.x,0,(int)BattleBoard.instance?.GetWidthAndHeight().x - 1);
+            targetIndex.y = Mathf.Clamp(targetIndex.y,0,(int)BattleBoard.instance?.GetWidthAndHeight().y - 1);
+
+            //未超出边界时执行移动和point消耗
             role.SetGridIndex(targetIndex);
             if (turn == role.GetSide())
             {
@@ -101,5 +108,6 @@ namespace GridObjectSystem.RoleSystem.PlayerSystem
             }
             role.GetComponent<AnimTrigger>()?.TriggerAnim("Fly");
         }
+
     }
 }

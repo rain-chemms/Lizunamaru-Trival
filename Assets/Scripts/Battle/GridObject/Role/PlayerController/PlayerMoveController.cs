@@ -25,6 +25,14 @@ namespace GridObjectSystem.RoleSystem.PlayerSystem
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         [SerializeField] private Role role;
         [SerializeField] private PlayerMover roleMover;
+        // 移动距离
+        [SerializeField] private int moveDistance = 1;
+        public int GetMoveDistance() => moveDistance;
+        public void SetMoveDistance(int newDistance) => moveDistance = newDistance;
+        // 移动消耗点
+        [SerializeField] private uint moveCostPoint = 1;
+        public uint GetMoveCostPoint() => moveCostPoint;
+        public void SetMoveCostPoint(uint newPoint) => moveCostPoint = newPoint;
         async void Start()
         {
             if (inputSystem == null)
@@ -110,22 +118,22 @@ namespace GridObjectSystem.RoleSystem.PlayerSystem
         private void OnMoveRight(InputAction.CallbackContext context)
         {
             roleMover?.ChangeRoleDirection(BattleDirection.RIGHT);
-            roleMover?.MoveRole(BattleDirection.RIGHT, 1, 1);
+            roleMover?.MoveRole(BattleDirection.RIGHT, moveDistance, moveCostPoint);
         }
         private void OnMoveLeft(InputAction.CallbackContext context)
         {
             roleMover?.ChangeRoleDirection(BattleDirection.LEFT);
-            roleMover?.MoveRole(BattleDirection.LEFT, 1, 1);
+            roleMover?.MoveRole(BattleDirection.LEFT, moveDistance, moveCostPoint);
         }
         private void OnMoveUp(InputAction.CallbackContext context)
         {
             roleMover?.ChangeRoleDirection(BattleDirection.UP);
-            roleMover?.MoveRole(BattleDirection.UP, 1, 1);
+            roleMover?.MoveRole(BattleDirection.UP, moveDistance, moveCostPoint);
         }
         private void OnMoveDown(InputAction.CallbackContext context)
         {
             roleMover?.ChangeRoleDirection(BattleDirection.DOWN);
-            roleMover?.MoveRole(BattleDirection.DOWN, 1, 1);
+            roleMover?.MoveRole(BattleDirection.DOWN, moveDistance, moveCostPoint);
         }
 
     }
