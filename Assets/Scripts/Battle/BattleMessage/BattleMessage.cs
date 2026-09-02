@@ -12,6 +12,7 @@ using BulletSystem;
 using CardSystem;
 using GridObjectSystem;
 using GridObjectSystem.GadgetSystem;
+using GridObjectSystem.AbilitySystem;
 
 public class BattleMessage : MonoBehaviour
 {
@@ -98,6 +99,7 @@ public class BattleMessage : MonoBehaviour
             //卡槽中的牌不动
             if(!card.GetCardKeyWords().Contains(CardKeyWord.RETAIN))
             {
+                yield return ((ICardFunctioner)card).AfterRetained();//触发保留效果
                 handCardList.Remove(card);
                 discardCardList.Add(card);    
             }
@@ -108,7 +110,30 @@ public class BattleMessage : MonoBehaviour
             if(gadget == null) continue;
             if (gadget?.GetSide() == isPlayerTurn)
             {
-                yield return gadget.OnEveryRoundEnd();
+                //触发道具回合结束的所有能力的效果
+                SerializableDictionary<Ability,int> abilityDict = gadget?.GetAbilityDict();
+                foreach(KeyValuePair<Ability,int> ability in abilityDict)
+                {
+                    //触发道具的TurnEnd功能
+                    yield return ability.Key?.AfterRoundEnd(gadget);
+                }
+                Debug.Log("[BattleMessage]: " + typeof(Gadget).ToString()+"|"+ gadget?.name.ToString() + " Trigger The End Function Of Ability Dictionary!");
+                yield return gadget?.OnEveryRoundEnd();
+            }
+        }
+        //回合结束前触发所有角色的回合结束的能力字典
+        foreach (Role role in roleList)
+        {
+            if (role?.GetSide() == isPlayerTurn)
+            {
+                //触发角色回合结束的所有能力的效果
+                SerializableDictionary<Ability,int> abilityDict = role?.GetAbilityDict();
+                foreach(KeyValuePair<Ability,int> ability in abilityDict)
+                {
+                    //触发道具的TurnEnd功能
+                    yield return ability.Key?.AfterRoundEnd(role);
+                }
+                Debug.Log("[BattleMessage]: " + typeof(Role).ToString()+"|"+ role?.name.ToString() + " Trigger The End Function Of Ability Dictionary!");
             }
         }
 
@@ -122,8 +147,16 @@ public class BattleMessage : MonoBehaviour
         {
             if (role?.GetSide() == isPlayerTurn)
             {
-                role.SetRoundOperateEnd(false);
                 //若当前角色存在自动操作操作脚本(AI控制),则执行的自动操作
+                role.SetRoundOperateEnd(false);
+                //触发角色的能力字典
+                SerializableDictionary<Ability,int> abilityDict = role?.GetAbilityDict();
+                foreach(KeyValuePair<Ability,int> ability in abilityDict)
+                {
+                    //触发角色的RoundStart功能
+                    yield return ability.Key?.AfterRoundStart(role);
+                }
+                Debug.Log("[BattleMessage]: " + typeof(Role).ToString()+"|"+role?.name.ToString() + " Trigger The Start Function Of Ability Dictionary!");
             }
         }
 
@@ -168,6 +201,7 @@ public class BattleMessage : MonoBehaviour
             yield return DrawCard(drawCardCount);//抽5张牌
             ricePoint += riceChargePreRound;
             icePoint = 0;
+            //触发角色的所有能力效果
             selfTurnStartAction?.Invoke();
         }
         else
@@ -183,6 +217,14 @@ public class BattleMessage : MonoBehaviour
             if(gadget == null) continue;
             if(gadget?.GetSide() == isPlayerTurn)
             {
+                //触发道具回合切换的所有能力的效果
+                SerializableDictionary<Ability,int> abilityDict = gadget?.GetAbilityDict();
+                foreach(KeyValuePair<Ability,int> ability in abilityDict)
+                {
+                    //触发道具的TurnEnd功能
+                    yield return ability.Key?.AfterRoundStart(gadget);
+                }
+                Debug.Log("[BattleMessage]: " + typeof(Gadget).ToString()+"|"+ gadget?.name.ToString() + " Trigger The Start Function Of Ability Dictionary!");
                 yield return gadget?.OnEveryRoundStart();
             }
         }
@@ -367,7 +409,7 @@ public class BattleMessage : MonoBehaviour
             if (cl.GetInnerCard() == card) cl.SetInnerCard(null);//移除卡槽中的卡牌
         }
 
-        yield return ((CardFunctioner)card).AfterDiscard();//优先触发卡牌丢弃时的效果
+        yield return ((ICardFunctioner)card).AfterDiscard();//优先触发卡牌丢弃时的效果
         discardCardList.Add(card);
         if((bool)card?.GetCardKeyWords()?.Contains(CardKeyWord.SLY))//检测是否有奇巧
         {
@@ -438,7 +480,7 @@ public class BattleMessage : MonoBehaviour
             Card nowCard = drawCardList[0];
             drawCardList.Remove(nowCard);
             handCardList.Add(nowCard);
-            yield return ((CardFunctioner)nowCard).AfterDraw();//触发抽到卡牌后的效果
+            yield return ((ICardFunctioner)nowCard).AfterDraw();//触发抽到卡牌后的效果
         }
     }
     /*
@@ -571,7 +613,7 @@ public class BattleMessage : MonoBehaviour
             }
         });
 
-        yield return card.AfterExhaust();//触发消耗效果
+        yield return ((ICardFunctioner)card).AfterExhaust();//触发消耗效果
         animator?.SetTrigger("Exhaust");//触发消耗动画,由消耗动画触发消耗后的效果
         //卡牌得烧毁音效由卡牌自己播放
         yield return null;//等待消耗动画转移
@@ -614,7 +656,7 @@ public class BattleMessage : MonoBehaviour
         if (card?.GetRiceCost() <= instance?.GetRicePoint() && costRice)//能量足够且耗能的情况下可以打出
         {
             instance?.SetRicePoint((uint)(instance?.GetRicePoint() - card?.GetRiceCost()));
-            yield return ((CardFunctioner)card).AfterPlay();//AfterPlay函数会对消耗字段进行检测,若存在消耗字段则触发消耗的连锁函数
+            yield return ((ICardFunctioner)card).AfterPlay();//AfterPlay函数会对消耗字段进行检测,若存在消耗字段则触发消耗的连锁函数
             //将卡牌返回弃牌堆
             //若当前卡牌有消耗关键字,则不将其加入弃牌堆
             if (card != null && !(bool)card.GetCardKeyWords()?.Contains(CardKeyWord.EXHAUST)) instance?.GetDiscardCardList()?.Add(card);
@@ -622,7 +664,7 @@ public class BattleMessage : MonoBehaviour
         else if (!costRice)
         {
             //不对费用进行消耗
-            yield return ((CardFunctioner)card).AfterPlay();//AfterPlay函数会对消耗字段进行检测,若存在消耗字段则触发消耗的连锁函数
+            yield return ((ICardFunctioner)card).AfterPlay();//AfterPlay函数会对消耗字段进行检测,若存在消耗字段则触发消耗的连锁函数
             //将卡牌返回弃牌堆
             //若当前卡牌有消耗关键字,则不将其加入弃牌堆
             if (card != null && !(bool)card.GetCardKeyWords()?.Contains(CardKeyWord.EXHAUST)) instance?.GetDiscardCardList()?.Add(card);
@@ -634,6 +676,49 @@ public class BattleMessage : MonoBehaviour
                 instance?.GetHandCardList().Add(card);
             }
             yield return null;
+        }
+        //检测其他游戏物体的功能接口
+        //道具附加功能
+        foreach(Gadget gd in gadgetList)
+        {
+            //道具的能力接口
+            SerializableDictionary<Ability,int> abilityDict = gd?.GetAbilityDict();
+            foreach(var kv in abilityDict)
+            {
+                yield return kv.Key?.AfterACardPlayed(gd);//触发道具效果
+            }
+            //道具自身的接口
+            yield return gd?.AfterACardPlayed();
+        }
+        //检测角色
+        foreach(Role rl in roleList)
+        {
+            SerializableDictionary<Ability,int> abilityDict = rl?.GetAbilityDict();
+            foreach(var kv in abilityDict)
+            {
+                yield return kv.Key?.AfterACardPlayed(rl);//触发道具效果
+            }
+        }
+        //其他卡牌相关的功能
+        foreach(Card c in drawCardList.ToList())
+        {
+            yield return ((ICardFunctioner)c).AfterACardPlayed_WhenCardInDrawStack();
+            yield return ((ICardFunctioner)c).AfterACardPlayed_WhenCardEveryWhere();
+        }
+        foreach(Card c in handCardList.ToList())
+        {
+            yield return ((ICardFunctioner)c).AfterACardPlayed_WhenCardInHand();
+            yield return ((ICardFunctioner)c).AfterACardPlayed_WhenCardEveryWhere();
+        }
+        foreach(Card c in exhaustCardList.ToList())
+        {
+            yield return ((ICardFunctioner)c).AfterACardPlayed_WhenCardExhausted();
+            yield return ((ICardFunctioner)c).AfterACardPlayed_WhenCardEveryWhere();
+        }
+        foreach(Card c in discardCardList.ToList())
+        {
+            yield return ((ICardFunctioner)c).AfterACardPlayed_WhenCardInDiscardStack();
+            yield return ((ICardFunctioner)c).AfterACardPlayed_WhenCardEveryWhere();
         }
     }
     /// <summary>

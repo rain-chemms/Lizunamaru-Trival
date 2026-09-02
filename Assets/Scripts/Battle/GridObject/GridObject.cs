@@ -1,5 +1,10 @@
 using UnityEngine;
 using System;
+using GridObjectSystem.AbilitySystem;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Linq;
+using System.Collections;
 
 namespace GridObjectSystem
 {
@@ -41,8 +46,125 @@ namespace GridObjectSystem
         public Vector2Int GetGridIndex() => new Vector2Int(gridIndex.x,gridIndex.y);
         public void SetGridIndex(Vector2Int index) => gridIndex = index;
         public void SetGridIndex(int x,int y) => gridIndex = new Vector2Int(x,y);
+        //棋盘物体拥有的能力字典
+        //存储格式:能力种类,能力层数
+        [SerializeField] protected SerializableDictionary<Ability,int> abilityDict = new SerializableDictionary<Ability,int>();
+        public SerializableDictionary<Ability,int> GetAbilityDict() => abilityDict;//获取能力字典
+        //为物体添加一种能力,添加的层数可以为负数
+        public IEnumerator AddAbility<AbilityType>(int addLayer) where AbilityType : Ability,new()
+        {
+            bool haveAbility = false;
+            foreach(KeyValuePair<Ability,int> kv in abilityDict.ToList())
+            {
+                Ability ability = kv.Key;
+                int nowLayer = kv.Value;
+                if(ability == null) continue;
+                //若当前类型的能力已存在,则更新层数
+                if(ability.GetType() == typeof(AbilityType))
+                {
+                    //存在当前能力
+                    haveAbility = true;
+                    Debug.Log("[GridObject]: "+ name.ToString() +" Add Exist Ability: " + typeof(AbilityType).ToString() +", Now Number:"+abilityDict[ability]);
+                    //计算层数
+                    int newLayer = nowLayer + addLayer;
+                    if(!ability.CanNegative) newLayer = Mathf.Max(newLayer,0);//检测不能小于0
+                    if(!ability.CanStack)//检测不可叠加
+                    {
+                        if(Math.Abs(newLayer) > 1)
+                        {
+                            if(newLayer < 0) newLayer = -1;
+                            if(newLayer > 1) newLayer = 1;
+                        }
+                    }
+                    if(newLayer == 0)//当前类型abilities已不存在时,移除该能力
+                    {
+                        //触发移除该能力时的效果
+                        yield return ability.AfterAbilityAmountChanged(this);
+                        yield return ability.AfterAbilityRemoved(this);
+                        abilityDict.Remove(ability);
+                        Debug.Log("[GridObject]: "+ name.ToString() +" Remove Ability: " + typeof(AbilityType).ToString() + " Because Now Number is 0!");
+                        break;
+                    }
+                    //触发层数改变
+                    yield return ability.AfterAbilityAmountChanged(this);
+                    abilityDict[ability] = newLayer;
+                    break;
+                }
+            }
+            if(!haveAbility)
+            {
+                Debug.Log("[GridObject]: "+ name.ToString() +" Add New Ability: " + typeof(AbilityType).ToString() +", Now Number:"+ addLayer);
+                if(addLayer == 0) yield break;//层数为0时,不添加
+                Ability abt = new AbilityType();
+                yield return abt.AfterAbilityAdded(this);
+                yield return abt.AfterAbilityAmountChanged(this);
+                abilityDict.Add(abt,addLayer);
+            }
+        }
+        //通过名称获取的重写方法
+        public IEnumerator AddAbility(string abilityName,int addLayer)
+        {
+            bool haveAbility = false;
+            foreach(KeyValuePair<Ability,int> kv in abilityDict.ToList())
+            {
+                Ability ability = kv.Key;
+                int nowLayer = kv.Value;
+                if(ability == null) continue;
+                //若当前类型abilities已存在,则更新层数
+                if(ability.AbilityName.Equals(abilityName))
+                {
+                    //存在当前能力
+                    haveAbility = true;
+                    Debug.Log("[GridObject]: "+ name.ToString() +" Add Exist Ability: " + abilityName +", Now Number:"+abilityDict[ability]);
+                    //计算层数
+                    int newLayer = nowLayer + addLayer;
+                    if(!ability.CanNegative) newLayer = Mathf.Max(newLayer,0);//检测不能小于0
+                    if(!ability.CanStack)//检测不可叠加
+                    {
+                        if(Math.Abs(newLayer) > 1)
+                        {
+                            if(newLayer < 0) newLayer = -1;
+                            if(newLayer > 1) newLayer = 1;
+                        }
+                    }
+                    if(newLayer == 0)//当前类型abilities已不存在时,移除该能力
+                    {
+                        //触发移除该能力时的效果
+                        yield return ability.AfterAbilityAmountChanged(this);
+                        yield return ability.AfterAbilityRemoved(this);
+                        abilityDict.Remove(ability);
+                        Debug.Log("[GridObject]: "+ name.ToString() +" Remove Ability: " + abilityName + " Because Now Number is 0!");
+                        break;
+                    }
+                    //触发层数改变
+                    yield return ability.AfterAbilityAmountChanged(this);
+                    abilityDict[ability] = newLayer;
+                    break;
+                }
+                Debug.Log("[GridObject]: "+ name.ToString() +" Add Exist Ability: " + abilityName +", Now Number:"+abilityDict[ability]);
+                
+            }    
+            if(!haveAbility)
+            {
+                Debug.Log("[GridObject]: "+ name.ToString() +" Add New Ability: " + abilityName +", Now Number:"+ addLayer);
+                if(addLayer == 0) yield break;
+                // 只知道类名,尝试获取类的对象
+                // 需要搜索程序集
+                Type type = Assembly.GetExecutingAssembly()
+                    .GetTypes()
+                    .FirstOrDefault(t => t.Name == abilityName && typeof(Ability).IsAssignableFrom(t));
+                //程序集中存在类该的定义
+                if(type != null)
+                {
+                    Ability abt = (Ability)Activator.CreateInstance(type);//创建能力实例
+                    yield return abt.AfterAbilityAdded(this);
+                    yield return abt.AfterAbilityAmountChanged(this);
+                    abilityDict.Add(abt,addLayer);//添加该能力
+                }
+            }
+        }
 
-        //角色委托Action事件
+        //棋盘物体委托Action事件
         //方向变化Action
         public event Action directionChangeAction = null;//角色朝向发生变化时调用的委托
         public Action GetDirectionChangeAction() => directionChangeAction;

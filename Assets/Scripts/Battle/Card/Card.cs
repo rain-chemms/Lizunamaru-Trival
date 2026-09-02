@@ -7,7 +7,7 @@ namespace CardSystem
     [RequireComponent(typeof(Canvas))]
     [RequireComponent(typeof(RectTransform))]
     //卡牌的属性和功能全在这个类及其继承中实现
-    public class Card : MonoBehaviour, CardFunctioner
+    public class Card : MonoBehaviour, ICardFunctioner
     {
         [SerializeField] private uint riceCost = 0;//打出这张牌需要消耗的ricePoint数
         public void SetRiceCost(uint cost)
@@ -41,6 +41,36 @@ namespace CardSystem
         }
 
         //卡牌接口的空实现
+        public virtual IEnumerator AfterRetained()//在一张牌被保留后触发
+        {
+            yield return null;
+        }
+        //在一张牌被打出后的效果,触发条件时卡牌在任何牌堆中时
+        public virtual IEnumerator AfterACardPlayed_WhenCardEveryWhere()
+        {
+            yield return null;
+        }
+        //在一张牌被打出后的效果,触发条件时卡牌在手牌中时
+        public virtual IEnumerator AfterACardPlayed_WhenCardInHand()
+        {
+            yield return null;
+        }
+        //在一张牌被打出后的效果,触发条件时卡牌消耗后
+        public virtual IEnumerator AfterACardPlayed_WhenCardExhausted()
+        {
+            yield return null;
+        }
+        //在一张牌被打出后的效果,触发条件时卡牌在弃牌堆中时
+        public virtual IEnumerator AfterACardPlayed_WhenCardInDiscardStack()
+        {
+            yield return null;
+        }
+        //在一张牌被打出后的效果,触发条件时卡牌在抽牌堆中时
+        public virtual IEnumerator AfterACardPlayed_WhenCardInDrawStack()
+        {
+            yield return null;
+        }
+
         public virtual IEnumerator AfterInsertToSolt()
         {
             Debug.Log("[Card]:" + name + " have InsertToSolt!");

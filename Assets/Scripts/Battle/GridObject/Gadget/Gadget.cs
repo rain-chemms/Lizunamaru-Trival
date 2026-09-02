@@ -63,5 +63,11 @@ namespace GridObjectSystem.GadgetSystem
             roundEndAction?.Invoke();
             yield return null;
         }
+
+        public virtual IEnumerator AfterACardPlayed()
+        {
+            if(!enabled) yield break;
+            yield return null;
+        }
     }
 }

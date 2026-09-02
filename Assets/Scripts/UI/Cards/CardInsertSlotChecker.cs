@@ -51,7 +51,7 @@ public class CardInsertSlotChecker : MonoBehaviour, IEndDragHandler, IDragHandle
                 if (cardInSlot != null)
                 {
                     BattleMessage.instance.GetDiscardCardList().Add(cardInSlot);
-                    StartCoroutine(((CardFunctioner)cardInSlot)?.AfterRemoveFromSolt());//触发卡牌的移除效果
+                    StartCoroutine(((ICardFunctioner)cardInSlot)?.AfterRemoveFromSolt());//触发卡牌的移除效果
                     cardSlotUnderCard.SetInnerCard(null);
                 }
 
@@ -61,7 +61,7 @@ public class CardInsertSlotChecker : MonoBehaviour, IEndDragHandler, IDragHandle
                 //若在手牌中,将其从手牌中移除
                 BattleMessage.instance.GetHandCardList().Remove(card);
                 //触发卡牌的插入效果
-                StartCoroutine(((CardFunctioner)card)?.AfterInsertToSolt());//必须启动协程才能调用
+                StartCoroutine(((ICardFunctioner)card)?.AfterInsertToSolt());//必须启动协程才能调用
                 
                 
                 Debug.Log("[CardInsertSlotChecker]: Set the CardSlot:<" +
