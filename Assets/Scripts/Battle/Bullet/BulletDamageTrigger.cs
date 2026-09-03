@@ -56,7 +56,7 @@ namespace BulletSystem
                 //伤害只对不同阵营的物体有效
                 if (role?.GetSide() != bullet?.GetSide())
                 {
-                    damageGetter?.GetDamage(bullet.GetDamage());
+                    damageGetter?.GetDamage((float)bullet?.GetDamage(),(bool)bullet?.CanDefend());
                     bullet.SetPierce(bullet.GetPierce() - 1);//减穿透数
                     enterTrigger?.Invoke();
                 }

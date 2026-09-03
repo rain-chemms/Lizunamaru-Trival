@@ -38,6 +38,9 @@ namespace BulletSystem
         [SerializeField] private ForceMode forceMode = ForceMode.Force;//弹道受力模式
         public void SetForceMode(ForceMode forceMode) => this.forceMode = forceMode;
         public ForceMode GetForceMode() => forceMode;
+        [SerializeField] private bool canDefend = true;//是否可以被护盾抵消
+        public bool CanDefend() => canDefend;
+        public void SetCanDefend(bool canDefend) => this.canDefend = canDefend;
 
         void OnEnable()
         {
