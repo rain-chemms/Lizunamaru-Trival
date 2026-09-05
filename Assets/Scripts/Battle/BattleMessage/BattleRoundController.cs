@@ -24,6 +24,15 @@ public class BattleRoundController : MonoBehaviour
     private bool _isChangingTurn = false;
     private void CheckRoundEnd()
     {
+        //需要等待玩家的卡牌打出完毕后才能切换回合
+        bool cardPlayOver = true;
+        BattleMessageDisplayer messageDisplayer = BattleMessageDisplayer.instance;
+        if(messageDisplayer != null)
+        {
+            cardPlayOver = !(bool)messageDisplayer?.GetCardPlayArea()?.IsExecuting();
+        }
+        if(!cardPlayOver) return;///卡牌打完,不进行检测
+
         bool side = BattleMessage.instance.IsPlayerTurn();
         foreach (Role role in BattleMessage.instance.GetRoleList().ToList())
         {

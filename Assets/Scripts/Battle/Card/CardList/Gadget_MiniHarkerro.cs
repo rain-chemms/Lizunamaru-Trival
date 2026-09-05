@@ -6,6 +6,7 @@ using GridObjectSystem.GadgetSystem.Guns;
 using GridObjectSystem.RoleSystem;
 using System.Linq;
 
+
 namespace CardSystem.AllCardHub
 {
     // 插入卡槽时,在角色正前方召唤一个迷你八卦炉,不在卡槽中时移除,
@@ -174,14 +175,21 @@ namespace CardSystem.AllCardHub
         public override IEnumerator AfterDiscard()
         {
             bool yourSide = (bool)BattleMessage.instance?.GetControlPlayer()?.GetSide();
-            foreach (MiniHakerro hak in BattleMessage.instance.GetGadgetList())
+            MiniHakerro lastHak = null;
+            foreach (Gadget gd in BattleMessage.instance?.GetGadgetList()?.ToList())
             {
-                if (hak.GetSide() == yourSide)
+                MiniHakerro hak = gd as MiniHakerro;
+                if (hak!=null && hak.GetSide() == yourSide)
                 {
                     yield return hak.OnGadgetEffect();//激活所有同阵营的八卦炉
+                    lastHak = hak;
                     yield return new WaitForSeconds(invokeHalt);
                 }
             }
+            //等待最后一个八卦炉的动画播放完毕
+            Animator animator = lastHak?.GetComponent<Animator>();
+            AnimatorStateInfo info = (AnimatorStateInfo)animator?.GetCurrentAnimatorStateInfo(0);
+            yield return new WaitForSeconds(info.length / info.speed);//等待动画播放完毕            
             yield return base.AfterDiscard();
         }
     }

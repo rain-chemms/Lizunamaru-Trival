@@ -8,6 +8,7 @@ public class CardPlayArea : MonoBehaviour
 {
     [SerializeField] private Queue<Card> willPlayCardQueue = new Queue<Card>();
     [SerializeField] private bool isExecuting = false;//当前是否正在执行
+    public bool IsExecuting() => isExecuting;
     //添加要打出的卡牌
     public void AddCard(Card card)
     {
