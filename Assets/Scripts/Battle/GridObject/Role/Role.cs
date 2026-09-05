@@ -21,7 +21,7 @@ namespace GridObjectSystem.RoleSystem
         protected override void Start()
         {
             base.Start();
-            StartCoroutine(AddAbility<Ability_Velocity>(3));
+            //StartCoroutine(AddAbility<Ability_Velocity>(3));
         }
         //*/
         
