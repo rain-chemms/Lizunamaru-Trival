@@ -10,7 +10,7 @@ namespace GridObjectSystem.RoleSystem
         [SerializeField] private Role role;
         [SerializeField] private AnimTrigger animTrigger;
         // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+        void OnEnable()
         {
             //尝试自动获取
             if (role == null) role = GetComponent<Role>();

@@ -51,7 +51,7 @@ namespace BulletSystem
 
         private void CheckPierceOverDestroy()//检查穿透数目的结束
         {
-            if ((bool)damageTriggger?.GetLaserMode()) return;//激光模式下不检查
+            if ((bool)damageTriggger?.IsLaserMode()) return;//激光模式下不检查
             if (haveTriggered) return;//已经触发过则不再触发
             if (bullet.GetPierce() < 0)
             {

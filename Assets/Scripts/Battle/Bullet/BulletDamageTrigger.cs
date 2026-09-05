@@ -11,14 +11,8 @@ namespace BulletSystem
             激光模式下,造成的伤害按帧计算,每一帧造成一次伤害
         */
         [SerializeField] private bool laserMode = false;//激光模式
-        public void SetLaserMode(bool mode)
-        {
-            laserMode = mode;
-        }
-        public bool GetLaserMode()
-        {
-            return laserMode;
-        }
+        public bool IsLaserMode() => laserMode;
+        public void SetLaserMode(bool mode) => laserMode = mode;
         [SerializeField] private Bullet bullet;
         // Start is called once before the first execution of Update after the MonoBehaviour is created
 

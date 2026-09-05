@@ -138,7 +138,14 @@ public class BattleMessage : MonoBehaviour
                 Debug.Log("[BattleMessage]: <Ability Number:" + abilityDict.Count + "> "+ typeof(Role).ToString()+"|"+ role?.name.ToString() + " Trigger The End Function Of Ability Dictionary!");
             }
         }
-
+        //触发所有卡牌的回合结束效果
+        foreach (Card card in GetAllCardEntities())
+        {
+            if (card == null) continue;
+            //触发卡牌的AfterRoundEnd效果
+            yield return ((ICardFunctioner)card)?.AfterRoundEnd();    
+        }
+        
         /*
             切换回合
         */
@@ -163,10 +170,8 @@ public class BattleMessage : MonoBehaviour
                 
             }
         }
-
         //设置播放本地化文字
         //寻找本地化键值对
-
         string key = "";
         //设置键值
         Role controlPlayer = GetControlPlayer();//获取你控制的角色
@@ -232,6 +237,13 @@ public class BattleMessage : MonoBehaviour
                 Debug.Log("[BattleMessage]: " + typeof(Gadget).ToString()+"|"+ gadget?.name.ToString() + " Trigger The Start Function Of Ability Dictionary!");
                 yield return gadget?.OnEveryRoundStart();
             }
+        }
+        //触发所有卡牌的回合结束效果
+        foreach (Card card in GetAllCardEntities())
+        {
+            if (card == null) continue;
+            //触发卡牌的AfterRoundEnd效果
+            yield return ((ICardFunctioner)card)?.AfterRoundStart();    
         }
         
         //若当前角色存在自动操作操作脚本(AI控制),则执行的自动操作        
@@ -372,6 +384,29 @@ public class BattleMessage : MonoBehaviour
     public void SetDrawCardPreRound(int count) => drawCardPreRound = count;
     //没有本场战斗消耗的牌堆,个人感觉对于这个项目来说用处不大,加了之后就太像杀戮尖塔了:不行,一定要加
     //卡牌相关的方法
+    /*-1.0*/
+    //获取所有具有游戏实体的卡牌
+    public List<Card> GetAllCardEntities()
+    {
+        //卡牌列表中
+        List<Card> result = new List<Card>();
+        foreach (Card card in drawCardList.ToList())//遍历所有卡牌实体
+            if(card != null && !result.Contains(card)) result.Add(card);  
+        foreach (Card card in handCardList.ToList())//遍历所有卡牌实体
+            if(card != null && !result.Contains(card)) result.Add(card);
+        foreach (Card card in discardCardList.ToList())//遍历所有卡牌实体
+            if(card != null && !result.Contains(card)) result.Add(card);
+        foreach (Card card in exhaustCardList.ToList())//遍历所有卡牌实体
+            if(card != null && !result.Contains(card)) result.Add(card);
+        //卡槽中的
+        foreach (CardSlot slot in GetAllCardSlot().ToList())//遍历所有卡牌实体
+        {
+            if(slot == null) continue;
+            Card innerCard = slot.GetInnerCard();
+            if(innerCard != null && !result.Contains(innerCard)) result.Add(innerCard);
+        }
+        return result;
+    }
     //可以将卡牌相关的指令包装为一个Cmd类
     /*
         0_0.刷新卡牌列表,清除无效的卡牌
