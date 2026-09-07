@@ -1,4 +1,5 @@
 using GridObjectSystem.GadgetSystem.Tnts;
+using Unity.Cinemachine;
 using UnityEngine;
 
 [RequireComponent(typeof(TNT))]
@@ -8,7 +9,7 @@ public class TNTAnimatorEvent : MonoBehaviour
     [SerializeField] private TNT tnt;
     void OnEnable()
     {
-        if(tnt == null) tnt = GetComponent<TNT>();    
+        if(tnt == null) tnt = GetComponent<TNT>();
     }
 
     [SerializeField] private AudioSource explosionVoice;

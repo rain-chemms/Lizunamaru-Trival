@@ -13,8 +13,6 @@ public class CineShakeSourceController : MonoBehaviour
         if(source == null) source = GetComponent<CinemachineImpulseSource>();
     }
 
-
-
     private float timeRocorder = 0.0f;
     // Update is called once per frame
     void Update()

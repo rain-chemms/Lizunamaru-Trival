@@ -25,12 +25,22 @@ namespace GridObjectSystem.RoleSystem
         public void GetDamage(float damage, bool checkDefend = true)
         {
             if (role == null) return;
-            if (damage <= 0) return;//伤害小于等于0时返回
-                                    //拥有防御点数时
-            if (role.GetDefend() > 0 && checkDefend)
+            if (damage < 0) return;//伤害小于等于0时返回
+            //拥有防御点数时
+            uint defendPoint = (uint)role?.GetDefend();
+            if (defendPoint > 0 && checkDefend)
             {
-                role.SetDefend(role.GetDefend() - 1);
-                if (animTrigger != null) animTrigger.TriggerAnim("Defend");
+                RoleDefendGetter rdg = role?.GetComponent<RoleDefendGetter>();
+                if(rdg != null)
+                {
+                    Debug.Log("[RoleDamageGetter]: Call The Component:<RoleDefendGetter>");
+                    StartCoroutine(rdg.GetOrLoseDefend(-1));
+                }
+                else
+                {
+                    role?.SetDefend(defendPoint - 1);
+                    if (animTrigger != null) animTrigger.TriggerAnim("Defend");
+                }
                 return;
             }
             //无防御点数或不检查防御值时直接受到伤害

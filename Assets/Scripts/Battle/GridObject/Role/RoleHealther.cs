@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 
@@ -11,12 +12,22 @@ namespace GridObjectSystem.RoleSystem
     public class RoleHealther : MonoBehaviour
     {    
         [SerializeField] private Role role;
-        [SerializeField] private AnimTrigger animTrigger;
+        [SerializeField] private ParticleSystem recoverHpVfx;
         void OnEnable()
         {
             //尝试自动获取
             if (role == null) role = GetComponent<Role>();
-            if (animTrigger == null) animTrigger = GetComponent<AnimTrigger>();
+            if (recoverHpVfx == null)
+            {
+                foreach(ParticleSystem p in GetComponentsInChildren<ParticleSystem>().ToList())
+                {
+                    if(p == null) continue;
+                    if(p.name.Equals("RecoverHpVfx"))//用名字进行默认匹配
+                    {
+                        recoverHpVfx = p;
+                    }
+                }
+            }
         }
         //回血
         public void GetHealth(float recoverHp)
@@ -28,7 +39,7 @@ namespace GridObjectSystem.RoleSystem
             endHp = endHp > role.GetMaxHp() ? role.GetMaxHp() : endHp;
             role.SetHp(endHp);
             //触发回血特效
-            //animTrigger.TriggerAnim("Health");
+            recoverHpVfx?.Play();
         }
     }
     

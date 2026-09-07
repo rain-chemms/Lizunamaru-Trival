@@ -187,9 +187,15 @@ namespace CardSystem.AllCardHub
                 }
             }
             //等待最后一个八卦炉的动画播放完毕
-            Animator animator = lastHak?.GetComponent<Animator>();
-            AnimatorStateInfo info = (AnimatorStateInfo)animator?.GetCurrentAnimatorStateInfo(0);
-            yield return new WaitForSeconds(info.length / info.speed);//等待动画播放完毕            
+            if(lastHak != null)
+            {        
+                Animator animator = lastHak?.GetComponent<Animator>();            
+                if(animator != null)
+                {
+                    AnimatorStateInfo info = (AnimatorStateInfo)animator?.GetCurrentAnimatorStateInfo(0);
+                    yield return new WaitForSeconds(info.length / info.speed);//等待动画播放完毕              
+                }
+            }
             yield return base.AfterDiscard();
         }
     }
