@@ -21,27 +21,27 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 14.ushirogami1
-  m_Shader: {fileID: 4800000, guid: a65994cb353789f49bdc50b95035f956, type: 3}
+  m_Shader: {fileID: 4800000, guid: 34b706a062ce50b419ef0060e7dc9118, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - SELFSHADOW_ON
-  m_InvalidKeywords:
-  - _ENABLEOUTLINE_ON
   - _MAINTEXALPHAUSE_NONE
-  - _METALMATERIAL_ON
   - _OUTLINENORMALCHANNEL_NORMAL
   - _OUTLINE_CUSTOM_COLOR_ON
   - _RENDERTYPE_BODY
   - _RIM_LIGHTING_ON
-  - _SPECULARHIGHLIGHTS_ON
   - _SPECULAR_ON
-  - _TOON
   - _USEFACELIGHTMAPCHANNEL_A
+  m_InvalidKeywords:
+  - SELFSHADOW_ON
+  - _ENABLEOUTLINE_ON
+  - _METALMATERIAL_ON
+  - _SPECULARHIGHLIGHTS_ON
+  - _TOON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2016
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
@@ -200,6 +200,7 @@ Material:
     - _Mode: 0
     - _NoShadowCasting: 0
     - _OcclusionStrength: 1
+    - _OnlyOutlineAndRim: 0
     - _OutlineNormalChannel: 0
     - _OutlineScale: 1
     - _OutlineWidth: 0.1
