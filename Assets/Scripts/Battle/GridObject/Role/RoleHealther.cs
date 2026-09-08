@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Linq;
 using UnityEngine;
-
-
+using GlobalSystem;
 namespace GridObjectSystem.RoleSystem
 {
 

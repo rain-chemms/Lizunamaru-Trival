@@ -3,6 +3,7 @@ using System.Collections;
 using System;
 using GridObjectSystem.RoleSystem.AutoSystem;
 using GridObjectSystem.RoleSystem;
+using GlobalSystem;
 
 namespace GridObjectSystem.GadgetSystem
 {

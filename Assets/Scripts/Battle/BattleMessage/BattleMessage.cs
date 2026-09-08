@@ -13,6 +13,7 @@ using CardSystem;
 using GridObjectSystem;
 using GridObjectSystem.GadgetSystem;
 using GridObjectSystem.AbilitySystem;
+using GlobalSystem;
 
 public class BattleMessage : MonoBehaviour
 {

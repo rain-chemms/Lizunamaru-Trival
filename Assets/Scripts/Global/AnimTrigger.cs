@@ -1,21 +1,24 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
-public class AnimTrigger : MonoBehaviour
+namespace GlobalSystem
 {
-    [SerializeField] private Animator animator;
-    public Animator GetAnimator() => animator;
-    void OnEnable()
+    [RequireComponent(typeof(Animator))]
+    public class AnimTrigger : MonoBehaviour
     {
-        if (animator == null) animator = GetComponent<Animator>();
-    }
-    public void TriggerAnim(string animName)
-    {
-        animator?.SetTrigger(animName);
-    }
+        [SerializeField] private Animator animator;
+        public Animator GetAnimator() => animator;
+        void OnEnable()
+        {
+            if (animator == null) animator = GetComponent<Animator>();
+        }
+        public void TriggerAnim(string animName)
+        {
+            animator?.SetTrigger(animName);
+        }
 
-    public void SetBoolValue(string name, bool value)
-    {
-        animator?.SetBool(name, value);
+        public void SetBoolValue(string name, bool value)
+        {
+            animator?.SetBool(name, value);
+        }
     }
 }

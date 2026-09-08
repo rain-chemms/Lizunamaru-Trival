@@ -1,5 +1,5 @@
 using System.Collections;
-using Unity.VisualScripting;
+using GlobalSystem;
 using UnityEngine;
 
 namespace VfxDisplaySystem

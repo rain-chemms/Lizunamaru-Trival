@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using GlobalSystem;
 namespace GridObjectSystem.RoleSystem
 {
     [RequireComponent(typeof(Role))]

@@ -1,4 +1,5 @@
 using UnityEngine;
+using GlobalSystem;
 
 namespace GridObjectSystem.RoleSystem.PlayerSystem
 {

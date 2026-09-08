@@ -5,7 +5,7 @@ using System.Collections;
 using GridObjectSystem.GadgetSystem.Guns;
 using GridObjectSystem.RoleSystem;
 using System.Linq;
-
+using GlobalSystem;
 
 namespace CardSystem.AllCardHub
 {

@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using GlobalSystem;
 using GridObjectSystem;
 using GridObjectSystem.GadgetSystem;
 using GridObjectSystem.RoleSystem;

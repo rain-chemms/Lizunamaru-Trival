@@ -99,6 +99,10 @@ MonoBehaviour:
         - rid: 816146620906733778
         - rid: 816146620906733779
         - rid: 816146620906733780
+        - rid: 4882447548391358781
+        - rid: 4882447548391358804
+        - rid: 4882447548391358826
+        - rid: 4882447548391358827
     - rid: 816146620906733764
       type: {class: SmartSettings, ns: UnityEngine.Localization.SmartFormat.Core.Settings, asm: Unity.Localization}
       data:
@@ -205,3 +209,30 @@ MonoBehaviour:
         - default
         - d
         - 
+    - rid: 4882447548391358781
+      type: {class: MultiplyFormatter, ns: GlobalSystem.SmartStringExpendSystem, asm: Assembly-CSharp}
+      data:
+        m_Names:
+        - multiply
+        - mul
+    - rid: 4882447548391358804
+      type: {class: RedFormatter, ns: GlobalSystem.SmartStringExpendSystem, asm: Assembly-CSharp}
+      data:
+        m_Names:
+        - RED
+        - red
+        - Red
+    - rid: 4882447548391358826
+      type: {class: GreenFormatter, ns: GlobalSystem.SmartStringExpendSystem, asm: Assembly-CSharp}
+      data:
+        m_Names:
+        - green
+        - Green
+        - GREEN
+    - rid: 4882447548391358827
+      type: {class: BlueFormatter, ns: GlobalSystem.SmartStringExpendSystem, asm: Assembly-CSharp}
+      data:
+        m_Names:
+        - blue
+        - Blue
+        - BLUE

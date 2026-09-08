@@ -3,19 +3,22 @@ using UnityEngine;
 //关卡控制器
 //控制有关战斗内关卡数据的加载,角色敌人的初始化
 //采用单例模式
-public class LevelController : MonoBehaviour
+namespace GlobalSystem
 {
-    public static LevelController instance;
-    void Awake()
+    public class LevelController : MonoBehaviour
     {
-        if(instance == null)
+        public static LevelController instance;
+        void Awake()
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
+            if (instance == null)
+            {
+                instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

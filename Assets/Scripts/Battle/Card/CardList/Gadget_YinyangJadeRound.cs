@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using GridObjectSystem;
 using GridObjectSystem.GadgetSystem.YinyangJades;
+using GlobalSystem;
 
 namespace CardSystem.AllCardHub
 {

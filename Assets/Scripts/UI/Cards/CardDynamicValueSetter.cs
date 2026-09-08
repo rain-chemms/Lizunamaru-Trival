@@ -4,6 +4,7 @@ using System.Reflection;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using CardSystem;
+using GlobalSystem;
 
 [RequireComponent(typeof(Card))]
 public class CardDynamicValueSetter : MonoBehaviour

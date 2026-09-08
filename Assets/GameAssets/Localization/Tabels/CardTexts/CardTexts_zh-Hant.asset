@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: zh-Hant
   m_SharedData: {fileID: 11400000, guid: c82d369c4328d944ab6b01bb4e351a25, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 4882447548391358743
   m_TableData:
   - m_Id: 311482616250368
     m_Localized: "\u4E1F\u68C4\u4F60\u6240\u6709\u7684\u624B\u724C\n\u6BCF\u4E1F\u68C41\u5F35\u724C\uFF0C\u7D66\u4E881\u56DE\u5408\u5167\u884C\u52D5\u9EDE\u9EDE"
@@ -95,6 +96,35 @@ MonoBehaviour:
     m_Localized: "\u5DF1\u65B9\u56DE\u5408\u958B\u59CB\u6642,\n\u6BCF\u6B21\u5C04\u64CA\u547D\u4E2D\u6575\u4EBA\u6642\u6062\u5FA9{0}\u9EDE\u751F\u547D\u503C"
     m_Metadata:
       m_Items: []
+  - m_Id: 24942801845354496
+    m_Localized: 
+    m_Metadata:
+      m_Items:
+      - rid: 4882447548391358743
+  - m_Id: 25010342789775360
+    m_Localized: 
+    m_Metadata:
+      m_Items:
+      - rid: 4882447548391358743
+  - m_Id: 25013312591888384
+    m_Localized: 
+    m_Metadata:
+      m_Items:
+      - rid: 4882447548391358743
+  - m_Id: 24941442333016064
+    m_Localized: 
+    m_Metadata:
+      m_Items:
+      - rid: 4882447548391358743
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 4882447548391358743
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 24942801845354496
+        - id: 25010342789775360
+        - id: 25013312591888384
+        - id: 24941442333016064

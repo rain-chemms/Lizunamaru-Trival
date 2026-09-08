@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using System.Linq;
+using GlobalSystem;
 namespace GridObjectSystem.RoleSystem
 {
     [RequireComponent(typeof(Role))]

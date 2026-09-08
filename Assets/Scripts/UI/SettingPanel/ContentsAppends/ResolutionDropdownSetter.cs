@@ -1,6 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
+using GlobalSystem;
 
 [RequireComponent(typeof(DropdownVector2IntLinker))]
 public class ResolutionDropdownSetter : MonoBehaviour
