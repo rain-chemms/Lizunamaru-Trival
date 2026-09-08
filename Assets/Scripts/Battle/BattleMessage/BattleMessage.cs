@@ -273,6 +273,10 @@ public class BattleMessage : MonoBehaviour
     public List<Role> GetRoleList() => roleList;
     public List<Role> GetRoleList(bool side) => roleList.Where(role => role.GetSide() == side).ToList();
     public List<Role> GetRoleList_Copy() => roleList.ToList();
+    [Header("统计信息")]
+    private uint grazeCount = 0;//控制的玩家的擦弹数
+    public uint GetGrazeCount() => grazeCount;
+    public void SetGrazeCount(uint count) => grazeCount = count;
     //获取某一阵营最大玩家ID
     public uint GetSideMaxRoleID(bool side) => roleList.Where(role => role.GetSide() == side).Max(role => role.GetID());
     /*

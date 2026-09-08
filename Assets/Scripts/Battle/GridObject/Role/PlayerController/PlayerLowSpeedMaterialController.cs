@@ -13,6 +13,31 @@ namespace GridObjectSystem.RoleSystem.PlayerSystem
         {
             if (moveController == null) moveController = GetComponent<PlayerMoveController>();
             if (renderers == null || renderers.Count <= 0) GetChildRenderersWithOutComponent<PlayerCheckPoint>(transform, renderers);
+            //是否开启将粒子系统的物体加入白名单
+            if(autoAddParticleSystemToWhiteList)
+            {
+                foreach(ParticleSystem ps in GetComponentsInChildren<ParticleSystem>())
+                {
+                    if(ps == null) continue;
+                    Transform t = ps?.gameObject.transform;
+                    if(t!= null && !(bool)whiteList?.Contains(t)) whiteList?.Add(t);
+                }
+            }
+            
+            //是否自动补全白名单
+            if(autoIncludeWhiteListChildren)
+            {
+                foreach(Transform tf in whiteList.ToList())
+                {
+                    if(tf == null) continue;
+                    foreach(Transform child in tf.GetComponentsInChildren<Transform>())
+                    {
+                        if(child == null) continue;
+                        if(!(bool)whiteList?.Contains(child))whiteList.Add(child);
+                    }
+                }
+            }
+            RemoveTheRendererInWhiteList();
         }
 
         [SerializeField] private List<Renderer> renderers = new List<Renderer>();
@@ -29,11 +54,31 @@ namespace GridObjectSystem.RoleSystem.PlayerSystem
             }
         }
 
+        // 移除白名单中的 Renderer
+        private void RemoveTheRendererInWhiteList()
+        {
+            foreach (Renderer rd in renderers?.ToList())
+            {
+                if(rd == null) continue;
+                Transform rdTf = rd?.gameObject.transform;
+                if(rdTf == null) continue;
+                if((bool)whiteList?.Contains(rdTf)) renderers?.Remove(rd);
+            }
+        }
+
         void Update()
         {
             CheckAndSetTheMaterials();
         }
-
+        [SerializeField] private List<Transform> whiteList = new List<Transform>();
+        public List<Transform> GetWhiteList() => whiteList;
+        public List<Transform> GetWhiteList_Copy() => whiteList.ToList();
+        [SerializeField] private bool autoIncludeWhiteListChildren = true;
+        public bool IsAutoIncludeWhiteListChildren() => autoIncludeWhiteListChildren;
+        public void SetAutoIncludeWhiteListChildren(bool yes) => autoIncludeWhiteListChildren = yes;
+        [SerializeField] private bool autoAddParticleSystemToWhiteList = true;
+        public bool IsAutoAddParticleSystemToWhiteList() => autoAddParticleSystemToWhiteList;
+        public void SetAutoAddParticleSystemToWhiteList(bool yes) => autoAddParticleSystemToWhiteList = yes;
         //检测并切换材质的参数
         [Header("材质参数: 透明度值")]
         [SerializeField] private float lowSpeedAlpha = 0.05f;
@@ -53,10 +98,12 @@ namespace GridObjectSystem.RoleSystem.PlayerSystem
             if (moveController == null) return;
             if (renderers == null) return;
             bool isLowSpeed = moveController.GetIsLowSpeed();
+            //RemoveTheRendererInWhiteList();//移除白名单中的材质
             foreach (Renderer rd in renderers)
             {
                 //确保材质获取正确
                 if (rd == null) continue;
+                //if ((bool)whiteList?.Contains(rd.gameObject.transform)) continue;//二次检测白名单物体
                 List<Material> mats = rd.materials.ToList();
                 foreach (Material mat in mats)
                 {
