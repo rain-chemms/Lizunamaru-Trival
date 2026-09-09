@@ -33,6 +33,10 @@ namespace GridObjectSystem.RoleSystem.PlayerSystem
         [SerializeField] private uint moveCostPoint = 1;
         public uint GetMoveCostPoint() => moveCostPoint;
         public void SetMoveCostPoint(uint newPoint) => moveCostPoint = newPoint;
+        //是否为第一人称模式的移动
+        [SerializeField] private bool firstPresentMode = false;
+        public bool IsFirstPresentMode() => firstPresentMode;
+        public void SetFirstPresentMode(bool firstPresentMode) => this.firstPresentMode = firstPresentMode;
         async void Start()
         {
             if (inputSystem == null)
@@ -117,23 +121,117 @@ namespace GridObjectSystem.RoleSystem.PlayerSystem
         //下面这些RoleMover的输入参数可以使用Role进行修改
         private void OnMoveRight(InputAction.CallbackContext context)
         {
-            roleMover?.ChangeRoleDirection(BattleDirection.RIGHT);
-            roleMover?.MoveRole(BattleDirection.RIGHT, moveDistance, moveCostPoint);
+            //对应键盘D
+            BattleDirection targetDir = BattleDirection.RIGHT;
+            if(firstPresentMode)
+            {
+                BattleDirection dir = (BattleDirection)role?.GetDirection();//目前玩家的方向 
+                switch(dir)
+                {
+                    case BattleDirection.DOWN:
+                        targetDir = BattleDirection.LEFT;
+                        break;
+                    case BattleDirection.LEFT:
+                        targetDir = BattleDirection.UP;
+                        break;
+                    case BattleDirection.RIGHT:
+                        targetDir = BattleDirection.DOWN;
+                        break;
+                    case BattleDirection.UP:
+                    default:
+                        targetDir = BattleDirection.RIGHT;
+                        break;
+                }
+            }
+            //应用移动
+            roleMover?.ChangeRoleDirection(targetDir);
+            roleMover?.MoveRole(targetDir, moveDistance, moveCostPoint);
+            
         }
+
         private void OnMoveLeft(InputAction.CallbackContext context)
         {
-            roleMover?.ChangeRoleDirection(BattleDirection.LEFT);
-            roleMover?.MoveRole(BattleDirection.LEFT, moveDistance, moveCostPoint);
+            //对应键盘A
+            BattleDirection targetDir = BattleDirection.LEFT;
+            if(firstPresentMode)
+            {
+                BattleDirection dir = (BattleDirection)role?.GetDirection();//目前玩家的方向 
+                switch(dir)
+                {
+                    case BattleDirection.DOWN:
+                        targetDir = BattleDirection.RIGHT;
+                        break;
+                    case BattleDirection.LEFT:
+                        targetDir = BattleDirection.DOWN;
+                        break;
+                    case BattleDirection.RIGHT:
+                        targetDir = BattleDirection.UP;
+                        break;
+                    case BattleDirection.UP:
+                    default:
+                        targetDir = BattleDirection.LEFT;
+                        break;
+                }
+            }
+            //应用移动
+            roleMover?.ChangeRoleDirection(targetDir);
+            roleMover?.MoveRole(targetDir, moveDistance, moveCostPoint);
         }
         private void OnMoveUp(InputAction.CallbackContext context)
         {
-            roleMover?.ChangeRoleDirection(BattleDirection.UP);
-            roleMover?.MoveRole(BattleDirection.UP, moveDistance, moveCostPoint);
+            BattleDirection targetDir = BattleDirection.UP;
+            //对应键盘W
+            if(firstPresentMode)
+            {
+                BattleDirection dir = (BattleDirection)role?.GetDirection();//目前玩家的方向 
+                switch(dir)
+                {
+                    case BattleDirection.DOWN:
+                        targetDir = BattleDirection.DOWN;
+                        break;
+                    case BattleDirection.LEFT:
+                        targetDir = BattleDirection.LEFT;
+                        break;
+                    case BattleDirection.RIGHT:
+                        targetDir = BattleDirection.RIGHT;
+                        break;
+                    case BattleDirection.UP:
+                    default:
+                        targetDir = BattleDirection.UP;
+                        break;
+                }
+            }
+            //应用移动
+            roleMover?.ChangeRoleDirection(targetDir);
+            roleMover?.MoveRole(targetDir, moveDistance, moveCostPoint);
         }
         private void OnMoveDown(InputAction.CallbackContext context)
         {
-            roleMover?.ChangeRoleDirection(BattleDirection.DOWN);
-            roleMover?.MoveRole(BattleDirection.DOWN, moveDistance, moveCostPoint);
+            BattleDirection targetDir = BattleDirection.DOWN;
+            //对应键盘S
+            if(firstPresentMode)
+            {
+                BattleDirection dir = (BattleDirection)role?.GetDirection();//目前玩家的方向 
+                switch(dir)
+                {
+                    case BattleDirection.DOWN:
+                        targetDir = BattleDirection.UP;
+                        break;
+                    case BattleDirection.LEFT:
+                        targetDir = BattleDirection.RIGHT;
+                        break;
+                    case BattleDirection.RIGHT:
+                        targetDir = BattleDirection.LEFT;
+                        break;
+                    case BattleDirection.UP:
+                    default:
+                        targetDir = BattleDirection.DOWN;
+                        break;
+                }
+            }
+            //应用移动
+            roleMover?.ChangeRoleDirection(targetDir);
+            roleMover?.MoveRole(targetDir, moveDistance, moveCostPoint);
         }
 
     }

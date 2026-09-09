@@ -3,6 +3,9 @@ using UnityEngine.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using GridObjectSystem.RoleSystem;
+using GridObjectSystem.RoleSystem.PlayerSystem;
+
 
 [RequireComponent(typeof(Button))]
 public class BattleCameraViewShifter : MonoBehaviour
@@ -45,6 +48,8 @@ public class BattleCameraViewShifter : MonoBehaviour
         CameraViewItem bottomViewItem = new CameraViewItem();
         bottomViewItem.SetIsDefaultItem(true);
         bottomViewItem.syncToControlPlayerPos = false;
+        bottomViewItem.syncToControlPlayerRot = false;
+        bottomViewItem.shiftControlToFirstPerson = false;
         bottomViewItem.appendBoardOffset = new Vector2(size.x / 2, -1);
         bottomViewItem.posOffset = new Vector3(0, heightUnit * highNum - 9.5f, -10.0f);
         bottomViewItem.rotOffset = new Vector3(50, 0, 0);
@@ -70,6 +75,8 @@ public class BattleCameraViewShifter : MonoBehaviour
         planFormItem.posOffset = new Vector3(0, heightUnit * highNum + 5.0f, -3.0f);
         planFormItem.rotOffset = new Vector3(90, 0, 0);
         planFormItem.syncToControlPlayerPos = false;
+        planFormItem.syncToControlPlayerRot = false;
+        bottomViewItem.shiftControlToFirstPerson = false;
         planFormItem.alwaysReset = false;
         planFormItem.lerpSpeed = 1.5f;
         planFormItem.rotateSpeed = 1.5f;
@@ -93,8 +100,11 @@ public class BattleCameraViewShifter : MonoBehaviour
         public Vector3 posOffset;
         public Vector3 rotOffset;
 
-        //是否设置起始点为x或y的中心点
+        //是否同步玩家位置
         public bool syncToControlPlayerPos;
+        public bool syncToControlPlayerRot;
+        //是否切换玩家控制为第一人称模式
+        public bool shiftControlToFirstPerson;
         //额外的棋盘偏移量
         public Vector2 appendBoardOffset;
 
@@ -104,7 +114,7 @@ public class BattleCameraViewShifter : MonoBehaviour
         public float lerpSpeed;
 
         //控制字段
-        private bool isDefaultItem;//是否为自动产生的默认项
+        [SerializeField] private bool isDefaultItem;//是否为自动产生的默认项
         public bool IsDefaultItem() => isDefaultItem;
         public void SetIsDefaultItem(bool isDefaultItem) => this.isDefaultItem = isDefaultItem;
 
@@ -165,15 +175,21 @@ public class BattleCameraViewShifter : MonoBehaviour
         float lerpSpeed = item.lerpSpeed;
         //获取BattleBoard单例中的CamerController
         BattleBoardCameraSetter cameraSetter = BattleBoard.instance?.GetComponent<BattleBoardCameraSetter>();
+        //设置数据
         cameraSetter?.SetPosOffset(posOffset);
         cameraSetter?.SetRotOffset(rotOffset);
         cameraSetter?.SetRotateSpeed(rotateSpeed);
         cameraSetter?.SetLerpSpeed(lerpSpeed);
         cameraSetter?.SetAppendBoardOffset(item.appendBoardOffset);
-        cameraSetter?.SetSyncToControlPlayer(item.syncToControlPlayerPos);
+        cameraSetter?.SetSyncToControlPlayerPos(item.syncToControlPlayerPos);
+        cameraSetter?.SetSyncToControlPlayerRot(item.syncToControlPlayerRot);
         cameraSetter?.SetAlawysReset(item.alwaysReset);
         //触发切换
         cameraSetter?.ResetCamera();
         Debug.Log("[BattleCameraViewShifter]: Change Camera View To: " + item.ToString() + ", Now Shifter Index: " + index.ToString());
+        //切换玩家控制器    
+        //尝试获取玩家移动控制器组件
+        PlayerMoveController controller = BattleMessage.instance?.GetControlPlayer().GetComponent<PlayerMoveController>();
+        controller?.SetFirstPresentMode(item.shiftControlToFirstPerson);
     }
 }

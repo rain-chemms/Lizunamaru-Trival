@@ -3970,7 +3970,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1069823693482666900}
-  cameraViewList: []
+  cameraViewList:
+  - posOffset: {x: -1, y: 8, z: -5.5}
+    rotOffset: {x: 34, y: 0, z: 0}
+    syncToControlPlayerPos: 1
+    syncToControlPlayerRot: 1
+    shiftControlToFirstPerson: 1
+    appendBoardOffset: {x: 0, y: 0}
+    alwaysReset: 1
+    rotateSpeed: 4.5
+    lerpSpeed: 4.5
+    isDefaultItem: 0
   index: 0
 --- !u!1 &4850486233045367665
 GameObject:
