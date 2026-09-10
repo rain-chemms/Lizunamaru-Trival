@@ -21,10 +21,16 @@ namespace BulletSystem
             haveTriggered = false;//设置为未触发
         }
         // Update is called once per frame
+        [Header("检查开关")]
+        [SerializeField] private bool checkPierceOver = true;//为false时代表无限穿透
+        public void SetCheckPierceOver(bool check) => checkPierceOver = check;
+        public bool IsCheckPierceOver() => checkPierceOver;
+        
         void Update()
         {
+            //子弹的生命周期是一定要检测的
             CheckOverLifeTimeDestroy();
-            CheckPierceOverDestroy();
+            if(checkPierceOver) CheckPierceOverDestroy();
         }
 
         private bool haveTriggered = false;
