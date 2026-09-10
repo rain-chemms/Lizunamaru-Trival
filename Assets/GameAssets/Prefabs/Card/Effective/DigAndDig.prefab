@@ -899,7 +899,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:c82d369c4328d944ab6b01bb4e351a25
     m_TableEntryReference:
-      m_KeyId: 358383998861312
+      m_KeyId: 25693441311768576
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -993,19 +993,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c3977945bb395d45a799483e4e49766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stringReference:
-    m_TableReference:
-      m_TableCollectionName: GUID:c82d369c4328d944ab6b01bb4e351a25
-    m_TableEntryReference:
-      m_KeyId: 358383998861312
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  variables: []
-  references:
-    version: 2
-    RefIds: []
+  _localizeEvent: {fileID: 5232143668323798303}
+  variables:
+  - index: 0
+    value: 0
+    asInteger: 1
 --- !u!1 &5648166987132596275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1584,8 +1576,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 134167844392939477}
   indexMapDict:
-    m_keys: 
-    m_values: []
+    m_keys: 00000000
+    m_values:
+    - searchCount
   dynamicValueSetter: {fileID: 7442307497571269767}
 --- !u!114 &6184976758018434419
 MonoBehaviour:
@@ -1836,7 +1829,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.4
+  m_fontSize: 24.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

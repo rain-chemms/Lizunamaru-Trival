@@ -17,15 +17,15 @@ namespace BulletSystem
         // Start is called once before the first execution of Update after the MonoBehaviour is created
 
         //进入时触发的事件
-        private event Action enterTrigger = null;
-        public Action EnterTrigger
+        private event Action<Collider> enterTrigger = null;
+        public Action<Collider> EnterTrigger
         {
             get => enterTrigger;
             set => enterTrigger = value;
         }
         //激光状态持续时的事件
-        private event Action stateTrigger = null;
-        public Action StateTrigger
+        private event Action<Collider> stateTrigger = null;
+        public Action<Collider> StateTrigger
         {
             get => stateTrigger;
             set => stateTrigger = value;
@@ -52,7 +52,7 @@ namespace BulletSystem
                 {
                     damageGetter?.GetDamage((float)bullet?.GetDamage(),(bool)bullet?.CanDefend());
                     bullet.SetPierce(bullet.GetPierce() - 1);//减穿透数
-                    enterTrigger?.Invoke();
+                    enterTrigger?.Invoke(other);
                 }
             }
             //}
@@ -71,7 +71,7 @@ namespace BulletSystem
                     if (role?.GetSide() != bullet?.GetSide())
                     {
                         damageGetter?.GetDamage(bullet.GetDamage());
-                        stateTrigger?.Invoke();
+                        stateTrigger?.Invoke(other);
                     }
                 }
             }

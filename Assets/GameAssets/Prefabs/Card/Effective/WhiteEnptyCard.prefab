@@ -590,6 +590,7 @@ GameObject:
   - component: {fileID: 7690432316974955776}
   - component: {fileID: 5417963785666043808}
   - component: {fileID: 638532073884341526}
+  - component: {fileID: 3070086877161097976}
   m_Layer: 3
   m_Name: Discription
   m_TagString: Untagged
@@ -832,6 +833,20 @@ MonoBehaviour:
         - localeIdentifier:
             m_Code: ja
           value: 43.25
+--- !u!114 &3070086877161097976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042923368262764309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c3977945bb395d45a799483e4e49766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _localizeEvent: {fileID: 5417963785666043808}
+  variables: []
 --- !u!1 &6163651420733752521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,7 +1566,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.4
+  m_fontSize: 24.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

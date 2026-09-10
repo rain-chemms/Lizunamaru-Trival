@@ -34,7 +34,7 @@ namespace BulletSystem
         public Role GetEffectiveRole() => effectiveRole;
         public void SetEffectiveRole(Role role) => effectiveRole = role;
 
-        public void TriggerTheRecover()
+        public void TriggerTheRecover(Collider other = null)
         {
             if(effectiveRole == null) return;
             // 回血量不能小于0

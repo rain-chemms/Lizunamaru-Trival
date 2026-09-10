@@ -29,7 +29,7 @@ namespace BulletSystem
             if(damageTrigger != null) damageTrigger.EnterTrigger -= GenerateExplosion;
         }
 
-        private void GenerateExplosion()
+        private void GenerateExplosion(Collider other = null)
         {
             //产生新的爆炸物体
             Bullet explosion = Instantiate(explosionPrefab,null);//设置其父物体为空
@@ -39,15 +39,31 @@ namespace BulletSystem
             //同步物体的位置
             Rigidbody eRb = explosion?.GetRigidBody();
             Rigidbody bRb = bullet?.GetRigidBody();
-            if(eRb != null && bRb != null)
+            //获取接触点位置
+            Vector3 closestPoint = Vector3.zero;
+            if(bRb != null)
             {
-                eRb.transform.position = bRb.transform.position;
+                closestPoint = bRb.worldCenterOfMass;    
             }
             else
             {
-                explosion.transform.position = bullet.transform.position;
+                closestPoint = bullet.transform.position;
+            }
+            
+            Collider bCld = bullet.GetComponent<Collider>();
+            if(other != null && bCld != null)
+            {
+                closestPoint = bCld.ClosestPoint(other.transform.position);            
+            }
+            
+            if(eRb != null)
+            {
+                eRb.transform.position = closestPoint;
+            }
+            else
+            {
+                explosion.transform.position = closestPoint;
             }
         }
-
     }
 }

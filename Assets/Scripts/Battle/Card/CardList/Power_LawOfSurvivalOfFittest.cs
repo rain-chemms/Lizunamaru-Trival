@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 using BulletSystem;
 using System;
-using System.Linq;
 using GridObjectSystem.RoleSystem;
 
 namespace CardSystem.AllCardHub

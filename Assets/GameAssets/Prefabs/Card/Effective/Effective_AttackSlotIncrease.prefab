@@ -993,19 +993,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c3977945bb395d45a799483e4e49766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stringReference:
-    m_TableReference:
-      m_TableCollectionName: GUID:c82d369c4328d944ab6b01bb4e351a25
-    m_TableEntryReference:
-      m_KeyId: 21561984670629888
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
+  _localizeEvent: {fileID: 5232143668323798303}
   variables: []
-  references:
-    version: 2
-    RefIds: []
 --- !u!1 &5648166987132596275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,7 +1233,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &8145605548122215368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1296,7 +1285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8251725276e864cb221d894ca39a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 0}
+  card: {fileID: 4278978899796240880}
 --- !u!114 &4278978899796240880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1835,7 +1824,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.4
+  m_fontSize: 24.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

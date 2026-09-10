@@ -79,7 +79,12 @@ public class BattleMessage : MonoBehaviour
         set => selfTurnStartAction = value;
     }
 
-    public IEnumerator ChangeTurn()
+    /// <summary>
+    /// 用于切换玩家的回合,可以进行额外的回合效果
+    /// </summary>
+    /// <param name="isAppendTurn">是否切换阵营的控制权,不切换控制权就是本方进行额外的一个回合,默认是切换的</param>
+    /// <returns></returns>
+    public IEnumerator ChangeTurn(bool shiftSide = true/*isAppendTurn代表是否为否追加回合数*/)
     {
         //丢弃所有手牌到弃牌堆
         foreach (Card card in handCardList.ToList())
@@ -150,7 +155,9 @@ public class BattleMessage : MonoBehaviour
         /*
             切换回合
         */
-        isPlayerTurn = !isPlayerTurn;
+        if(shiftSide) isPlayerTurn = !isPlayerTurn;
+
+
     
         //并将所有当前回合角色的回合操作设置为非结束
         foreach (Role role in roleList)
