@@ -3978,8 +3978,8 @@ MonoBehaviour:
     shiftControlToFirstPerson: 1
     appendBoardOffset: {x: 0, y: 0}
     alwaysReset: 1
-    rotateSpeed: 4.5
-    lerpSpeed: 4.5
+    rotateSpeed: 1.5
+    lerpSpeed: 1.5
     isDefaultItem: 0
   index: 0
 --- !u!1 &4850486233045367665
