@@ -120,7 +120,7 @@ namespace VfxDisplaySystem
             //yield return new WaitForSeconds(5.0f);
             //StartCoroutine(DisplayVfx("NuclearCaution"));
             yield return new WaitForSeconds(5.0f);
-            StartCoroutine(DisplayVfx("FilmMask"));
+            StartCoroutine(DisplayVfx("NuclearCaution"));
         }
         //*/
     }
