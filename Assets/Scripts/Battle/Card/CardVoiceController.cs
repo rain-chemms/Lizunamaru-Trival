@@ -14,7 +14,7 @@ namespace CardSystem
         {
             if (card == null) card = GetComponent<Card>();
             //尝试获取所有的音频源
-            List<AudioSource> aS = GetComponents<AudioSource>().ToList();
+            List<AudioSource> aS = GetComponentsInChildren<AudioSource>().ToList();
             foreach (AudioSource a in aS)
             {
                 if (a == null) continue;

@@ -2,7 +2,7 @@ using UnityEngine;
 using BulletSystem;
 using System.Collections;
 
-namespace GridObjectSystem.GadgetSystem.Guns
+namespace GridObjectSystem.GadgetSystem.Hakerros
 {
     //迷你八卦炉: (相关角色:marisa) 每回合开始时向角色所朝方向发射一发激光
     public class MiniHakerro : Gadget

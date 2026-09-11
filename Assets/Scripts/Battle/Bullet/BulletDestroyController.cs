@@ -25,12 +25,12 @@ namespace BulletSystem
         [SerializeField] private bool checkPierceOver = true;//为false时代表无限穿透
         public void SetCheckPierceOver(bool check) => checkPierceOver = check;
         public bool IsCheckPierceOver() => checkPierceOver;
-        
+
         void Update()
         {
             //子弹的生命周期是一定要检测的
             CheckOverLifeTimeDestroy();
-            if(checkPierceOver) CheckPierceOverDestroy();
+            if (checkPierceOver) CheckPierceOverDestroy();
         }
 
         private bool haveTriggered = false;
@@ -41,18 +41,7 @@ namespace BulletSystem
                                       //触发销毁
             if (bullet.GetLifeTime() > 0.0f && bullet.GetLifeRecorder() >= bullet.GetLifeTime())//小于等于0.0f代表不会自动销毁
             {
-                if (animatorControl)//动画器控制的条件下
-                {
-                    AnimTrigger atr = bullet.GetComponent<AnimTrigger>();
-                    if(atr == null) animator?.SetTrigger("Destroy");//触发动画器
-                    else atr.TriggerAnim("Destroy");
-                }
-                else//非动画器控制的条件下
-                {
-                    //超过生命周期直接销毁子弹
-                    Destroy(bullet.gameObject);
-                }
-                haveTriggered = true;
+                TriggerTheDestroy();
             }
         }
 
@@ -62,17 +51,27 @@ namespace BulletSystem
             if (haveTriggered) return;//已经触发过则不再触发
             if (bullet.GetPierce() < 0)
             {
-                if (animatorControl)//动画器控制的条件下
-                {
-                    animator?.SetTrigger("Destroy");//触发动画器
-                }
-                else//非动画器控制的条件下
-                {
-                    //超过生命周期直接销毁子弹
-                    Destroy(bullet.gameObject);
-                }
-                haveTriggered = true;
+                TriggerTheDestroy();
             }
+        }
+
+        public void TriggerTheDestroy()//手动触发销毁
+        {
+            //关闭子弹的碰撞体
+            Collider bCld = bullet.GetComponent<Collider>();
+            if (bCld != null) bCld.enabled = false;
+            if (animatorControl)//动画器控制的条件下
+            {
+                AnimTrigger atr = bullet.GetComponent<AnimTrigger>();
+                if (atr == null) animator?.SetTrigger("Destroy");//触发动画器
+                else atr.TriggerAnim("Destroy");
+            }
+            else//非动画器控制的条件下
+            {
+                //超过生命周期直接销毁子弹
+                Destroy(bullet.gameObject);
+            }
+            haveTriggered = true;
         }
     }
 }

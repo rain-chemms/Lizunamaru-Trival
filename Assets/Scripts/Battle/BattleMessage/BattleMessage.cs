@@ -219,13 +219,15 @@ public class BattleMessage : MonoBehaviour
             ricePoint += riceChargePreRound;
             icePoint = 0;
             //触发角色的所有能力效果
-            selfTurnStartAction?.Invoke();
+            //这个函数时具体生效的效果,用于卡牌和能力系统堆角色数值的改变,只有切换回合后才能生效激活
+            if(shiftSide) selfTurnStartAction?.Invoke();
         }
         else
         {
             icePoint += iceChargePreRound + ricePoint;//将剩余的ricePoint变为icePoint
             ricePoint = 0;
-            selfTurnEndAction?.Invoke();
+            //这个函数时具体生效的效果,用于卡牌和能力系统堆角色数值的改变,只有切换回合后才能生效激活
+            if(shiftSide) selfTurnEndAction?.Invoke();
         }
         //玩家获取能量之后
         //触发所有的GadgetList中的道具的TurnStart功能
@@ -246,7 +248,7 @@ public class BattleMessage : MonoBehaviour
                 yield return gadget?.OnEveryRoundStart();
             }
         }
-        //触发所有卡牌的回合结束效果
+        //触发所有卡牌的回合开始效果
         foreach (Card card in GetAllCardEntities())
         {
             if (card == null) continue;

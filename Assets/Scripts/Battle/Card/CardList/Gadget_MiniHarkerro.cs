@@ -2,7 +2,7 @@ using UnityEngine;
 using GridObjectSystem.GadgetSystem;
 using System.Collections.Generic;
 using System.Collections;
-using GridObjectSystem.GadgetSystem.Guns;
+using GridObjectSystem.GadgetSystem.Hakerros;
 using GridObjectSystem.RoleSystem;
 using System.Linq;
 using GlobalSystem;
@@ -34,6 +34,8 @@ namespace CardSystem.AllCardHub
             hak.transform.position = (Vector3)role?.transform.position;
             //设置八卦炉的归属玩家
             hak.SetBelongRole(role);
+            //设置八卦炉阵营
+            hak.SetSide((bool)role?.GetSide());
             //设置八卦炉玩家位置同步器
             GadgetPositionToRoleSyncer bSyncer = hak.GetComponent<GadgetPositionToRoleSyncer>();
             bSyncer?.SetPosSyncOpen(true);
