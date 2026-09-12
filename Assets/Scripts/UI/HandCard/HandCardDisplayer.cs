@@ -9,17 +9,18 @@ public class HandCardDisplayer : MonoBehaviour
     [SerializeField] private Vector2 posOffset = new Vector2(0, 0);//
     [SerializeField] private Vector2 indexOffset = new Vector2(0, 0);//卡牌的索引偏移
     [SerializeField] private float lerpSpeed = 1.0f;//偏移速度
-    [SerializeField] private float maxRotate = 27.0f;//角度制  
+    [SerializeField] private float maxRotate = 27.0f;//角度制
 
     [SerializeField] private float rotateSpeed = 1.0f;//旋转速度
     [SerializeField] private List<Card> handCardList = null;//手牌列表从战斗信息中获取
+
+    [SerializeField] private Vector2 hoverOffset = new Vector2(0, 50);//鼠标悬停在卡牌上时的卡牌偏移
+    public Vector2 GetHoverOffset() => hoverOffset;
+    public void SetHoverOffset(Vector2 offset) => hoverOffset = offset;
     //基础锚点Canvas
     [SerializeField] private RectTransform baseCardAnchor = null;
-    public RectTransform GetBaseCardAnchor()
-    {
-        return baseCardAnchor;
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public RectTransform GetBaseCardAnchor() => baseCardAnchor;
+
     void Start()
     {
         handCardList = BattleMessage.instance.GetHandCardList();
@@ -111,6 +112,7 @@ public class HandCardDisplayer : MonoBehaviour
         }
     
     }
+    
     private void ChangeHandCardPosition()
     {
         int cardCount = handCardList.Count;
@@ -126,6 +128,8 @@ public class HandCardDisplayer : MonoBehaviour
                 indexOffset.x * (index - center),
                 -Mathf.Abs(indexOffset.y * (index - center))//y方向全部向下
             ) + posOffset;
+            //若卡牌目前正有鼠标悬停,则添加鼠标悬停偏移
+            if((bool)card.GetComponent<CardHoverChecker>()?.IsHovering()) allLerp += hoverOffset;
             //获取并设置位置
             RectTransform cardRTF = card.GetComponent<RectTransform>();
             Vector2 target = baseCardAnchor.anchoredPosition + allLerp;

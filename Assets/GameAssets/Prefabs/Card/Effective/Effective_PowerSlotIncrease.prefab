@@ -1142,6 +1142,7 @@ GameObject:
   - component: {fileID: 1625184676289311345}
   - component: {fileID: 7730907650560054274}
   - component: {fileID: 3623121930064201658}
+  - component: {fileID: 877951165957740721}
   - component: {fileID: 3420748214366101851}
   - component: {fileID: 6779162895587306998}
   - component: {fileID: 190392096426927164}
@@ -1367,11 +1368,25 @@ MonoBehaviour:
   inDiscard: 0
   inDraw: 0
   inSlot: 0
-  cardLerpSpeed: 20
+  cardLerpSpeed: 10
   rotateSpeed: 10
   rectTransform: {fileID: 4526820275402633002}
-  offSet: {x: 0, y: 0}
+  dragOffset: {x: -65, y: 100}
   card: {fileID: 8448321370598006980}
+--- !u!114 &877951165957740721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ada275cf6251c46ba0d0f7065aa1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHovering: 0
+  card: {fileID: 0}
 --- !u!114 &3420748214366101851
 MonoBehaviour:
   m_ObjectHideFlags: 0

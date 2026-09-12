@@ -21,6 +21,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 31cc69c339fffca49bcbb5208c3b6a00
+    m_Address: AbilityDiscription_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 46a06ae397a19eb4380a8951bca9c534
     m_Address: MusicExplainTexts_en
     m_ReadOnly: 1

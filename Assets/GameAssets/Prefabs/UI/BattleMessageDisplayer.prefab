@@ -5497,10 +5497,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HandCardController
       objectReference: {fileID: 0}
-    - target: {fileID: 5703567442359132453, guid: db14eb1df8cb9dc49a4ddb7657d5f908, type: 3}
-      propertyPath: posOffset.y
-      value: -320
-      objectReference: {fileID: 0}
     - target: {fileID: 8380253742937980020, guid: db14eb1df8cb9dc49a4ddb7657d5f908, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

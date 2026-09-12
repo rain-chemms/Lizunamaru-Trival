@@ -3,82 +3,63 @@ using UnityEngine.UI;
 using TMPro;
 using GridObjectSystem.RoleSystem;
 using BulletSystem;
+using System;
 
 [RequireComponent(typeof(Canvas))]
 [RequireComponent(typeof(RectTransform))]
 [RequireComponent(typeof(Animator))]
 public class RoleMessageDisplayer : MonoBehaviour
 {
+    /*
+        基础信息相关
+    */
+    [Header("基础信息")]
     [SerializeField] private float lerpSpeed = 2.0f;
-    public void SetLerpTime(float lerpSpeed)
-    {
-        this.lerpSpeed = lerpSpeed;
-    }
-    public float GetLerpTime()
-    {
-        return lerpSpeed;
-    }
+    public void SetLerpTime(float lerpSpeed) => this.lerpSpeed = lerpSpeed;
+    public float GetLerpTime() => lerpSpeed;
+
     [SerializeField] private Role role;
-    public Role GetRole()
-    {
-        return role;
-    }
-    public void SetRole(Role role)
-    {
-        this.role = role;
-    }
+    public Role GetRole() => role;
+    public void SetRole(Role role) => this.role = role;
+
     [SerializeField] private Canvas canvas;
     [SerializeField] private Animator animator;
-    void Start()
+    
+    void OnEnable()
     {
         if(canvas == null) canvas = GetComponent<Canvas>();
         if(animator == null) animator = GetComponent<Animator>();
+        //尝试获取角色防御点数
+        lastDefendPoint = (uint)role?.GetDefend();
     }
+
     [SerializeField] private bool isDisplay = true;
-    public bool IsDisplay()
-    {
-        return isDisplay;
-    }
-    public void SetDisplay(bool isDisplay)
-    {
-        this.isDisplay = isDisplay;
-    }
-    // Update is called once per frame
+    public bool IsDisplay() => isDisplay;
+    public void SetDisplay(bool isDisplay) => this.isDisplay = isDisplay;
+    
     void Update()
     {
         CheckDisplayState();
         CheckHp();
         CheckDefend();
+        CheckAbility();
     }
 
-    private void CheckDisplayState()
-    {
-        canvas.enabled = isDisplay;
-    }
-
+    private void CheckDisplayState() => canvas.enabled = isDisplay;
     /*
         角色生命值相关的UI部件
     */
+    [Header("角色生命值相关")]
     [SerializeField] private Canvas hpCanvas;
-    public Canvas GetHpCanvas()
-    {
-        return hpCanvas;
-    }
+    public Canvas GetHpCanvas() => hpCanvas;
+    
     [SerializeField] private TMP_Text hpText;//血量文本
-    public TMP_Text GetHpText()
-    {
-        return hpText;
-    }
+    public TMP_Text GetHpText() => hpText;
+    
     [SerializeField] private Slider hpLerp;//数值渐变条
-    public Slider GetHpLerp()
-    {
-        return hpLerp;
-    }
+    public Slider GetHpLerp() => hpLerp;
     [SerializeField] private Slider hpInstant;//实时瞬变条
-    public Slider GetHpInstant()
-    {
-        return hpInstant;
-    }
+    public Slider GetHpInstant() => hpInstant;
 
     private void CheckHp()
     {
@@ -96,28 +77,44 @@ public class RoleMessageDisplayer : MonoBehaviour
     /*
         角色防御相关UI部件
     */
+    [Header("角色防御相关")]
     [SerializeField] private Canvas defendCanvas;
-    public Canvas GetDefendCanvas()
-    {
-        return defendCanvas;
-    }
+    public Canvas GetDefendCanvas() => defendCanvas;
     [SerializeField] private TMP_Text defendText;
-    public TMP_Text GetDefendText()
-    {
-        return defendText;
-    }
+    public TMP_Text GetDefendText() => defendText;
+    
+    [NonSerialized] private float lastDefendPoint;//上一次的防御点数
     private void CheckDefend()
     {
         if(role == null || defendText == null) return;
-        uint defendPoint = role.GetDefend();
-        if(defendPoint > 0)
+        //获取当前防御点数
+        uint nowDefendPoint = (uint)role?.GetDefend();
+        //触发动画器
+        if(nowDefendPoint > lastDefendPoint)
         {
-            defendText.text = defendPoint.ToString();
-            animator.SetBool("HiddenDefend",false);
+            animator.SetTrigger("GainDefend");
         }
-        else
+        else if(nowDefendPoint <= 0 && lastDefendPoint > 0)//破防了
         {
-            animator.SetBool("HiddenDefend",true);
+            animator.SetTrigger("Cracked");
         }
+        //设置防御点数文字显示
+        defendText.text = nowDefendPoint.ToString();
+        lastDefendPoint = nowDefendPoint;//保存当前防御点数
     }
+
+    /*
+        角色能力系统显示相关
+    */
+    [Header("角色能力系统显示相关")]
+    [SerializeField] private Canvas abilityBar;//能力栏
+    //单个能力显示的预制体
+
+    //检测角色的能力列表
+    //某些能力可能还会和其他能力有关,因此需要在预制体中写明
+    private void CheckAbility()
+    {
+        
+    }
+
 }   
