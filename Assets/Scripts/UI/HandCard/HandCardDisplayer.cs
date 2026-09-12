@@ -46,6 +46,7 @@ public class HandCardDisplayer : MonoBehaviour
         foreach(Card card in BattleMessage.instance.GetHandCardList())
         {
             if(card == null) continue;
+            if((bool)card.GetComponent<CardHandler>()?.IsDragging()) continue;
             RectTransform cardRTF = card.GetComponent<RectTransform>();
             cardRTF.anchorMax = Vector2.Lerp(
                 cardRTF.anchorMax ,
@@ -76,7 +77,7 @@ public class HandCardDisplayer : MonoBehaviour
             if((bool)card.GetComponent<CardHandler>()?.IsDragging()) continue;
             //获取并设置卡牌的父节点与当前父节点相同
             RectTransform cardRTF = card.GetComponent<RectTransform>();
-            if(cardRTF != null)
+            if(cardRTF != null && cardRTF.parent != baseCardAnchor.parent)
             {
                 cardRTF.SetParent(baseCardAnchor.parent);
             }

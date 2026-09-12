@@ -23,7 +23,7 @@ public class CardHandler : MonoBehaviour,
     [SerializeField] private float rotateSpeed = 10f;// 旋转速度
     [SerializeField] private RectTransform rectTransform;
 
-    [SerializeField] private Vector2 dragOffset = new Vector2(-65, 100);// 拖拽时图片的额外偏移量
+    [SerializeField] private Vector2 dragOffset = new Vector2(0.0f, 0.0f);// 拖拽时图片的额外偏移量
     public void SetDragOffset(Vector2 dOffset) => dragOffset = dOffset;
     public Vector2 GetDragOffset() => dragOffset;
 
@@ -35,13 +35,28 @@ public class CardHandler : MonoBehaviour,
         if (rectTransform == null) rectTransform = GetComponent<RectTransform>();
         if (card == null) card = GetComponent<Card>();
     }
+    
+    private RectTransform parentRT;
+    [SerializeField] private Vector2 grabOffset;      // 按下瞬间，卡牌 pivot 与鼠标的差
+    private Vector2 dragTarget;
     // 开始拖拽时触发
     public void OnBeginDrag(PointerEventData eventData)
     {
         isDragging = true;
+        parentRT = rectTransform.parent as RectTransform;
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            parentRT, eventData.position, GetUICamera(), out Vector2 local))
+        grabOffset = rectTransform.anchoredPosition - local;
+        dragTarget = rectTransform.anchoredPosition;
         //尝试播放拖拽音效
         card?.GetComponent<CardVoiceController>()?.PlayCardVoice("Drag");
         Debug.Log("[CardHandler]: Mouse Begin Drag]");
+    }
+    
+    private Camera GetUICamera()
+    {
+        Canvas c = GetComponentInParent<Canvas>();
+        return (c != null && c.renderMode != RenderMode.ScreenSpaceOverlay) ? c.worldCamera : null;
     }
 
     // 结束拖拽时触发
@@ -53,14 +68,19 @@ public class CardHandler : MonoBehaviour,
     }
 
     // 鼠标按住并拖拽时触发
-    [SerializeField] private Vector2 localMousePosition;//鼠标在图片上的位置 
     public void OnDrag(PointerEventData eventData)
     {
         // 将鼠标的屏幕坐标转换为当前图片的本地坐标,拖拽时更新目标位置坐标
+        /*
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
             rectTransform,
             eventData.position,
             eventData.pressEventCamera, out localMousePosition)) { }
+        */
+        if (parentRT == null) return;
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            parentRT, eventData.position, GetUICamera(), out Vector2 local))
+        dragTarget = local + grabOffset + dragOffset;   // 只在成功时才更新 
         //{
 
         // 更新图片的位置，减去初始偏移量防止图片瞬移到鼠标中心
@@ -95,7 +115,7 @@ public class CardHandler : MonoBehaviour,
         //rectTransform.anchoredPosition += localMousePosition - offset;
         rectTransform.anchoredPosition = Vector2.Lerp(
             rectTransform.anchoredPosition,
-            localMousePosition + dragOffset,
+            dragTarget,
             cardLerpSpeed * Time.deltaTime
         );
         /*
