@@ -1504,8 +1504,9 @@ MonoBehaviour:
   cardLerpSpeed: 10
   rotateSpeed: 10
   rectTransform: {fileID: 4526820275402633002}
-  dragOffset: {x: -65, y: 100}
+  dragOffset: {x: 0, y: 0}
   card: {fileID: 4204945852005887696}
+  grabOffset: {x: 0, y: 0}
 --- !u!114 &-5976117132518940385
 MonoBehaviour:
   m_ObjectHideFlags: 0

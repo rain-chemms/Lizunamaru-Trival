@@ -454,6 +454,24 @@ MonoBehaviour:
       (TMP) 1
     m_Metadata:
       m_Items: []
+  - m_Id: 24641318520225792
+    m_Key: AbilityIcon/Canvas (Environment)/AbilityIcon/AbilityDiscription/Discription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24641318696386560
+    m_Key: AbilityIcon/Canvas (Environment)/AbilityIcon/AbilityDiscription/Discription
+      1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24647102503190528
+    m_Key: RoleMessageDisplayer/Canvas (Environment)/RoleMessageDisplayer/AbilityBar/AbilityIcon/AbilityImage/LayerText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24647102641602560
+    m_Key: RoleMessageDisplayer/Canvas (Environment)/RoleMessageDisplayer/AbilityBar/AbilityIcon/AbilityImage/LayerText
+      1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 816146740363657316
@@ -783,6 +801,18 @@ MonoBehaviour:
           - zh
           - zh-Hant
           - ja
+        - m_KeyId: 24641318520225792
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 24647102503190528
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
         m_TypeString: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
     - rid: 816146740363657319
@@ -1090,6 +1120,18 @@ MonoBehaviour:
           - zh-Hant
           - ja
         - m_KeyId: 23422346206511104
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 24641318696386560
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 24647102641602560
           m_TableCodes:
           - en
           - zh

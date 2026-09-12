@@ -14,7 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TableCollectionName: AbilityDiscription
   m_TableCollectionNameGuidString: c0d80470c43a0c64db2eae7196717eec
-  m_Entries: []
+  m_Entries:
+  - m_Id: 113200048766976
+    m_Key: AbilityDiscribe_Debug
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132965777670144
+    m_Key: AbilityDiscribe_Ability_Velocity
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

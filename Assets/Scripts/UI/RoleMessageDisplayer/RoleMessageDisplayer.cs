@@ -2,7 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using GridObjectSystem.RoleSystem;
-using BulletSystem;
+using GridObjectSystem.AbilitySystem;
+using System.Collections.Generic;
+using System.Linq;
 using System;
 
 [RequireComponent(typeof(Canvas))]
@@ -31,6 +33,7 @@ public class RoleMessageDisplayer : MonoBehaviour
         if(animator == null) animator = GetComponent<Animator>();
         //尝试获取角色防御点数
         lastDefendPoint = (uint)role?.GetDefend();
+        if(role == null) role = GetComponentInParent<Role>();
     }
 
     [SerializeField] private bool isDisplay = true;
@@ -109,12 +112,44 @@ public class RoleMessageDisplayer : MonoBehaviour
     [Header("角色能力系统显示相关")]
     [SerializeField] private Canvas abilityBar;//能力栏
     //单个能力显示的预制体
+    [SerializeField] private AbilityIcon abilityIconPrefab;
 
+    [NonSerialized] private Dictionary<Ability,AbilityIcon> abtIconDict = new Dictionary<Ability,AbilityIcon>();//能力图标列表,用于管理显示
     //检测角色的能力列表
     //某些能力可能还会和其他能力有关,因此需要在预制体中写明
     private void CheckAbility()
     {
-        
+        Dictionary<Ability,int> abilityDict = role?.GetAbilityDict();
+        //检查abtIconDict中是否有角色不存在的ability
+        List<Ability> roleAbtList = abilityDict.Keys.ToList();
+        foreach(KeyValuePair<Ability,AbilityIcon> icon in abtIconDict.ToList())
+        {
+            Ability abt = icon.Key;
+            //角色不存在该能力,则销毁图标
+            if(abt == null || !roleAbtList.Contains(abt))
+            {
+                Destroy(icon.Value.gameObject);
+                abtIconDict.Remove(abt);
+            }
+        }
+        //刷新键值对显示
+        foreach(KeyValuePair<Ability,int> ability in abilityDict.ToList())
+        {
+            Ability abt = ability.Key;
+            int layer = ability.Value;
+            //若存在该能力,则刷新能力层数
+            if(abtIconDict.ContainsKey(abt))
+            {
+                AbilityIcon icon = abtIconDict[abt];
+                icon.RefreshLayerDisplay(layer,abt);
+            }
+            else//不存在能力则创建能力图标
+            {
+                AbilityIcon icon = Instantiate(abilityIconPrefab,abilityBar.transform);//设置其父物体为abilityBar
+                icon.SetIconDisplay(abt,layer);
+                abtIconDict.Add(abt,icon);//添加键值对
+            }
+        }
     }
 
 }   

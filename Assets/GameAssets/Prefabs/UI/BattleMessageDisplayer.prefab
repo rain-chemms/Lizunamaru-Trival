@@ -5595,6 +5595,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6253030793994212678}
     m_Modifications:
+    - target: {fileID: 2141462581891849448, guid: 04ab255b31962e946a5279e69a828e03, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2141462581891849448, guid: 04ab255b31962e946a5279e69a828e03, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2605705980113984513, guid: 04ab255b31962e946a5279e69a828e03, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

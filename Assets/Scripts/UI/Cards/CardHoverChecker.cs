@@ -12,7 +12,7 @@ public class CardHoverChecker : MonoBehaviour,IPointerEnterHandler, IPointerExit
     public void OnPointerEnter(PointerEventData eventData)
     {
         isHovering = true;
-        Debug.Log("鼠标悬停");
+        Debug.Log("[CardHoverChecker]: Mouse In.");
         // 例如：改变颜色、播放音效等
     }
 
@@ -20,7 +20,7 @@ public class CardHoverChecker : MonoBehaviour,IPointerEnterHandler, IPointerExit
     public void OnPointerExit(PointerEventData eventData)
     {
         isHovering = false;
-        Debug.Log("鼠标离开");
+        Debug.Log("[CardHoverChecker]: Mouse Exit.");
     }
 
     [SerializeField] private Card card;

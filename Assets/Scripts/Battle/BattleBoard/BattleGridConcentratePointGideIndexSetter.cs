@@ -6,8 +6,7 @@ using UnityEngine.EventSystems;
 public class BattleGridConcentratePointGideIndexSetter : MonoBehaviour,
     IPointerEnterHandler,
     IPointerExitHandler,
-    IPointerDownHandler,
-    IPointerUpHandler
+    IPointerClickHandler
 
 {
     [SerializeField] private BattleGrid battleGrid;
@@ -41,16 +40,10 @@ public class BattleGridConcentratePointGideIndexSetter : MonoBehaviour,
         }
     }
     
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)
     {
-        if(battleGrid == null) return;
-        Debug.Log("[BattleGridConcentratePointGideIndexSetter] PointerDown : <" + battleGrid?.GetIndex() + ">");
-    }
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        if(battleGrid == null) return;
-        Debug.Log("[BattleGridConcentratePointGideIndexSetter] PointerUp : <" + battleGrid?.GetIndex() + ">");
-        //ConcentratePoint.instance?.GetComponent<Animator>()?.SetBool("WillConfirm",false);//修改动画器属性
-        if(inSide) ConcentratePoint.instance?.SetIsLocked(!(bool)ConcentratePoint.instance?.IsLocked());//修改动画器属性
+        // 完整的点击：按下 + 抬起 都在同一物体上触发
+        Debug.Log("[BattleGridConcentratePointGideIndexSetter] PointerClicked : <" + battleGrid?.GetIndex() + ">");
+        if(inSide) ConcentratePoint.instance?.SetIsLocked(!(bool)ConcentratePoint.instance?.IsLocked());//交换锁定属性
     }
 }
