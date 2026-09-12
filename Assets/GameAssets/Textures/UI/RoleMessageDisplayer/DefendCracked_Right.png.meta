@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4c6d4954239350649b630799cc6d3b88
+guid: 0f91b045e70505d4480ec58ea7f4ad48
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -108,73 +108,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: DefendIcon2_Left
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 15
-        width: 305
-        height: 792
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c034e3334a458ec439bd06ad52e17414
-      internalID: 219543146
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DefendIcon2_Right
-      rect:
-        serializedVersion: 2
-        x: 321
-        y: 17
-        width: 303
-        height: 790
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 27225ee6304d10a4e872e156d0354c13
-      internalID: 2011455090
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DefendIcon2_All
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 15
-        width: 608
-        height: 792
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 129ca8c83a939e0439d9920a36afcc6d
-      internalID: 1815734658
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     customData: 
     physicsShape: []
@@ -188,10 +122,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      DefendIcon2_All: 1815734658
-      DefendIcon2_Left: 219543146
-      DefendIcon2_Right: 2011455090
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

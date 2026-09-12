@@ -14,10 +14,11 @@ public class ConcentratePointDisplayer : MonoBehaviour
         mrl = GetComponentsInChildren<MeshRenderer>().ToList();//获取所有网格渲染器
     }
     [SerializeField] private List<MeshRenderer> mrl;
+    [SerializeField] private bool isOpen = false;
     // Update is called once per frame
     void Update()
     {
-        ChangeDisplayState();
+       if(isOpen) ChangeDisplayState();
     }
 
     private void ChangeDisplayState()

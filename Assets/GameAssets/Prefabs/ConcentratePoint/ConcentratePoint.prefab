@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8297562263618835076, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8196145885668999172, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -56,12 +60,24 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8196145885668999172, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f84b61b539c6a4d4a9ea1a6e6153988c, type: 2}
     - target: {fileID: -6842482949286379344, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -6842482949286379344, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
       propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6842482949286379344, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4fb707c2bcc0aeb4bbdd02c994a41fb8, type: 2}
+    - target: {fileID: -6104209546659467509, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4877722500824065057, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
@@ -72,6 +88,14 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1970887487131312890, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -952057517854001965, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -885625402188799142, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -80,10 +104,22 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -885625402188799142, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 291801117ba37314389b0a636ee862fc, type: 2}
     - target: {fileID: -810546290111527814, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -149284180402547039, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 145226126500944357, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 407788391217427679, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -92,6 +128,10 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 407788391217427679, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2618939cca3d3084caaa43d83dc1f2de, type: 2}
     - target: {fileID: 919132149155446097, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
       propertyPath: m_Name
       value: ConcentratePoint
@@ -116,6 +156,10 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4198205700299503849, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: eea82125d9c77704babc4b366f80589c, type: 2}
     - target: {fileID: 5083697960937487849, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -124,6 +168,10 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5083697960937487849, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a92a3452c21ff9c45822216856255df6, type: 2}
     - target: {fileID: 7843322587715575718, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -147,6 +195,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2817222786905900221}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2842939912395808478}
   m_SourcePrefab: {fileID: 100100000, guid: af948f78307444647a7d1e7eaaadf595, type: 3}
 --- !u!1 &9125327071750196047 stripped
 GameObject:
@@ -204,6 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   concentratePoint: {fileID: 6060239937455496011}
   mrl: []
+  isOpen: 0
 --- !u!114 &8616007862958941802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,3 +286,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1024446780958305415}
   point: {fileID: 6060239937455496011}
+--- !u!114 &2842939912395808478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9125327071750196047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 022d2289523182340903bffeecfe1473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  point: {fileID: 6060239937455496011}
+  inputAsset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

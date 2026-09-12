@@ -16,6 +16,7 @@ public class ConcentratePointAnimatorSetter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator?.SetBool("Locked",(bool)point?.IsLocked());       
+        animator?.SetBool("Locked",(bool)point?.IsLocked()); 
+        animator?.SetBool("IsDisplay",(bool)point?.IsDisplay());      
     }
 }

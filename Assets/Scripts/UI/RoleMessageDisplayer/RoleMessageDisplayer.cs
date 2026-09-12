@@ -9,7 +9,6 @@ using System;
 
 [RequireComponent(typeof(Canvas))]
 [RequireComponent(typeof(RectTransform))]
-[RequireComponent(typeof(Animator))]
 public class RoleMessageDisplayer : MonoBehaviour
 {
     /*
@@ -25,12 +24,11 @@ public class RoleMessageDisplayer : MonoBehaviour
     public void SetRole(Role role) => this.role = role;
 
     [SerializeField] private Canvas canvas;
-    [SerializeField] private Animator animator;
     
     void OnEnable()
     {
         if(canvas == null) canvas = GetComponent<Canvas>();
-        if(animator == null) animator = GetComponent<Animator>();
+        if(defendAnimator == null) defendAnimator = GetComponentsInChildren<Animator>().Where(x => x.gameObject.name.Equals("Defend")).FirstOrDefault();
         //尝试获取角色防御点数
         lastDefendPoint = (uint)role?.GetDefend();
         if(role == null) role = GetComponentInParent<Role>();
@@ -86,6 +84,8 @@ public class RoleMessageDisplayer : MonoBehaviour
     [SerializeField] private TMP_Text defendText;
     public TMP_Text GetDefendText() => defendText;
     
+    [SerializeField] private Animator defendAnimator;
+    
     [NonSerialized] private float lastDefendPoint;//上一次的防御点数
     private void CheckDefend()
     {
@@ -95,11 +95,15 @@ public class RoleMessageDisplayer : MonoBehaviour
         //触发动画器
         if(nowDefendPoint > lastDefendPoint)
         {
-            animator.SetTrigger("GainDefend");
+            defendAnimator?.SetTrigger("GainDefend");
         }
         else if(nowDefendPoint <= 0 && lastDefendPoint > 0)//破防了
         {
-            animator.SetTrigger("Cracked");
+            defendAnimator?.SetTrigger("Cracked");
+        }
+        else if(nowDefendPoint < lastDefendPoint)//防御降低了
+        {
+            defendAnimator?.SetTrigger("LoseDefend");
         }
         //设置防御点数文字显示
         defendText.text = nowDefendPoint.ToString();
