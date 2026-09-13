@@ -18,6 +18,7 @@ public class CardHandler : MonoBehaviour,
     [SerializeField] private bool inDraw = false;
     [SerializeField] private bool inSlot = false;
     public bool IsDragging() => isDragging;
+    public void SetIsDragging(bool isDragging) => this.isDragging = isDragging;
 
     [SerializeField] private float cardLerpSpeed = 10.0f;
     [SerializeField] private float rotateSpeed = 10f;// 旋转速度

@@ -903,6 +903,7 @@ GameObject:
   - component: {fileID: 1999042000367588561}
   - component: {fileID: 3329187725739718648}
   - component: {fileID: 5306476897678254070}
+  - component: {fileID: 1294099521838997635}
   m_Layer: 5
   m_Name: BattleMessageDisplayer
   m_TagString: Untagged
@@ -1093,6 +1094,21 @@ MonoBehaviour:
   hideAlpha: 0.5
   isHidden: 0
   animator: {fileID: 3329187725739718648}
+--- !u!114 &1294099521838997635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237234409092675563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579fb4601fd1b104b9f268de2cdd94d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputAsset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  cardIndex: -1
+  isSelected: 0
 --- !u!1 &1764150568763529091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1573,6 +1589,7 @@ GameObject:
   - component: {fileID: 205368710234972427}
   - component: {fileID: 3690391032668588330}
   - component: {fileID: 3928876618880369370}
+  - component: {fileID: 5104562794058418999}
   m_Layer: 5
   m_Name: InnerCardChecker
   m_TagString: Untagged
@@ -1720,6 +1737,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardStackName: exhaustCardList
   cardList: []
+--- !u!114 &5104562794058418999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2559241374801313380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64506144567244a9b82da333bf6abe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputAction: {fileID: 5689398675620312479, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  targetButton: {fileID: 3690391032668588330}
 --- !u!1 &2927594245508058418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1733,6 +1764,7 @@ GameObject:
   - component: {fileID: 5870536323069824711}
   - component: {fileID: 6342516547574345119}
   - component: {fileID: 7812794411446320057}
+  - component: {fileID: 2587942804994798958}
   m_Layer: 5
   m_Name: RoundEndButton
   m_TagString: Untagged
@@ -1867,6 +1899,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 6342516547574345119}
+--- !u!114 &2587942804994798958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2927594245508058418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64506144567244a9b82da333bf6abe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputAction: {fileID: 3571864285793644070, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  targetButton: {fileID: 6342516547574345119}
 --- !u!1 &3815279262321466290
 GameObject:
   m_ObjectHideFlags: 0
@@ -3848,6 +3894,7 @@ GameObject:
   - component: {fileID: 8835323961493707490}
   - component: {fileID: 1069823693482666900}
   - component: {fileID: 4732382882147575356}
+  - component: {fileID: 3309170428998140897}
   m_Layer: 5
   m_Name: BattleCameraViewShifter
   m_TagString: Untagged
@@ -3982,6 +4029,20 @@ MonoBehaviour:
     lerpSpeed: 1.5
     isDefaultItem: 0
   index: 0
+--- !u!114 &3309170428998140897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4834700994097334894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64506144567244a9b82da333bf6abe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputAction: {fileID: 6767439892432359372, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  targetButton: {fileID: 1069823693482666900}
 --- !u!1 &4850486233045367665
 GameObject:
   m_ObjectHideFlags: 0
@@ -4471,6 +4532,7 @@ GameObject:
   - component: {fileID: 3853175714205668698}
   - component: {fileID: 836697346263624782}
   - component: {fileID: 5826678428355822764}
+  - component: {fileID: 5366636834643207790}
   m_Layer: 5
   m_Name: HiddenButton
   m_TagString: Untagged
@@ -4592,6 +4654,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5366636834643207790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7007731540141744055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64506144567244a9b82da333bf6abe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputAction: {fileID: -1650310450353946543, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  targetButton: {fileID: 5826678428355822764}
 --- !u!1 &7298811425276502534
 GameObject:
   m_ObjectHideFlags: 0
@@ -4605,6 +4681,7 @@ GameObject:
   - component: {fileID: 3174459391170877373}
   - component: {fileID: 5980747137165606697}
   - component: {fileID: 2749471635584759306}
+  - component: {fileID: 778084626889272984}
   m_Layer: 5
   m_Name: InnerCardChecker
   m_TagString: Untagged
@@ -4752,6 +4829,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardStackName: discardCardList
   cardList: []
+--- !u!114 &778084626889272984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7298811425276502534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64506144567244a9b82da333bf6abe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputAction: {fileID: 7600202856800727296, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  targetButton: {fileID: 5980747137165606697}
 --- !u!1 &7325167823111628478
 GameObject:
   m_ObjectHideFlags: 0
@@ -4877,6 +4968,7 @@ GameObject:
   - component: {fileID: 8804109942881027042}
   - component: {fileID: 4229504139771253825}
   - component: {fileID: 6592067151590177420}
+  - component: {fileID: 3809683923099699554}
   m_Layer: 5
   m_Name: InnerCardChecker
   m_TagString: Untagged
@@ -5024,6 +5116,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardStackName: drawCardList
   cardList: []
+--- !u!114 &3809683923099699554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7478395392113486428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64506144567244a9b82da333bf6abe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputAction: {fileID: 182826830021447882, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  targetButton: {fileID: 4229504139771253825}
 --- !u!1 &7532126199897759904
 GameObject:
   m_ObjectHideFlags: 0

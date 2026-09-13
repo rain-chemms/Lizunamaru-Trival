@@ -707,25 +707,35 @@ public class BattleMessage : MonoBehaviour
     {
         //打出卡牌
         if (card == null) yield break;
-        if (card?.GetRiceCost() <= instance?.GetRicePoint() && costRice)//能量足够且耗能的情况下可以打出
+        //卡牌是否有不可打出关键字
+        bool canPlay = !(bool)card?.GetCardKeyWords()?.Contains(CardKeyWord.UNPLAYABLE);
+        if (card?.GetRiceCost() <= instance?.GetRicePoint() && costRice && canPlay)//能量足够且耗能的情况下可以打出
         {
             instance?.SetRicePoint((uint)(instance?.GetRicePoint() - card?.GetRiceCost()));
             yield return ((ICardFunctioner)card).AfterPlay();//AfterPlay函数会对消耗字段进行检测,若存在消耗字段则触发消耗的连锁函数
             //将卡牌返回弃牌堆
             //若当前卡牌有消耗关键字,则不将其加入弃牌堆
-            if (card != null && !(bool)card.GetCardKeyWords()?.Contains(CardKeyWord.EXHAUST)) instance?.GetDiscardCardList()?.Add(card);
+            if (card != null && !(bool)card.GetCardKeyWords()?.Contains(CardKeyWord.EXHAUST)) 
+            {
+                instance?.GetDiscardCardList()?.Add(card);
+                instance?.GetHandCardList()?.Remove(card);//将卡牌从手中移除
+            }
         }
-        else if (!costRice)
+        else if (!costRice && canPlay)
         {
             //不对费用进行消耗
             yield return ((ICardFunctioner)card).AfterPlay();//AfterPlay函数会对消耗字段进行检测,若存在消耗字段则触发消耗的连锁函数
             //将卡牌返回弃牌堆
             //若当前卡牌有消耗关键字,则不将其加入弃牌堆
-            if (card != null && !(bool)card.GetCardKeyWords()?.Contains(CardKeyWord.EXHAUST)) instance?.GetDiscardCardList()?.Add(card);
+            if (card != null && !(bool)card.GetCardKeyWords()?.Contains(CardKeyWord.EXHAUST)) 
+            {
+                instance?.GetDiscardCardList()?.Add(card);
+                instance?.GetHandCardList()?.Remove(card);//将卡牌从手中移除
+            }
         }
         else//将这张牌返回手中
         {
-            if (card != null)
+            if (card != null && !(bool)instance?.GetHandCardList()?.Contains(card))
             {
                 instance?.GetHandCardList().Add(card);
             }

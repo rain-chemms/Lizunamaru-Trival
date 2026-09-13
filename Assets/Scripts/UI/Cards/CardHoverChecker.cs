@@ -8,6 +8,7 @@ public class CardHoverChecker : MonoBehaviour,IPointerEnterHandler, IPointerExit
 {
     [SerializeField] private bool isHovering = false;
     public bool IsHovering() => isHovering;
+    public void SetIsHovering(bool isHovering) => this.isHovering = isHovering; 
     // 鼠标进入时触发
     public void OnPointerEnter(PointerEventData eventData)
     {
