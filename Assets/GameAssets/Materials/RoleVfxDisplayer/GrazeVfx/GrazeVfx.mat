@@ -30,7 +30,7 @@ Material:
   - _RENDERTYPE_BODY
   - _RIM_LIGHTING_ON
   - _SPECULAR_ON
-  - _USEFACELIGHTMAPCHANNEL_A
+  - _USEFACELIGHTMAPCHANNEL_R
   m_InvalidKeywords:
   - _ENABLEOUTLINE_ON
   - _METALMATERIAL_ON
@@ -196,7 +196,7 @@ Material:
     - _ReceiveShadows: 1
     - _RenderType: 0
     - _RimLightBrightness: 9.96
-    - _RimLightFadeout: 1
+    - _RimLightFadeout: 0.01
     - _RimLightThreshold: 1
     - _RimLightWidth: 1.15
     - _Shininess: 10
@@ -221,7 +221,7 @@ Material:
     - _UseCoolShadowColorOrTex: 0
     - _UseCustomOutlineCol: 0
     - _UseEmission: 0
-    - _UseFaceLightMapChannel: 1
+    - _UseFaceLightMapChannel: 0
     - _UseMainLightshadowAttenuation: 0
     - _UseNormalMap: 0
     - _UseRimLight: 1
@@ -235,7 +235,7 @@ Material:
     - _DarkShadowColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionTintColor: {r: 1, g: 1, b: 1, a: 1}
-    - _FrontFaceTintColor: {r: 0, g: 1, b: 0.8160639, a: 1}
+    - _FrontFaceTintColor: {r: 0.967492, g: 1, b: 0, a: 1}
     - _LightAreaColorTint: {r: 1, g: 1, b: 1, a: 1}
     - _MTMapDarkColor: {r: 0.50999993, g: 0.29999998, b: 0.18999997, a: 1}
     - _MTMapLightColor: {r: 1, g: 1, b: 1, a: 1}
@@ -256,7 +256,7 @@ Material:
     - _RimColor3: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor4: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor5: {r: 1, g: 1, b: 1, a: 1}
-    - _RimLightTintColor: {r: 0, g: 0, b: 0, a: 1}
+    - _RimLightTintColor: {r: 1, g: 0.87991387, b: 0, a: 1}
     - _ScreenOffset: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}

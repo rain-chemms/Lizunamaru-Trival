@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5170538863262550101}
   - component: {fileID: 118764012142435854}
   m_Layer: 5
-  m_Name: SettingSelectButtonTemplate
+  m_Name: KeyMappingBT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 5170538863262550101}
-  settingPanelButton: {fileID: 0}
+  settingPanelButton: {fileID: 2827946133854849465, guid: de222fed057317a478e03daef1ce2472, type: 3}
 --- !u!1 &8417082452073079388
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,9 +301,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:e2fcf0a1c5cc9074ea69c49b22081d4d
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 26787219393085440
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
