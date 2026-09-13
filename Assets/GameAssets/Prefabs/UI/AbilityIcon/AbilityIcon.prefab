@@ -95,8 +95,10 @@ MonoBehaviour:
   abilityLayer: {fileID: 2731651343834458041}
   debugSprite: {fileID: 21300000, guid: 1bd84a71ba59dca41a7e40eb73a7ccdd, type: 3}
   abilityImageDict:
-    m_keys: []
-    m_values: []
+    m_keys:
+    - Ability_Velocity
+    m_values:
+    - {fileID: 21300000, guid: 4866dea302239914dbc6651e6f984149, type: 3}
   discription: {fileID: 7670577706272915660}
   searchLocaleTableName: AbilityDiscription
   localizeEvent: {fileID: 2247830747849316283}
