@@ -212,11 +212,16 @@ namespace GlobalSystem
             for(int i = 0 ; i < count; i++)
             {
                 if(i == index) continue;
-                handCards[i].GetComponent<CardHandler>()?.SetIsDragging(false);//抬起时将所有卡牌isDraging设置为false
+                CardHandler handler = handCards[i].GetComponent<CardHandler>();
+                handler?.SetIsDragging(false);//抬起时将所有卡牌isDraging设置为false
             }
             if(index < 0 || index >= count) return;//索引越界不执行
             Card targetCard = handCards[index];//获取索引对应的卡牌
-            targetCard.GetComponent<CardHandler>()?.SetIsDragging(isDragging);
+            CardHandler targetHandler = targetCard?.GetComponent<CardHandler>();
+            targetHandler?.SetIsDragging(isDragging);
+            targetHandler?.SetDragOffset(Vector2.zero);
+            targetHandler?.SetGrabOffset(Vector2.zero);
+            targetHandler?.SetDragTarget(Vector2.zero);
         }
 
         //方法函数

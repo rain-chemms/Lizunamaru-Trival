@@ -1352,6 +1352,8 @@ GameObject:
   - component: {fileID: 6849037216601940225}
   - component: {fileID: 3836733597650342495}
   - component: {fileID: 1094227001857776020}
+  - component: {fileID: -212830422014756561}
+  - component: {fileID: -5767113644895338329}
   - component: {fileID: -7070801700419345713}
   - component: {fileID: -6459447365972979151}
   m_Layer: 3
@@ -1430,7 +1432,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &8145605548122215368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1786,6 +1788,37 @@ MonoBehaviour:
   card: {fileID: 794175598821437183}
   displayText: {fileID: 8690290307639590085}
   displayImage: {fileID: 8937301076113714598}
+--- !u!114 &-212830422014756561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee04bb6cd10a524e976ab36174a8b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverCursor: {fileID: 2800000, guid: 669604dbfe28ab546aa36bcf31adef15, type: 3}
+  pressCursor: {fileID: 2800000, guid: 4bb76061917e8ca4da3a198b52389cda, type: 3}
+--- !u!114 &-5767113644895338329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa06f77dde20314a99c2c0a861b0ab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 794175598821437183}
+  indexMapDict:
+    m_keys: 
+    m_values: []
+  dynamicValueSetter: {fileID: 5598642955076528228}
 --- !u!114 &-7070801700419345713
 MonoBehaviour:
   m_ObjectHideFlags: 0

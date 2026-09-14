@@ -39,7 +39,12 @@ public class CardHandler : MonoBehaviour,
     
     private RectTransform parentRT;
     [SerializeField] private Vector2 grabOffset;      // 按下瞬间，卡牌 pivot 与鼠标的差
-    private Vector2 dragTarget;
+    public Vector2 GetGrabOffset() => grabOffset;
+    public void SetGrabOffset(Vector2 grabOffset) => this.grabOffset = grabOffset;
+
+    [SerializeField] private Vector2 dragTarget;
+    public Vector2 GetDragTarget() => dragTarget;
+    public void SetDragTarget(Vector2 dragTarget) => this.dragTarget = dragTarget;
     // 开始拖拽时触发
     public void OnBeginDrag(PointerEventData eventData)
     {

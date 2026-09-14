@@ -1161,6 +1161,7 @@ GameObject:
   - component: {fileID: 2609984970971271286}
   - component: {fileID: 6849037216601940225}
   - component: {fileID: 413476355877467771}
+  - component: {fileID: 6127288343905846861}
   - component: {fileID: 8733297926563790165}
   - component: {fileID: 1623513001104513029}
   - component: {fileID: 9218931378968090475}
@@ -1582,6 +1583,20 @@ MonoBehaviour:
   card: {fileID: 1542212326629998061}
   displayText: {fileID: 4524002566662319323}
   displayImage: {fileID: 8299132168465391022}
+--- !u!114 &6127288343905846861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee04bb6cd10a524e976ab36174a8b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverCursor: {fileID: 2800000, guid: 669604dbfe28ab546aa36bcf31adef15, type: 3}
+  pressCursor: {fileID: 2800000, guid: 4bb76061917e8ca4da3a198b52389cda, type: 3}
 --- !u!114 &8733297926563790165
 MonoBehaviour:
   m_ObjectHideFlags: 0
