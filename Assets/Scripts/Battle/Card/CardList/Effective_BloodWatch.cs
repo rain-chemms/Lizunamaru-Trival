@@ -9,8 +9,29 @@ namespace CardSystem.AllCardHub
     //打出时,结束当前回合,进行一个额外的回合
     public class Effective_BloodWatch : Card
     {
+        [SerializeField] private AudioSource timeFrozenVoice;
+        public void SetTimeFrozenVoice(AudioSource voice) => timeFrozenVoice = voice;
+        public AudioSource GetTimeFrozenVoice() => timeFrozenVoice;
+
+        protected override void OnEnable()
+        {
+            if(timeFrozenVoice == null)
+            {
+                foreach(var item in GetComponentsInChildren<AudioSource>())
+                {
+                    if(item.name == "TimeFrozen")
+                    {
+                        timeFrozenVoice = item;
+                        break;
+                    }
+                }
+            }
+            base.OnEnable();
+        }
+
         public override IEnumerator AfterPlay()
         {
+            timeFrozenVoice?.Play();
             yield return BattleMessage.instance?.ChangeTurn(false);//不切换控制权切换回合
             yield return base.AfterPlay();
         }

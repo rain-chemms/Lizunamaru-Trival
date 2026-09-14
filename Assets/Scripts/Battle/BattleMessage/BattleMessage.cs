@@ -592,6 +592,12 @@ public class BattleMessage : MonoBehaviour
         if(drawCardList.Contains(existCard)) drawCardList.Remove(existCard);
         if(handCardList.Contains(existCard)) handCardList.Remove(existCard);
         if(exhaustCardList.Contains(existCard)) exhaustCardList.Remove(existCard);
+        //检测卡槽中的卡牌是否存在
+        foreach (CardSlot cl in GetAllCardSlot())
+        {
+            if (cl == null) continue;
+            if (cl.GetInnerCard() == existCard) cl.SetInnerCard(null);//移除卡槽中的卡牌
+        }
         //这样写可以实现手中的卡牌让其排到手牌队列的末尾
         if (handCardList.Count < maxHandCardCount)
         {

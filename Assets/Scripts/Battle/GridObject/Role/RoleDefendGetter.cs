@@ -27,6 +27,27 @@ namespace GridObjectSystem.RoleSystem
                     }
                 }
             }
+            //自动获取音效
+            foreach(AudioSource a in GetComponentsInChildren<AudioSource>().ToList())
+            {
+                if(defendGainVoice != null && defendBlockedVoice != null && defendCrackedVoice != null) break;
+                if(a == null) continue;
+                if(a.name.Equals("DefendGain"))//用名字进行默认匹配
+                {
+                    defendGainVoice = a;
+                    continue;
+                }            
+                if(a.name.Equals("DefendBlocked"))//用名字进行默认匹配
+                {
+                    defendBlockedVoice = a;
+                    continue;
+                }
+                if(a.name.Equals("DefendCracked"))//用名字进行默认匹配
+                {
+                    defendCrackedVoice = a;
+                    continue;
+                }    
+            }
         }
 
         IEnumerator Start()
@@ -34,6 +55,11 @@ namespace GridObjectSystem.RoleSystem
             yield return CheckDefendPointAndControlVfx();
         }
 
+        //护盾音效
+        [SerializeField] private AudioSource defendGainVoice;
+        [SerializeField] private AudioSource defendBlockedVoice;
+        [SerializeField] private AudioSource defendCrackedVoice;
+        //护盾特效
         [SerializeField] private ParticleSystem shieldVfx;
         //检测玩家格挡点数触发护盾特效
         private IEnumerator CheckDefendPointAndControlVfx()
@@ -65,14 +91,23 @@ namespace GridObjectSystem.RoleSystem
                 Debug.Log("[RoleDefendGetter]: Role:"+ role?.name +" Get Defend Point: " + Mathf.Abs(defendPoint).ToString());
                 role.SetDefend(role.GetDefend() + (uint)defendPoint);//格挡值增加
                 animName = "Defend";
+                defendGainVoice?.Play();
             }
             else if (defendPoint < 0)
             {
                 Debug.Log("[RoleDefendGetter]: Role:"+ role?.name +" Lose Defend Point: " + Mathf.Abs(defendPoint).ToString());
                 int temp = (int)role.GetDefend() - Mathf.Abs(defendPoint);
                 //格挡值最低为0
-                if (temp < 0) role.SetDefend(0);//格挡值减少
-                else role.SetDefend((uint)temp);
+                if (temp < 0) //破防了
+                {
+                    role.SetDefend(0);//格挡值减少
+                    defendCrackedVoice?.Play();
+                }
+                else //防住了
+                {
+                    role.SetDefend((uint)temp);
+                    defendBlockedVoice?.Play();
+                }
                 animName = "Skill";
             }
             else yield break;//0时返回

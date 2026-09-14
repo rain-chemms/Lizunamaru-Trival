@@ -902,6 +902,7 @@ GameObject:
   - component: {fileID: 2652172839978141220}
   - component: {fileID: 5628018951516895232}
   - component: {fileID: 5689518730916248699}
+  - component: {fileID: 1223444994965432056}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -1040,6 +1041,20 @@ MonoBehaviour:
   clickVoice: {fileID: 8685961365713102443}
   autolinkClickFunction: 1
   fouceVoice: {fileID: 5024174164218690007}
+--- !u!114 &1223444994965432056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4299849203480085642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee04bb6cd10a524e976ab36174a8b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverCursor: {fileID: 2800000, guid: 669604dbfe28ab546aa36bcf31adef15, type: 3}
+  pressCursor: {fileID: 2800000, guid: 2dba2be2ce1eb4741b8490f04572b199, type: 3}
 --- !u!1 &4361779215395141204
 GameObject:
   m_ObjectHideFlags: 0
@@ -1054,6 +1069,7 @@ GameObject:
   - component: {fileID: 3009678481554461157}
   - component: {fileID: 470746873156889749}
   - component: {fileID: 421583137794166205}
+  - component: {fileID: 6820081928563810499}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -1193,6 +1209,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 3009678481554461157}
+--- !u!114 &6820081928563810499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4361779215395141204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee04bb6cd10a524e976ab36174a8b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverCursor: {fileID: 2800000, guid: 669604dbfe28ab546aa36bcf31adef15, type: 3}
+  pressCursor: {fileID: 2800000, guid: 2dba2be2ce1eb4741b8490f04572b199, type: 3}
 --- !u!1 &4382567025529205325
 GameObject:
   m_ObjectHideFlags: 0
@@ -1697,6 +1727,7 @@ GameObject:
   - component: {fileID: 5604794248844993983}
   - component: {fileID: 6331081146003097418}
   - component: {fileID: 2289444174777575508}
+  - component: {fileID: 8042403512681013610}
   m_Layer: 5
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -1836,6 +1867,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 5604794248844993983}
+--- !u!114 &8042403512681013610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5575729771809236811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee04bb6cd10a524e976ab36174a8b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverCursor: {fileID: 2800000, guid: 669604dbfe28ab546aa36bcf31adef15, type: 3}
+  pressCursor: {fileID: 2800000, guid: 2dba2be2ce1eb4741b8490f04572b199, type: 3}
 --- !u!1 &6232838054751725231
 GameObject:
   m_ObjectHideFlags: 0
@@ -2909,6 +2954,7 @@ GameObject:
   - component: {fileID: 8436310025334691192}
   - component: {fileID: 1175031263683024786}
   - component: {fileID: 6473698179727068008}
+  - component: {fileID: 5321533542585098900}
   m_Layer: 5
   m_Name: MusicRoomButton
   m_TagString: Untagged
@@ -3062,6 +3108,20 @@ MonoBehaviour:
   clickVoice: {fileID: 262015715626390065}
   autolinkClickFunction: 1
   fouceVoice: {fileID: 6348100002789730885}
+--- !u!114 &5321533542585098900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8716627883385478131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee04bb6cd10a524e976ab36174a8b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverCursor: {fileID: 2800000, guid: 669604dbfe28ab546aa36bcf31adef15, type: 3}
+  pressCursor: {fileID: 2800000, guid: 2dba2be2ce1eb4741b8490f04572b199, type: 3}
 --- !u!1 &8755441812343323098
 GameObject:
   m_ObjectHideFlags: 0

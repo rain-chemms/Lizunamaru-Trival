@@ -1,5 +1,7 @@
 using UnityEngine;
 using GlobalSystem;
+using System.Linq;
+
 namespace GridObjectSystem.RoleSystem
 {
     [RequireComponent(typeof(Role))]
@@ -14,8 +16,21 @@ namespace GridObjectSystem.RoleSystem
             //尝试自动获取
             if (role == null) role = GetComponent<Role>();
             if (animTrigger == null) animTrigger = GetComponent<AnimTrigger>();
+            //自动获取音效
+            foreach(AudioSource a in GetComponentsInChildren<AudioSource>().ToList())
+            {
+                if(behitVoice != null) break;
+                if(a.name.Equals("Behit"))//用名字进行默认匹配
+                {
+                    behitVoice = a;
+                    break;
+                }
+            }
         }
 
+        //受击音效
+        [SerializeField] private AudioSource behitVoice;
+        
         //下面的函数中存放角色收到伤害时的逻辑
         /*
             逻辑如下:
@@ -48,6 +63,7 @@ namespace GridObjectSystem.RoleSystem
             if(nowHp <= 0) nowHp = 0;
             role.SetHp(nowHp);
             if (animTrigger != null) animTrigger.TriggerAnim("Behit");
+            behitVoice?.Play();//播放受击音效
         }
     }
 }
