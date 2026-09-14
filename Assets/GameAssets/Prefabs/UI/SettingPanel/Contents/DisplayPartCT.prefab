@@ -1003,6 +1003,7 @@ GameObject:
   - component: {fileID: 8337648459418492899}
   - component: {fileID: 7694326646170299119}
   - component: {fileID: 5038938335431193187}
+  - component: {fileID: 5983578846721480724}
   m_Layer: 5
   m_Name: VSync
   m_TagString: Untagged
@@ -1160,6 +1161,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropdown: {fileID: 7694326646170299119}
+--- !u!114 &5983578846721480724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619607917933619960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee04bb6cd10a524e976ab36174a8b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverCursor: {fileID: 2800000, guid: 669604dbfe28ab546aa36bcf31adef15, type: 3}
+  pressCursor: {fileID: 2800000, guid: 2dba2be2ce1eb4741b8490f04572b199, type: 3}
 --- !u!1 &697933540857061224
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,6 +1300,7 @@ GameObject:
   - component: {fileID: 6817127771067111359}
   - component: {fileID: 4084872125933714285}
   - component: {fileID: 6731345136443893477}
+  - component: {fileID: 9130449118426632563}
   m_Layer: 5
   m_Name: Resolution
   m_TagString: Untagged
@@ -1464,6 +1480,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   linker: {fileID: 4084872125933714285}
+--- !u!114 &9130449118426632563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342569869093101311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee04bb6cd10a524e976ab36174a8b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverCursor: {fileID: 2800000, guid: 669604dbfe28ab546aa36bcf31adef15, type: 3}
+  pressCursor: {fileID: 2800000, guid: 2dba2be2ce1eb4741b8490f04572b199, type: 3}
 --- !u!1 &1672737768662474784
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,6 +1693,7 @@ GameObject:
   - component: {fileID: 6919291293366857892}
   - component: {fileID: 6928161769078647484}
   - component: {fileID: 2853663773844217664}
+  - component: {fileID: 7242381881321687921}
   m_Layer: 5
   m_Name: RefreshRate
   m_TagString: Untagged
@@ -1822,6 +1853,20 @@ MonoBehaviour:
   dropdown: {fileID: 6928161769078647484}
   matchCurrentResolution: 1
   defaultIndex: 0
+--- !u!114 &7242381881321687921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029660224269810274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee04bb6cd10a524e976ab36174a8b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverCursor: {fileID: 2800000, guid: 669604dbfe28ab546aa36bcf31adef15, type: 3}
+  pressCursor: {fileID: 2800000, guid: 2dba2be2ce1eb4741b8490f04572b199, type: 3}
 --- !u!1 &2042092133088306757
 GameObject:
   m_ObjectHideFlags: 0
@@ -3340,7 +3385,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25.75
+  m_fontSize: 28.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3634,6 +3679,7 @@ GameObject:
   - component: {fileID: 5739291639621835755}
   - component: {fileID: 1442050863608740127}
   - component: {fileID: 744972969036841504}
+  - component: {fileID: 6973438097167092627}
   m_Layer: 5
   m_Name: FullScreenMode
   m_TagString: Untagged
@@ -3877,6 +3923,20 @@ MonoBehaviour:
   modeDict:
     m_keys: 00000000010000000200000003000000
     m_values: 00000000010000000200000003000000
+--- !u!114 &6973438097167092627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3892119828037916658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee04bb6cd10a524e976ab36174a8b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverCursor: {fileID: 2800000, guid: 669604dbfe28ab546aa36bcf31adef15, type: 3}
+  pressCursor: {fileID: 2800000, guid: 2dba2be2ce1eb4741b8490f04572b199, type: 3}
 --- !u!1 &4038057137220113738
 GameObject:
   m_ObjectHideFlags: 0
@@ -6066,6 +6126,7 @@ GameObject:
   - component: {fileID: 3318789751901970577}
   - component: {fileID: 6926817995113538524}
   - component: {fileID: 7632080187271208881}
+  - component: {fileID: 7642492271390168934}
   m_Layer: 5
   m_Name: Language
   m_TagString: Untagged
@@ -6223,6 +6284,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropdown: {fileID: 6926817995113538524}
+--- !u!114 &7642492271390168934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7222064901954516810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee04bb6cd10a524e976ab36174a8b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverCursor: {fileID: 2800000, guid: 669604dbfe28ab546aa36bcf31adef15, type: 3}
+  pressCursor: {fileID: 2800000, guid: 2dba2be2ce1eb4741b8490f04572b199, type: 3}
 --- !u!1 &7227131345587890546
 GameObject:
   m_ObjectHideFlags: 0
@@ -6317,7 +6392,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.3
+  m_fontSize: 28.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

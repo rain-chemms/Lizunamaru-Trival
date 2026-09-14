@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: MusicNameTexts_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: fdcf8c3adf2342c4e82833201160afae, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 498143985664
+    m_Localized: Septette for a Dead Princess
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71637794816
+    m_Localized: Lovestruck Tomboy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 431945285632
+    m_Localized: Love-Colored Magic(Store)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 859630075904
+    m_Localized: Love-Colored Magic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 523527913472
+    m_Localized: Autumnal Waterfall
+    m_Metadata:
+      m_Items: []
+  - m_Id: 893826236416
+    m_Localized: Autumnal Waterfall(Main Menu)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 785701273600
+    m_Localized: Locked Girl ~ The Girl's Sealed Room
+    m_Metadata:
+      m_Items: []
+  - m_Id: 529030840320
+    m_Localized: Starry Mountain of Tenma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 718789541888
+    m_Localized: Deaf to All but the Song
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

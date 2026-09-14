@@ -513,6 +513,8 @@ MonoBehaviour:
   changeButtonText: 0
   autoLinkFunction: 0
   button: {fileID: 0}
+  localizeEvent: {fileID: 0}
+  searchTable: MusicNameTexts
 --- !u!114 &3316620576795303935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1127,6 +1129,8 @@ MonoBehaviour:
   searchField: {fileID: 8704231439577921544}
   bgmList: {fileID: 978494053932439131}
   buttonPrefab: {fileID: 7713121223134338576, guid: f39ac5ae7190b164593b1093644a6cca, type: 3}
+  searchBgmName: 0
+  searchLocalizeName: 1
 --- !u!1 &2995716226428378337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,6 +1217,7 @@ GameObject:
   - component: {fileID: 1446548061929377200}
   - component: {fileID: 3624172792013608315}
   - component: {fileID: 7916008658429011689}
+  - component: {fileID: 1009842994350585075}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1269,8 +1274,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 58f1e42671e28ad46932fe2f4a003e36, type: 2}
+  m_sharedMaterial: {fileID: 5840968175975424431, guid: 58f1e42671e28ad46932fe2f4a003e36, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1339,6 +1344,64 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1009842994350585075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3020158484078615605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69beb381e244f92449b8c4cf954630e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackedObjects:
+  - rid: 4882447687656144976
+  references:
+    version: 2
+    RefIds:
+    - rid: 4882447687656144976
+      type: {class: TrackedUGuiGraphic, ns: UnityEngine.Localization.PropertyVariants.TrackedObjects, asm: Unity.Localization}
+      data:
+        m_Target: {fileID: 7916008658429011689}
+        m_TrackedProperties:
+          items:
+          - rid: 4882447687656144977
+          - rid: 4882447687656144979
+        m_UpdateType: 0
+    - rid: 4882447687656144977
+      type: {class: LocalizedAssetProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
+      data:
+        m_Localized:
+          rid: 4882447687656144978
+        m_PropertyPath: m_fontAsset
+    - rid: 4882447687656144978
+      type: {class: LocalizedTmpFont, ns: UnityEngine.Localization, asm: Unity.Localization}
+      data:
+        m_TableReference:
+          m_TableCollectionName: GUID:6f14b5d978151d041b06e81a89c6fd47
+        m_TableEntryReference:
+          m_KeyId: 25421201978556416
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+    - rid: 4882447687656144979
+      type: {class: LocalizedAssetProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
+      data:
+        m_Localized:
+          rid: 4882447687656144980
+        m_PropertyPath: m_sharedMaterial
+    - rid: 4882447687656144980
+      type: {class: LocalizedMaterial, ns: UnityEngine.Localization, asm: Unity.Localization}
+      data:
+        m_TableReference:
+          m_TableCollectionName: GUID:6f14b5d978151d041b06e81a89c6fd47
+        m_TableEntryReference:
+          m_KeyId: 25421202095996928
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
 --- !u!1 &3021491900162277774
 GameObject:
   m_ObjectHideFlags: 0

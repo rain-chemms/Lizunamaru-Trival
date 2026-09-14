@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4499297668236459975}
   - component: {fileID: 5170538863262550101}
   - component: {fileID: 118764012142435854}
+  - component: {fileID: 7439215098056893405}
   m_Layer: 5
   m_Name: KeyMappingBT
   m_TagString: Untagged
@@ -148,6 +149,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 5170538863262550101}
   settingPanelButton: {fileID: 2827946133854849465, guid: de222fed057317a478e03daef1ce2472, type: 3}
+--- !u!114 &7439215098056893405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2149069908776498727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee04bb6cd10a524e976ab36174a8b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverCursor: {fileID: 2800000, guid: 669604dbfe28ab546aa36bcf31adef15, type: 3}
+  pressCursor: {fileID: 2800000, guid: 2dba2be2ce1eb4741b8490f04572b199, type: 3}
 --- !u!1 &8417082452073079388
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,6 +26,14 @@ public class BgmDisplayCanvas : MonoBehaviour
         InitTheBgmList();
     }
     //搜索框输入时检查并更改UI显示
+    [Header("搜寻筛选器")]
+    [SerializeField] private bool searchBgmName = true;
+    public bool IsSearchBgmName() => searchBgmName;
+    public void SetSearchBgmName(bool isSearch) => searchBgmName = isSearch;
+    [SerializeField] private bool searchLocalizeName = true;
+    public bool IsSearchLocalizeName() => searchLocalizeName;
+    public void SetSearchLocalizeName(bool isSearch) => searchLocalizeName = isSearch;
+
     public void CheckSearchField()
     {
         if(searchField == null) return;
@@ -45,8 +53,13 @@ public class BgmDisplayCanvas : MonoBehaviour
             }
             //获取Bgm名称
             string bgmName = button.GetBgmName();
-            bool isMatch = bgmName.StartsWith(searchField.text, System.StringComparison.OrdinalIgnoreCase);
-            Debug.Log("[BgmDisplayCanvas]: <" + bgmName +"> "+ (isMatch ? "Matched":"Not Matched"));
+            string localizedName = button.GetLocalizeName();
+            bool allClose = !searchBgmName && !searchLocalizeName;
+            bool isMatch = 
+                (searchBgmName && bgmName.Contains(searchField.text, System.StringComparison.OrdinalIgnoreCase)) || 
+                ((!allClose || searchLocalizeName) && localizedName.Contains(searchField.text, System.StringComparison.OrdinalIgnoreCase));
+
+            Debug.Log("[BgmDisplayCanvas]: <" + bgmName + "|" + localizedName +"> "+ (isMatch ? "Matched":"Not Matched"));
             if(isMatch)
             {
                 button.gameObject.SetActive(true);//显示按钮

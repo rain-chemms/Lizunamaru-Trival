@@ -482,6 +482,14 @@ MonoBehaviour:
       (TMP) 1
     m_Metadata:
       m_Items: []
+  - m_Id: 25421201978556416
+    m_Key: BgmDisplayCanvas/BgmDisplayCanvas/SearchBar/Text Area/Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25421202095996928
+    m_Key: BgmDisplayCanvas/BgmDisplayCanvas/SearchBar/Text Area/Text 1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 816146740363657316
@@ -829,6 +837,12 @@ MonoBehaviour:
           - zh
           - zh-Hant
           - ja
+        - m_KeyId: 25421201978556416
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
         m_TypeString: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
     - rid: 816146740363657319
@@ -1154,6 +1168,12 @@ MonoBehaviour:
           - zh-Hant
           - ja
         - m_KeyId: 24889230173011968
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 25421202095996928
           m_TableCodes:
           - en
           - zh
