@@ -63,7 +63,7 @@ namespace GridObjectSystem.RoleSystem
             if(nowHp <= 0) nowHp = 0;
             role.SetHp(nowHp);
             if (animTrigger != null) animTrigger.TriggerAnim("Behit");
-            behitVoice?.Play();//播放受击音效
+            if(behitVoice != null) behitVoice?.Play();//播放受击音效
         }
     }
 }

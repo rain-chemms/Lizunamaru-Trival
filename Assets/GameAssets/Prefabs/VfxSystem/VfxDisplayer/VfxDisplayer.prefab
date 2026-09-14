@@ -371,7 +371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8019933350167953325, guid: 05890864efaec9b4da5da2acf74dd410, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8123587435267409615, guid: 05890864efaec9b4da5da2acf74dd410, type: 3}
       propertyPath: m_Maskable
@@ -409,7 +409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1084115371401193464, guid: 7ede69c00ecf48c49882da83e27165bf, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3980851560096649640, guid: 7ede69c00ecf48c49882da83e27165bf, type: 3}
       propertyPath: m_Pivot.x
@@ -515,7 +515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2181831989572240466, guid: 0946e08066e98744cb1f857ac68b37ec, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7629771012773706196, guid: 0946e08066e98744cb1f857ac68b37ec, type: 3}
       propertyPath: m_Pivot.x

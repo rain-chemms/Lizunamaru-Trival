@@ -58,11 +58,11 @@ namespace CardSystem.AllCardHub
                     offset = new Vector2Int(1,0);
                     break;
                 case BattleDirection.DOWN:
-                    offset = new Vector2Int(0,1); 
+                    offset = new Vector2Int(0,-1); 
                     break;
                 case BattleDirection.UP:
                 default:
-                    offset = new Vector2Int(0,-1);
+                    offset = new Vector2Int(0,1);
                     break;
             }
             GadgetPositionToRoleSyncer bSyncer = stone.GetComponent<GadgetPositionToRoleSyncer>();

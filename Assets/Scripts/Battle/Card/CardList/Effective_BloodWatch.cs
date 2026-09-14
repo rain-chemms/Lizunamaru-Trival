@@ -1,8 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using GridObjectSystem.RoleSystem;
-
-
+using VfxDisplaySystem;
 namespace CardSystem.AllCardHub
 { 
     //月神之钟:相关角色:十六夜咲夜
@@ -32,6 +30,7 @@ namespace CardSystem.AllCardHub
         public override IEnumerator AfterPlay()
         {
             timeFrozenVoice?.Play();
+            yield return VfxDisplayer.instance.DisplayVfx("TimeFrozen",false);
             yield return BattleMessage.instance?.ChangeTurn(false);//不切换控制权切换回合
             yield return base.AfterPlay();
         }
