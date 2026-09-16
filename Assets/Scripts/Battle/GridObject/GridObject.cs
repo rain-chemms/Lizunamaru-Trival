@@ -79,9 +79,9 @@ namespace GridObjectSystem
                     if(newLayer == 0)//当前类型abilities已不存在时,移除该能力
                     {
                         //触发移除该能力时的效果
+                        abilityDict?.Remove(ability);
                         yield return ((IAbilityFunctioner)ability)?.AfterAbilityAmountChanged(this);
                         yield return ((IAbilityFunctioner)ability)?.AfterAbilityRemoved(this);
-                        abilityDict.Remove(ability);
                         Debug.Log("[GridObject]: "+ name.ToString() +" Remove Ability: " + typeof(AbilityType).ToString() + " Because Now Number is 0!");
                         break;
                     }
@@ -93,12 +93,12 @@ namespace GridObjectSystem
             }
             if(!haveAbility)
             {
-                Debug.Log("[GridObject]: "+ name.ToString() +" Add New Ability: " + typeof(AbilityType).ToString() +", Now Number:"+ addLayer);
                 if(addLayer == 0) yield break;//层数为0时,不添加
+                Debug.Log("[GridObject]: "+ name.ToString() +" Add New Ability: " + typeof(AbilityType).ToString() +", Now Number:"+ addLayer);
                 Ability abt = new AbilityType();
+                abilityDict.Add(abt,addLayer);
                 yield return ((IAbilityFunctioner)abt)?.AfterAbilityAdded(this);
                 yield return ((IAbilityFunctioner)abt)?.AfterAbilityAmountChanged(this);
-                abilityDict.Add(abt,addLayer);
             }
         }
         //通过名称获取的重写方法
@@ -130,9 +130,9 @@ namespace GridObjectSystem
                     if(newLayer == 0)//当前类型abilities已不存在时,移除该能力
                     {
                         //触发移除该能力时的效果
+                        abilityDict?.Remove(ability);
                         yield return ((IAbilityFunctioner)ability)?.AfterAbilityAmountChanged(this);
                         yield return ((IAbilityFunctioner)ability)?.AfterAbilityRemoved(this);
-                        abilityDict.Remove(ability);
                         Debug.Log("[GridObject]: "+ name.ToString() +" Remove Ability: " + abilityName + " Because Now Number is 0!");
                         break;
                     }
@@ -146,8 +146,8 @@ namespace GridObjectSystem
             }    
             if(!haveAbility)
             {
-                Debug.Log("[GridObject]: "+ name.ToString() +" Add New Ability: " + abilityName +", Now Number:"+ addLayer);
                 if(addLayer == 0) yield break;
+                Debug.Log("[GridObject]: "+ name.ToString() +" Add New Ability: " + abilityName +", Now Number:"+ addLayer);
                 // 只知道类名,尝试获取类的对象
                 // 需要搜索程序集
                 Type type = Assembly.GetExecutingAssembly()
@@ -157,9 +157,9 @@ namespace GridObjectSystem
                 if(type != null)
                 {
                     Ability abt = (Ability)Activator.CreateInstance(type);//创建能力实例
+                    abilityDict.Add(abt,addLayer);//添加该能力
                     yield return ((IAbilityFunctioner)abt)?.AfterAbilityAdded(this);
                     yield return ((IAbilityFunctioner)abt)?.AfterAbilityAmountChanged(this);
-                    abilityDict.Add(abt,addLayer);//添加该能力
                 }
             }
         }

@@ -134,7 +134,7 @@ namespace CardSystem.AllCardHub
                 (uint)BattleMessage.instance?.GetControlPlayerID(),
                 true
             );
-            yield return GetComponent<CardSpellAttackWaker>()?.WakeSpellAttackDisplayer((bool)role?.GetSide());
+            yield return GetComponent<CardSpellAttackWaker>()?.WakeSpellAttackDisplayer(role,(bool)role?.GetSide());
             //Vector3 ac = new Vector3(0,0,-1.5f);
             for (int i = 0; i < generateLoopTime; i++)
             {

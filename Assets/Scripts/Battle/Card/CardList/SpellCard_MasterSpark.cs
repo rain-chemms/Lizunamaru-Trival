@@ -63,7 +63,7 @@ namespace CardSystem.AllCardHub
                 (uint)BattleMessage.instance?.GetControlPlayerID(),
                 true
             );
-            yield return GetComponent<CardSpellAttackWaker>()?.WakeSpellAttackDisplayer((bool)role?.GetSide());
+            yield return GetComponent<CardSpellAttackWaker>()?.WakeSpellAttackDisplayer(role,(bool)role?.GetSide());
             yield return BattleMessage.instance?.GenerateBullet(
                 role,//传入产生的Role信息,包含位置等
                 bulletPrefab,//子弹预设体

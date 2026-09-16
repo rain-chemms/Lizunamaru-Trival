@@ -22,7 +22,7 @@ namespace GridObjectSystem.RoleSystem
         {
             base.Start();
             //能力测试代码
-            StartCoroutine(AddAbility<Ability_Velocity>(1));
+            StartCoroutine(AddAbility<Ability_Invulnerable>(5));
         }
         //*/
         
@@ -33,14 +33,8 @@ namespace GridObjectSystem.RoleSystem
         }
 
         [SerializeField] private bool roundOperateEnd = false;//玩家本回合内的操作是否结束
-        public bool IsRoundOperateEnd()
-        {
-            return roundOperateEnd;
-        }
-        public void SetRoundOperateEnd(bool roundOperateEnd)
-        {
-            this.roundOperateEnd = roundOperateEnd;
-        }
+        public bool IsRoundOperateEnd() => roundOperateEnd;
+        public void SetRoundOperateEnd(bool roundOperateEnd) => this.roundOperateEnd = roundOperateEnd;
 
         /*
             有一个协程,时刻依据BattleMessage.instance.isPlayerTrun检测玩家列表中的玩家是否操作结束
@@ -69,9 +63,7 @@ namespace GridObjectSystem.RoleSystem
 
         [SerializeField] private float maxHp = 100.0f;//角色最大生命值
         public float GetMaxHp() => maxHp;
-
         public void SetMaxHp(float nowMaxHp) => maxHp = nowMaxHp;
-
         /*
         [SerializeField] private float speed = 5.0f;//角色当前的速度
         public float GetSpeed() => speed;
@@ -90,6 +82,7 @@ namespace GridObjectSystem.RoleSystem
         [SerializeField] private uint missBulltetNumber = 0;//擦弹的数目
         public uint GetMissBulletNumber() => missBulltetNumber;
         public void SetMissBulletNumber(uint newMissNumber) => missBulltetNumber = newMissNumber;
+        
         [SerializeField] private float spellPrecent = 0.0f;//符卡充能百分比
         public void SetSpellPrecent(float precent) => spellPrecent = precent;
         public float GetSpellPrecent() => spellPrecent;
@@ -120,5 +113,8 @@ namespace GridObjectSystem.RoleSystem
             }
         }
         */
+        [SerializeField] private Sprite spellSprite;//自身的符卡图标
+        public Sprite GetSpellSprite() => spellSprite;
+        public void SetSpellSprite(Sprite newSprite) => spellSprite = newSprite;
     }
 }

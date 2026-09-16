@@ -18,10 +18,6 @@ public class AbilityIcon : MonoBehaviour
     [SerializeField] private TMP_Text abilityLayer;//能力层数
     public TMP_Text GetAbilityLayer() => abilityLayer;
 
-    [SerializeField] private Sprite debugSprite;//测试用的默认图标
-    [SerializeField] private SerializableDictionary<string, Sprite> abilityImageDict;//能力图标映射字典
-    public SerializableDictionary<string, Sprite> GetAbilityImageDict() => abilityImageDict;
-
     [SerializeField] private TMP_Text discription;
     public TMP_Text GetDiscription() => discription;
 
@@ -70,28 +66,16 @@ public class AbilityIcon : MonoBehaviour
         localizeEvent.StringReference.SetReference(searchLocaleTableName, abilityName);
         //刷新显示
         localizeEvent.OnUpdateString?.Invoke(localizeEvent.StringReference.GetLocalizedString());
-        
     }
 
     private void SetSpriteWithAbility(Ability ability)
     {
         string abilityName = ability.GetType().Name.ToString();
-        if (abilityImageDict.ContainsKey(abilityName))
-        {
-            if (abilityImageDict[abilityName] != null)
-            {
-                abilityImage.sprite = abilityImageDict[abilityName];
-            }
-            else
-            {
-                abilityImage.sprite = debugSprite;
-            }
-        }
-        else
-        {
-            abilityImage.sprite = debugSprite;
-        }
+        Sprite targetSprite = AbilitySpriteGetter.instance?.GetSprite(abilityName);
+        if(targetSprite == null) targetSprite = AbilitySpriteGetter.instance?.GetDebugSprite();
+        abilityImage.sprite = targetSprite;
     }
+
     //刷新层数的显示
     public void RefreshLayerDisplay(int layer, Ability ability = null)
     {

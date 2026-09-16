@@ -915,6 +915,7 @@ GameObject:
   - component: {fileID: 2600697479038610853}
   - component: {fileID: 1060043160940584855}
   - component: {fileID: 8746879603567666350}
+  - component: {fileID: -909787751439959579}
   - component: {fileID: -582493317926544311}
   - component: {fileID: 4742977883852709560}
   - component: {fileID: 5333505471649181608}
@@ -1134,6 +1135,7 @@ MonoBehaviour:
   dragOffset: {x: 0, y: 0}
   card: {fileID: 0}
   grabOffset: {x: 0, y: 0}
+  dragTarget: {x: 0, y: 0}
 --- !u!114 &-2787983418224183011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1334,6 +1336,21 @@ MonoBehaviour:
   card: {fileID: 9152005910634175684}
   displayText: {fileID: 3647718533986470558}
   displayImage: {fileID: 8740498199869185062}
+--- !u!114 &-909787751439959579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c6b8598af8dba498bc0ce98706965c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textKey: Spell_Debug
+  searchTable: SpellDisplayTexts
+  defaultSprite: {fileID: 21300000, guid: 99d6680d83773704fa8e86aae08d827e, type: 3}
 --- !u!114 &-582493317926544311
 MonoBehaviour:
   m_ObjectHideFlags: 0

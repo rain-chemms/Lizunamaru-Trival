@@ -22,6 +22,20 @@ MonoBehaviour:
     m_Localized: This is test Ability Or Bugs
     m_Metadata:
       m_Items: []
+  - m_Id: 1456890314883072
+    m_Localized: '<#FFFF00>Invulnerable</color>
+
+      Makes sure you <#FFFF00>don''t
+      get hurt in battle</color>'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132965777670144
+    m_Localized: '<#0000FF>Velocity</color>
+
+      During your turn, for each layer,
+      your movement distance increases by 1'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

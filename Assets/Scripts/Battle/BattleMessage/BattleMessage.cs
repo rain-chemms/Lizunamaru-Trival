@@ -14,6 +14,7 @@ using GridObjectSystem;
 using GridObjectSystem.GadgetSystem;
 using GridObjectSystem.AbilitySystem;
 using GlobalSystem;
+using GridObjectSystem.AbilitySystem.AllAbilities;
 
 public class BattleMessage : MonoBehaviour
 {
@@ -118,7 +119,7 @@ public class BattleMessage : MonoBehaviour
             {
                 //触发道具回合结束的所有能力的效果
                 Dictionary<Ability,int> abilityDict = gadget?.GetAbilityDict();
-                foreach(KeyValuePair<Ability,int> ability in abilityDict)
+                foreach(KeyValuePair<Ability,int> ability in abilityDict.ToList())
                 {
                     //触发道具的TurnEnd功能
                     Ability abt = ability.Key;
@@ -135,10 +136,11 @@ public class BattleMessage : MonoBehaviour
             {
                 //触发角色回合结束的所有能力的效果
                 Dictionary<Ability,int> abilityDict = role?.GetAbilityDict();
-                foreach(KeyValuePair<Ability,int> ability in abilityDict)
+                foreach(KeyValuePair<Ability,int> ability in abilityDict.ToList())
                 {
                     //触发道具的TurnEnd功能
                     Ability abt = ability.Key;
+                    if(abt == null) continue;
                     yield return ((IAbilityFunctioner)abt)?.AfterRoundEnd(role);
                 }
                 Debug.Log("[BattleMessage]: <Ability Number:" + abilityDict.Count + "> "+ typeof(Role).ToString()+"|"+ role?.name.ToString() + " Trigger The End Function Of Ability Dictionary!");
@@ -939,10 +941,39 @@ public class BattleMessage : MonoBehaviour
         return null;
     }
     [SerializeField] private CardSlot spellAttackCardSlot;//
-    public CardSlot GetSpellAttackCardSlot()
+    public CardSlot GetSpellAttackCardSlot() => spellAttackCardSlot;
+
+    /// <summary>
+    /// 依据当前的玩家和符卡卡槽中的卡牌使用符卡攻击
+    /// </summary>
+    /// <param name="useRoleSpellSprite">是否使用控制的角色自身的符卡攻击Sprite</param>
+    /// <returns></returns>
+    [SerializeField] private bool isUseingSpell = false;///是否正在使用符卡
+    public bool IsUseingSpell() => isUseingSpell;
+
+    public IEnumerator UseSpell(bool useRoleSpellSprite = true)
     {
-        return spellAttackCardSlot;
+        if(isUseingSpell) yield break;//正在使用符卡时无法再次使用符卡
+        isUseingSpell = true;
+        Role player = GetControlPlayer();
+        Card spellCard = GetSpellAttackCardSlot()?.GetInnerCard();
+        //符卡为空或则是玩家的符卡充能不足时无法使用
+        if(spellCard == null || player?.GetSpellPrecent() < 1.0f) 
+        {
+            isUseingSpell = false;
+            yield break;
+        }
+        //玩家使用符卡后,无敌一回合
+        //还没实现
+        //给予玩家一回合的无敌效果
+        yield return player.AddAbility<Ability_Invulnerable>(1);
+        //激活符卡的使用效果
+        //减少符卡充能
+        player?.SetSpellPrecent((float)player?.GetSpellPrecent() - 1.0f);
+        yield return spellCard?.AfterPlay();
+        isUseingSpell = false;
     }
+
     //获取全部卡槽组成的列表
     public List<CardSlot> GetAllCardSlot()
     {

@@ -1,7 +1,6 @@
 using UnityEngine;
 using GlobalSystem;
 using System.Linq;
-
 namespace GridObjectSystem.RoleSystem
 {
     [RequireComponent(typeof(Role))]
@@ -37,8 +36,15 @@ namespace GridObjectSystem.RoleSystem
                 1.角色的defend值会在每回合开始时清空,每1点defend可以格挡一次伤害
                     checkDefend:是否检查并计算defend值,默认为true
         */
+        
+        //伤害数据预处理委托
+        public delegate void PreProductOfData(ref float damage,ref bool checkDefend);
+        public event PreProductOfData onPreProductData;
+
         public void GetDamage(float damage, bool checkDefend = true)
         {
+            //优先预处理字段
+            if(onPreProductData != null) onPreProductData(ref damage,ref checkDefend);
             if (role == null) return;
             if (damage < 0) return;//伤害小于等于0时返回
             //拥有防御点数时

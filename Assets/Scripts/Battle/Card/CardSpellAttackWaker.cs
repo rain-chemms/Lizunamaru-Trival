@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using GridObjectSystem.RoleSystem;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Localization.Settings;
@@ -13,72 +14,20 @@ namespace CardSystem
     {
         //一下两个参数用于对技能进行本地化
         [SerializeField] private string textKey = "Spell_Debug";
-        public string GetTextKey()
-        {
-            return textKey;
-        }
-        public void SetTextKey(string key)
-        {
-            textKey = key;
-        }
+        public string GetTextKey() => textKey;
+        public void SetTextKey(string key) => textKey = key;
+        
         [SerializeField] private string searchTable = "SpellDisplayTexts";//搜索本地字典
-        public string GetSearchTable()
+        public string GetSearchTable() => searchTable;
+        public void SetSearchTable(string table) => searchTable = table;
+
+        [SerializeField] private Sprite defaultSprite;
+        public Sprite GetDefaultSprite() => defaultSprite;
+
+        public IEnumerator WakeSpellAttackDisplayer(Role role,bool leftOrRight = true)
         {
-            return searchTable;
-        }
-        public void SetSearchTable(string table)
-        {
-            searchTable = table;
-        }
-        //用于显示符卡攻击的人物立绘
-        [SerializeField] private Sprite sprite;
-        public Sprite GetSprite()
-        {
-            return sprite;
-        }
-        public void SetSprite(Sprite sprite)
-        {
-            this.sprite = sprite;
-        }
-        public IEnumerator WakeSpellAttackDisplayer(bool leftOrRight = true)
-        {
-            /*
-            SpellAttackDisplayer instance = SpellAttackDisplayer.instance;
-            //设置图像
-            Image img = instance?.GetRoleImage();
-            if (img != null)
-            {
-                img.sprite = sprite;
-            }
-            //设置文本
-            yield return LocalizationSettings.InitializationOperation;
-            string keyName = textKey;
-            // 异步获取
-            var operation = LocalizationSettings.StringDatabase.GetLocalizedStringAsync(searchTable, keyName);
-            yield return operation;
-            if (operation.Status == AsyncOperationStatus.Succeeded)
-            {
-                TMP_Text txt = instance?.GetSpellText();
-                if (txt != null)
-                {
-                    txt.text = operation.Result;
-                }
-            }
-            else
-            {
-                Debug.LogError($"[CardSpellAttackWaker]: Display the Keywords Failed: {operation.OperationException}");
-            }
-            //播放动画
-            Animator animator = instance?.GetAnimator();
-            if (animator != null)
-            {
-                animator?.SetTrigger(leftOrRight ? "Left" : "Right");
-                yield return null;
-                AnimatorStateInfo stateInfo =(AnimatorStateInfo)animator?.GetCurrentAnimatorStateInfo(0);
-                float length = stateInfo.length;
-                yield return new WaitForSeconds(length / animator.speed); //等待动画播放完毕 
-            }
-            */
+            Sprite sprite = role?.GetSpellSprite();
+            if(sprite == null) sprite = defaultSprite;
             yield return SpellAttackDisplayer.instance?.WakeDisplayer(sprite, leftOrRight, textKey, searchTable);
         }
     }

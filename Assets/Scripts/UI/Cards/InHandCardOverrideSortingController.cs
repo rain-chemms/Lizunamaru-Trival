@@ -20,7 +20,7 @@ public class InHandCardOverrideSortingController : MonoBehaviour
 
     private void ChangeTheCardSorting()
     {
-        List<Card> handCardList = BattleMessage.instance.GetHandCardList();
+        List<Card> handCardList = BattleMessage.instance?.GetHandCardList();
         if((bool)handCardList?.Contains(card))
         {
             int index = handCardList.IndexOf(card);

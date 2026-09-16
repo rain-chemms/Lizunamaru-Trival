@@ -1105,6 +1105,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "UseSpell",
+                    "type": "Button",
+                    "id": "11a7cdfe-50e8-4107-84e6-a219ebd2b044",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1122,7 +1131,7 @@
                 {
                     "name": "",
                     "id": "5f753680-4fd4-4e64-93a7-14019aa2cca6",
-                    "path": "<Keyboard>/z",
+                    "path": "<Keyboard>/b",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1133,7 +1142,7 @@
                 {
                     "name": "",
                     "id": "e1d53545-10cc-4f24-9089-fa7dd41621b3",
-                    "path": "<Keyboard>/x",
+                    "path": "<Keyboard>/n",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1144,7 +1153,7 @@
                 {
                     "name": "",
                     "id": "1648c03b-8834-43f3-bc89-e394f9485c42",
-                    "path": "<Keyboard>/c",
+                    "path": "<Keyboard>/m",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1155,7 +1164,7 @@
                 {
                     "name": "",
                     "id": "b2359621-d122-477c-81cf-762a082ed536",
-                    "path": "<Keyboard>/z",
+                    "path": "<Keyboard>/b",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1166,7 +1175,7 @@
                 {
                     "name": "",
                     "id": "ff60b8e6-c1ca-4add-b74c-1f16c8fcdf78",
-                    "path": "<Keyboard>/x",
+                    "path": "<Keyboard>/n",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1177,7 +1186,7 @@
                 {
                     "name": "",
                     "id": "30fabba0-891a-4720-a9a3-b3078f6f7944",
-                    "path": "<Keyboard>/c",
+                    "path": "<Keyboard>/m",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1215,6 +1224,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "HiddenButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e2ab6bd7-e9a0-4eab-b627-0b6396d61688",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseSpell",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -6407,6 +6407,7 @@ MonoBehaviour:
   missBulltetNumber: 0
   spellPrecent: 0
   defendPoint: 0
+  spellSprite: {fileID: 21300000, guid: 8c3d166b263794545b190fd694c6a41a, type: 3}
 --- !u!114 &2410512186065125712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6434,6 +6435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   role: {fileID: 7867947059795645700}
   animTrigger: {fileID: 2410512186065125712}
+  behitVoice: {fileID: 0}
 --- !u!114 &4286060500846186607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6448,6 +6450,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   role: {fileID: 7867947059795645700}
   animTrigger: {fileID: 2410512186065125712}
+  defendGainVoice: {fileID: 0}
+  defendBlockedVoice: {fileID: 0}
+  defendCrackedVoice: {fileID: 0}
   shieldVfx: {fileID: 2626743971321525512}
 --- !u!114 &640008923570922726
 MonoBehaviour:

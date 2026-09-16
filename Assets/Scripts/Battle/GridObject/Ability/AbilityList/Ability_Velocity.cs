@@ -39,6 +39,12 @@ namespace GridObjectSystem.AbilitySystem.AllAbilities
                 Debug.Log("[Ability_Velocity]: Decrease "+ effectObject.name +" MoveDistance To:" + newDistance.ToString());
                 mover.SetMoveDistance(newDistance);
             }
+        } 
+
+        public override IEnumerator AfterAbilityAdded(GridObject effectObject = null)//能力被添加后的效果
+        {
+            IncreaseMoveDistance(effectObject);
+            yield return base.AfterAbilityAdded(effectObject);
         }
 
         //每回合开始时设置玩家的移动距离大小,仅对含有PlayerMover脚本的玩家有效
