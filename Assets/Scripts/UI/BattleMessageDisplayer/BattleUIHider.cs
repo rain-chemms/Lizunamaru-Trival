@@ -26,13 +26,13 @@ public class BattleUIHider : MonoBehaviour
         if(animator == null) animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    //在按钮点击时调用的方法
+    public void EffectiveOnClick()
     {
         // 设置动画器
         animator?.SetBool("IsHidden", isHidden);
         GetAllChildImage();
-        CheckAndSetAllChildImageAlpha();
+        CheckAndSetAllChildImageAlpha();    
     }
 
     List<Image> images = new List<Image>();

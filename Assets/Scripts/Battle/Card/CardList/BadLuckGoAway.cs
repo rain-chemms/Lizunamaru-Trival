@@ -16,7 +16,9 @@ namespace CardSystem.AllCardHub
             //抽三张卡牌
             yield return BattleMessage.instance?.DrawCard((int)drawCardCount);
             //传入执行函数:弃牌
-            HandCardOperator.instance.SetOperateFunc(DiscardCard);
+            HandCardOperator.instance?.SetOperateFunc(DiscardCard);
+            //设置Filter为空
+            HandCardOperator.instance?.ClearCardFilter();
             //激活手牌执行器
             yield return HandCardOperator.instance?.CallTheHandCardOperator(discardCardCount,CardOperateCategory.AT_LEAST);
         }

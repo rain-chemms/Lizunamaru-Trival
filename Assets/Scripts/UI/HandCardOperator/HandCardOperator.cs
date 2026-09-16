@@ -24,6 +24,16 @@ public class HandCardOperator : MonoBehaviour
         }
     }
 
+    [SerializeField] private List<CardCategory> cardFilter = new List<CardCategory>();//卡牌过滤器,这里面出现的卡牌类别不作为可选项放入手牌操作器中
+    public List<CardCategory> GetCardFilter_Copy() => cardFilter.ToList();
+    public List<CardCategory> GetCardFilter() => cardFilter;
+    public void ClearCardFilter() => cardFilter.Clear();
+    public void AddCardCategoryFilter(CardCategory ctg)
+    {
+        if(!(bool)cardFilter?.Contains(ctg)) 
+            cardFilter?.Add(ctg);  
+    } 
+
     [SerializeField] public Func<Card,IEnumerator> operateFunc;//操作函数,每次调用时必须传入当前需要对卡牌进新的操作,返回协程对象并传入Card
     public void SetOperateFunc(Func<Card,IEnumerator> operateFunc) => this.operateFunc = operateFunc;
     
@@ -80,7 +90,7 @@ public class HandCardOperator : MonoBehaviour
         hoCtr?.SetOpen(true);
         //激活所有手牌的执行器
         List<Card> handCards = BattleMessage.instance.GetHandCardList_Copy();
-        int cardCount = handCards.Where(x => x!= null).ToList().Count;//获取非空的手牌数量
+        int cardCount = handCards.Where(x => x!= null && !(bool)cardFilter?.Contains(x.GetCardCategory())).ToList().Count;//获取非空的且没被过滤器过滤的手牌数量
         foreach(Card card in handCards)
         {
             if(card == null) continue;
@@ -100,10 +110,11 @@ public class HandCardOperator : MonoBehaviour
         if(cardCount > operateCount || operateCategory == CardOperateCategory.AT_MOST || operateCategory == CardOperateCategory.NOT_ABOVE) yield return new WaitUntil(() => selectOver);
         else
         {
-            //牌量不够时将剩余的卡牌直接加入选择器中
+            //牌量不够时将剩余符合条件的卡牌直接加入选择器中
             foreach (Card card in handCards)
             {
                 if(card == null) continue;
+                if ((bool)cardFilter?.Contains(card.GetCardCategory())) continue;//筛选器过滤掉不符合的卡牌
                 if (!IsCardSelected(card)) AddCard(card);
             }
         }
