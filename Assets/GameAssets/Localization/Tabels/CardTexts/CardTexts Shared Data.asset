@@ -21,16 +21,12 @@ MonoBehaviour:
       _WhiteEmptyCard'
     m_Metadata:
       m_Items: []
+  - m_Id: 18167771618738176
+    m_Key: CardExplain_BadLuckGoAway
+    m_Metadata:
+      m_Items: []
   - m_Id: 358383998861312
     m_Key: CardExplain_Debug
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1042845699014656
-    m_Key: CardExplain_ShootCard
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2305153553268736
-    m_Key: CardExplain_SpellCard_MasterSpark
     m_Metadata:
       m_Items: []
   - m_Id: 2804008447246336
@@ -39,100 +35,48 @@ MonoBehaviour:
 '
     m_Metadata:
       m_Items: []
-  - m_Id: 3293684790591488
-    m_Key: CardExplain_SpellCard_DanceOfStarSparkedWildfire
-    m_Metadata:
-      m_Items: []
-  - m_Id: 3500423670530048
-    m_Key: CardExplain_StrikeCard
-    m_Metadata:
-      m_Items: []
-  - m_Id: 11029272826347520
-    m_Key: CardExplain_Gadget_YinyangJadeRound
-    m_Metadata:
-      m_Items: []
-  - m_Id: 17905495724654592
-    m_Key: CardExplain_UnconsciousDodge
-    m_Metadata:
-      m_Items: []
-  - m_Id: 18066960368664576
-    m_Key: CardExplain_Intuition
-    m_Metadata:
-      m_Items: []
-  - m_Id: 18167771618738176
-    m_Key: CardExplain_BadLuckGoAway
-    m_Metadata:
-      m_Items: []
-  - m_Id: 19013006712242176
-    m_Key: CardExplain_JustPrepare
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21547983341486080
-    m_Key: CardExplain_Effective_GadgetSlotIncreaser
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21561927888142336
-    m_Key: CardExplain_Effective_PowerSlotIncreaser
+  - m_Id: 25693441311768576
+    m_Key: CardExplain_DigAndDig
     m_Metadata:
       m_Items: []
   - m_Id: 21561984670629888
     m_Key: CardExplain_Effective_AttackSlotIncreaser
     m_Metadata:
       m_Items: []
-  - m_Id: 21734425690767360
-    m_Key: CardExplain_Effective_HotToMelt
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21903064159092736
-    m_Key: CardExplain_Gadget_SolemnLament
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21929263405072384
-    m_Key: CardExplain_Power_VampireFang
-    m_Metadata:
-      m_Items: []
-  - m_Id: 22427136437649408
-    m_Key: CardExplain_Gadget_MiniHakerro
-    m_Metadata:
-      m_Items: []
-  - m_Id: 23727216000106496
-    m_Key: CardExplain_Gadget_TNT
-    m_Metadata:
-      m_Items: []
-  - m_Id: 23811433564340224
-    m_Key: CardExplain_Power_LawOfSurvivalOfFittest
-    m_Metadata:
-      m_Items: []
-  - m_Id: 24941442333016064
-    m_Key: CardExplain_Effective_HPCard
-    m_Metadata:
-      m_Items: []
-  - m_Id: 24942801845354496
-    m_Key: CardExplain_Effective_BrokenSpellCard
+  - m_Id: 25684525626556416
+    m_Key: CardExplain_Effective_BloodWatch
     m_Metadata:
       m_Items: []
   - m_Id: 25010342789775360
     m_Key: CardExplain_Effective_BrokenHpCard
     m_Metadata:
       m_Items: []
+  - m_Id: 24942801845354496
+    m_Key: CardExplain_Effective_BrokenSpellCard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21547983341486080
+    m_Key: CardExplain_Effective_GadgetSlotIncreaser
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21734425690767360
+    m_Key: CardExplain_Effective_HotToMelt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24941442333016064
+    m_Key: CardExplain_Effective_HPCard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27879037757161472
+    m_Key: CardExplain_Effective_InnerPotential
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21561927888142336
+    m_Key: CardExplain_Effective_PowerSlotIncreaser
+    m_Metadata:
+      m_Items: []
   - m_Id: 25013312591888384
     m_Key: CardExplain_Effective_SpellCard
-    m_Metadata:
-      m_Items: []
-  - m_Id: 25610278514327552
-    m_Key: CardExplain_Power_BurstingRedFrog
-    m_Metadata:
-      m_Items: []
-  - m_Id: 25684525626556416
-    m_Key: CardExplain_Effective_BloodWatch
-    m_Metadata:
-      m_Items: []
-  - m_Id: 25690221847904256
-    m_Key: CardExplain_Power_SpellBeforeTheFall
-    m_Metadata:
-      m_Items: []
-  - m_Id: 25693441311768576
-    m_Key: CardExplain_DigAndDig
     m_Metadata:
       m_Items: []
   - m_Id: 25936244449083392
@@ -143,8 +87,68 @@ MonoBehaviour:
     m_Key: CardExplain_Gadget_KeyStoneOfEndurance
     m_Metadata:
       m_Items: []
-  - m_Id: 27879037757161472
-    m_Key: CardExplain_Effective_InnerPotential
+  - m_Id: 22427136437649408
+    m_Key: CardExplain_Gadget_MiniHakerro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21903064159092736
+    m_Key: CardExplain_Gadget_SolemnLament
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23727216000106496
+    m_Key: CardExplain_Gadget_TNT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11029272826347520
+    m_Key: CardExplain_Gadget_YinyangJadeRound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18066960368664576
+    m_Key: CardExplain_Intuition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19013006712242176
+    m_Key: CardExplain_JustPrepare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25610278514327552
+    m_Key: CardExplain_Power_BurstingRedFrog
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23811433564340224
+    m_Key: CardExplain_Power_LawOfSurvivalOfFittest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25690221847904256
+    m_Key: CardExplain_Power_SpellBeforeTheFall
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21929263405072384
+    m_Key: CardExplain_Power_VampireFang
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1042845699014656
+    m_Key: CardExplain_ShootCard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3293684790591488
+    m_Key: CardExplain_SpellCard_DanceOfStarSparkedWildfire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2305153553268736
+    m_Key: CardExplain_SpellCard_MasterSpark
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3500423670530048
+    m_Key: CardExplain_StrikeCard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17905495724654592
+    m_Key: CardExplain_UnconsciousDodge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28208326927056896
+    m_Key: CardExplain_Effective_Flame
     m_Metadata:
       m_Items: []
   m_Metadata:

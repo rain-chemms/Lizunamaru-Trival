@@ -508,6 +508,16 @@ MonoBehaviour:
       (TMP) 1
     m_Metadata:
       m_Items: []
+  - m_Id: 26484621402308608
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/AttackSlotListIndexerShifter/Text
+      (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26484621591052288
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/AttackSlotListIndexerShifter/Text
+      (TMP) 1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 816146740363657316
@@ -873,6 +883,12 @@ MonoBehaviour:
           - zh
           - zh-Hant
           - ja
+        - m_KeyId: 26484621402308608
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
         m_TypeString: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
     - rid: 816146740363657319
@@ -1216,6 +1232,12 @@ MonoBehaviour:
           - zh-Hant
           - ja
         - m_KeyId: 26394328640389120
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 26484621591052288
           m_TableCodes:
           - en
           - zh

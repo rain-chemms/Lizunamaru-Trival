@@ -1123,6 +1123,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "AttackSlotListIndexerShifter",
+                    "type": "Button",
+                    "id": "de1442d6-e9a5-48ef-bed7-387844fafa23",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1255,6 +1264,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "SlotListViewShifter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "16168a4d-5bc7-4235-b0fe-9b35debb70f3",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackSlotListIndexerShifter",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

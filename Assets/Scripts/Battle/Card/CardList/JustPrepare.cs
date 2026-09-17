@@ -16,6 +16,8 @@ namespace CardSystem.AllCardHub
             yield return BattleMessage.instance?.DrawCard((int)drawCardCount);
             //传入执行函数:弃牌
             HandCardOperator.instance.SetOperateFunc(DiscardCard);
+            //清空过滤器
+            HandCardOperator.instance?.ClearCardFilter();
             //激活手牌执行器
             yield return HandCardOperator.instance?.CallTheHandCardOperator(discardCardCount,CardOperateCategory.AT_LEAST);
         }

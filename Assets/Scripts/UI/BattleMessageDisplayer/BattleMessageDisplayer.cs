@@ -26,6 +26,8 @@ public class BattleMessageDisplayer : MonoBehaviour
     public Canvas GetMainCanvas() => mainCanvas;
     [SerializeField] private CardPlayArea cardPlayArea;///卡牌打出区域,里面存有当前是否已经打完牌的信息isExcuting
     public CardPlayArea GetCardPlayArea() => cardPlayArea;
+    [SerializeField] private SlotListIndexer attackSlotIndexer;
+    public SlotListIndexer GetAttackSlotIndexer() => attackSlotIndexer;
     public void OnEnable()
     {
         //尝试自动获取

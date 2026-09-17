@@ -38,6 +38,13 @@ public class BattleMessage : MonoBehaviour
         FreshTheGadgetList();
     }
 
+    //玩家货币系统相关
+
+    [SerializeField] private uint coins = 0;
+    public uint GetCoins() => coins;
+    public uint SetCoins(uint coins) => this.coins = coins;
+    public uint AddCoins(uint coins) => this.coins += coins;
+    public uint SubCoins(uint coins) => this.coins -= coins;
     //回合控制相关
     [SerializeField] private string roundChangeLocalizeTable = "RoundChangeText";
     [SerializeField] private string selfTurnTextKey = "RoundChange_SelfTurn";
