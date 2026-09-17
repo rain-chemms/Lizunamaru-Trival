@@ -56,14 +56,23 @@ public class CardInsertSlotChecker : MonoBehaviour, IEndDragHandler, IDragHandle
                 }
 
                 cardSlotUnderCard.SetInnerCard(card);
+                //触发卡槽内卡牌Anchor设置操作
+                //cardSlotUnderCard?.GetComponent<CardSlotCardAnchorSetter>()?.SetCardAnchorAndPosition();
                 //将卡牌的父级设置为卡槽的父级
-                card.transform.SetParent(cardSlotUnderCard.transform.parent);
+                card.transform.SetParent(cardSlotUnderCard.transform/*.parent*/);
+                //尝试将卡牌的canvas图层顺序设置为卡槽的图层+1
+                Canvas cvs = card.GetComponent<Canvas>();
+                if(cvs != null)
+                {
+                    cvs.overrideSorting = true;
+                    cvs.sortingOrder = (int)cardSlotUnderCard?.GetLayerOrder() + 1;
+                }
                 //若在手牌中,将其从手牌中移除
                 BattleMessage.instance.GetHandCardList().Remove(card);
                 //触发卡牌的插入效果
                 StartCoroutine(((ICardFunctioner)card)?.AfterInsertToSolt());//必须启动协程才能调用
                 
-                
+
                 Debug.Log("[CardInsertSlotChecker]: Set the CardSlot:<" +
                     cardSlotUnderCard.name + "|" + cardSlotUnderCard.GetSlotCardCategory().ToString() + "(" + (int)cardSlotUnderCard.GetSlotCardCategory() + ")" + "> to the Card:<" +
                     card.name + "|" + card.GetCardCategory().ToString() + "(" + (int)card.GetCardCategory() + ")" + ">!");

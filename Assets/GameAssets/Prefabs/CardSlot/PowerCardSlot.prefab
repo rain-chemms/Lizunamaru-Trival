@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04100e708c42ad2409fef21dd4a23c2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lerpSpeed: 100
+  lerpSpeed: 10
   rotateSpeed: 5
   rectTransform: {fileID: 7956985556200349532}
   cardSlot: {fileID: 5849402520368199247}

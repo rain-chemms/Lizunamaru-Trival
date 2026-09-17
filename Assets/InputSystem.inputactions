@@ -1114,6 +1114,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SlotListViewShifter",
+                    "type": "Button",
+                    "id": "d98b2057-5a81-48bb-9c6a-e9beafdcea7c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1235,6 +1244,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "UseSpell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d5f2e54e-3b14-4d9f-a3ed-bbad6b211f36",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SlotListViewShifter",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -9,6 +9,11 @@ public class CardSlot : MonoBehaviour
 {
     [EnumRestrict(typeof(CardCategory),CardCategory.ATTACK, CardCategory.GADGET, CardCategory.POWER, CardCategory.SPELL_ATTACK)]
     [SerializeField] private CardCategory cardCategory = CardCategory.EFFECTIVE;//卡槽类别,默认这种是错误的
+    
+    [SerializeField] private int layerOrder = 0;//用于设置卡牌的层序
+    public int GetLayerOrder() => layerOrder;
+    public void SetLayerOrder(int order)=> layerOrder = order;
+
     public CardCategory GetSlotCardCategory()
     {
         return cardCategory;

@@ -45,7 +45,7 @@ namespace CardSystem.AllCardHub
             Gadget gt = ufoEntity;
             ufoEntity = null;
             //等待动画播放完毕
-            gt.GetComponent<AnimTrigger>()?.SetBoolValue("Open", false);
+            gt.GetComponent<Animator>()?.SetBool("Open", false);
             yield return null;//暂停一帧
             AnimatorStateInfo info = (AnimatorStateInfo)gt.GetComponent<Animator>()?.GetCurrentAnimatorStateInfo(0);
             yield return new WaitForSeconds(info.length / info.speed);//等待动画播放完毕,固定数值大约时0.15

@@ -19,55 +19,96 @@ public class CardSlotCardAnchorSetter : MonoBehaviour
     void Start()
     {
         //尝试自动获取
-        if(cardSlot == null) cardSlot = GetComponent<CardSlot>();
-        if(rectTransform == null) rectTransform = GetComponent<RectTransform>();
+        if (cardSlot == null) cardSlot = GetComponent<CardSlot>();
+        if (rectTransform == null) rectTransform = GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
+
     void Update()
     {
-        SetCardAnchorAndPosition();
+        SyncCardDisplay();
     }
 
-    public void SetCardAnchorAndPosition()
+    private void SetCardAnchorPosition(RectTransform crtf)
     {
-        Card theCard = cardSlot.GetInnerCard();
-        if(theCard != null)
+        if (crtf != null)
         {
-            if((bool)theCard.GetComponent<CardHandler>()?.IsDragging()) return;
-            RectTransform theCardRectTransform = theCard.GetComponent<RectTransform>();
-            if(theCardRectTransform != null)
+            //设置偏移位置
+            crtf.anchoredPosition = Vector2.Lerp(
+                crtf.anchoredPosition,
+                rectTransform.anchoredPosition,
+                lerpSpeed * Time.deltaTime
+            );
+        }
+
+    }
+
+    private void SetCardAnchor(RectTransform crtf)
+    {
+        if (crtf != null)
+        {
+            //设置锚点
+            crtf.anchorMin = Vector2.Lerp(
+                crtf.anchorMin,
+                Vector2.zero,
+                lerpSpeed * Time.deltaTime
+            );
+
+            crtf.anchorMax = Vector2.Lerp(
+                crtf.anchorMax,
+                Vector2.one,
+                lerpSpeed * Time.deltaTime
+            );
+            //设置偏移位置
+            crtf.anchoredPosition = Vector2.Lerp(
+                crtf.anchoredPosition,
+                rectTransform.anchoredPosition,
+                lerpSpeed * Time.deltaTime
+            );
+        }
+
+    }
+
+    private void SetCardRotate(RectTransform crtf)
+    {
+        if (crtf != null)
+        {
+            //同步旋转
+            crtf.rotation = Quaternion.Lerp(
+                crtf.rotation,
+                rectTransform.rotation
+                , rotateSpeed * Time.deltaTime
+            );
+        }            
+    }
+
+    private void SetCardSizeDelta(RectTransform crtf)
+    {
+        if (crtf != null)
+        {
+            //同步尺寸
+            crtf.sizeDelta = Vector2.Lerp(
+                crtf.sizeDelta,
+                rectTransform.sizeDelta,
+                lerpSpeed * Time.deltaTime
+            );
+        }
+    }
+
+    public void SyncCardDisplay()
+    {
+        Card theCard = cardSlot?.GetInnerCard();
+        if (theCard != null)
+        {
+            if ((bool)theCard.GetComponent<CardHandler>()?.IsDragging()) return;
+            RectTransform crtf = theCard.GetComponent<RectTransform>();
+            if (crtf != null)
             {
-                //设置锚点
-                theCardRectTransform.anchorMin = Vector2.Lerp(
-                    theCardRectTransform.anchorMin,
-                    rectTransform.anchorMin,
-                    lerpSpeed * Time.deltaTime
-                );
-                
-                theCardRectTransform.anchorMax = Vector2.Lerp(
-                    theCardRectTransform.anchorMax,
-                    rectTransform.anchorMax,
-                    lerpSpeed * Time.deltaTime
-                );
-                //设置偏移位置
-                theCardRectTransform.anchoredPosition = Vector2.Lerp(
-                    theCardRectTransform.anchoredPosition,
-                    rectTransform.anchoredPosition,
-                    lerpSpeed * Time.deltaTime
-                );
-                theCardRectTransform.rotation = Quaternion.Lerp(
-                    theCardRectTransform.rotation,
-                    rectTransform.rotation
-                    ,rotateSpeed * Time.deltaTime
-                );
-                //同步尺寸
-                //theCardRectTransform.sizeDelta = rectTransform.sizeDelta;
-                theCardRectTransform.sizeDelta = Vector2.Lerp(
-                    theCardRectTransform.sizeDelta,
-                    rectTransform.sizeDelta,
-                    lerpSpeed * Time.deltaTime
-                );
+                SetCardAnchor(crtf);
+                SetCardAnchorPosition(crtf);
+                SetCardRotate(crtf);
+                SetCardSizeDelta(crtf);
             }
         }
     }
