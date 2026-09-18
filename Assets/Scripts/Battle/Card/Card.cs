@@ -70,7 +70,6 @@ namespace CardSystem
         {
             yield return null;
         }
-
         public virtual IEnumerator AfterInsertToSolt()
         {
             Debug.Log("[Card]:" + name + " have InsertToSolt!");

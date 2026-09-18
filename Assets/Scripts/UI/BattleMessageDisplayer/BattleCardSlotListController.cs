@@ -11,8 +11,26 @@ public class BattleCardSlotListController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     IEnumerator Start()
     {
+        yield return SetCardSlotListSortingLayer();
         yield return DeleteAllCardSlotCategoryNotMatch();
         yield return FreshCardSlotListCount();
+    }
+
+    public IEnumerator SetCardSlotListSortingLayer()
+    {
+        int index = 0;
+        foreach(CardSlotList list in BattleMessage.instance.GetCardSlotListList())
+        {
+            if(list == null) continue;
+            Canvas cvs = list.GetComponent<Canvas>();
+            if(cvs != null)
+            {
+                cvs.overrideSorting = true;
+                cvs.sortingOrder = (int)BattleMessageDisplayer.instance?.GetComponent<Canvas>()?.sortingOrder + (int)BattleMessage.instance?.GetMaxHandCardCount() + 1 + index;
+            }
+            index ++;
+        }
+        yield return null;
     }
 
     //删除卡槽时要将内部的卡牌放回手中
@@ -146,6 +164,7 @@ public class BattleCardSlotListController : MonoBehaviour
                 {
                     //创建卡槽,并将其作为子物体添加到卡槽列表中
                     CardSlot newCardSlot = Instantiate(prefabDict[nowCardCategory],cardSlotList.transform);
+                    newCardSlot.SetLayerOrder((int)cardSlotList.GetComponent<Canvas>()?.sortingOrder + 1 + i);//设置卡槽的层级
                     newCardSlot.SetSlotCardCategory(nowCardCategory);
                     //插入新的卡槽到卡槽列表中
                     cardSlotList.GetCardSlotList().Add(newCardSlot);
@@ -173,7 +192,7 @@ public class BattleCardSlotListController : MonoBehaviour
                             若当前卡槽中存在卡牌
                             则将卡槽中的卡牌移动到手牌中
                         */
-                        if(cardSlot.GetInnerCard() != null) BattleMessage.instance.GetHandCardList()?.Add(cardSlot.GetInnerCard());
+                        if(cardSlot.GetInnerCard() != null) yield return BattleMessage.instance?.AddExistCardToHand(cardSlot.GetInnerCard());
                         //将当前卡槽从卡槽列表中删除
                         cardSlotList.GetCardSlotList().Remove(cardSlot);
                         //删除对应的卡槽游戏物体

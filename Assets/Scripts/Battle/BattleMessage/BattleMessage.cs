@@ -94,6 +94,13 @@ public class BattleMessage : MonoBehaviour
     /// <returns></returns>
     public IEnumerator ChangeTurn(bool shiftSide = true/*isAppendTurn代表是否为否追加回合数*/)
     {
+        //当回合切换时,自动恢复所有卡槽的使用次数
+        foreach(CardSlot slot in GetAllCardSlot().ToList())
+        {
+            CardSlotEffectTriggerController controller = slot?.GetComponent<CardSlotEffectTriggerController>();
+            controller?.RecoverTriggerCount();//恢复触发次数
+        }
+
         //丢弃所有手牌到弃牌堆
         foreach (Card card in handCardList.ToList())
         {

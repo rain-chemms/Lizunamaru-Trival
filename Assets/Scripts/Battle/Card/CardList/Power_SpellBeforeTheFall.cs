@@ -31,6 +31,11 @@ namespace CardSystem.AllCardHub
 
         public override IEnumerator AfterRoundEnd()
         {
+            //检测卡牌是否在卡槽中
+            if(!(bool)BattleMessage.instance?.IsCardInSlot(this))
+            {
+                yield break;//不在卡槽中时,不生效
+            }
             Role player = BattleMessage.instance?.GetControlPlayer();
             //小于0时不生效
             if(increaseSpellPreRound >= 0)

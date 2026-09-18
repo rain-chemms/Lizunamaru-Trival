@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using System;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(RectTransform))]
@@ -50,5 +52,10 @@ public class SlotListIndexer : MonoBehaviour
         int count = slots.Count;
         if(slotIndex < 0 || slotIndex >= count) return null;
         return slots[slotIndex];
+    }
+
+    public void TriggerInnerCard()
+    {
+        StartCoroutine(GetIndexSlot()?.GetComponent<CardSlotEffectTriggerController>()?.TriggerInnerCard());
     }
 }

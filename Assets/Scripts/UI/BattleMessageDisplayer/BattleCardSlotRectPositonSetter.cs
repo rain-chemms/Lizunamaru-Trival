@@ -223,7 +223,7 @@ public class BattleCardSlotRectPositonSetter : MonoBehaviour
                 if (cardSlot != null)
                 {
                     int order = parentCvs == null ? -100 : (int)parentCvs?.sortingOrder;
-                    cardSlot?.SetLayerOrder(order + index);
+                    cardSlot?.SetLayerOrder(order + 1 + index);
                 }
                 //设置卡槽的缩放
                 cardSlot.transform.localScale = Vector3.Lerp(

@@ -1132,6 +1132,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "AttackSlotInnerCardEffectiveTrigger",
+                    "type": "Button",
+                    "id": "895b4118-9961-49e5-996c-1f3f21039c83",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1275,6 +1284,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "AttackSlotListIndexerShifter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ba632445-b756-4332-a192-1b2e1c878140",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackSlotInnerCardEffectiveTrigger",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -518,6 +518,25 @@ MonoBehaviour:
       (TMP) 1
     m_Metadata:
       m_Items: []
+  - m_Id: 26669963283660800
+    m_Key: AttackCardSlot/Canvas (Environment)/AttackCardSlot/CardSlotEffectTriggerCanvas/Counter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26669963401101312
+    m_Key: AttackCardSlot/Canvas (Environment)/AttackCardSlot/CardSlotEffectTriggerCanvas/Counter
+      1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26676966982811648
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/AttackSlotInnerCardEffectiveTrigger/Text
+      (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26676967062503424
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/AttackSlotInnerCardEffectiveTrigger/Text
+      (TMP) 1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 816146740363657316
@@ -889,6 +908,18 @@ MonoBehaviour:
           - zh
           - zh-Hant
           - ja
+        - m_KeyId: 26669963283660800
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 26676966982811648
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
         m_TypeString: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
     - rid: 816146740363657319
@@ -1238,6 +1269,18 @@ MonoBehaviour:
           - zh-Hant
           - ja
         - m_KeyId: 26484621591052288
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 26669963401101312
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 26676967062503424
           m_TableCodes:
           - en
           - zh
