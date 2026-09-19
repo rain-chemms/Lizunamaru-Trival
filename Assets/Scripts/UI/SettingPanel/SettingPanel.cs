@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
+using UnityEngine.InputSystem;
 
 //设置面板:使用单例模式
 public class SettingPanel : MonoBehaviour
@@ -36,6 +37,38 @@ public class SettingPanel : MonoBehaviour
 
     //混音器
     [SerializeField] private AudioMixer audioMixer;
+    //键位映射信息
+    [SerializeField] private InputActionAsset inputAsset;//游戏的全局输入系统
+    [NonSerialized] private string inputAssetSavePath = "";//Path.Combine(Application.persistentDataPath, "input_settings.json");
+
+    //应用输入映射设置
+    public void ApplyInputSettingsToGame()
+    {
+        if (!File.Exists(inputAssetSavePath))
+        {
+            Debug.Log("[SettingPanel]: Not Find Input Asset Save, Use Defaul.");
+            return;
+        }
+        try
+        {
+            string json = File.ReadAllText(inputAssetSavePath);
+            inputAsset.LoadBindingOverridesFromJson(json);
+            Debug.Log("[SettingPanel]: Bind and Loaded Player  Input Asset From: " + inputAssetSavePath);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"[SettingPanel]: Load Player Input Setting Error, Fall Back To Default: {e.Message}");
+        }
+    }
+
+    //保存当前设置到json文件中
+    public void SaveInputSettingsToFile()
+    {
+        string json = inputAsset.SaveBindingOverridesAsJson();
+        File.WriteAllText(inputAssetSavePath, json);
+        Debug.Log("[SettingPanel]: Saved Input Asset To: " + inputAssetSavePath);
+    }
+
     //应用音量设置
     public void ApplyVoiceSettingsToGame()
     {
@@ -83,7 +116,6 @@ public class SettingPanel : MonoBehaviour
             // LocalizationSettings 会自动使用 Project Settings 中的默认语言
         }
     }
-
 
     //用于将音量的1-0映射到-80dB-0dB
     public static float LinearToDb(float linear)
@@ -137,6 +169,7 @@ public class SettingPanel : MonoBehaviour
     void OnEnable()
     {
         savePath = Path.Combine(Application.persistentDataPath, "game_settings.json");//默认保存路径
+        inputAssetSavePath = Path.Combine(Application.persistentDataPath, "input_settings.json");//默认键位映射保存路径
         foreach (RectTransform child in transform)
         {
             if (child.name.Equals("DisplayArea")) { displayArea = child; continue; }
@@ -159,6 +192,8 @@ public class SettingPanel : MonoBehaviour
         ApplyDisplaySettingsToGame();
         //应用语言设置
         ApplyLanguageSettingsToGame();
+        //加载控制系统按键绑定设置
+        ApplyInputSettingsToGame();
     }
 
     ///清除所有displayContent中的子物体

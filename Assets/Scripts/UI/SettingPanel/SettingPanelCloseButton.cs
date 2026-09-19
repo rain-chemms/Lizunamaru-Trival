@@ -9,6 +9,7 @@ public class SettingPanelCloseButton : MonoBehaviour
     public void CloseThePanel()
     {
         panel?.SaveSettingsToFile();//保存设置
+        panel?.SaveInputSettingsToFile();//保存输入系统设置
         panel?.GetComponent<Animator>()?.SetBool("IsOpen",false);//关闭面板
     }
 }

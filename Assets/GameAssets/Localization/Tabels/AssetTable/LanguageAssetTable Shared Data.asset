@@ -537,6 +537,32 @@ MonoBehaviour:
       (TMP) 1
     m_Metadata:
       m_Items: []
+  - m_Id: 27061957944279040
+    m_Key: KeyMappingCT/Canvas (Environment)/KeyMappingCT/Tittle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27061958040748032
+    m_Key: KeyMappingCT/Canvas (Environment)/KeyMappingCT/Tittle 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27081141700919296
+    m_Key: KeyMappingItempPanelTemplate/Canvas (Environment)/KeyMappingItempPanelTemplate/ListionButton/BindKeyText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27081141923217408
+    m_Key: KeyMappingItempPanelTemplate/Canvas (Environment)/KeyMappingItempPanelTemplate/ListionButton/BindKeyText
+      1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27081267685228544
+    m_Key: KeyMappingItempPanelTemplate/Canvas (Environment)/KeyMappingItempPanelTemplate/KeyMappingName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27081267714588672
+    m_Key: KeyMappingItempPanelTemplate/Canvas (Environment)/KeyMappingItempPanelTemplate/KeyMappingName
+      1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 816146740363657316
@@ -920,6 +946,24 @@ MonoBehaviour:
           - zh
           - zh-Hant
           - ja
+        - m_KeyId: 27061957944279040
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 27081141700919296
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 27081267685228544
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
         m_TypeString: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
     - rid: 816146740363657319
@@ -1281,6 +1325,24 @@ MonoBehaviour:
           - zh-Hant
           - ja
         - m_KeyId: 26676967062503424
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 27061958040748032
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 27081141923217408
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 27081267714588672
           m_TableCodes:
           - en
           - zh

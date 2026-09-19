@@ -1141,6 +1141,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ExitOrClose",
+                    "type": "Button",
+                    "id": "1c72dce8-170b-446b-b073-df10f2d144a0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1295,6 +1304,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "AttackSlotInnerCardEffectiveTrigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e22f1f24-1607-4410-9ed5-98ab59c128b6",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExitOrClose",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

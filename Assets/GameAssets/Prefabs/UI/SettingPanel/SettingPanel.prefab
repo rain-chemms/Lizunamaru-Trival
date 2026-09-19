@@ -486,6 +486,7 @@ GameObject:
   - component: {fileID: 677635485004949472}
   - component: {fileID: 7111214787160042223}
   - component: {fileID: 1882907014403071139}
+  - component: {fileID: 175647506416652364}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -634,6 +635,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverCursor: {fileID: 2800000, guid: 669604dbfe28ab546aa36bcf31adef15, type: 3}
   pressCursor: {fileID: 2800000, guid: 2dba2be2ce1eb4741b8490f04572b199, type: 3}
+--- !u!114 &175647506416652364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3500670984369974572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64506144567244a9b82da333bf6abe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputAction: {fileID: 2062546277247917519, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  targetButton: {fileID: 677635485004949472}
 --- !u!1 &4381458779695273544
 GameObject:
   m_ObjectHideFlags: 0
@@ -1161,6 +1176,7 @@ MonoBehaviour:
   partSelectView: {fileID: 7409788254742944435}
   displayArea: {fileID: 3395589861402375419}
   audioMixer: {fileID: 24100000, guid: 6967adf163725cf40adc839b6ddd6cf1, type: 2}
+  inputAsset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   displayConent: {fileID: 0}
 --- !u!114 &6387909881745588810
 MonoBehaviour:
@@ -1482,7 +1498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7025831249332565719, guid: ca26d7295974c1f4d815524b9046460c, type: 3}
       propertyPath: m_fontSize
-      value: 57.85
+      value: 72
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1694,7 +1710,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7025831249332565719, guid: b7bc4df93e55a2b4983158555afa3d1d, type: 3}
       propertyPath: m_fontSize
-      value: 45.8
+      value: 72
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
