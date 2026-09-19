@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 6553217565063320453}
   - component: {fileID: 5610043163021057148}
   - component: {fileID: 2831999568225234276}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AwlBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,6 +136,7 @@ MonoBehaviour:
   force: 10
   maxSpeed: 100
   forceMode: 0
+  canDefend: 1
 --- !u!114 &5978215032975588850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +167,7 @@ MonoBehaviour:
   animator: {fileID: 8266879247038595613}
   damageTriggger: {fileID: 5978215032975588850}
   animatorControl: 1
+  checkPierceOver: 1
 --- !u!114 &6112155123685662955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c7b7d43746bbe4ea2ce882c906e2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirectionOpen: 1
   lerpSpeed: 10
   bullet: {fileID: 6532616564487544047}
 --- !u!114 &6553217565063320453
@@ -382,12 +385,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -900840116002235059, guid: a45015345a48e7941b00738a63c835e1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -900840116002235059, guid: a45015345a48e7941b00738a63c835e1, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a45015345a48e7941b00738a63c835e1, type: 3}
       propertyPath: m_Name
       value: AwlBulletModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a45015345a48e7941b00738a63c835e1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2589314951661961949, guid: a45015345a48e7941b00738a63c835e1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7734682849688961161, guid: a45015345a48e7941b00738a63c835e1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

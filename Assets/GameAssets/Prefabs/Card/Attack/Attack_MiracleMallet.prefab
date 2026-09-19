@@ -1304,6 +1304,7 @@ MonoBehaviour:
   riceCost: 1
   cardCategory: 2
   cardKeyWords: 
+  miracleMalletPrefab: {fileID: 7807654653028614171, guid: f8eb2c7dce4b5cb4fa346252d6d54bd9, type: 3}
 --- !u!114 &1625184676289311345
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 7820888041190506274}
   - component: {fileID: 8448998697800420487}
   - component: {fileID: 4979423387251487384}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SwordEdgeBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,6 +137,7 @@ MonoBehaviour:
   force: 1
   maxSpeed: 10
   forceMode: 2
+  canDefend: 1
 --- !u!114 &3536610773695654009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,6 +195,7 @@ MonoBehaviour:
   animator: {fileID: 2708853911607935698}
   damageTriggger: {fileID: 3536610773695654009}
   animatorControl: 1
+  checkPierceOver: 1
 --- !u!114 &8072075030626977658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,6 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c7b7d43746bbe4ea2ce882c906e2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirectionOpen: 1
   lerpSpeed: 10
   bullet: {fileID: 7763978380216626810}
 --- !u!82 &7820888041190506274
@@ -408,6 +411,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7f59c413a84b05940b1e38fdb5c705de, type: 3}
       propertyPath: m_Name
       value: SwordEdge
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7f59c413a84b05940b1e38fdb5c705de, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

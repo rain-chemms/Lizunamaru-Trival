@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5693413789506098862}
   - component: {fileID: 610118299301489162}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: StayVoice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5549700712568727560}
   - component: {fileID: 3635466137636438725}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ExplosionVoice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3200851231107559087}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,12 +396,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -869863049496993604, guid: c019b9f2e54f0b745ae43eb167505587, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -869863049496993604, guid: c019b9f2e54f0b745ae43eb167505587, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c019b9f2e54f0b745ae43eb167505587, type: 3}
       propertyPath: m_Name
       value: Explosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c019b9f2e54f0b745ae43eb167505587, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c019b9f2e54f0b745ae43eb167505587, type: 3}
       propertyPath: m_IsActive
@@ -414,6 +422,10 @@ PrefabInstance:
     - target: {fileID: 4172110135437023954, guid: c019b9f2e54f0b745ae43eb167505587, type: 3}
       propertyPath: m_Name
       value: OutterSphere
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172110135437023954, guid: c019b9f2e54f0b745ae43eb167505587, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4172110135437023954, guid: c019b9f2e54f0b745ae43eb167505587, type: 3}
       propertyPath: m_IsActive
@@ -434,6 +446,10 @@ PrefabInstance:
     - target: {fileID: 4775850027212369823, guid: c019b9f2e54f0b745ae43eb167505587, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8400698592989695967, guid: c019b9f2e54f0b745ae43eb167505587, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8400698592989695967, guid: c019b9f2e54f0b745ae43eb167505587, type: 3}
       propertyPath: m_IsActive

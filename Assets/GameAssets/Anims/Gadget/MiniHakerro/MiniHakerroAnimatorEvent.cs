@@ -1,16 +1,19 @@
 using UnityEngine;
 
-public class MiniHakerroAnimatorEvent : MonoBehaviour
+namespace AnimatorEventSystem
 {
-    [SerializeField] private AudioSource audioSource;
-    
-    void OnEnable()
+    public class MiniHakerroAnimatorEvent : MonoBehaviour
     {
-        if(audioSource == null) audioSource = GetComponent<AudioSource>(); 
-    }
+        [SerializeField] private AudioSource audioSource;
 
-    public void PlayShootAudio()
-    {
-        audioSource?.Play();
+        void OnEnable()
+        {
+            if (audioSource == null) audioSource = GetComponent<AudioSource>();
+        }
+
+        public void PlayShootAudio()
+        {
+            audioSource?.Play();
+        }
     }
 }

@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7125987962043054101}
   - component: {fileID: -2533036837950126161}
   - component: {fileID: -5687637346439766521}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: KeyStone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6837385094905480060}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,6 +319,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6dcec3a8a0d554842ba610dda6fc4260, type: 3}
       propertyPath: m_Name
       value: KeyStoneModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6dcec3a8a0d554842ba610dda6fc4260, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

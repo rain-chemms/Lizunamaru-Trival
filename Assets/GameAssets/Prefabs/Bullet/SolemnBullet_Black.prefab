@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5989863244603431985}
   - component: {fileID: 8275498528349438192}
   - component: {fileID: 4098010090585468233}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4843,7 +4843,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7267160704467580969}
   - component: {fileID: 3602489328824708632}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5009,7 +5009,7 @@ GameObject:
   - component: {fileID: 6293282498011467670}
   - component: {fileID: 5900178366769727758}
   - component: {fileID: 6712536284761813159}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SolemnBullet_Black
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5129,6 +5129,7 @@ MonoBehaviour:
   force: 30
   maxSpeed: 20
   forceMode: 2
+  canDefend: 1
 --- !u!114 &8097968135298590103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5159,6 +5160,7 @@ MonoBehaviour:
   animator: {fileID: 3651698607513356826}
   damageTriggger: {fileID: 8097968135298590103}
   animatorControl: 1
+  checkPierceOver: 1
 --- !u!114 &4594198305312486498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5184,6 +5186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c7b7d43746bbe4ea2ce882c906e2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirectionOpen: 1
   lerpSpeed: 10
   bullet: {fileID: 8715951260973823654}
 --- !u!114 &5900178366769727758
@@ -5282,6 +5285,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7dab49069634585439830b9029ea3e3c, type: 3}
       propertyPath: m_Name
       value: ButterFlyBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7dab49069634585439830b9029ea3e3c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

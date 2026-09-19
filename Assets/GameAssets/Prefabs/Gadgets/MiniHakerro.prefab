@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 5416352571091804440}
   - component: {fileID: -1451394305452475709}
   - component: {fileID: 4847055693425792844}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MiniHakerro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,6 +300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gadget: {fileID: -7384134482777836567}
   isPosSyncOpen: 1
+  effectByRoleDirection: 0
   isDirSyncOpen: 1
   isFlySyncOpen: 1
   revertFlyState: 0
@@ -312,6 +313,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 484530431364074598}
     m_Modifications:
+    - target: {fileID: -8873459839190821632, guid: ccfd2bda251c04e46be9797aeba70a61, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ccfd2bda251c04e46be9797aeba70a61, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.0068437597
@@ -368,10 +373,26 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7484005257091234455, guid: ccfd2bda251c04e46be9797aeba70a61, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -6983701807335100202, guid: ccfd2bda251c04e46be9797aeba70a61, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -6299016934594896838, guid: ccfd2bda251c04e46be9797aeba70a61, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -6161448157782799470, guid: ccfd2bda251c04e46be9797aeba70a61, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: b76558b9012b83e49bad276b09da20e9, type: 2}
+    - target: {fileID: -6072391574331347817, guid: ccfd2bda251c04e46be9797aeba70a61, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -5573963548903013956, guid: ccfd2bda251c04e46be9797aeba70a61, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -380,14 +401,38 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 61e840b4cda1efc489777f6ddf5d4b17, type: 2}
+    - target: {fileID: -3841272626346544571, guid: ccfd2bda251c04e46be9797aeba70a61, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -3675761680875077669, guid: ccfd2bda251c04e46be9797aeba70a61, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ccfd2bda251c04e46be9797aeba70a61, type: 3}
       propertyPath: m_Name
       value: MiniHakerro
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ccfd2bda251c04e46be9797aeba70a61, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1785097147872460870, guid: ccfd2bda251c04e46be9797aeba70a61, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 24e8e4887c334b74a8081276028dc862, type: 2}
+    - target: {fileID: 6062473510674790450, guid: ccfd2bda251c04e46be9797aeba70a61, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999394268778095430, guid: ccfd2bda251c04e46be9797aeba70a61, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8867937338241767861, guid: ccfd2bda251c04e46be9797aeba70a61, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2362775150418612011}
   - component: {fileID: 6488222833651592962}
   - component: {fileID: 2998162055055681357}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MasterSpark_Small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,6 +232,7 @@ MonoBehaviour:
   force: 0
   maxSpeed: 0
   forceMode: 0
+  canDefend: 1
 --- !u!114 &2362775150418612011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,6 +336,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8283973927447001578, guid: 8808109ca67842f49ae61c76a2c04069, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -6412166763073300615, guid: 8808109ca67842f49ae61c76a2c04069, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -3263640617679966789, guid: 8808109ca67842f49ae61c76a2c04069, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -342,6 +351,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8808109ca67842f49ae61c76a2c04069, type: 3}
       propertyPath: m_Name
       value: MasterSpark
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8808109ca67842f49ae61c76a2c04069, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1007163687453001936, guid: 8808109ca67842f49ae61c76a2c04069, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -351,10 +364,18 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 5da8ca2474f43c74fabf5e0fa0c68b2a, type: 2}
+    - target: {fileID: 4069650921518607288, guid: 8808109ca67842f49ae61c76a2c04069, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4891968572468928744, guid: 8808109ca67842f49ae61c76a2c04069, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 5da8ca2474f43c74fabf5e0fa0c68b2a, type: 2}
+    - target: {fileID: 7554360642073886827, guid: 8808109ca67842f49ae61c76a2c04069, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
