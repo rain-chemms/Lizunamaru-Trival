@@ -10,6 +10,7 @@ public class RiceCostDisplayController : MonoBehaviour
     [SerializeField] private TMP_Text cardFunctioner;
     void OnEnable()
     {
+        if(card == null) card = GetComponentInParent<Card>();
         CheckCardAndDisplay();
     }
 

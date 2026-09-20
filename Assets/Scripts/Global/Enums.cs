@@ -26,7 +26,9 @@ public enum CardCategory
     GADGET,//道具卡
     ATTACK,//攻击卡
     SPELL_ATTACK,//符卡
-    EFFECTIVE//即时生效卡
+    EFFECTIVE,//即时生效卡
+    CURSE,//诅咒卡:负面卡牌
+    STATUS//状态卡:负面卡牌
 }
 
 //地图节点的类别
