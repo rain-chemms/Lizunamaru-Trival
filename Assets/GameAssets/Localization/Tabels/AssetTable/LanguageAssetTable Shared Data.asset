@@ -563,6 +563,15 @@ MonoBehaviour:
       1
     m_Metadata:
       m_Items: []
+  - m_Id: 27643536131358720
+    m_Key: SpellCard_MasterSpark/Canvas (Environment)/SpellCard_MasterSpark/Back/Discription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27643536211050496
+    m_Key: SpellCard_MasterSpark/Canvas (Environment)/SpellCard_MasterSpark/Back/Discription
+      1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 816146740363657316
@@ -964,6 +973,12 @@ MonoBehaviour:
           - zh
           - zh-Hant
           - ja
+        - m_KeyId: 27643536131358720
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
         m_TypeString: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
     - rid: 816146740363657319
@@ -1343,6 +1358,12 @@ MonoBehaviour:
           - zh-Hant
           - ja
         - m_KeyId: 27081267714588672
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 27643536211050496
           m_TableCodes:
           - en
           - zh
