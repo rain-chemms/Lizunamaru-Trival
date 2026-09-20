@@ -101,20 +101,20 @@ Material:
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
     - _FlowCount: 2
-    - _FlowIntensity: 0.77
+    - _FlowIntensity: 1.43
     - _FlowSpeed: 0.3
     - _FlowWidth: 0.5
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _GlowIntensity: 2.21
-    - _GlowSpread: 0.0296
+    - _GlowSpread: 0.0114
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _OutsideAlpha: 0
     - _Parallax: 0.005
     - _QueueOffset: 0
-    - _Radius: 0.064
+    - _Radius: 0.108
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
@@ -131,10 +131,10 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BorderColor: {r: 0.31446534, g: 0.31446534, b: 0.31446534, a: 0.3}
+    - _BorderColor: {r: 0.63265324, g: 0, b: 1, a: 0.3}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FlowColor: {r: 0.27672952, g: 0.27672952, b: 0.27672952, a: 1}
+    - _FlowColor: {r: 0.31675744, g: 0, b: 0.408805, a: 1}
     - _OutsideColor: {r: 0.19496846, g: 0.19496846, b: 0.19496846, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

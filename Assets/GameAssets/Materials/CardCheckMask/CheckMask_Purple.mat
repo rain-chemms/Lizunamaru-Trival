@@ -114,7 +114,7 @@ Material:
     - _OutsideAlpha: 0
     - _Parallax: 0.005
     - _QueueOffset: 0
-    - _Radius: 0.064
+    - _Radius: 0.107
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
@@ -131,10 +131,10 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BorderColor: {r: 0.31446534, g: 0.31446534, b: 0.31446534, a: 0.3}
+    - _BorderColor: {r: 0.57254887, g: 0, b: 1, a: 0.3}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FlowColor: {r: 0.27672952, g: 0.27672952, b: 0.27672952, a: 1}
+    - _FlowColor: {r: 0.38228306, g: 0.123056725, b: 0.6415094, a: 1}
     - _OutsideColor: {r: 0.19496846, g: 0.19496846, b: 0.19496846, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
