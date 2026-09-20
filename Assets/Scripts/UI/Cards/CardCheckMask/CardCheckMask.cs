@@ -32,11 +32,11 @@ public class CardCheckMask : MonoBehaviour
         if(hck != null)
         {
             bool isHovering = hck.IsHovering();
-            animator?.SetBool("isOpen",isHovering);
+            animator?.SetBool("IsOpen",isHovering);
         }
         else
         {
-            animator?.SetBool("isOpen",false);
+            animator?.SetBool("IsOpen",false);
         }
     }
 

@@ -1966,7 +1966,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.1
+  m_fontSize: 20.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2245,6 +2245,7 @@ GameObject:
   - component: {fileID: 4363033643773023444}
   - component: {fileID: 5826203836947067345}
   - component: {fileID: 3653664144557802328}
+  - component: {fileID: 1384755942522859657}
   m_Layer: 3
   m_Name: InStack
   m_TagString: Untagged
@@ -2309,6 +2310,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1384755942522859657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8117196228549574974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133bb6561612429478c15627371bcdf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 0}
+  image: {fileID: 0}
+  defaultMat: {fileID: 2100000, guid: 7ad859042fe8ceb48b4b122417fc4faa, type: 2}
+  categoryMatDict:
+    m_keys: 04000000010000000600000000000000050000000200000003000000
+    m_values:
+    - {fileID: 2100000, guid: 7ad859042fe8ceb48b4b122417fc4faa, type: 2}
+    - {fileID: 2100000, guid: 2e2db17896f8b634e86fdbaab7c540e6, type: 2}
+    - {fileID: 2100000, guid: f4e66e82a434ec640b62a4ac70a9310e, type: 2}
+    - {fileID: 2100000, guid: ecd6dc9a85286d143b1b88b182ffe89c, type: 2}
+    - {fileID: 2100000, guid: ed1e620fd0965944aa53d76a4d0d36c8, type: 2}
+    - {fileID: 2100000, guid: f64819e06d772de4383c6d3778152091, type: 2}
+    - {fileID: 2100000, guid: b42202bc1a2439f4dba2e54850d3f0f8, type: 2}
 --- !u!1 &8507653178229295485
 GameObject:
   m_ObjectHideFlags: 0
