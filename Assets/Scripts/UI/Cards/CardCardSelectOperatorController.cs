@@ -22,6 +22,11 @@ public class CardCardSelectOperatorController : MonoBehaviour, IPointerClickHand
     public void OnPointerClick(PointerEventData eventData)
     {
         isSelected = !isSelected;
+        FreshCardVfx();
+    }
+
+    public void FreshCardVfx()
+    {
         //依据当前的状态和card的类别设置Vfx显示
         string vfxXColor = "_Black";
         switch (card?.GetCardCategory())
@@ -52,6 +57,6 @@ public class CardCardSelectOperatorController : MonoBehaviour, IPointerClickHand
         //尝试打开Vfx
         CardVfxDisplayer dsp = card?.GetComponentInChildren<CardVfxDisplayer>();
         if(isSelected) dsp?.OpenVfx("SpreadGlow" + vfxXColor);
-        else dsp?.CloseVfx("SpreadGlow" + vfxXColor);
+        else dsp?.CloseVfx("SpreadGlow" + vfxXColor);    
     }
 }

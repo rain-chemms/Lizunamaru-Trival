@@ -78,35 +78,8 @@ public class HandCardOperator : MonoBehaviour
         }
         //将卡牌重新返回手牌中
         //关闭相对应的卡牌的显示特效
-        string vfxXColor = "_Black";
-        switch (card?.GetCardCategory())
-        {
-            case CardCategory.POWER:
-                vfxXColor = "_Green";
-                break;
-            case CardCategory.GADGET:
-                vfxXColor = "_Blue";
-                break;
-            case CardCategory.ATTACK:
-                vfxXColor = "_Red";
-                break;
-            case CardCategory.SPELL_ATTACK:
-                vfxXColor = "_White";
-                break;
-            case CardCategory.CURSE:
-                vfxXColor = "_Purple";
-                break;
-            case CardCategory.STATUS:
-                vfxXColor = "_DarkGreen";
-                break;
-            case CardCategory.EFFECTIVE:
-            default:
-                vfxXColor = "_Black";
-                break;
-        }
-        //尝试关闭Vfx
-        card.GetComponentInChildren<CardVfxDisplayer>()?.CloseVfx("SpreadGlow" + vfxXColor);
-        StartCoroutine(BattleMessage.instance?.AddExistCardToHand(card));
+        CloseCardVfx(card);
+        StartCoroutine(BattleMessage.instance?.AddExistCardToHand(card));    
     }
 
     [SerializeField] private bool selectOver = false;//是否已结束选择
@@ -178,7 +151,41 @@ public class HandCardOperator : MonoBehaviour
         {
             if (card == null) continue;
             yield return operateFunc(card);
+            //关闭相对应的卡牌的显示特效
+            CloseCardVfx(card);
         }
     }
 
+    private void CloseCardVfx(Card card)
+    {
+        //关闭相对应的卡牌的显示特效
+        string vfxXColor = "_Black";
+        switch (card?.GetCardCategory())
+        {
+            case CardCategory.POWER:
+                vfxXColor = "_Green";
+                break;
+            case CardCategory.GADGET:
+                vfxXColor = "_Blue";
+                break;
+            case CardCategory.ATTACK:
+                vfxXColor = "_Red";
+                break;
+            case CardCategory.SPELL_ATTACK:
+                vfxXColor = "_White";
+                break;
+            case CardCategory.CURSE:
+                vfxXColor = "_Purple";
+                break;
+            case CardCategory.STATUS:
+                vfxXColor = "_DarkGreen";
+                break;
+            case CardCategory.EFFECTIVE:
+            default:
+                vfxXColor = "_Black";
+                break;
+        }
+        //尝试关闭Vfx
+        card?.GetComponentInChildren<CardVfxDisplayer>()?.CloseVfx("SpreadGlow" + vfxXColor);
+    }
 }

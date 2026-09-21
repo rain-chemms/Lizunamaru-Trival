@@ -108,6 +108,7 @@ public class CardSelectOperator : MonoBehaviour
             if(ctr != null) 
             {    
                 ctr.SetSelected(false);
+                ctr.FreshCardVfx();
                 ctr.enabled = true;
             }
             //关闭打出区域检测器
@@ -136,7 +137,10 @@ public class CardSelectOperator : MonoBehaviour
             {
                 if(card == null) continue;
                 CardCardSelectOperatorController ctr = card.GetComponent<CardCardSelectOperatorController>();
-                if(ctr != null) ctr.SetSelected(true);
+                if(ctr != null) 
+                {
+                    ctr.SetSelected(true);
+                }
             }
         }
         
@@ -195,7 +199,12 @@ public class CardSelectOperator : MonoBehaviour
             //若当前卡牌处于已经选择的状态则执行相关的操作
             CardCardSelectOperatorController ctr = card?.GetComponent<CardCardSelectOperatorController>();
             //当前卡牌处于选择状态
-            if((bool)ctr?.IsSelected()) yield return operateFunc(card);
+            if((bool)ctr?.IsSelected()) 
+            {
+                yield return operateFunc(card);
+                ctr?.SetSelected(false);
+                ctr?.FreshCardVfx();
+            }
         }
     }
 }

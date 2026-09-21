@@ -2605,6 +2605,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardVfxDisplayer
       objectReference: {fileID: 0}
+    - target: {fileID: 7940074565522360352, guid: d20b1e663c4b4c648af41659358a220f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
