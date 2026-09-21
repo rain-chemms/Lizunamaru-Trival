@@ -13,10 +13,6 @@ public class ImageMaterialSetterOfCardCategory : MonoBehaviour
     {
         if(card == null) card = GetComponentInParent<Card>();//尝试从父节点中获取
         if(image == null) image = GetComponent<Image>();
-    }
-
-    void Start()
-    {
         SetTheMaterialToImage();
     }
 

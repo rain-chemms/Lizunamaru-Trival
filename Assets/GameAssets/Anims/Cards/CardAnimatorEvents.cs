@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using CardSystem;
+using System.Linq;
 namespace AnimatorEventSystem
 {
     [RequireComponent(typeof(Card))]
@@ -42,6 +43,23 @@ namespace AnimatorEventSystem
         public void PlayExhaustAudio()
         {
             card?.GetComponent<CardVoiceController>()?.PlayCardVoice("Exhaust");
+        }
+
+        public void TriggerAllDissolveController()
+        {
+            foreach(var disCtrl in card?.GetComponentsInChildren<CardDissolveController>().ToList())
+            {
+                Debug.Log("[CardAnimatorEvents]: Trigger Dissolve Controller:"+ disCtrl.name);
+                disCtrl?.SetDissolveMaterial();//刷新所有DissolveController的材质
+            }
+        }
+
+        public void RevertAllDissolveController()
+        {
+            foreach (var disCtrl in card?.GetComponentsInChildren<CardDissolveController>().ToList())
+            {
+                disCtrl?.RevertMaterial();//刷新所有DissolveController的材质
+            }
         }
     }
 }

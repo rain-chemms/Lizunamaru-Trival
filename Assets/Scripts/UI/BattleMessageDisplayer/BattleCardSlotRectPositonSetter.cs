@@ -125,8 +125,8 @@ public class BattleCardSlotRectPositonSetter : MonoBehaviour
         //清空旧的字典数据
         slotsColorDict.Clear();
         //获取全部的卡槽列表
-        List<CardSlotList> cardSlotListList = BattleMessage.instance.GetCardSlotListList();
-        foreach(CardSlotList cardSlotList in cardSlotListList)
+        List<CardSlotList> cardSlotListList = BattleMessage.instance?.GetCardSlotListList();
+        foreach(CardSlotList cardSlotList in cardSlotListList?.ToList())
         {
             if(cardSlotList == null) continue;
             List<CardSlot> cardSlotList1 = cardSlotList?.GetCardSlotList();

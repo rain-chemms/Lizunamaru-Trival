@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 7080197002401759028}
   - component: {fileID: 8564044042788094000}
   - component: {fileID: 7515544673819112384}
+  - component: {fileID: 3266523640950642674}
   m_Layer: 3
   m_Name: CardFace
   m_TagString: Untagged
@@ -203,6 +204,21 @@ MonoBehaviour:
     - {fileID: 2100000, guid: aafe59a7e3c38df4094b2271b570b3cf, type: 2}
     - {fileID: 2100000, guid: 328c9354d743a1142bc720b5e310a663, type: 2}
     - {fileID: 2100000, guid: 57932d131684c5048983486246f0640a, type: 2}
+--- !u!114 &3266523640950642674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591929441761471246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef829d51e33a8740a1e47b5d28ae936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 8564044042788094000}
+  dissolveProgress: 0
+  dissolveMaterial: {fileID: 2100000, guid: 5d009727ba3a9f648b020a05606662f1, type: 2}
 --- !u!1 &793997566704364575
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,6 +231,7 @@ GameObject:
   - component: {fileID: 7042500987649107369}
   - component: {fileID: 8299132168465391022}
   - component: {fileID: 8013309354242526690}
+  - component: {fileID: 4628369926709600264}
   m_Layer: 3
   m_Name: RiceCost
   m_TagString: Untagged
@@ -295,6 +312,21 @@ MonoBehaviour:
   card: {fileID: 2861037005881710516}
   riceCostImage: {fileID: 8299132168465391022}
   cardFunctioner: {fileID: 4524002566662319323}
+--- !u!114 &4628369926709600264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793997566704364575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef829d51e33a8740a1e47b5d28ae936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 8299132168465391022}
+  dissolveProgress: 0
+  dissolveMaterial: {fileID: 2100000, guid: 5d009727ba3a9f648b020a05606662f1, type: 2}
 --- !u!1 &2112233035275972938
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,6 +541,7 @@ GameObject:
   - component: {fileID: 4525302107700560573}
   - component: {fileID: 4293944683411892456}
   - component: {fileID: 2634396778583827588}
+  - component: {fileID: 4975125860297222747}
   m_Layer: 3
   m_Name: Front
   m_TagString: Untagged
@@ -599,6 +632,21 @@ MonoBehaviour:
     - {fileID: 2100000, guid: ef464307b32a75a4aa5b1b57cf01e721, type: 2}
     - {fileID: 2100000, guid: 3d3912857ad4f38469afc8611c8c8b40, type: 2}
     - {fileID: 2100000, guid: 8d58d5c7eb2803844b8d80d72793fa10, type: 2}
+--- !u!114 &4975125860297222747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2576241690860577765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef829d51e33a8740a1e47b5d28ae936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 4293944683411892456}
+  dissolveProgress: 0
+  dissolveMaterial: {fileID: 2100000, guid: 5d009727ba3a9f648b020a05606662f1, type: 2}
 --- !u!1 &2876078043174788324
 GameObject:
   m_ObjectHideFlags: 0
