@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using CardSystem;
+using CardVfxSystem;
 
 //手牌操作器,使用一些卡牌进行触发对手牌的操作
 //是单例对象
@@ -13,7 +14,7 @@ public class HandCardOperator : MonoBehaviour
     public static HandCardOperator instance;
     void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
@@ -30,13 +31,13 @@ public class HandCardOperator : MonoBehaviour
     public void ClearCardFilter() => cardFilter.Clear();
     public void AddCardCategoryFilter(CardCategory ctg)
     {
-        if(!(bool)cardFilter?.Contains(ctg)) 
-            cardFilter?.Add(ctg);  
-    } 
+        if (!(bool)cardFilter?.Contains(ctg))
+            cardFilter?.Add(ctg);
+    }
 
-    [SerializeField] public Func<Card,IEnumerator> operateFunc;//操作函数,每次调用时必须传入当前需要对卡牌进新的操作,返回协程对象并传入Card
-    public void SetOperateFunc(Func<Card,IEnumerator> operateFunc) => this.operateFunc = operateFunc;
-    
+    [SerializeField] public Func<Card, IEnumerator> operateFunc;//操作函数,每次调用时必须传入当前需要对卡牌进新的操作,返回协程对象并传入Card
+    public void SetOperateFunc(Func<Card, IEnumerator> operateFunc) => this.operateFunc = operateFunc;
+
     [SerializeField] private List<Card> selectedCards;//当前选中的卡牌
     public List<Card> GetSelectedCards() => selectedCards;
     public List<Card> GetSelectedCards_Copy() => selectedCards.ToList();
@@ -58,31 +59,60 @@ public class HandCardOperator : MonoBehaviour
 
     public void AddCard(Card card)
     {
-        if(selectedCards == null) return;
-        if(!selectedCards.Contains(card))//不包含当前卡牌
+        if (selectedCards == null) return;
+        if (!selectedCards.Contains(card))//不包含当前卡牌
         {
             selectedCards.Add(card);
-        }    
+        }
         //将卡牌从手牌中移除
         BattleMessage.instance?.GetHandCardList()?.Remove(card);
     }
 
     public void RemoveCard(Card card)
     {
-        if(selectedCards == null) return;
+        if (selectedCards == null) return;
         //移除卡牌
-        if(selectedCards.Contains(card))
+        if (selectedCards.Contains(card))
         {
             selectedCards.Remove(card);
         }
         //将卡牌重新返回手牌中
+        //关闭相对应的卡牌的显示特效
+        string vfxXColor = "_Black";
+        switch (card?.GetCardCategory())
+        {
+            case CardCategory.POWER:
+                vfxXColor = "_Green";
+                break;
+            case CardCategory.GADGET:
+                vfxXColor = "_Blue";
+                break;
+            case CardCategory.ATTACK:
+                vfxXColor = "_Red";
+                break;
+            case CardCategory.SPELL_ATTACK:
+                vfxXColor = "_White";
+                break;
+            case CardCategory.CURSE:
+                vfxXColor = "_Purple";
+                break;
+            case CardCategory.STATUS:
+                vfxXColor = "_DarkGreen";
+                break;
+            case CardCategory.EFFECTIVE:
+            default:
+                vfxXColor = "_Black";
+                break;
+        }
+        //尝试关闭Vfx
+        card.GetComponentInChildren<CardVfxDisplayer>()?.CloseVfx("SpreadGlow" + vfxXColor);
         StartCoroutine(BattleMessage.instance?.AddExistCardToHand(card));
     }
 
     [SerializeField] private bool selectOver = false;//是否已结束选择
     public void SetSelectOver(bool isOver) => selectOver = isOver;
 
-    public IEnumerator CallTheHandCardOperator(uint operateCount,CardOperateCategory operateCategory)
+    public IEnumerator CallTheHandCardOperator(uint operateCount, CardOperateCategory operateCategory)
     {
         SetOperateCount(operateCount);
         SetOperateCategory(operateCategory);
@@ -90,48 +120,48 @@ public class HandCardOperator : MonoBehaviour
         hoCtr?.SetOpen(true);
         //激活所有手牌的执行器
         List<Card> handCards = BattleMessage.instance.GetHandCardList_Copy();
-        int cardCount = handCards.Where(x => x!= null && !(bool)cardFilter?.Contains(x.GetCardCategory())).ToList().Count;//获取非空的且没被过滤器过滤的手牌数量
-        foreach(Card card in handCards)
+        int cardCount = handCards.Where(x => x != null && !(bool)cardFilter?.Contains(x.GetCardCategory())).ToList().Count;//获取非空的且没被过滤器过滤的手牌数量
+        foreach (Card card in handCards)
         {
-            if(card == null) continue;
+            if (card == null) continue;
             //控制卡牌的UI打出脚本类
             //开启检测器
             CardHandCardOperatorController ctr = card.GetComponent<CardHandCardOperatorController>();
-            if(ctr!=null) ctr.enabled = true;
+            if (ctr != null) ctr.enabled = true;
             //关闭打出区域检测器
             CardPlayAreaChecker cpaChecker = card.GetComponent<CardPlayAreaChecker>();
-            if(cpaChecker!=null) cpaChecker.enabled = false;
+            if (cpaChecker != null) cpaChecker.enabled = false;
             //关闭卡槽插入检测器
             CardInsertSlotChecker cslChecker = card.GetComponent<CardInsertSlotChecker>();
-            if(cslChecker!=null) cslChecker.enabled = false;
+            if (cslChecker != null) cslChecker.enabled = false;
         }
         //牌量足够时等待选择结束,处于At_Least模式时等待选择结束
         //At_Most条件下一定要等待选择因为可以不选
-        if(cardCount > operateCount || operateCategory == CardOperateCategory.AT_MOST || operateCategory == CardOperateCategory.NOT_ABOVE) yield return new WaitUntil(() => selectOver);
+        if (cardCount > operateCount || operateCategory == CardOperateCategory.AT_MOST || operateCategory == CardOperateCategory.NOT_ABOVE) yield return new WaitUntil(() => selectOver);
         else
         {
             //牌量不够时将剩余符合条件的卡牌直接加入选择器中
             foreach (Card card in handCards)
             {
-                if(card == null) continue;
+                if (card == null) continue;
                 if ((bool)cardFilter?.Contains(card.GetCardCategory())) continue;//筛选器过滤掉不符合的卡牌
                 if (!IsCardSelected(card)) AddCard(card);
             }
         }
         selectOver = false;//重置选择结束状态
         //对于可选择的卡牌
-        foreach(Card card in handCards)
+        foreach (Card card in handCards)
         {
             //关闭卡牌选择器
-            if(card == null) continue;
+            if (card == null) continue;
             CardHandCardOperatorController ctr = card.GetComponent<CardHandCardOperatorController>();
-            if(ctr != null) ctr.enabled = false;
+            if (ctr != null) ctr.enabled = false;
             //重新开启打出区域检测器
             CardPlayAreaChecker cpaChecker = card.GetComponent<CardPlayAreaChecker>();
-            if(cpaChecker != null) cpaChecker.enabled = true;
+            if (cpaChecker != null) cpaChecker.enabled = true;
             //重新开启卡槽插入检测器
             CardInsertSlotChecker cslChecker = card.GetComponent<CardInsertSlotChecker>();
-            if(cslChecker != null) cslChecker.enabled = true;
+            if (cslChecker != null) cslChecker.enabled = true;
         }
 
         yield return OperateFuncToSelectedCards();
@@ -146,7 +176,7 @@ public class HandCardOperator : MonoBehaviour
     {
         foreach (Card card in selectedCards)
         {
-            if(card == null) continue;
+            if (card == null) continue;
             yield return operateFunc(card);
         }
     }

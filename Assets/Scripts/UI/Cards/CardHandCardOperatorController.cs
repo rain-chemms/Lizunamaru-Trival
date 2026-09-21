@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using CardSystem;
 using System.Linq;
+using CardVfxSystem;
 
 //该脚本用于触发卡牌加入手牌选择器的效果
 //默认情况下它是关闭的
@@ -32,13 +33,42 @@ public class CardHandCardOperatorController : MonoBehaviour,IPointerClickHandler
         if(instance == null) return;
         if(IsFiltedByHandCardOperator()) return;//若当前卡牌被过滤掉则返回
         //当前卡牌已经被选中在HandOperator中了
-        if(instance.IsCardSelected(card)) HandCardOperator.instance.RemoveCard(card);//将其从HandOperator中移除,并加入手牌
+        if(instance.IsCardSelected(card)) HandCardOperator.instance?.RemoveCard(card);//将其从HandOperator中移除,并加入手牌
         else
         {
             //若当前超出了选中数量则返回
             int num = (int)instance?.GetSelectedCards()?.Count;
             if(num >= (int)instance.GetOperateCount()) return;
             HandCardOperator.instance.AddCard(card);//否则加入HandOperator中
+            //打开相对应的卡牌的显示特效
+            string vfxXColor = "_Black";
+            switch(card?.GetCardCategory())
+            {
+                case CardCategory.POWER:
+                    vfxXColor = "_Green";
+                    break;
+                case CardCategory.GADGET:
+                    vfxXColor = "_Blue";
+                    break;
+                case CardCategory.ATTACK:
+                    vfxXColor = "_Red";
+                    break;
+                case CardCategory.SPELL_ATTACK:
+                    vfxXColor = "_White";
+                    break;
+                case CardCategory.CURSE:
+                    vfxXColor = "_Purple";
+                    break;
+                case CardCategory.STATUS:
+                    vfxXColor = "_DarkGreen";
+                    break;
+                case CardCategory.EFFECTIVE:
+                default:
+                    vfxXColor = "_Black";
+                    break;
+            }
+            //尝试打开Vfx
+            card?.GetComponentInChildren<CardVfxDisplayer>()?.OpenVfx("SpreadGlow" + vfxXColor);
         }
     }
 
