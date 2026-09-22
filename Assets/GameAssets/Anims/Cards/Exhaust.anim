@@ -724,14 +724,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: PlayExhaustAudio
+    functionName: CloseComponentBeforeExhaust
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0
-    functionName: CloseComponentBeforeExhaust
+    functionName: PlayExhaustAudio
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -745,7 +745,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 2
-    functionName: AfterExhaust
+    functionName: AtEndOfExhaust
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -753,6 +753,13 @@ AnimationClip:
     messageOptions: 0
   - time: 2
     functionName: RevertAllDissolveController
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2
+    functionName: AfterExhaust
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

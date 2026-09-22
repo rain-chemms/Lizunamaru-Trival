@@ -38,6 +38,23 @@ namespace AnimatorEventSystem
         public void AfterExhaust()
         {
             card?.GetComponent<Animator>()?.SetBool("IsHidden", true);
+
+        }
+
+        public void AtEndOfExhaust()
+        {
+            StartCoroutine(ReopenCardDisplay(card));
+        }
+
+        [SerializeField] private float waitAfterExhaustToReDisplay = 0.8f;
+        private IEnumerator ReopenCardDisplay(Card card)
+        {
+            yield return new WaitForSeconds(waitAfterExhaustToReDisplay);
+            CardInStackChecker inStacker = card.GetComponent<CardInStackChecker>();
+            if(inStacker != null) inStacker.enabled = true;//重新打开卡槽检测器
+            CardHandler handler = card.GetComponent<CardHandler>();
+            if(handler != null) handler.enabled = true;//重新打开拖拽检测器            
+            card?.GetComponent<Animator>()?.SetBool("IsHidden", false);
         }
 
         public void PlayExhaustAudio()
