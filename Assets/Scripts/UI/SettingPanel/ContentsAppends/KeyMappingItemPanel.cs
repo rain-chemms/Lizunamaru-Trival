@@ -66,11 +66,17 @@ public class KeyMappingItemPanel : MonoBehaviour
     /// <summary>
     /// 重绑定结束后的统一清理
     /// </summary>
+    [SerializeField] private AudioSource successSound;
+    [SerializeField] private AudioSource failSound;
+
     private void FinishRebind(bool success)
     {
         _rebindOp = null;
         listenButton.interactable = true;
         UpdateDisplay();
+        //播放对应的音效
+        if(success) successSound?.Play();
+        else failSound?.Play();
     }
 
     /// <summary>

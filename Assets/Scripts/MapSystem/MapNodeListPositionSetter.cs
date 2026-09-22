@@ -43,6 +43,8 @@ namespace MapSystem
                 if(node == null) return;
                 //将节点的父物体设置为scrollRect的content
                 node.transform.SetParent(scrollRect.content);
+                //让节点位于MapPaper之下,MapPaper为0
+                node.transform.SetSiblingIndex(1);
                 Vector2Int index = node.GetIndex();
                 //计算偏移量
                 Vector2 offset = new Vector2(

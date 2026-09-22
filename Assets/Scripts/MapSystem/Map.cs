@@ -24,6 +24,8 @@ namespace MapSystem{
         }
 
         [SerializeField] private Canvas canvas;
+        public Canvas GetCanvas() => canvas;
+
         [SerializeField] private bool isDisplay = false;//是否显示地图
         public bool IsDisplay() => isDisplay;
         public void SetDisplay(bool isDisplay) => this.isDisplay = isDisplay;

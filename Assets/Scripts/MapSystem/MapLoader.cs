@@ -222,7 +222,7 @@ namespace MapSystem
 
             //尝试刷新地图的显示
             map.GetComponent<MapNodeListPositionSetter>()?.FreshTheMapNodePosition();
-            map.GetComponent<MapNodePathDisplayer>()?.FreshMapPath();
+            map.GetComponent<MapNodePathDisplayer>()?.FreshMapPath();//先刷新路径,让图标在路径之上
         }
 
         //测试一下

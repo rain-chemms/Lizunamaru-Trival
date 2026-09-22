@@ -10,12 +10,12 @@ namespace MapSystem
     [RequireComponent(typeof(MapNodeListPositionSetter))]
     public class MapNodePathDisplayer : MonoBehaviour
     {
-        [SerializeField] private Map map; 
+        [SerializeField] private Map map;
         [SerializeField] private MapNodeListPositionSetter mapNPS;
         void OnEnable()
         {
-            if(map == null) map = GetComponent<Map>();
-            if(mapNPS == null) mapNPS = GetComponent<MapNodeListPositionSetter>();
+            if (map == null) map = GetComponent<Map>();
+            if (mapNPS == null) mapNPS = GetComponent<MapNodeListPositionSetter>();
             FreshMapPath();
         }
         [SerializeField] private Image pathPrefab;
@@ -26,49 +26,62 @@ namespace MapSystem
         public void FreshMapPath()
         {
             //确保条件正确
-            if(scrollRect == null) return;
-            if(map == null) return;          
-            if(pathList == null) return;  
-            if(map.GetLinkData() == null) return;
+            if (scrollRect == null) return;
+            if (map == null) return;
+            if (pathList == null) return;
+            if (map.GetLinkData() == null) return;
             //Debug.Log("[MapNodePathDisplayer]: Map Links Number: <"+map?.GetLinkData()?.Count+">");
             //清除旧的连接信息
-            foreach(Image path in pathList)
+            foreach (Image path in pathList)
             {
                 Destroy(path?.gameObject);
             }
             pathList.Clear();
 
-            foreach(KeyValuePair<Vector2Int,List<Vector2Int>> kv in map.GetLinkData())
+            foreach (KeyValuePair<Vector2Int, List<Vector2Int>> kv in map.GetLinkData())
             {
                 Vector2Int index = kv.Key;
                 List<Vector2Int> paths = kv.Value;
                 //获取起点位置
                 MapNode startNode = null;
-                foreach(MapNode node in map.GetNodeList())
+                foreach (MapNode node in map.GetNodeList())
                 {
-                    if(node.GetIndex().x == index.x && node.GetIndex().y == index.y)
+                    if (node.GetIndex().x == index.x && node.GetIndex().y == index.y)
                     {
                         startNode = node;
                         break;
                     }
                 }
-                if(startNode == null) continue;//节点不存在则跳过
-                foreach(Vector2Int way in paths)//一次获取路径终点位置
+                if (startNode == null) continue;//节点不存在则跳过
+                foreach (Vector2Int way in paths)//一次获取路径终点位置
                 {
                     MapNode endNode = null;
-                    foreach(MapNode node in map.GetNodeList())
+                    foreach (MapNode node in map.GetNodeList())
                     {
-                        if(node.GetIndex().x == way.x && node.GetIndex().y == way.y)
+                        if (node.GetIndex().x == way.x && node.GetIndex().y == way.y)
                         {
                             endNode = node;
                             break;
                         }
-                    }   
-                    if(endNode == null) continue;//找不到节点则跳过
+                    }
+                    if (endNode == null) continue;//找不到节点则跳过
                     //所有条件都符合
                     //创建一条新的路径
                     Image pa = Instantiate(pathPrefab);
                     pa.transform.SetParent(scrollRect.content.transform);//设置父节点为Map的ScrollRect
+                    //设置其在UI物体中的层级
+                    //插到所有含组件的子物体之上
+                    //遍历所有子物体,找到含指定组件的最靠前的那个,插到它前面
+                    int insertIndex = scrollRect.content.transform.childCount; // 默认放最后
+                    foreach (Transform child in scrollRect.content.transform)
+                    {
+                        if (child.GetComponent<MapNode>() != null)
+                        {
+                            insertIndex = child.GetSiblingIndex();
+                            break; // 找到第一个（最靠前的）就停
+                        }
+                    }
+                    pa.transform.SetSiblingIndex(insertIndex);
                     //设置路径的位置旋转
                     //Vector3 centerPos = ((Vector3)startNode.GetComponent<RectTransform>()?.localPosition + (Vector3)endNode.GetComponent<RectTransform>()?.localPosition) * 0.5f;//中心点位置
                     //获取两个节点之差的方向
@@ -89,15 +102,15 @@ namespace MapSystem
                     //计算间隔
                     float xDlt = (vOrH ? _gaps.x : _gaps.y) * (way.x - index.x) * (xIncrease ? 1.0f : -1.0f);
                     float yDlt = (vOrH ? _gaps.y : _gaps.x) * (way.y - index.y) * (yIncrease ? 1.0f : -1.0f);
-                    float width = 
+                    float width =
                         Mathf.Sqrt(Mathf.Pow(xDlt, 2) + Mathf.Pow(yDlt, 2))
                     ;//物体的长度
                     //设置Image预制体的信息
                     RectTransform rtf = pa.GetComponent<RectTransform>();
-                    if(rtf!=null)
+                    if (rtf != null)
                     {
                         //rtf.pivot = new Vector2(0.0f, 0.0f);
-                        rtf.sizeDelta = new Vector2(width,rtf.sizeDelta.y);//设置大小
+                        rtf.sizeDelta = new Vector2(width, rtf.sizeDelta.y);//设置大小
                         rtf.localRotation = rotate;
                     }
                     rtf.localPosition = startNode.transform.localPosition;//设置位置
