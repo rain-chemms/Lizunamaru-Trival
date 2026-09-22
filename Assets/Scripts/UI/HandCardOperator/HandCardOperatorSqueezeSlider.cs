@@ -14,6 +14,6 @@ public class HandCardOperatorSqueezeSlider : MonoBehaviour
 
     public void SetPrecentToSetter()
     {
-        innerCardSetter.SetSqueezePrecent((float)slider?.value);
+        innerCardSetter?.SetSqueezePrecent((float)slider?.value);
     }
 }

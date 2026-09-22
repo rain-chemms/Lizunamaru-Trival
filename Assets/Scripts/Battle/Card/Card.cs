@@ -86,7 +86,6 @@ namespace CardSystem
                 yield return BattleMessage.instance?.ExhaustCard(this);//消耗这张卡
             }
             yield return null;
-
         }
         public virtual IEnumerator AfterRemoveFromSolt()
         {
