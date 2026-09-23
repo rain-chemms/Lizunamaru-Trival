@@ -1319,6 +1319,74 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "DrawManager",
+            "id": "17538a9d-21cc-442a-b7c9-a4a318eeb049",
+            "actions": [
+                {
+                    "name": "Clear",
+                    "type": "Button",
+                    "id": "7ca41243-97eb-41d4-8267-6e0b6b7390cf",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Draw",
+                    "type": "Button",
+                    "id": "a97a6fa9-d1c1-4222-b7f1-b0688d6feeb2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pointer",
+                    "type": "Value",
+                    "id": "a0e8d7c8-35f0-4366-a128-bff88e6b4a57",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "657dd5ea-eac3-4373-b113-50ac4740c3bd",
+                    "path": "<Keyboard>/delete",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Clear",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0a8c6569-69e8-4ce6-a2ec-b11791975382",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Draw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "de7b0d80-85ce-4dc7-914a-a849cfc390b7",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pointer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
