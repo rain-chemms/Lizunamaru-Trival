@@ -630,6 +630,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69c4356dc879c7a45b2afed11e1e5b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!21 &266143591
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MMD4Mecanim/MMDLit-NEXTEdge-Pass4
+  m_Shader: {fileID: 4800000, guid: 684f8af9b4ff4bc459588db5b0f6275d, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2001
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _EdgeSize: 0.005
+    - _PostfixRenderQueue: 1
+    m_Colors:
+    - _EdgeColor: {r: 0.39999998, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1001 &286931251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -737,6 +768,10 @@ PrefabInstance:
     - target: {fileID: 6229160113585097296, guid: 5dc7b093fc2a6f041a63fc1a4a5593a3, type: 3}
       propertyPath: m_Name
       value: DefendCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 7690432316974955776, guid: 5dc7b093fc2a6f041a63fc1a4a5593a3, type: 3}
+      propertyPath: m_fontSize
+      value: 72
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1024,6 +1059,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62deb0be3b479d640ad48df2fb208364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!21 &473535475
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MMD4Mecanim/MMDLit-NEXTEdge-Pass8
+  m_Shader: {fileID: 4800000, guid: ff1e1d0bbf6980244a107d25ff535f9a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2001
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _EdgeSize: 0.005
+    - _PostfixRenderQueue: 1
+    m_Colors:
+    - _EdgeColor: {r: 0.39999998, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1001 &495066841
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2597,37 +2663,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4526820275402633002, guid: f1692514d82f63348adb6cdea68f885f, type: 3}
   m_PrefabInstance: {fileID: 803805645}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &806717581
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: MMD4Mecanim/MMDLit-NEXTEdge-Pass4
-  m_Shader: {fileID: 4800000, guid: 684f8af9b4ff4bc459588db5b0f6275d, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2001
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _EdgeSize: 0.005
-    - _PostfixRenderQueue: 1
-    m_Colors:
-    - _EdgeColor: {r: 0.39999998, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1001 &825211048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5094,6 +5129,10 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 22.45
       objectReference: {fileID: 0}
+    - target: {fileID: 7690432316974955776, guid: a2f98b3a508916d4491e0bd3d1413555, type: 3}
+      propertyPath: m_fontSize
+      value: 72
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5455,37 +5494,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5547269180423016403, guid: c41ccaf2af37af44990565bd6dfd4483, type: 3}
   m_PrefabInstance: {fileID: 2014091692}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1886020154
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: MMD4Mecanim/MMDLit-NEXTEdge-Pass8
-  m_Shader: {fileID: 4800000, guid: ff1e1d0bbf6980244a107d25ff535f9a, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2001
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _EdgeSize: 0.005
-    - _PostfixRenderQueue: 1
-    m_Colors:
-    - _EdgeColor: {r: 0.39999998, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!4 &1903540565 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 484530431364074598, guid: 5c81ab042a327984b9e526066f9817c7, type: 3}
@@ -8841,6 +8849,14 @@ PrefabInstance:
       propertyPath: m_ReferencePixelsPerUnit
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 2187120971369445128, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.3839569
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187120971369445128, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2360821694865741906, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.000015258789
@@ -8852,14 +8868,6 @@ PrefabInstance:
     - target: {fileID: 2571757874512040444, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775713448418222348, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
-      propertyPath: m_Inertia
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775713448418222348, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
-      propertyPath: m_MovementType
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2874460134079859844, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: m_AnchorMax.y
@@ -8986,6 +8994,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4898712324077325046, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000022888184
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898712324077325046, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -9005,9 +9017,17 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6315382727835957257, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000022888184
+      objectReference: {fileID: 0}
     - target: {fileID: 6468444809862237906, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.000015258789
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525915562773210001, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0002593994
       objectReference: {fileID: 0}
     - target: {fileID: 6579543600331735025, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: m_AnchorMax.y
@@ -9035,7 +9055,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7323987704774986867, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00006599011
+      value: 0.000057466867
       objectReference: {fileID: 0}
     - target: {fileID: 7323987704774986867, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -9049,13 +9069,17 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7963688180354198778, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8208616566129945358, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: mapArea
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8208616566129945358, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: isDisplay
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8711853336070858623, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -9072,6 +9096,10 @@ PrefabInstance:
     - target: {fileID: 9069552887283018634, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -4.972107
+      objectReference: {fileID: 0}
+    - target: {fileID: 9162915313500174064, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

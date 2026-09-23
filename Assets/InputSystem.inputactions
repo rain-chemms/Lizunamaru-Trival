@@ -1150,6 +1150,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MapDrawBrush",
+                    "type": "Button",
+                    "id": "f41beb1f-0146-4a98-b65a-a4c2e19be0a4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MapDrawErase",
+                    "type": "Button",
+                    "id": "3d0e9f4a-273a-428b-bf9a-4240921ae19a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MapDrawClear",
+                    "type": "Button",
+                    "id": "ce2bcce8-7595-467f-bf63-6c1869a280f9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1315,6 +1342,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "ExitOrClose",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "52fcd880-28fa-49ed-9c28-95e4e0335681",
+                    "path": "<Keyboard>/rightCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MapDrawBrush",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ca5f01c2-0775-4345-8979-230ddd1dfeed",
+                    "path": "<Keyboard>/rightAlt",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MapDrawErase",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4cbbdedf-1dc5-42a3-a3a8-3590bf433e7f",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MapDrawClear",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

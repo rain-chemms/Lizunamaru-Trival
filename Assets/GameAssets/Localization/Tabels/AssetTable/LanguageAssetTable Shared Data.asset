@@ -581,6 +581,22 @@ MonoBehaviour:
       1
     m_Metadata:
       m_Items: []
+  - m_Id: 28681601876623360
+    m_Key: Map/Map/DrawManager/BrushSizeController/SizeText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28681601960509440
+    m_Key: Map/Map/DrawManager/BrushSizeController/SizeText 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28682131491389440
+    m_Key: Map/Map/DrawManager/ColorPicker/PreviewText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28682131516555264
+    m_Key: Map/Map/DrawManager/ColorPicker/PreviewText 1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 816146740363657316
@@ -994,6 +1010,18 @@ MonoBehaviour:
           - zh
           - zh-Hant
           - ja
+        - m_KeyId: 28681601876623360
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 28682131491389440
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
         m_TypeString: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
     - rid: 816146740363657319
@@ -1385,6 +1413,18 @@ MonoBehaviour:
           - zh-Hant
           - ja
         - m_KeyId: 28214152400076800
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 28681601960509440
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 28682131516555264
           m_TableCodes:
           - en
           - zh
