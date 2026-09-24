@@ -889,6 +889,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6830e7fa40e89147a2c90b32896efc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!21 &340198387
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MMD4Mecanim/MMDLit-NEXTEdge-Pass8
+  m_Shader: {fileID: 4800000, guid: ff1e1d0bbf6980244a107d25ff535f9a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2001
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _EdgeSize: 0.005
+    - _PostfixRenderQueue: 1
+    m_Colors:
+    - _EdgeColor: {r: 0.39999998, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1001 &382368506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1813,37 +1844,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac1fbff6182a734f9aa4613d1f5b05f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!21 &748864216
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: MMD4Mecanim/MMDLit-NEXTEdge-Pass4
-  m_Shader: {fileID: 4800000, guid: 684f8af9b4ff4bc459588db5b0f6275d, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2001
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _EdgeSize: 0.005
-    - _PostfixRenderQueue: 1
-    m_Colors:
-    - _EdgeColor: {r: 0.39999998, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1001 &794056039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4203,6 +4203,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0926d0cd4e4a95543b56b2b19b7bfc9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!21 &1400939897
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MMD4Mecanim/MMDLit-NEXTEdge-Pass4
+  m_Shader: {fileID: 4800000, guid: 684f8af9b4ff4bc459588db5b0f6275d, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2001
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _EdgeSize: 0.005
+    - _PostfixRenderQueue: 1
+    m_Colors:
+    - _EdgeColor: {r: 0.39999998, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1001 &1414325087
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4254,6 +4285,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e888151c1bba1f24d8961b1fe74d9dd2, type: 3}
       propertyPath: m_Name
       value: YakumoRan
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e888151c1bba1f24d8961b1fe74d9dd2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5463,37 +5498,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5547269180423016403, guid: c41ccaf2af37af44990565bd6dfd4483, type: 3}
   m_PrefabInstance: {fileID: 2014091692}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1893038318
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: MMD4Mecanim/MMDLit-NEXTEdge-Pass8
-  m_Shader: {fileID: 4800000, guid: ff1e1d0bbf6980244a107d25ff535f9a, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2001
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _EdgeSize: 0.005
-    - _PostfixRenderQueue: 1
-    m_Colors:
-    - _EdgeColor: {r: 0.39999998, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!4 &1903540565 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 484530431364074598, guid: 5c81ab042a327984b9e526066f9817c7, type: 3}
@@ -6495,6 +6499,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardSelectOperator
       objectReference: {fileID: 0}
+    - target: {fileID: 7254347178876941828, guid: 4623d1f8b21928544900449f64c96569, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7272279484138956838, guid: 4623d1f8b21928544900449f64c96569, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
@@ -6563,6 +6571,10 @@ PrefabInstance:
     - target: {fileID: 5495262017581327708, guid: 2a2fc6975efaa4b4492534ce5258ac01, type: 3}
       propertyPath: m_Name
       value: AbilitySpriteGetter
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495262017581327708, guid: 2a2fc6975efaa4b4492534ce5258ac01, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7826181724755484244, guid: 2a2fc6975efaa4b4492534ce5258ac01, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6736,15 +6748,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2620734138874874788, guid: c1fb35b1372842142ae48504272a1f86, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2620734138874874788, guid: c1fb35b1372842142ae48504272a1f86, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2620734138874874788, guid: c1fb35b1372842142ae48504272a1f86, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4487589917003067836, guid: c1fb35b1372842142ae48504272a1f86, type: 3}
       propertyPath: m_AnchorMax.x
@@ -7456,6 +7468,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SeedSetter
       objectReference: {fileID: 0}
+    - target: {fileID: 2684909597933388848, guid: eafa28d92558afc46b75341c92ea6698, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3731593746169513028, guid: eafa28d92558afc46b75341c92ea6698, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7917,6 +7933,10 @@ PrefabInstance:
     - target: {fileID: 4731981402439945720, guid: e0672d45908d66e45b4a04692eef967d, type: 3}
       propertyPath: m_Name
       value: HandCardOperator
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731981402439945720, guid: e0672d45908d66e45b4a04692eef967d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5373963909258000515, guid: e0672d45908d66e45b4a04692eef967d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -8702,6 +8722,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BgmController
       objectReference: {fileID: 0}
+    - target: {fileID: 3351613191936731421, guid: c791fdc8a2cf3d746bad8db17fc3dc57, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3378733089991578059, guid: c791fdc8a2cf3d746bad8db17fc3dc57, type: 3}
       propertyPath: m_Name
       value: Cirno9_BattleBgm
@@ -9043,11 +9067,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7027136719830420923, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7027136719830420923, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 7323987704774986867, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: m_SizeDelta.x
@@ -9322,6 +9346,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5985657368174185833, guid: b8e6e4bef9828ed44b7ea710c84b336c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -23.243652
+      objectReference: {fileID: 0}
+    - target: {fileID: 5985657368174185833, guid: b8e6e4bef9828ed44b7ea710c84b336c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000061035156
+      objectReference: {fileID: 0}
     - target: {fileID: 6046029551135446401, guid: b8e6e4bef9828ed44b7ea710c84b336c, type: 3}
       propertyPath: m_Value
       value: 1
@@ -9348,11 +9380,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8115752775066951098, guid: b8e6e4bef9828ed44b7ea710c84b336c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8115752775066951098, guid: b8e6e4bef9828ed44b7ea710c84b336c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

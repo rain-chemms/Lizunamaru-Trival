@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 
 namespace GlobalSystem
 {
@@ -51,6 +52,12 @@ namespace GlobalSystem
         public void OnPointerExit(PointerEventData eventData)
         {
             image.material = sourceMaterial;
+        }
+
+        void OnDisable()
+        {
+            image.material = sourceMaterial;
+            sourceMaterial = null;
         }
     }
 }

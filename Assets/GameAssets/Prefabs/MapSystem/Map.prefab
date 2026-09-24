@@ -1144,6 +1144,7 @@ GameObject:
   - component: {fileID: 3892089566303272369}
   - component: {fileID: 7139422170902394435}
   - component: {fileID: 8587758821927874365}
+  - component: {fileID: 988567988863952967}
   m_Layer: 5
   m_Name: BrushButton
   m_TagString: Untagged
@@ -1336,6 +1337,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputAction: {fileID: -8994568179227237838, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   targetButton: {fileID: 4024226919317633548}
+--- !u!114 &988567988863952967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2504158855165181596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97723f9b35fda22458b61b85dc1453c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 7912987991212495185}
+  hoverMaterial: {fileID: 2100000, guid: 5bd3c875657cde14ca3f5354137f51e5, type: 2}
 --- !u!1 &2541312858201517758
 GameObject:
   m_ObjectHideFlags: 0
@@ -2969,6 +2984,7 @@ GameObject:
   - component: {fileID: 2333938302342220620}
   - component: {fileID: 4202339874530059842}
   - component: {fileID: 15992385919494172}
+  - component: {fileID: 5109533588776436056}
   m_Layer: 5
   m_Name: ClearButton
   m_TagString: Untagged
@@ -2993,8 +3009,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.26625, y: 0.07625001}
   m_AnchorMax: {x: 0.7264688, y: 0.158}
-  m_AnchoredPosition: {x: 0.000022888184, y: -0.00012207031}
-  m_SizeDelta: {x: 0, y: 0.0001}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1382152406953797356
 CanvasRenderer:
@@ -3158,6 +3174,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputAction: {fileID: 8648462896287871819, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   targetButton: {fileID: 4354642532614526184}
+--- !u!114 &5109533588776436056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6278597561432163017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97723f9b35fda22458b61b85dc1453c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 2045389130862620577}
+  hoverMaterial: {fileID: 2100000, guid: c7c926ea2adbb134da49ec3e50fe4c0b, type: 2}
 --- !u!1 &6473329514244765177
 GameObject:
   m_ObjectHideFlags: 0
@@ -3730,6 +3760,7 @@ GameObject:
   - component: {fileID: 8694664230234984178}
   - component: {fileID: 8455884289974549248}
   - component: {fileID: 4142430934367492873}
+  - component: {fileID: 7732196305233415887}
   m_Layer: 5
   m_Name: EraseButton
   m_TagString: Untagged
@@ -3919,6 +3950,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputAction: {fileID: -419066361905003219, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   targetButton: {fileID: 6791813582476064459}
+--- !u!114 &7732196305233415887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8193936975525932729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97723f9b35fda22458b61b85dc1453c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 2208522329665720438}
+  hoverMaterial: {fileID: 2100000, guid: e22953595b62ae844a936c9b0c4d2f77, type: 2}
 --- !u!1 &8997696149120244579
 GameObject:
   m_ObjectHideFlags: 0
@@ -4198,6 +4243,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 2.3813
       objectReference: {fileID: 0}
+    - target: {fileID: 1150948883156354198, guid: 317383ab5c9adff4aadd7e0c037088d3, type: 3}
+      propertyPath: m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150948883156354198, guid: 317383ab5c9adff4aadd7e0c037088d3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 295170303, guid: 06746c232eea1bd44934667cd35418f2, type: 3}
+    - target: {fileID: 1150948883156354198, guid: 317383ab5c9adff4aadd7e0c037088d3, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 3330475203795879883, guid: 317383ab5c9adff4aadd7e0c037088d3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4276,6 +4333,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3330475203795879883, guid: 317383ab5c9adff4aadd7e0c037088d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544049265748948738, guid: 317383ab5c9adff4aadd7e0c037088d3, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544049265748948738, guid: 317383ab5c9adff4aadd7e0c037088d3, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544049265748948738, guid: 317383ab5c9adff4aadd7e0c037088d3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544049265748948738, guid: 317383ab5c9adff4aadd7e0c037088d3, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5905622503569625674, guid: 317383ab5c9adff4aadd7e0c037088d3, type: 3}
