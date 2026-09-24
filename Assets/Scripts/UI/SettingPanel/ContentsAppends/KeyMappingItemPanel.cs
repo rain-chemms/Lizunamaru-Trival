@@ -2,13 +2,14 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(RectTransform))]
 public class KeyMappingItemPanel : MonoBehaviour
 {
     [Header("键位绑定相关")]
     [SerializeField] private InputActionReference keyReference;
-    [SerializeField] private int bindingIndex = 0; 
+    [SerializeField] private int bindingIndex = 0;
 
     [Header("UI控件相关")]
     [SerializeField] private Button listenButton;
@@ -17,6 +18,9 @@ public class KeyMappingItemPanel : MonoBehaviour
     [Header("配置")]
     [SerializeField] private float timeout = 5f;
     [SerializeField] private string waitingText = "...";
+
+    [SerializeField] private bool openFilter = false;//是否开启过滤器
+    [SerializeField] private List<string> filterBlackList = new List<string>();//过滤器屏蔽黑名单
 
     private InputActionRebindingExtensions.RebindingOperation _rebindOp;
 
@@ -31,6 +35,13 @@ public class KeyMappingItemPanel : MonoBehaviour
     /// </summary>
     public void StartInteractiveRebind()
     {
+        //若当前绑定是打开状态,将其关闭
+        InputActionMap map = keyReference?.action?.actionMap;
+        bool mapEnabled = map?.enabled ?? false;
+        if (map != null && mapEnabled)
+        {
+            map.Disable();
+        }
         // 1.防止重复触发
         if (_rebindOp != null && !_rebindOp.completed) return;
 
@@ -59,8 +70,23 @@ public class KeyMappingItemPanel : MonoBehaviour
                 operation.Dispose();
                 FinishRebind(false);
             });
-
+        
+        if (openFilter)
+        {
+            foreach(string str in filterBlackList)
+            {
+                if(string.IsNullOrEmpty(str)) continue;//忽略空字符串
+                _rebindOp = _rebindOp.WithControlsExcluding(str);
+            }
+        }
+        
         _rebindOp.Start();
+        //恢复map的状态
+        if(map != null)
+        {
+            if(mapEnabled) map.Enable();
+            else map.Disable();
+        }
     }
 
     /// <summary>
@@ -75,7 +101,7 @@ public class KeyMappingItemPanel : MonoBehaviour
         listenButton.interactable = true;
         UpdateDisplay();
         //播放对应的音效
-        if(success) successSound?.Play();
+        if (success) successSound?.Play();
         else failSound?.Play();
     }
 
@@ -90,14 +116,14 @@ public class KeyMappingItemPanel : MonoBehaviour
         // GetBindingDisplayString 自动返回人类可读的名称
         // 如 "<Keyboard>/space" → "Space", "<Gamepad>/buttonSouth" → "A (Xbox)"
         string displayString = action.GetBindingDisplayString(
-            bindingIndex, 
-            out _, 
+            bindingIndex,
+            out _,
             out _,
             InputBinding.DisplayStringOptions.DontUseShortDisplayNames
         );
 
-        keyText.text = !string.IsNullOrEmpty(displayString) 
-            ? displayString 
+        keyText.text = !string.IsNullOrEmpty(displayString)
+            ? displayString
             : action.GetBindingDisplayString();
     }
 

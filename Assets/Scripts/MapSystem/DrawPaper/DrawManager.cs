@@ -78,7 +78,10 @@ namespace MapSystem.DrawPaperSystem
 
         private void OnClear(InputAction.CallbackContext context)
         {
+            //清空画布
             drawPaper.Clear(Color.clear);
+            //将画笔颜色重置为黑色
+            brush.SetColor(Color.black);
         }
 
         //线条绘制

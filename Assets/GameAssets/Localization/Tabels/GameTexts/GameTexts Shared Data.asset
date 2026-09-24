@@ -259,6 +259,130 @@ MonoBehaviour:
     m_Key: ColorPicker_PreviewText
     m_Metadata:
       m_Items: []
+  - m_Id: 30743812090494976
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_PlayCard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30744042080960512
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_PlayerMoveUp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30744113799364608
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_PlayerMoveDown
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30744258356051968
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_PlayerMoveLeft
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30744368834019328
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_PlayerMoveRight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30744517471764480
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_PlayerMoveShiftFlyState
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30744971983323136
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_PlayerLowSpeed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30745150635507712
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_ConcentratePointMoveUp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30745318055346176
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_ConcentratePointMoveDown
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30745529108529152
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_ConcentratePointMoveLeft
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30745551854239744
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_ConcentratePointMoveRight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30745572519575552
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_ConcentratePointLockShift
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30745922966257664
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_ConcentratePointDisplayShift
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30746006265135104
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_RoundEnd
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30746247735410688
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_CheckDrawStack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30746395530100736
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_CheckDiscardStack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30746534856491008
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_CheckExhaustStack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30746700766380032
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_CloseStackCardDisplayer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30747457649508352
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_StackCardDisplayerOutLookChanger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30747777456799744
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_BattleCameraViewShift
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30747827977191424
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_Hidden
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30748065739702272
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_UseSpell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30748137713958912
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_CardSlotViewShift
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30748365754073088
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_AttackSlotIndexShift
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30748403347619840
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_AttackCardUse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30748611632562176
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_MapDrawBrushSelect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30748713810001920
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_MapDrawEraseSelect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30748932186439680
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_MapDrawClearButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30749082342522880
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_DrawManagerClear
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30749403273887744
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_DrawOnMap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30787876064198656
+    m_Key: SettingPanel_KeyMappingPartCT_KeyMapItem_MusicPause
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -1177,6 +1177,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MusicPause",
+                    "type": "Button",
+                    "id": "afa2b520-44cf-453f-83a9-a06741decef8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1377,6 +1386,17 @@
                     "action": "MapDrawClear",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fda8dad5-cf32-430b-957c-db6e12d17a2d",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MusicPause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -1421,6 +1441,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Clear",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "28276743-627b-4b91-913a-c53013b63ff5",
+                    "path": "<Keyboard>/leftAlt",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Draw",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

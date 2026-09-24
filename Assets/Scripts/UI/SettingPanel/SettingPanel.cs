@@ -213,10 +213,10 @@ public class SettingPanel : MonoBehaviour
     public void SetContentToDisplayArea()
     {
         SettingPanelSettingsContent cot = Instantiate(displayConent);//创建新的UI控件
-        cot.transform.SetParent(displayArea.transform);//设置父节点为Map的ScrollRect 
+        cot?.transform?.SetParent(displayArea.transform);//设置父节点为Map的ScrollRect 
         //设置左上角anchor.min为0max为1
         //设置四个方向的边距为0
-        RectTransform rtf = cot.GetComponent<RectTransform>();
+        RectTransform rtf = cot?.GetComponent<RectTransform>();
         if (rtf != null)
         {
             rtf.anchorMin = new Vector2(0.0f, 0.0f);
