@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 27fc1663b32cae840a0129b051ee3681
   m_currentHash:
     serializedVersion: 2
-    Hash: 47a5bce6d1d4cc515de575e2c23776af
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -61,6 +61,7 @@ MonoBehaviour:
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
+  - {fileID: 11400000, guid: 68174f561e2bb4045bdb6bd67cdab146, type: 2}
   - {fileID: 11400000, guid: 9e4386cf32a03244f91665a38dfd9842, type: 2}
   - {fileID: 11400000, guid: 58fb0349bf502c64eac57f5b298cf3d0, type: 2}
   - {fileID: 11400000, guid: cb7f822468e74254d90ea60338ead48c, type: 2}
@@ -127,6 +128,16 @@ MonoBehaviour:
     - Locale-en
     - Locale-ja
     - Preload
+    - Card
+    - Card.Category.SpellAttack
+    - Card.Category.Attack
+    - Card.Category.Power
+    - Card.Category.Curse
+    - Card.Category.Gadget
+    - Card.Category.Status
+    - Card.Category.Effective
+    - Card.Pool.Iizunamaru
+    - Card.Pool.AllHub
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 5085f537618f9ff4b9fe603104a56747, type: 2}

@@ -1,0 +1,310 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: CardPrefabs
+  m_EditorClassIdentifier: 
+  m_GroupName: CardPrefabs
+  m_GUID: 176fbf97d5f8714429a04c5e37e52076
+  m_SerializeEntries:
+  - m_GUID: 049ddd4695ccf7f4e81b4ae8b550b524
+    m_Address: Assets/GameAssets/Prefabs/Card/Attack/Attack_MiracleMallet.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Attack
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0826062890c7a1349820f06b8ef1aa89
+    m_Address: Assets/GameAssets/Prefabs/Card/SpellAttack/SpellCard_DanceOfStar-SparkedWildfire.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.SpellAttack
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0b676afd1432e0f40a69efc8c66a5724
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/BadLuckGoAway.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13f117758297a3049811c45eacf94868
+    m_Address: Assets/GameAssets/Prefabs/Card/Gadget/GadgetCard_AnnoyingUFO.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Gadget
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 26f88f5337226e14db309b38a233146d
+    m_Address: Assets/GameAssets/Prefabs/Card/Gadget/GadgetCard_YinyangJade_Blue.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Gadget
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28dc75a1ce5764641b632941ee7f7e47
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/Intuition.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3354abc3bcbdba342ac164f4a49befa3
+    m_Address: Assets/GameAssets/Prefabs/Card/Power/Power_VampireFang.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Power
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3bedd9760e7d4004ba18fd511c18c795
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/Effective_HpCard.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44e5bbb3cd2b5784992daee0c8cd42d8
+    m_Address: Assets/GameAssets/Prefabs/Card/Gadget/GadgetCard_KeyStoneOfEndurance.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Gadget
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 482c4fd6b9c2c9340b3a7900bcd13f8e
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/Effective_BrokenHpCard.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 520d98e31d6d75c49a2fd6d617aa0247
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/StrikeCard.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 549e554d406164e43bd8cc6406d52166
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/Effective_PowerSlotIncrease.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5dc7b093fc2a6f041a63fc1a4a5593a3
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/DefendCard.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5dd1cdf5890cf0046a8b76bf3a40c049
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/JustPrepare.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e2f8e558e33ab94f8fa532c81e9855b
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/Effective_BloodWatch.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5fc3a96c377ff7d40a0895c8c8ee0b2c
+    m_Address: Assets/GameAssets/Prefabs/Card/Gadget/GadgetCard_HookJade.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Gadget
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 648d7377fbbedc04f93a2e85055e7451
+    m_Address: Assets/GameAssets/Prefabs/Card/Gadget/GadgetCard_YinyangJade_Red.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Gadget
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b4474bca3e4d2c4097cd115d8d6f535
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/Effective_GadgetSlotIncrease.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6bbe7ba3aa9b51348b732b3120da8254
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/Effective_SpellCard.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c113e66bc75b2f4aa593c5adf10afe9
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/Effective_InnerPotential.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 72a64d71eff657945bc97ebb62e3b025
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/UnconsciousDodge.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 754d6713b0bc70d42a8c83dbda117756
+    m_Address: Assets/GameAssets/Prefabs/Card/Power/Power_SpellBeforeTheFall.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Power
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8065d5ba0d621a2479404f10377f838b
+    m_Address: Assets/GameAssets/Prefabs/Card/Power/Power_BurstingRedFrog.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Power
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8509d45e9732648428b63de3fd57726d
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/WhiteEnptyCard.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99461b2ba88093345b02cec4556202ed
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/DigAndDig.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2f98b3a508916d4491e0bd3d1413555
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/ShootCard.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7d642886818b3f47a88eb5c1c780671
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/Effective_AttackSlotIncrease.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf5a7859ef1e8d94f99a64a5f8ba8a70
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/Effective_HotToMelt.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf5ec3310a799884ca225b66f53b77a4
+    m_Address: Assets/GameAssets/Prefabs/Card/Gadget/GadgetCard_TNT.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Gadget
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb27089fbf5cbb8468b82eb48ad315f7
+    m_Address: Assets/GameAssets/Prefabs/Card/Gadget/GadgetCard_MiniHakerro.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Gadget
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf9c68357cb2eaa4f87423fb34503faf
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/Effective_BrokenSpellCard.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2fff048fe258574287f4d0cc0e27ae1
+    m_Address: Assets/GameAssets/Prefabs/Card/Gadget/GadgetCard_SolemnLament.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Gadget
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d467dff8e8c87e94091e610de380573c
+    m_Address: Assets/GameAssets/Prefabs/Card/SpellAttack/SpellCard_MasterSpark.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.SpellAttack
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d64e78a9e688cb44087828e2e4bc32e6
+    m_Address: Assets/GameAssets/Prefabs/Card/Power/Power_LawOfSurvivalOfFittest.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Power
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8d1649778604a044acf6cf5675aa73c
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/Effective_Flame.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1692514d82f63348adb6cdea68f885f
+    m_Address: Assets/GameAssets/Prefabs/Card/CardTemplate.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: e8888f07cbfd2fc48b162c127f18c7e3, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 3de6da395b93404419bcbf0a7fa90383, type: 2}
+    - {fileID: 11400000, guid: 4261698e61662d64e9d24894bfc07c78, type: 2}

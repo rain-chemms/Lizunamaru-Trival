@@ -18,6 +18,10 @@ namespace CardSystem
         {
             return riceCost;
         }
+        //卡牌的稀有度
+        [SerializeField] private CardRarity rarity;
+        public CardRarity GetRarity() => rarity;
+        public void SetCardRarity(CardRarity rty) => rarity = rty;
         //卡牌类别
         [SerializeField] private CardCategory cardCategory;
         public void SetCardCategory(CardCategory ctg)

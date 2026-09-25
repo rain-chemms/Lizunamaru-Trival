@@ -31,6 +31,13 @@ public enum CardCategory
     STATUS//状态卡:负面卡牌
 }
 
+public enum CardRarity//卡牌的稀有度
+{
+    COMMON,//普通卡
+    UNCOMMON,//罕见卡
+    RARE,//稀有卡
+}
+
 //地图节点的类别
 public enum MapNodeCategory
 {
