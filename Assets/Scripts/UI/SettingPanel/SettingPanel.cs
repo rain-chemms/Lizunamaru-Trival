@@ -219,11 +219,12 @@ public class SettingPanel : MonoBehaviour
         RectTransform rtf = cot?.GetComponent<RectTransform>();
         if (rtf != null)
         {
+            
             rtf.anchorMin = new Vector2(0.0f, 0.0f);
             rtf.anchorMax = new Vector2(1.0f, 1.0f);
             //rtf.localPosition = Vector3.zero;
-            rtf.offsetMax = Vector2.zero;
-            rtf.offsetMin = Vector2.zero;
+            rtf.offsetMax = new Vector2(-40.0f,-40.0f);
+            rtf.offsetMin = new Vector2(-40.0f,-40.0f);
         }
     }
 }
