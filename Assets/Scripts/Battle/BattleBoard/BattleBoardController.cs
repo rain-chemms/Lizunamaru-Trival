@@ -31,14 +31,13 @@ public class BattleBoardController : MonoBehaviour
     
     void OnEnable()
     {
-        {//尝试自动获取
-            if(battleBoard == null) battleBoard = GetComponent<BattleBoard>();//尝试从脚本中获取
-            if(battleBoard == null) battleBoard = BattleBoard.instance;//尝试从BattleBoard单例中获取
-        }
+        if(battleBoard == null) battleBoard = GetComponent<BattleBoard>();//尝试从脚本中获取
+        if(battleBoard == null) battleBoard = BattleBoard.instance;//尝试从BattleBoard单例中获取        
         DestroyOutOfBoundaryGrids();
         DestroyRepeatBattleGrid();
+        
     }
-
+    
     void Start()
     {
         Vector2Int gridSize = (Vector2Int)battleBoard?.GetWidthAndHeight();

@@ -45,7 +45,7 @@ public class BattleBoard : MonoBehaviour
     
     public void SetWidthAndHeight(Vector2Int widthAndHeight) => this.widthAndHeight = widthAndHeight;
     
-    void Start()
+    void OnEnable()
     {
         //默认将所有子节点的地图格子加入列表中
         battleGridList = GetComponentsInChildren<BattleGrid>().ToList();

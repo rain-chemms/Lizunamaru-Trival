@@ -23,6 +23,11 @@ namespace GridObjectSystem
             SetRoleParentToBattleBoard();
         }
 
+        void Start()
+        {
+            ChangeLocalPositionByRoleData_Instantly();
+        }
+
         // Update is called once per frame
         void FixedUpdate()
         {
@@ -60,6 +65,29 @@ namespace GridObjectSystem
                 new Vector3(xPos, height, zPos),
                 gridObject.GetSpeed() * Time.fixedDeltaTime
             );
+        }
+
+        //瞬间变换
+        protected void ChangeLocalPositionByRoleData_Instantly()
+        {
+            if (gridObject == null) return;
+            BattleBoard btb = BattleBoard.instance;
+            if (btb == null) return;
+            Rigidbody rb = gridObject.GetRigidBody();
+            if (rb == null) return;
+            Vector2Int index = gridObject.GetGridIndex();
+            Vector3 _00Pos = btb.GetGrid00LocalPosition();
+            //_00Pos += btb.transform.position;
+            Vector2 _gaps = btb.GetGapsOfGrid();
+            bool isFly = gridObject.IsFly();
+            //实时计算role的相对位置
+            float height = _00Pos.y + grandYOffset;
+            float xPos = index.x * _gaps.x + _00Pos.x;
+            float zPos = index.y * _gaps.y + _00Pos.z;
+            height += landHeightOffset;
+            if (isFly) height += flyHeight;
+            //瞬间设置玩家位置
+            rb.transform.localPosition = new Vector3(xPos, height, zPos);
         }
     }
 
