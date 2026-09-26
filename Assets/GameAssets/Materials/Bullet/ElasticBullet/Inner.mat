@@ -134,7 +134,7 @@ Material:
     m_Floats:
     - _AddPrecomputedVelocity: 0
     - _Alpha: 1
-    - _AlphaClip: 0
+    - _AlphaClip: 0.49
     - _AlphaToMask: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
@@ -177,14 +177,14 @@ Material:
     - _MTSpecularScale: 15
     - _MTUseSpecularRamp: 0
     - _MainTexAlphaUse: 0
-    - _MainTexCutOff: 1
+    - _MainTexCutOff: 0.43
     - _MetalMaterial: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _OnlyOutlineAndRim: 0
     - _OutlineNormalChannel: 0
     - _OutlineScale: 1
-    - _OutlineWidth: 0.02
+    - _OutlineWidth: 0
     - _OutlineZOffset: 0
     - _Parallax: 0.005
     - _QueueOffset: 0
@@ -198,7 +198,7 @@ Material:
     - _RimLightBrightness: 10
     - _RimLightFadeout: 1
     - _RimLightThreshold: 0.14
-    - _RimLightWidth: 1.02
+    - _RimLightWidth: 1.42
     - _Shininess: 10
     - _Shininess2: 10
     - _Shininess3: 10
@@ -228,14 +228,14 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BackFaceTintColor: {r: 0.45597476, g: 1, b: 0.9377317, a: 1}
+    - _BackFaceTintColor: {r: 0.8018867, g: 1, b: 0.97719556, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _CoolDarkShadowColor: {r: 0.5, g: 0.5, b: 0.65, a: 1}
     - _DarkShadowColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionTintColor: {r: 1, g: 1, b: 1, a: 1}
-    - _FrontFaceTintColor: {r: 0.35534585, g: 0.99328494, b: 1, a: 1}
+    - _FrontFaceTintColor: {r: 0.8459119, g: 0.99949974, b: 1, a: 1}
     - _LightAreaColorTint: {r: 1, g: 1, b: 1, a: 1}
     - _MTMapDarkColor: {r: 0.50999993, g: 0.29999998, b: 0.18999997, a: 1}
     - _MTMapLightColor: {r: 1, g: 1, b: 1, a: 1}

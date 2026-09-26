@@ -41,6 +41,7 @@ namespace GridObjectSystem
             gridObject.GetRigidBody()?.transform.SetParent(BattleBoard.instance?.transform);
         }
 
+        [SerializeField] private float stopLerpThreshold = 0.005f;
         protected void ChhangeLocalPositionByRoleData()
         {
             if (gridObject == null) return;
@@ -48,21 +49,38 @@ namespace GridObjectSystem
             if (btb == null) return;
             Rigidbody rb = gridObject.GetRigidBody();
             if (rb == null) return;
+
             Vector2Int index = gridObject.GetGridIndex();
             Vector3 _00Pos = btb.GetGrid00LocalPosition();
             //_00Pos += btb.transform.position;
             Vector2 _gaps = btb.GetGapsOfGrid();
             bool isFly = gridObject.IsFly();
-            //实时计算role的相对位置
+
+            // 实时计算role的相对位置
             float height = _00Pos.y + grandYOffset;
             float xPos = index.x * _gaps.x + _00Pos.x;
             float zPos = index.y * _gaps.y + _00Pos.z;
             height += landHeightOffset;
             if (isFly) height += flyHeight;
-            //设置玩家位置
+
+            // 构建目标位置
+            Vector3 targetPos = new Vector3(xPos, height, zPos);
+
+            // --- 新增：微小距离检测停止逻辑 ---
+            // 计算当前位置与目标位置的距离
+            float distance = Vector3.Distance(rb.transform.localPosition, targetPos);
+            // 设定一个极小的阈值（例如 0.001f），当距离小于该值时，认为已经到达目标
+            if (distance < stopLerpThreshold)
+            {
+                rb.transform.localPosition = targetPos;
+                return;
+            }
+            // ---------------------------------
+
+            // 设置玩家位置
             rb.transform.localPosition = Vector3.Lerp(
                 rb.transform.localPosition,
-                new Vector3(xPos, height, zPos),
+                targetPos,
                 gridObject.GetSpeed() * Time.fixedDeltaTime
             );
         }

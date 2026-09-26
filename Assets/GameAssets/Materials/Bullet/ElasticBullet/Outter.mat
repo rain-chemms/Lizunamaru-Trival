@@ -21,23 +21,24 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Outter
-  m_Shader: {fileID: 4800000, guid: 34b706a062ce50b419ef0060e7dc9118, type: 3}
+  m_Shader: {fileID: 4800000, guid: c6fddbb08ffa22141aad5a2ae419ff98, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _MAINTEXALPHAUSE_NONE
-  - _OUTLINENORMALCHANNEL_NORMAL
-  - _RENDERTYPE_BODY
-  - _RIM_LIGHTING_ON
-  - _SPECULAR_ON
-  - _USEFACELIGHTMAPCHANNEL_A
+  m_ValidKeywords: []
   m_InvalidKeywords:
   - _ALPHAPREMULTIPLY_ON
   - _EMISSION
   - _ENABLEOUTLINE_ON
+  - _MAINTEXALPHAUSE_NONE
   - _METALMATERIAL_ON
+  - _ONLY_OUTLINE_RIM_ON
+  - _OUTLINENORMALCHANNEL_NORMAL
+  - _RENDERTYPE_BODY
+  - _RIM_LIGHTING_ON
   - _SPECULARHIGHLIGHTS_ON
+  - _SPECULAR_ON
   - _SURFACE_TYPE_TRANSPARENT
+  - _USEFACELIGHTMAPCHANNEL_A
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -151,22 +152,22 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _CullMode: 2
-    - _Cutoff: 0.5
+    - _Cutoff: 0.462
     - _DarkFac: 0.55
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _DstBlendAlpha: 10
-    - _DstBlendModeAlpha: 0
+    - _DstBlendModeAlpha: 1
     - _DstBlendModeColor: 0
-    - _EmissionMixBaseColorFac: 1
-    - _EmissionScaler: 1
+    - _EmissionMixBaseColorFac: 0.679
+    - _EmissionScaler: 4.34
     - _EnableOutline: 1
     - _EnableSpecular: 1
     - _EnvironmentReflections: 1
     - _FaceMaterial: 0
-    - _FaceShadowOffset: 0
-    - _FaceShadowTransitionSoftness: 0.05
+    - _FaceShadowOffset: 0.048
+    - _FaceShadowTransitionSoftness: 0
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
@@ -178,18 +179,18 @@ Material:
     - _MTMapTileScale: 2
     - _MTSharpLayerOffset: 1
     - _MTShininess: 90
-    - _MTSpecularAttenInShadow: 0.243
+    - _MTSpecularAttenInShadow: 0
     - _MTSpecularScale: 15
     - _MTUseSpecularRamp: 0
     - _MainTexAlphaUse: 0
-    - _MainTexCutOff: 0.5
+    - _MainTexCutOff: 0
     - _MetalMaterial: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OnlyOutlineAndRim: 0
+    - _OnlyOutlineAndRim: 1
     - _OutlineNormalChannel: 0
     - _OutlineScale: 1
-    - _OutlineWidth: 0.469
+    - _OutlineWidth: 0.706
     - _OutlineZOffset: 0
     - _Parallax: 0.02
     - _QueueOffset: 0
@@ -200,10 +201,13 @@ Material:
     - _RampIndex4: 2
     - _ReceiveShadows: 1
     - _RenderType: 0
+    - _RimAlpha: 1
+    - _RimIntensity: 8.24
     - _RimLightBrightness: 10
-    - _RimLightFadeout: 1
-    - _RimLightThreshold: -0.02
-    - _RimLightWidth: 0.24
+    - _RimLightFadeout: 0.7
+    - _RimLightThreshold: -0.068
+    - _RimLightWidth: 0.77
+    - _RimPower: 0.36
     - _Shininess: 10
     - _Shininess2: 10
     - _Shininess3: 10
@@ -231,14 +235,14 @@ Material:
     - _UseNormalMap: 0
     - _UseRimLight: 1
     - _WorkflowMode: 1
-    - _ZWrite: 0
+    - _ZWrite: 1
     m_Colors:
     - _BackFaceTintColor: {r: 0, g: 0.04920268, b: 1, a: 1}
-    - _BaseColor: {r: 0.053483017, g: 0, b: 0.90656906, a: 0.5}
-    - _Color: {r: 0.053482994, g: 0, b: 0.90656906, a: 0.5}
+    - _BaseColor: {r: 0, g: 0.012126387, b: 2.639016, a: 0.3647059}
+    - _Color: {r: 0.06060598, g: 0, b: 1, a: 0.3647059}
     - _CoolDarkShadowColor: {r: 0.5, g: 0.5, b: 0.65, a: 1}
     - _DarkShadowColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
-    - _EmissionColor: {r: 0, g: 0.022860194, b: 4, a: 4}
+    - _EmissionColor: {r: 0, g: 0.0042806836, b: 0.7490196, a: 4}
     - _EmissionTintColor: {r: 1, g: 1, b: 1, a: 1}
     - _FrontFaceTintColor: {r: 0, g: 0.054817438, b: 1, a: 1}
     - _LightAreaColorTint: {r: 1, g: 1, b: 1, a: 1}
@@ -255,7 +259,7 @@ Material:
     - _OutlineColor5: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineDefaultColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _OutlineWidthParams: {r: 0, g: 1, b: 0, a: 1}
-    - _RimColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimColor: {r: 0, g: 0.021739483, b: 1, a: 1}
     - _RimColor1: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor2: {r: 0.055728436, g: 0, b: 1, a: 1}
     - _RimColor3: {r: 1, g: 1, b: 1, a: 1}

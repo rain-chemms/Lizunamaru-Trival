@@ -4404,6 +4404,7 @@ MonoBehaviour:
   targetShader: {fileID: 4800000, guid: 34b706a062ce50b419ef0060e7dc9118, type: 3}
   whiteList:
   - {fileID: 1104876998282147272}
+  - {fileID: 6157873006084609880}
   autoWhiteTheChild: 1
   ignoreParticleSystem: 1
 --- !u!114 &7060609705548963187
@@ -4569,6 +4570,8 @@ MonoBehaviour:
   gridObject: {fileID: 0}
   target: {x: 0, y: 0, z: 1}
   lerpSpeed: 6
+  stopAngleThreshold: 0.5
+  minTargetMagnitude: 0.01
 --- !u!114 &7257819609609004197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4585,6 +4588,7 @@ MonoBehaviour:
   flyHeight: 3
   grandYOffset: 1.1
   gridObject: {fileID: 3955644754421548568}
+  stopLerpThreshold: 0.005
 --- !u!114 &9013316202566219870
 MonoBehaviour:
   m_ObjectHideFlags: 0
