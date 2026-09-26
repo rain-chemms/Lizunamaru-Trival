@@ -118,7 +118,7 @@ public class BattleTerrianSizeChanger : MonoBehaviour
         BattleBoard btb = BattleBoard.instance;
         if (btb == null) return;
         if (battleTerrainList == null) return;
-        Vector2 _00LocalPos = btb.GetGrid00LocalPosition();//获取BattleBoard的00格子位置
+        Vector3 _00LocalPos = btb.GetGrid00LocalPosition();//获取BattleBoard的00格子位置
         Vector2Int _wh = btb.GetWidthAndHeight();//获取BattleBoard的宽高
         Vector2 _gaps = btb.GetGapsOfGrid();//获取格子之间的间隔
         //依据方向改变battleTerrain的位置
@@ -145,26 +145,26 @@ public class BattleTerrianSizeChanger : MonoBehaviour
                 case BattleDirection.DOWN:
                     nowPos = new Vector2(
                         _00LocalPos.x + ((float)_wh.x - 1) / 2 * _gaps.x,
-                        _00LocalPos.y - _gaps.y / 2 - upDownHeight / 2
+                        _00LocalPos.z - _gaps.y / 2 - upDownHeight / 2
                     );
                     break;
                 case BattleDirection.LEFT:
                     nowPos = new Vector2(
                         _00LocalPos.x - _gaps.x / 2 - leftRightWidth / 2,
-                        _00LocalPos.y + ((float)_wh.y - 1) / 2 * _gaps.y
+                        _00LocalPos.z + ((float)_wh.y - 1) / 2 * _gaps.y
                     );
                     break;
                 case BattleDirection.RIGHT:
                     nowPos = new Vector2(
                         _00LocalPos.x + ((float)_wh.x - 1) * _gaps.x + _gaps.x / 2 + leftRightWidth / 2,
-                        _00LocalPos.y + ((float)_wh.y - 1) / 2 * _gaps.y
+                        _00LocalPos.z + ((float)_wh.y - 1) / 2 * _gaps.y
                     );
                     break;
                 case BattleDirection.UP:
                 default:
                     nowPos = new Vector2(
                         _00LocalPos.x + ((float)_wh.x - 1) / 2 * _gaps.x,
-                        _00LocalPos.y + ((float)_wh.y - 1) * _gaps.y + _gaps.y / 2 + upDownHeight / 2
+                        _00LocalPos.z + ((float)_wh.y - 1) * _gaps.y + _gaps.y / 2 + upDownHeight / 2
                     );
                     break;
             }
