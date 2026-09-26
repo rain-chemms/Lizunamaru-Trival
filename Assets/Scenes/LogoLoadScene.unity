@@ -5907,15 +5907,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4586361246204310710, guid: c41ccaf2af37af44990565bd6dfd4483, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4586361246204310710, guid: c41ccaf2af37af44990565bd6dfd4483, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4586361246204310710, guid: c41ccaf2af37af44990565bd6dfd4483, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4652689703944371278, guid: c41ccaf2af37af44990565bd6dfd4483, type: 3}
       propertyPath: m_fontSize
@@ -6644,7 +6644,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: bc31cd416055e494d94db5f243a239e2, type: 2}
     - target: {fileID: 1666442946521991821, guid: 9df5f03e1f552e6449bd49c6e5ffd9cc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7482773405587899545, guid: 9df5f03e1f552e6449bd49c6e5ffd9cc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7263,14 +7263,6 @@ PrefabInstance:
     - target: {fileID: 8232401412475286792, guid: 7ddb802b9d6f7f34daa1cca11124ecf5, type: 3}
       propertyPath: battleGrid
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8624680113451509039, guid: 7ddb802b9d6f7f34daa1cca11124ecf5, type: 3}
-      propertyPath: heightOffset
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8624680113451509039, guid: 7ddb802b9d6f7f34daa1cca11124ecf5, type: 3}
-      propertyPath: heightOfBoundary
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8653675146358187031, guid: 7ddb802b9d6f7f34daa1cca11124ecf5, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -9109,7 +9101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8208616566129945358, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: isDisplay
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8711853336070858623, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: m_AnchoredPosition.x
