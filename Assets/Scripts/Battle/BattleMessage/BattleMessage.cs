@@ -562,7 +562,7 @@ public class BattleMessage : MonoBehaviour
         if (cardList == null) return;
         if (SeedSetter.instance == null) return;
         //获取随机种子
-        int seed = SeedSetter.instance.GetSeed_Int();
+        int seed = (int)SeedSetter.instance?.GetSeed_Int();
         //生成随机数生成器
         System.Random rng = new System.Random(seed);
         int n = cardList.Count;

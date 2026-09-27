@@ -2,6 +2,8 @@ using CardSystem;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
+using System;
 
 //代表玩家在游戏中的牌库,战斗开始时会使用牌库对战斗信息进行初始化
 //单例对象
@@ -64,6 +66,20 @@ public class PlayerCardHub : MonoBehaviour
         }
         //对抽牌堆进行洗牌
         BattleMessage.instance?.ShuffleCardList(draw);
+    }
+
+    //获取所有玩家牌库中卡牌的完整命名,便于SL复原当前游戏进度
+    public List<string> GetFullNameListOfCardHub()
+    {
+        List<string> result = new List<string>();
+        foreach(Card c in cardHub?.ToList())
+        {
+            if(c == null) continue;
+            Type cType = c.GetType();
+            string cKey = cType.FullName;
+            result.Add(cKey);//牌库里可以有重复的牌
+        }
+        return result;
     }
 
     /*测试代码

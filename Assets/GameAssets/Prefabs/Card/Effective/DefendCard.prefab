@@ -1603,7 +1603,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6229160113585097296}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.6060411, w: 0.79543334}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1617,10 +1617,10 @@ RectTransform:
   - {fileID: 4759551017954335888}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.43462503, y: 0.32186118}
-  m_AnchorMax: {x: 0.6005156, y: 0.7151944}
-  m_AnchoredPosition: {x: 0, y: -2.5}
-  m_SizeDelta: {x: 0, y: -5}
+  m_AnchorMin: {x: 0.655804, y: 0.060143124}
+  m_AnchorMax: {x: 0.7180319, y: 0.20565657}
+  m_AnchoredPosition: {x: -12.892109, y: -76.870964}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4228367165550401724
 Canvas:
@@ -1643,7 +1643,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 101
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!114 &9014205762273278572
 MonoBehaviour:
@@ -1720,6 +1720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 0}
+  waitAfterExhaustToReDisplay: 0.8
 --- !u!114 &4204945852005887696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1733,6 +1734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   riceCost: 1
+  rarity: 0
   cardCategory: 4
   cardKeyWords: 
   gainDefendPoint: 1
