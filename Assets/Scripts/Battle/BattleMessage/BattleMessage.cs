@@ -557,7 +557,7 @@ public class BattleMessage : MonoBehaviour
         4.使用种子对卡牌列表进行洗牌:
             使用Fisher-Yates洗牌算法
     */
-    private void ShuffleCardList(List<Card> cardList)
+    public void ShuffleCardList(List<Card> cardList)
     {
         if (cardList == null) return;
         if (SeedSetter.instance == null) return;
