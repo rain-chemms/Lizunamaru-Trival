@@ -31,7 +31,7 @@ namespace CardSystem.AllCardHub
             
                 Debug.Log("[Power_BurstingRedFrog]: Insert Over and Set");
             }
-            yield return base.AfterPlay();
+            yield return base.AfterInsertToSolt();
         }
 
         public override IEnumerator AfterRemoveFromSolt()
@@ -48,7 +48,7 @@ namespace CardSystem.AllCardHub
                 Action actEnd = BattleMessage.instance.SelfTurnEndAction -= OnSelfTurnEnd;
                 Debug.Log("[Power_BurstingRedFrog]: Remove Over and disSet");
             }
-            yield return base.AfterPlay();
+            yield return base.AfterRemoveFromSolt();
         }
         //己方回合和目前控制的角色有关
         private void OnSelfTurnStart()

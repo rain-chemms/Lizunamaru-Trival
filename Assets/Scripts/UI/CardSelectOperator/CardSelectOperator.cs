@@ -120,6 +120,9 @@ public class CardSelectOperator : MonoBehaviour
             //关闭CardInStackChecker
             CardInStackChecker cisChecker = card.GetComponent<CardInStackChecker>();
             if(cisChecker != null) cisChecker.enabled = false;
+            //关闭Handler
+            CardHandler cardHandler = card.GetComponent<CardHandler>();
+            if(cardHandler != null) cardHandler.enabled = false;
             //将CardDisplayer的InStack设置为false
             CardDisplayer cd = card.GetComponent<CardDisplayer>();
             if(cd != null) cd.SetInStack(false);
@@ -155,6 +158,9 @@ public class CardSelectOperator : MonoBehaviour
             {
                 ctr.enabled = false;
             }
+            //打开Handler
+            CardHandler cardHandler = card.GetComponent<CardHandler>();
+            if(cardHandler != null) cardHandler.enabled = true;
             //重新开启打出区域检测器
             CardPlayAreaChecker cpaChecker = card.GetComponent<CardPlayAreaChecker>();
             if(cpaChecker != null) cpaChecker.enabled = true;
@@ -163,7 +169,7 @@ public class CardSelectOperator : MonoBehaviour
             if(cslChecker != null) cslChecker.enabled = true;
             //打开CardInStackChecker
             CardInStackChecker cisChecker = card.GetComponent<CardInStackChecker>();
-            if(cisChecker != null) cisChecker.enabled = true;
+            if(cisChecker != null) cisChecker.enabled = true;  
         }
         //清空已选择的卡牌列表
         //防止UI显示错误,将已选择的卡牌放回原来的位置

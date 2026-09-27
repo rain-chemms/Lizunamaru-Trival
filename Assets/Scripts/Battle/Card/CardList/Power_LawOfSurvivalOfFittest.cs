@@ -72,13 +72,11 @@ namespace CardSystem.AllCardHub
             
                 Debug.Log("[Power_LawOfSurvivalOfFittest]: Insert Over and Set");
             }
-            yield return base.AfterPlay();
+            yield return base.AfterInsertToSolt();
         }
 
         public override IEnumerator AfterRemoveFromSolt()
         {
-
-
             //移除出卡槽时,释放两个效果
             if (BattleMessage.instance != null)
             {
@@ -91,7 +89,7 @@ namespace CardSystem.AllCardHub
                 Action actEnd = BattleMessage.instance.SelfTurnEndAction -= OnSelfTurnEnd;
                 Debug.Log("[Power_LawOfSurvivalOfFittest]: Remove Over and disSet");
             }
-            yield return base.AfterPlay();
+            yield return base.AfterRemoveFromSolt();
         }
         //己方回合和目前控制的角色有关
         private void OnSelfTurnStart()

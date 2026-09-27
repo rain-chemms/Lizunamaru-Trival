@@ -109,10 +109,11 @@ namespace CardSystem.CardPoolSystem
         /// </summary>
         /// <param name="poolLabel">要在哪个卡池中搜索</param>
         /// <param name="filter">卡牌过滤器,能对输入的卡牌进行额外的操作</param>
+        /// <param name="seedOffset">一次持续进行多轮选择的时候的种子偏移量,单次选择可以不设置</param>
         /// <returns>卡牌预制体</returns>
-        public Card GetRandomCardFromPool(string poolLabel, Action<List<Card>> filter = null)
+        public Card GetRandomCardFromPool(string poolLabel,int seedOffset, Action<List<Card>> filter = null)
         {
-            int seed = (int)SeedSetter.instance?.GetSeed_Int() + (int)BattleMessage.instance?.GetRound();
+            int seed = (int)SeedSetter.instance?.GetSeed_Int() + (int)BattleMessage.instance?.GetRound() + seedOffset;
             System.Random rng = new System.Random(seed);
 
             CardPool targetPool = cardPools.Where(x => x.GetLabel().Equals(poolLabel)).FirstOrDefault();
@@ -137,7 +138,7 @@ namespace CardSystem.CardPoolSystem
         /// </summary>
         /// <param name="filter">卡牌过滤器,能对输入的卡牌进行额外的操作</param>
         /// <returns></returns>
-        public Card GetRandomCardFromPool(Action<List<Card>> filter = null)
+        public Card GetRandomCardFromPool(int seedOffset = 0,Action<List<Card>> filter = null)
         {
             // 1.初始化大卡池字典
             SerializableDictionary<string, Card> bigPool = new SerializableDictionary<string, Card>();
@@ -164,7 +165,7 @@ namespace CardSystem.CardPoolSystem
             filter?.Invoke(stableCardList);//触发过滤器
 
             // 5. 生成随机种子并获取随机卡牌
-            int seed = (int)SeedSetter.instance?.GetSeed_Int() + (int)BattleMessage.instance?.GetRound();
+            int seed = (int)SeedSetter.instance?.GetSeed_Int() + (int)BattleMessage.instance?.GetRound() + seedOffset;
             System.Random rng = new System.Random(seed);
             int index = rng.Next(stableCardList.Count);
             return stableCardList[index];
