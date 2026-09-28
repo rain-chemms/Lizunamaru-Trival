@@ -18,13 +18,16 @@ namespace CardSystem.AllCardHub
         public uint GetCheckNumber() => checkNumber;
         public void SetCheckNumber(uint num) => checkNumber = num;
 
+        [SerializeField] private static int playTime = 0;
+        public static int GetPlayTime() => playTime;
+
         public override IEnumerator AfterPlay()
         {
             //生成待选卡组
             List<Card> willSelectCard = new List<Card>();
             for(int i = 0;i < checkNumber;i++)
             {
-                Card prefab = CardPoolManager.instance?.GetRandomCardFromPool(i,null);//完全随机的选择卡牌
+                Card prefab = CardPoolManager.instance?.GetRandomCardFromPool(i + playTime,null);//完全随机的选择卡牌
                 if(prefab == null) continue;
                 //生成卡牌的实体
                 Card cardEntity = Instantiate(prefab,BattleMessageDisplayer.instance?.transform);
@@ -55,6 +58,7 @@ namespace CardSystem.AllCardHub
                     Destroy(card.gameObject);
                 }
             }
+            playTime ++;
             yield return base.AfterPlay();
         }
 
