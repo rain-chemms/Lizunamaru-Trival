@@ -597,6 +597,24 @@ MonoBehaviour:
     m_Key: Map/Map/DrawManager/ColorPicker/PreviewText 1
     m_Metadata:
       m_Items: []
+  - m_Id: 30410565678661632
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/PlayerMessagePanel/Coins/CoinText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30410565775130624
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/PlayerMessagePanel/Coins/CoinText
+      1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30410715859910656
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/PlayerMessagePanel/Hp/HpText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30410715885076480
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/PlayerMessagePanel/Hp/HpText
+      1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 816146740363657316
@@ -1022,6 +1040,18 @@ MonoBehaviour:
           - zh
           - zh-Hant
           - ja
+        - m_KeyId: 30410565678661632
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 30410715859910656
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
         m_TypeString: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
     - rid: 816146740363657319
@@ -1425,6 +1455,18 @@ MonoBehaviour:
           - zh-Hant
           - ja
         - m_KeyId: 28682131516555264
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 30410565775130624
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 30410715885076480
           m_TableCodes:
           - en
           - zh
