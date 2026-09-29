@@ -615,6 +615,25 @@ MonoBehaviour:
       1
     m_Metadata:
       m_Items: []
+  - m_Id: 30737612431032320
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/PlayerMessagePanel/CardHubChecker/Text
+      (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30737612535889920
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/PlayerMessagePanel/CardHubChecker/Text
+      (TMP) 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30738419817775104
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/PlayerMessagePanel/CardHubChecker/CardHubNumber
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30738419847135232
+    m_Key: BattleMessageDisplayer/BattleMessageDisplayer/PlayerMessagePanel/CardHubChecker/CardHubNumber
+      1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 816146740363657316
@@ -1052,6 +1071,18 @@ MonoBehaviour:
           - zh
           - zh-Hant
           - ja
+        - m_KeyId: 30737612431032320
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 30738419817775104
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
         m_TypeString: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
     - rid: 816146740363657319
@@ -1467,6 +1498,18 @@ MonoBehaviour:
           - zh-Hant
           - ja
         - m_KeyId: 30410715885076480
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 30737612535889920
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 30738419847135232
           m_TableCodes:
           - en
           - zh

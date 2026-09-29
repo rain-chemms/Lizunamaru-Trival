@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using CardSystem;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,6 @@ using UnityEngine.UI;
 public class CardHubChecker : MonoBehaviour
 {
     [SerializeField] private Button button;
-
     void OnEnable()
     {
         if(button == null) button = GetComponent<Button>();
@@ -25,6 +25,7 @@ public class CardHubChecker : MonoBehaviour
         List<Card> cardList = PlayerCardHub.instance?.GetCardHub_Copy();
         //设置要显示的卡牌列表
         StackCardDisplayer.instance?.ClearCardList();
+        StackCardDisplayer.instance?.CloseDisplayer();
         StackCardDisplayer.instance?.SetCardList(cardList);
         //显示卡牌
         StackCardDisplayer.instance?.SetDisplay(true);

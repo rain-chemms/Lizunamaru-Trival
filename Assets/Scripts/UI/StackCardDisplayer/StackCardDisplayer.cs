@@ -70,7 +70,7 @@ public class StackCardDisplayer : MonoBehaviour
             displayCard.GetComponent<CardHandler>().enabled = false;
             displayCard.GetComponent<UnderCardUIChecker>().enabled = false;
             displayCard.GetComponent<CardSIdeChanger>().enabled = false;
-            //设置不显示卡牌的在派对中的图像
+            //设置不显示卡牌的在牌堆中的图像
             displayCard.GetComponent<CardDisplayer>()?.SetInStack(false);
             displayCard.GetComponent<CardDisplayer>()?.FlipTo(false);
             //设置显示卡牌的位置+旋转+缩放

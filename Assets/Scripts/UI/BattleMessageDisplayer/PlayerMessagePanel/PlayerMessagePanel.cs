@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,6 +25,7 @@ public class PlayerMessagePanel : MonoBehaviour
         if(hpText != null) hpText.text = lastHp.ToString() + "/" + lastMaxHp.ToString();
         CheckAndSetHpSpriteAndMaterial();
         if(coinsText != null) coinsText.text = lastCoins.ToString();
+        displayCoins = lastCoins;
     }
 
     //相关的UI组件
@@ -61,15 +63,21 @@ public class PlayerMessagePanel : MonoBehaviour
         SyncCoinsMessage();
     }
 
+    [NonSerialized] private Sprite currentHpSprite;
+    [NonSerialized] private Material currentHpMaterial;
+
     [NonSerialized] private float lastHp = 0.0f;
     [NonSerialized] private float lastMaxHp = 0.0f;
+    private readonly StringBuilder hpSb = new StringBuilder(16);
     private void SyncHpMessage()
     {
         float nowMaxHp = (float)BattleMessage.instance?.GetControlPlayer()?.GetMaxHp();
         float nowHp = (float)BattleMessage.instance?.GetControlPlayer()?.GetHp();
         //检测maxHp和nowHp
         if (nowMaxHp == lastMaxHp && nowHp == lastHp) return;
-        hpText.text = nowHp.ToString() + "/" + nowMaxHp.ToString();//设置血量显示
+        hpSb.Clear();
+        hpSb.Append(nowHp).Append('/').Append(nowMaxHp);
+        if(hpText != null) hpText.SetText(hpSb);//设置血量显示
         lastHp = nowHp;
         lastMaxHp = nowMaxHp;
         //依据当前血量选择材质
@@ -83,11 +91,10 @@ public class PlayerMessagePanel : MonoBehaviour
 
     private void CheckAndSetHpSpriteAndMaterial()
     {
-        float precent = lastHp / lastMaxHp;
+        float precent = lastMaxHp > 0 ? lastHp / lastMaxHp : 1f;
         Material targetMat = highHpMaterial;
         Sprite targetSpt = highHpSprite;
         //以每三分之一作为界限
-        // 以每三分之一作为界限
         if (precent < 1f / 3f)
         {
             targetMat = lowHpMaterial;
@@ -98,27 +105,37 @@ public class PlayerMessagePanel : MonoBehaviour
             targetMat = midumHpMaterial;
             targetSpt = midumHpSprite;
         }
-        else
-        {
-            targetMat = highHpMaterial;
-            targetSpt = highHpSprite;
-        }
         if(hpImage != null)
         {
-            if(targetSpt != null) hpImage.sprite = targetSpt;
-            hpImage.material = targetMat;//材质可以是空的
+            // 只在 Sprite/Material 真正变化时才赋值，避免打断 Canvas 合批
+            if(targetSpt != null && targetSpt != currentHpSprite)
+            {
+                hpImage.sprite = targetSpt;
+                currentHpSprite = targetSpt;
+            }
+            if(targetMat != currentHpMaterial)
+            {
+                hpImage.material = targetMat;
+                currentHpMaterial = targetMat;
+            }
         }
     }
 
     [NonSerialized] private uint lastCoins = 0;
+    [NonSerialized] private uint displayCoins = 0; // 当前显示中的金币值
     [Range(2,10)] [SerializeField] private uint coinsChangeObsticle = 3;//显示金币变化时的阻力
     private void SyncCoinsMessage()
     {
         uint nowCoins = (uint)BattleMessage.instance?.GetCoins();
-        coinsText.text = lastCoins.ToString();//设置钱币数显示 
-        if(lastCoins == nowCoins) return;
-        //让金币产生渐变增加效果
-        coinsAnimator.SetTrigger("CoinsChange");
+        if(displayCoins == lastCoins && lastCoins == nowCoins) return; // 无变化时直接跳过
+
+        if(lastCoins != nowCoins)
+        {
+            // 目标值变了，触发一次动画
+            if(coinsAnimator != null) coinsAnimator.SetTrigger("CoinsChange");
+        }
+
+        // 渐变逼近目标值
         if(nowCoins > lastCoins) 
         {
             uint diff = nowCoins - lastCoins;
@@ -128,10 +145,17 @@ public class PlayerMessagePanel : MonoBehaviour
         }
         else if(lastCoins > nowCoins)
         {
-            uint diff = lastCoins -nowCoins;
+            uint diff = lastCoins - nowCoins;
             uint subUnit = diff / coinsChangeObsticle;
             if(subUnit < 1) subUnit = 1;
             lastCoins -= subUnit;
+        }
+
+        // 只在显示值变化时才更新 UI
+        if(lastCoins != displayCoins)
+        {
+            displayCoins = lastCoins;
+            if(coinsText != null) coinsText.text = displayCoins.ToString();
         }
     }
 }

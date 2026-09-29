@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Button))]
-public class ButtonVfxFunctioner : MonoBehaviour,
+public class ButtonSfxFunctioner : MonoBehaviour,
     IPointerEnterHandler
 {
     [SerializeField] private Button button;

@@ -6,16 +6,31 @@ using System;
 public class IcePointDisplayer : MonoBehaviour
 {
     [SerializeField] private TMP_Text text;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    void OnEnable()
+    {
+        if (text == null) text = GetComponent<TMP_Text>();
+    }
+
     void Start()
     {
-        if(text == null) text = GetComponent<TMP_Text>();
+        lastIcePoint = (uint)BattleMessage.instance?.GetIcePoint();
+        if (text != null) text.text = lastIcePoint.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(text != null)
-            text.text = BattleMessage.instance.GetIcePoint().ToString();
+        SyncIcePoint();
+    }
+
+    [NonSerialized] private uint lastIcePoint;
+    private void SyncIcePoint()
+    {
+        if (text == null) return;
+        uint nowIcePoint = (uint)BattleMessage.instance?.GetIcePoint();
+        if (nowIcePoint == lastIcePoint) return;
+        text.text = nowIcePoint.ToString();
+        lastIcePoint = nowIcePoint;
     }
 }

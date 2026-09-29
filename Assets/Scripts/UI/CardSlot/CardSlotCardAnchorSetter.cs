@@ -34,11 +34,19 @@ public class CardSlotCardAnchorSetter : MonoBehaviour
     {
         if (crtf != null)
         {
-            //设置偏移位置
+            /*设置偏移位置
             crtf.anchoredPosition = Vector2.Lerp(
                 crtf.anchoredPosition,
                 rectTransform.anchoredPosition,
                 lerpSpeed * Time.deltaTime
+            );
+            //*/
+            //
+            crtf.anchoredPosition = Vector2.Lerp
+            (
+                crtf.anchoredPosition,
+                Vector2.zero,
+                lerpSpeed * Time.deltaTime  
             );
         }
 
@@ -58,12 +66,6 @@ public class CardSlotCardAnchorSetter : MonoBehaviour
             crtf.anchorMax = Vector2.Lerp(
                 crtf.anchorMax,
                 Vector2.one,
-                lerpSpeed * Time.deltaTime
-            );
-            //设置偏移位置
-            crtf.anchoredPosition = Vector2.Lerp(
-                crtf.anchoredPosition,
-                rectTransform.anchoredPosition,
                 lerpSpeed * Time.deltaTime
             );
         }
