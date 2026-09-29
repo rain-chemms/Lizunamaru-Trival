@@ -26,45 +26,31 @@ public class StackCardDisplayer : MonoBehaviour
     }
 
     [SerializeField] private bool isDisplay = false;
-    public void SetDisplay(bool isDisplay)
-    {
-        this.isDisplay = isDisplay;
-    }
-    public bool IsDisplay()
-    {
-        return isDisplay;
-    }
+    public void SetDisplay(bool isDisplay) => this.isDisplay = isDisplay;
+    public bool IsDisplay() => isDisplay;
+
     [SerializeField] private List<Card> cardList = new List<Card>();
-    public void SetCardList(List<Card> cardList)
-    {
-        this.cardList = cardList.ToList();
-    }
+    public void ClearCardList() => cardList?.Clear();
+    public void SetCardList(List<Card> cardList) => this.cardList = cardList.ToList();
+    
     public List<Card> GetCardList() => cardList;
     public List<Card> GetCardList_Copy() => cardList.ToList();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     //键是临时生成的卡牌,值是原来的卡牌列表中的卡牌
     [SerializeField] private SerializedDictionary<Card,Card> sourceCardDict;
-    public SerializedDictionary<Card,Card> GetSourceCardDict()
-    {
-        return sourceCardDict;
-    }
+    public SerializedDictionary<Card,Card> GetSourceCardDict() => sourceCardDict;
     [SerializeField] private ScrollRect scrollRect;
-    public ScrollRect GetScrollRect()
-    {
-        return scrollRect;
-    }
+    public ScrollRect GetScrollRect() => scrollRect;
+
     [SerializeField] private Canvas canvas;
     void Start()
     {
         //尝试自动获取
-        if(scrollRect == null) scrollRect = GetComponentsInChildren<ScrollRect>()?.Where(x=>x.name == "DisplayArea")?.FirstOrDefault();
+        if(scrollRect == null) scrollRect = GetComponentsInChildren<ScrollRect>()?.Where(x => x.name == "DisplayArea")?.FirstOrDefault();
         if(canvas == null) canvas = GetComponent<Canvas>();
     }
 
-    public void SetBattleMessageHider(bool isHidden)
-    {
-        BattleMessageDisplayer.instance?.GetComponent<BattleUIHider>()?.SetIsHidden(isHidden);
-    }
+    public void SetBattleMessageHider(bool isHidden) => BattleMessageDisplayer.instance?.GetComponent<BattleUIHider>()?.SetIsHidden(isHidden);
 
     public void OpenDisplayer()
     {
@@ -75,7 +61,7 @@ public class StackCardDisplayer : MonoBehaviour
         foreach (Card card in cardList)
         {
             if(card == null) continue;
-            Card displayCard = Instantiate(card, content) as Card;
+            Card displayCard = Instantiate(card, content);
             //关闭不要的组件
             displayCard.GetComponent<CardInsertSlotChecker>().enabled = false;
             displayCard.GetComponent<CardInStackChecker>().enabled = false;

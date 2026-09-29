@@ -28,6 +28,7 @@ public class StackCardCheckButton : MonoBehaviour
             return;
         }
         //设置要显示的卡牌列表
+        StackCardDisplayer.instance?.ClearCardList();
         StackCardDisplayer.instance?.SetCardList(cardList);
         //显示卡牌
         StackCardDisplayer.instance?.SetDisplay(true);   
