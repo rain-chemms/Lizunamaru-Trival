@@ -154,6 +154,17 @@ MonoBehaviour:
       Draw {0} Cards'
     m_Metadata:
       m_Items: []
+  - m_Id: 32855769530630144
+    m_Localized: 'Status Card: Wound'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32865365095743488
+    m_Localized: 'Get {0} DefendPoint When You Play This Card
+
+      Add {0} Wound
+      In Your Hand'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
