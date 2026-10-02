@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MapSystem{
+namespace MapSystem.MapNodeSystem
+{
     //地图节点图标设置器
     [RequireComponent(typeof(MapNode))]
     [RequireComponent(typeof(Button))]

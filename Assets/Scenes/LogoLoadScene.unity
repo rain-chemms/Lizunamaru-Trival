@@ -2356,15 +2356,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5285267981631026361, guid: 2940ba056d6bf3a4691d214f7e5a86ef, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5285267981631026361, guid: 2940ba056d6bf3a4691d214f7e5a86ef, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5285267981631026361, guid: 2940ba056d6bf3a4691d214f7e5a86ef, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5306476897678254070, guid: 2940ba056d6bf3a4691d214f7e5a86ef, type: 3}
       propertyPath: isHidden
@@ -4578,7 +4578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e888151c1bba1f24d8961b1fe74d9dd2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8990,7 +8990,7 @@ PrefabInstance:
       objectReference: {fileID: 1768625993}
     - target: {fileID: 7147680556464847461, guid: 1843b34ff4490c34cb457431c9a4087c, type: 3}
       propertyPath: cardSlotListList.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7147680556464847461, guid: 1843b34ff4490c34cb457431c9a4087c, type: 3}
       propertyPath: 'drawCardList.Array.data[10]'
@@ -9335,7 +9335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2874460134079859844, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3066768298003432359, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: m_IsActive
@@ -9343,7 +9343,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3216070770817829883, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4106887316683012406, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -9547,7 +9547,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8208616566129945358, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: isDisplay
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8208616566129945358, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
+      propertyPath: playerIndex.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8711853336070858623, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -10104,7 +10108,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1708670114310804349, guid: 14c4e51f49c8c12409999de7315a6a62, type: 3}
       propertyPath: m_Name
-      value: LevelController
+      value: LevelManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10216,63 +10220,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 994dd9471dbc23f48adb1f02c7744ace, type: 3}
---- !u!1001 &9220172399283402872
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3465585009069581175, guid: d6f821aa91b363b47892897c169b6dc8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3465585009069581175, guid: d6f821aa91b363b47892897c169b6dc8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3465585009069581175, guid: d6f821aa91b363b47892897c169b6dc8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3465585009069581175, guid: d6f821aa91b363b47892897c169b6dc8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3465585009069581175, guid: d6f821aa91b363b47892897c169b6dc8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3465585009069581175, guid: d6f821aa91b363b47892897c169b6dc8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3465585009069581175, guid: d6f821aa91b363b47892897c169b6dc8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3465585009069581175, guid: d6f821aa91b363b47892897c169b6dc8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3465585009069581175, guid: d6f821aa91b363b47892897c169b6dc8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3465585009069581175, guid: d6f821aa91b363b47892897c169b6dc8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8414478297055489200, guid: d6f821aa91b363b47892897c169b6dc8, type: 3}
-      propertyPath: m_Name
-      value: LevelManager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d6f821aa91b363b47892897c169b6dc8, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -10280,13 +10227,12 @@ SceneRoots:
   - {fileID: 7126182056831467273}
   - {fileID: 1739426303}
   - {fileID: 110087563}
-  - {fileID: 9220172399283402872}
   - {fileID: 8426110828493878885}
+  - {fileID: 6327406017588609611}
+  - {fileID: 7846405180489234914}
   - {fileID: 7715261178544519441}
   - {fileID: 6034008864820024012}
   - {fileID: 959003834724942461}
-  - {fileID: 6327406017588609611}
-  - {fileID: 7846405180489234914}
   - {fileID: 3492043134313393610}
   - {fileID: 5393619843535721589}
   - {fileID: 798372029}

@@ -1,8 +1,10 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using MapSystem.MapNodeSystem;
 
-namespace MapSystem{
+namespace MapSystem
+{
     //游戏地图:存储所有的节点和对应的路径
     //游戏中地图只能有一个,故使用单例模式
     [RequireComponent(typeof(Canvas))]//地图必须是Canvas

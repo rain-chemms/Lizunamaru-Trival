@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-namespace MapSystem
+namespace MapSystem.MapNodeSystem
 {
     //代表当前的地图节点
     //每个地图节点都对应一个按钮

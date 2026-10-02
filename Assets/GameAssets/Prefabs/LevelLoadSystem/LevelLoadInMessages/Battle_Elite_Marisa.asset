@@ -15,12 +15,25 @@ MonoBehaviour:
   category: 3
   areaFilter: 
   layerRestrict: -1
-  widthAndHeight: {x: 0, y: 0}
+  widthAndHeight: {x: 8, y: 8}
   gapsOfGrids: {x: 2.75, y: 2.75}
   grid00LocalPosition: {x: 0, y: 0, z: 0}
-  gridPrefab: {fileID: 0}
-  emptyGridsIndex: []
-  playerStartIndex: {x: 0, y: 0}
-  gridObjectDict:
-    m_keys: []
-    m_values: []
+  emptyGridsIndex:
+  - {x: 1, y: 1}
+  - {x: 1, y: 2}
+  - {x: 2, y: 1}
+  - {x: 2, y: 2}
+  - {x: 5, y: 1}
+  - {x: 5, y: 2}
+  - {x: 6, y: 1}
+  - {x: 6, y: 2}
+  - {x: 5, y: 5}
+  - {x: 5, y: 6}
+  - {x: 6, y: 6}
+  - {x: 6, y: 5}
+  playerStartIndex: {x: 0, y: 3}
+  enermyDict:
+    m_keys:
+    - {x: 7, y: 3}
+    m_values:
+    - {fileID: 3955644754421548568, guid: c1fb35b1372842142ae48504272a1f86, type: 3}

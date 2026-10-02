@@ -45,6 +45,9 @@ public class BattleBoard : MonoBehaviour
     
     public void SetWidthAndHeight(Vector2Int widthAndHeight) => this.widthAndHeight = widthAndHeight;
     
+    [SerializeField] private List<Vector2Int> emptyGridIndex = new List<Vector2Int>();
+    public List<Vector2Int> GetEmptyGridIndex() => emptyGridIndex;
+    public void SetEmptyGridIndex(List<Vector2Int> tar) => emptyGridIndex = tar.ToList();
     void OnEnable()
     {
         //默认将所有子节点的地图格子加入列表中

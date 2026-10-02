@@ -44,7 +44,7 @@ public class BattleBoardPhysicBoarderController : MonoBehaviour
     public float GetThickOfBoundary() => thickOfBoundary;
     public void SetThickOfBoundary(float th) => thickOfBoundary = th;
 
-    private void ResizeTheBoundaryByBoardSize()
+    public void ResizeTheBoundaryByBoardSize()
     {
         if(board == null) return;
         Vector2Int size = board.GetWidthAndHeight();

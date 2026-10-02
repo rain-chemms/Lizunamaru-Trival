@@ -14,7 +14,11 @@ public class SpellPrecentSliderDisplayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float spellPrecent = (float)BattleMessage.instance?.GetControlPlayer()?.GetSpellPrecent();
-        slider.value = spellPrecent;
+        
+        if(BattleMessage.instance?.GetControlPlayer() !=null)
+        {
+            float spellPrecent = (float)BattleMessage.instance?.GetControlPlayer()?.GetSpellPrecent();
+            slider.value = spellPrecent;
+        }
     }
 }

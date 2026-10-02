@@ -53,6 +53,7 @@ public class BattleMessage : MonoBehaviour
     [SerializeField] private string enemyTurnTextKey = "RoundChange_EnermyTurn";
     [SerializeField] private uint round = 0;//回合数数
     public uint GetRound() => round;
+    public void SetRound(uint rd) => round = rd;
 
     [SerializeField] private bool isPlayerTurn = true;//是否是玩家回合
     public bool IsPlayerTurn() => isPlayerTurn;

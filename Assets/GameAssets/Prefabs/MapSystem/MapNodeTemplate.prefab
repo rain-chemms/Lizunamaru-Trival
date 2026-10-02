@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4763043255710429194}
   - component: {fileID: 6768207873822850987}
   - component: {fileID: 1615239738639665819}
+  - component: {fileID: 3358173880493389805}
   m_Layer: 5
   m_Name: MapNodeTemplate
   m_TagString: Untagged
@@ -159,6 +160,18 @@ MonoBehaviour:
     - {fileID: 21300000, guid: cbf0498ff88a41645ab03625431a34f0, type: 3}
     - {fileID: 21300000, guid: f233bc8d5f2d2be408c16c462fc07c12, type: 3}
     - {fileID: 21300000, guid: 3e383da872a6c9d41b62e03cb9753528, type: 3}
+--- !u!114 &3358173880493389805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5065806865956586785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25338ac59f390ce459fcaa17e7c52c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7034905234302418667
 GameObject:
   m_ObjectHideFlags: 0

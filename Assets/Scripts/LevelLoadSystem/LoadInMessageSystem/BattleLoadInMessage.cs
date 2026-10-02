@@ -10,7 +10,7 @@ namespace LevelLoadSystem.LoadInMessageSystem
 {
     //这是战斗的加载数据
     [CreateAssetMenu(fileName = "BattleLodeInMessage", menuName = "LevelLoadInMessage/BattleLodeInMessage")]
-    public class BattleLodeInMessage : LevelLoadInMessage
+    public class BattleLoadInMessage : LevelLoadInMessage
     {
         //棋盘格相关数据
         [Header("棋盘格相关数据")]
@@ -36,7 +36,7 @@ namespace LevelLoadSystem.LoadInMessageSystem
         [SerializeField] private SerializableDictionary<Vector2Int, Role> enermyDict;//敌人索引字典
         public SerializableDictionary<Vector2Int, Role> GetEnermyDict() => enermyDict;
 
-        public BattleLodeInMessage() : base()
+        public BattleLoadInMessage() : base()
         {
             //强制限制类别
             MapNodeCategory ctg = category;

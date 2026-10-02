@@ -214,7 +214,7 @@ public class BattleCardSlotListController : MonoBehaviour
     {
         int cardSlotCount = 0;
         CardCategory cardCategory = cardSlotList.GetSlotListCardCategory();
-        foreach(CardSlot cardSlot in cardSlotList.GetCardSlotList())
+        foreach(CardSlot cardSlot in cardSlotList.GetCardSlotList().ToList())
         {
             if(cardSlot.GetSlotCardCategory() == cardCategory) cardSlotCount++;
         }
@@ -225,7 +225,7 @@ public class BattleCardSlotListController : MonoBehaviour
     public void RemoveAllNullValueCardSlotInList(CardSlotList cardSlotList)
     {
         if(cardSlotList == null) return;
-        foreach(CardSlot cardSlot in cardSlotList.GetCardSlotList())
+        foreach(CardSlot cardSlot in cardSlotList?.GetCardSlotList().ToList())
         {
             //移除值为null的卡槽
             if(cardSlot == null) cardSlotList.GetCardSlotList().Remove(cardSlot);

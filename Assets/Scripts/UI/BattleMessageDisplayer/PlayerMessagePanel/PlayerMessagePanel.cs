@@ -22,9 +22,9 @@ public class PlayerMessagePanel : MonoBehaviour
         lastMaxHp = (float)BattleMessage.instance?.GetControlPlayer()?.GetMaxHp();
         lastHp = (float)BattleMessage.instance?.GetControlPlayer()?.GetHp();
         //初始化外观设置
-        if(hpText != null) hpText.text = lastHp.ToString() + "/" + lastMaxHp.ToString();
+        if (hpText != null) hpText.text = lastHp.ToString() + "/" + lastMaxHp.ToString();
         CheckAndSetHpSpriteAndMaterial();
-        if(coinsText != null) coinsText.text = lastCoins.ToString();
+        if (coinsText != null) coinsText.text = lastCoins.ToString();
         displayCoins = lastCoins;
     }
 
@@ -71,21 +71,24 @@ public class PlayerMessagePanel : MonoBehaviour
     private readonly StringBuilder hpSb = new StringBuilder(16);
     private void SyncHpMessage()
     {
-        float nowMaxHp = (float)BattleMessage.instance?.GetControlPlayer()?.GetMaxHp();
-        float nowHp = (float)BattleMessage.instance?.GetControlPlayer()?.GetHp();
-        //检测maxHp和nowHp
-        if (nowMaxHp == lastMaxHp && nowHp == lastHp) return;
-        hpSb.Clear();
-        hpSb.Append(nowHp).Append('/').Append(nowMaxHp);
-        if(hpText != null) hpText.SetText(hpSb);//设置血量显示
-        lastHp = nowHp;
-        lastMaxHp = nowMaxHp;
-        //依据当前血量选择材质
-        CheckAndSetHpSpriteAndMaterial();
-        //这里可以添加额外的动画器处理逻辑
-        /*
-            暂时未实现
-        */
+        if (BattleMessage.instance?.GetControlPlayer() != null)
+        {
+            float nowMaxHp = (float)BattleMessage.instance?.GetControlPlayer()?.GetMaxHp();
+            float nowHp = (float)BattleMessage.instance?.GetControlPlayer()?.GetHp();
+            //检测maxHp和nowHp
+            if (nowMaxHp == lastMaxHp && nowHp == lastHp) return;
+            hpSb.Clear();
+            hpSb.Append(nowHp).Append('/').Append(nowMaxHp);
+            if (hpText != null) hpText.SetText(hpSb);//设置血量显示
+            lastHp = nowHp;
+            lastMaxHp = nowMaxHp;
+            //依据当前血量选择材质
+            CheckAndSetHpSpriteAndMaterial();
+            //这里可以添加额外的动画器处理逻辑
+            /*
+                暂时未实现
+            */
+        }
     }
 
 
@@ -105,15 +108,15 @@ public class PlayerMessagePanel : MonoBehaviour
             targetMat = midumHpMaterial;
             targetSpt = midumHpSprite;
         }
-        if(hpImage != null)
+        if (hpImage != null)
         {
             // 只在 Sprite/Material 真正变化时才赋值，避免打断 Canvas 合批
-            if(targetSpt != null && targetSpt != currentHpSprite)
+            if (targetSpt != null && targetSpt != currentHpSprite)
             {
                 hpImage.sprite = targetSpt;
                 currentHpSprite = targetSpt;
             }
-            if(targetMat != currentHpMaterial)
+            if (targetMat != currentHpMaterial)
             {
                 hpImage.material = targetMat;
                 currentHpMaterial = targetMat;
@@ -123,39 +126,39 @@ public class PlayerMessagePanel : MonoBehaviour
 
     [NonSerialized] private uint lastCoins = 0;
     [NonSerialized] private uint displayCoins = 0; // 当前显示中的金币值
-    [Range(2,10)] [SerializeField] private uint coinsChangeObsticle = 3;//显示金币变化时的阻力
+    [Range(2, 10)][SerializeField] private uint coinsChangeObsticle = 3;//显示金币变化时的阻力
     private void SyncCoinsMessage()
     {
         uint nowCoins = (uint)BattleMessage.instance?.GetCoins();
-        if(displayCoins == lastCoins && lastCoins == nowCoins) return; // 无变化时直接跳过
+        if (displayCoins == lastCoins && lastCoins == nowCoins) return; // 无变化时直接跳过
 
-        if(lastCoins != nowCoins)
+        if (lastCoins != nowCoins)
         {
             // 目标值变了，触发一次动画
-            if(coinsAnimator != null) coinsAnimator.SetTrigger("CoinsChange");
+            if (coinsAnimator != null) coinsAnimator.SetTrigger("CoinsChange");
         }
 
         // 渐变逼近目标值
-        if(nowCoins > lastCoins) 
+        if (nowCoins > lastCoins)
         {
             uint diff = nowCoins - lastCoins;
             uint addUnit = diff / coinsChangeObsticle;
-            if(addUnit < 1) addUnit = 1;
+            if (addUnit < 1) addUnit = 1;
             lastCoins += addUnit;
         }
-        else if(lastCoins > nowCoins)
+        else if (lastCoins > nowCoins)
         {
             uint diff = lastCoins - nowCoins;
             uint subUnit = diff / coinsChangeObsticle;
-            if(subUnit < 1) subUnit = 1;
+            if (subUnit < 1) subUnit = 1;
             lastCoins -= subUnit;
         }
 
         // 只在显示值变化时才更新 UI
-        if(lastCoins != displayCoins)
+        if (lastCoins != displayCoins)
         {
             displayCoins = lastCoins;
-            if(coinsText != null) coinsText.text = displayCoins.ToString();
+            if (coinsText != null) coinsText.text = displayCoins.ToString();
         }
     }
 }

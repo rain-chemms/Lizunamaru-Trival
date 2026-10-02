@@ -1,8 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using System.Linq;
-using System;
+using MapSystem.MapNodeSystem;
 
 namespace MapSystem
 {

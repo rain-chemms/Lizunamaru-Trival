@@ -15,7 +15,6 @@ public class BattleBoardController : MonoBehaviour
     [SerializeField] private BattleGrid defaultGridPrefab;
     [SerializeField] private float gridInitYOffset = -1.0f;
     [SerializeField] private SerializableDictionary<MapAreaCategory,BattleGrid> gridPrefabDict = new SerializableDictionary<MapAreaCategory,BattleGrid>();
-    [SerializeField] private List<Vector2Int> emptyGridIndex = new List<Vector2Int>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -53,7 +52,7 @@ public class BattleBoardController : MonoBehaviour
             for(int j =0;j< gridSize.y; j++)
             {
                 Vector2Int index = new Vector2Int(i,j);
-                if(emptyGridIndex.Contains(index)) continue;//被排除在外了
+                if((bool)battleBoard?.GetEmptyGridIndex().Contains(index)) continue;//被排除在外了
                 TryFillTheEmptyGrid(index);
             }
         }
@@ -77,7 +76,7 @@ public class BattleBoardController : MonoBehaviour
             Debug.LogError("[BattleBoardController]:The Control BattleBoard's <BattleGridList> is null, please check the Scene Nodes!");
         }
 
-        foreach(BattleGrid battleGrid in battleBoard.GetBattleGridList())
+        foreach(BattleGrid battleGrid in battleBoard.GetBattleGridList().ToList())
         {
             if(battleGrid == null) continue;//忽略空格
             BattleBoard.instance?.GetBattleGridList()?.Remove(battleGrid);//尝试移除的格子    
@@ -190,7 +189,7 @@ public class BattleBoardController : MonoBehaviour
             if(battleGrid == null) continue;//忽略空格
             Vector2Int index = (Vector2Int)battleGrid?.GetIndex();
             //检测索引
-            foreach(Vector2Int idx in emptyGridIndex)
+            foreach(Vector2Int idx in battleBoard.GetEmptyGridIndex().ToList())
             {
                 //检测到应该删除的地块
                 if(idx.x == index.x && idx.y == index.y)
