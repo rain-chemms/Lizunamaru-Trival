@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 27fc1663b32cae840a0129b051ee3681
   m_currentHash:
     serializedVersion: 2
-    Hash: 7bf273c1298fb079bab57b53d770f9fe
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -138,6 +138,7 @@ MonoBehaviour:
     - Card.Category.Effective
     - Card.Pool.Iizunamaru
     - Card.Pool.AllHub
+    - LevelLoadInMessage
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 5085f537618f9ff4b9fe603104a56747, type: 2}

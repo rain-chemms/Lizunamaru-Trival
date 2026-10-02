@@ -1025,6 +1025,7 @@ public class BattleMessage : MonoBehaviour
     /*
         1.根据LodeInMessage信息重置场景,包括棋盘格的信息
     */
+    /*
     public void ResetBattleSceneByLodeInMessage(BattleLodeInMessage lodeInMessage)
     {
         //确保参数有效
@@ -1039,9 +1040,9 @@ public class BattleMessage : MonoBehaviour
             Debug.LogError("[BattleMessage]: BattleBoard is null, Please Check the Instance is really exist!");
             return;
         }
-        /*
-            一下部分为清除已有的战斗场景信息
-        */
+        
+        //一下部分为清除已有的战斗场景信息
+        
         //清除战斗信息中的所有角色(包括控制的玩家)
         foreach (Role role in roleList)
         {
@@ -1096,15 +1097,15 @@ public class BattleMessage : MonoBehaviour
                 Destroy(grid.gameObject);
             }
         }
-        /*
+        
             一下部分为依据LodeInMessage信息初始化战斗场景
-        */
+        
         int id_append = 0;
 
-        /*
+        
             这部分需要从玩家信息获取器中实时读取玩家信息
             信息包括:玩家的默认阵营,玩家血量,玩家最大生命值,玩家金币量,玩家卡牌列表+未加入的其他控制信息
-        */
+        
         //初始化玩家角色,依据lodeInMessage设置玩家位置,并设置控制的玩家ID为当前玩家
         Role player = null;
         //Instantiate(player,board.transform);
@@ -1129,4 +1130,5 @@ public class BattleMessage : MonoBehaviour
             id_append++;
         }
     }
+    */
 }

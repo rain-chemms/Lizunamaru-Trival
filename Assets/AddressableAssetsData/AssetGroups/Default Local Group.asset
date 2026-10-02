@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Default Local Group
   m_GUID: 27fc1663b32cae840a0129b051ee3681
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 4a14df721e47f9943a5a922ed27f758c
+    m_Address: Assets/GameAssets/Prefabs/LevelLoadSystem/LevelLoadInMessages/Battle_Elite_Marisa.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LevelLoadInMessage
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e8888f07cbfd2fc48b162c127f18c7e3, type: 2}
   m_SchemaSet:
