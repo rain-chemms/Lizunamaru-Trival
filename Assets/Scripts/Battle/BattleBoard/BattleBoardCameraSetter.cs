@@ -56,6 +56,10 @@ public class BattleBoardCameraSetter : MonoBehaviour
                 cinemachineCamera = brain.ActiveVirtualCamera as CinemachineCamera;
             }
         }
+        else
+        {
+            Debug.LogWarning("[BattleBoardCameraSetter]: Main Camera is null. Please Check your Code!");
+        }
     }
 
     [SerializeField] private bool syncToControlPlayerPos = false;//是否同步到控制的玩家

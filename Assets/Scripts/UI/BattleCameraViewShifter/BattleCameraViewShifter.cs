@@ -189,7 +189,7 @@ public class BattleCameraViewShifter : MonoBehaviour
         Debug.Log("[BattleCameraViewShifter]: Change Camera View To: " + item.ToString() + ", Now Shifter Index: " + index.ToString());
         //切换玩家控制器    
         //尝试获取玩家移动控制器组件
-        PlayerMoveController controller = BattleMessage.instance?.GetControlPlayer().GetComponent<PlayerMoveController>();
+        PlayerMoveController controller = BattleMessage.instance?.GetControlPlayer()?.GetComponent<PlayerMoveController>();
         controller?.SetFirstPresentMode(item.shiftControlToFirstPerson);
     }
 }

@@ -48,13 +48,14 @@ public class SceneLoader : MonoBehaviour
         animator.SetTrigger("Start");
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
         yield return new WaitForSeconds(stateInfo.length);//等待动画播放完毕
-        SceneManager.LoadScene(sceneIndex);
+        //SceneManager.LoadScene(sceneIndex);
         AsyncOperation asyncOperation =  SceneManager.LoadSceneAsync(sceneIndex,mode);
         //等待加载完成
         while (!asyncOperation.isDone)
         {
             yield return null; // 每帧检查一次
         }
+        yield return null;
         //触发Action功能
         actionCallbacks?.Invoke();
         //解构事件
@@ -71,13 +72,15 @@ public class SceneLoader : MonoBehaviour
         animator.SetTrigger("Start");
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
         yield return new WaitForSeconds(stateInfo.length);//等待动画播放完毕
-        SceneManager.LoadScene(sceneName);
+        //SceneManager.LoadScene(sceneName);
         AsyncOperation asyncOperation =  SceneManager.LoadSceneAsync(sceneName,mode);
         //等待加载完成
         while (!asyncOperation.isDone)
         {
             yield return null; // 每帧检查一次
         }
+        //额外等待一帧,确保新场景中的物体完成Awake/OnEnable初始化
+        yield return null;
         //触发Action功能
         actionCallbacks?.Invoke();
         //解构事件

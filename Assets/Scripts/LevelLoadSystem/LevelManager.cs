@@ -208,6 +208,7 @@ namespace LevelLoadSystem
                 }
             }
 
+
             //刷新卡槽信息
             BattleMessage.instance?.ResetCardSlotListFromBattleMessageDisplayer();
             //初始化卡槽数据
@@ -269,7 +270,32 @@ namespace LevelLoadSystem
             BattleMessage.instance.SetRound(0);
             //接下来,战斗就正式开始了
             //加载战斗场景
-            SceneLoader.instance?.LoadScene("BattleScene");
+            SceneLoader.instance?.LoadScene("BattleScene",AppendLoadInBattle);
+        }
+
+        private void AppendLoadInBattle()
+        {
+            StartCoroutine(WaitAndSyncCamera());
+        }
+
+        //等待新场景中 MainCamera 完成初始化后,再同步摄像机数据
+        private IEnumerator WaitAndSyncCamera()
+        {
+            float timeout = 3f;
+            float elapsed = 0f;
+            while (Camera.main == null && elapsed < timeout)
+            {
+                yield return null;
+                elapsed += Time.unscaledDeltaTime;
+            }
+            if (Camera.main == null)
+            {
+                Debug.LogError("[LevelManager]: WaitAndSyncCamera timeout, Main Camera is still null!");
+                yield break;
+            }
+            //再等一帧,让 CinemachineBrain 有时间确定 ActiveVirtualCamera
+            yield return null;
+            BattleBoard.instance?.GetComponent<BattleBoardCameraSetter>()?.AutoSetCineCamera();
         }
 
     }
