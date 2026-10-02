@@ -36,6 +36,8 @@ public class BattleMessage : MonoBehaviour
     {
         //刷新道具列表
         FreshTheGadgetList();
+        //依据BattleMessageDisplayer刷新卡槽列表
+        ResetCardSlotListFromBattleMessageDisplayer();
     }
 
     //玩家货币系统相关
@@ -401,8 +403,6 @@ public class BattleMessage : MonoBehaviour
         }
         return result;
     }
-
-
     //手牌
     [SerializeField] private uint maxHandCardCount = 10;//最大手牌数
     public uint GetMaxHandCardCount() => maxHandCardCount;
@@ -935,14 +935,16 @@ public class BattleMessage : MonoBehaviour
     //卡槽相关
     [Header("所有的卡槽列表")]
     [SerializeField] private List<CardSlotList> cardSlotListList = new List<CardSlotList>();//所有卡槽列表的管理器
-    public List<CardSlotList> GetCardSlotListList()
+    public List<CardSlotList> GetCardSlotListList() => cardSlotListList;
+    public List<CardSlotList> GetCardSlotListList_Copy() => cardSlotListList.ToList();
+    
+    public void ResetCardSlotListFromBattleMessageDisplayer()
     {
-        return cardSlotListList;
+        cardSlotListList.Clear();
+        List<CardSlotList> slotListList = BattleMessageDisplayer.instance.GetComponentsInChildren<CardSlotList>().ToList();
+        cardSlotListList = slotListList;
     }
-    public List<CardSlotList> GetCardSlotListList_Copy()
-    {
-        return cardSlotListList.ToList();
-    }
+
     public CardSlotList GetCardSlotList(CardCategory cardCategory)
     {
         foreach (CardSlotList cardSlotList in cardSlotListList)

@@ -15,6 +15,7 @@ public class BattleBoardController : MonoBehaviour
     [SerializeField] private BattleGrid defaultGridPrefab;
     [SerializeField] private float gridInitYOffset = -1.0f;
     [SerializeField] private SerializableDictionary<MapAreaCategory,BattleGrid> gridPrefabDict = new SerializableDictionary<MapAreaCategory,BattleGrid>();
+    [SerializeField] private List<Vector2Int> emptyGridIndex = new List<Vector2Int>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -35,19 +36,28 @@ public class BattleBoardController : MonoBehaviour
         if(battleBoard == null) battleBoard = BattleBoard.instance;//尝试从BattleBoard单例中获取        
         DestroyOutOfBoundaryGrids();
         DestroyRepeatBattleGrid();
-        
+        DestroyEmptyIndexGrid();
     }
     
     void Start()
     {
+        ResetTheBattleGrids();
+    }
+
+    public void ResetTheBattleGrids()
+    {
+        DestoryAllGrids();
         Vector2Int gridSize = (Vector2Int)battleBoard?.GetWidthAndHeight();
         for(int i = 0; i < gridSize.x; i++)
         {
             for(int j =0;j< gridSize.y; j++)
             {
-                this.TryFillTheEmptyGrid(new Vector2Int(i,j));
+                Vector2Int index = new Vector2Int(i,j);
+                if(emptyGridIndex.Contains(index)) continue;//被排除在外了
+                TryFillTheEmptyGrid(index);
             }
         }
+        DestroyEmptyIndexGrid();
     }
 
     void Update()
@@ -162,6 +172,34 @@ public class BattleBoardController : MonoBehaviour
         }
     }
     
+    //清除本来应为空的格子
+    public void DestroyEmptyIndexGrid()
+    {
+        if(battleBoard == null) 
+        {
+            Debug.LogError("[BattleBoardController]:The Control BattleBoard is null, please check the Scene Nodes!");
+            return;
+        }
+        if(battleBoard.GetBattleGridList() == null) 
+        {
+            Debug.LogError("[BattleBoardController]:The Control BattleBoard's <BattleGridList> is null, please check the Scene Nodes!");
+            return;
+        }
+        foreach(BattleGrid battleGrid in battleBoard?.GetBattleGridList()?.ToList())
+        {
+            if(battleGrid == null) continue;//忽略空格
+            Vector2Int index = (Vector2Int)battleGrid?.GetIndex();
+            //检测索引
+            foreach(Vector2Int idx in emptyGridIndex)
+            {
+                //检测到应该删除的地块
+                if(idx.x == index.x && idx.y == index.y)
+                {
+                    Destroy(battleGrid.gameObject);//销毁格子
+                }
+            }
+        }
+    }
     //填上一个空缺的格子,创建对应的格子实体
     public void TryFillTheEmptyGrid(Vector2Int tarIdx)
     {
