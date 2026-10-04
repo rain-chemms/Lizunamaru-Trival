@@ -30,7 +30,7 @@ namespace GridObjectSystem.AbilitySystem.AllAbilities
         public override IEnumerator AfterAbilityRemoved(GridObject effectObject = null)
         {
             effectObject.GetComponent<RoleDamageGetter>().onPreProductData -= SetDamageToZero;
-            return base.AfterAbilityRemoved(effectObject);
+            yield return base.AfterAbilityRemoved(effectObject);
         }
 
         public override IEnumerator AfterRoundEnd(GridObject effectObject = null)

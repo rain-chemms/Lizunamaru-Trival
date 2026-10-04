@@ -23,6 +23,7 @@ namespace GridObjectSystem.RoleSystem
             base.Start();
             //能力测试代码
             StartCoroutine(AddAbility<Ability_Invulnerable>(5));
+            StartCoroutine(AddAbility<Ability_ReverseIdeology>(1));
         }
         //*/
         

@@ -2,6 +2,8 @@ using Unity.Cinemachine;
 using UnityEngine;
 using GridObjectSystem;
 using GridObjectSystem.RoleSystem;
+using Unity.VisualScripting;
+using System;
 
 [RequireComponent(typeof(BattleBoard))]
 public class BattleBoardCameraSetter : MonoBehaviour
@@ -17,6 +19,9 @@ public class BattleBoardCameraSetter : MonoBehaviour
 
     [SerializeField] private bool resetPos = false;
     [SerializeField] private bool resetRot = false;
+    [SerializeField] private bool isReverseIdeology = false;//是否为反转状态,反转的时候要将z轴设置额外的-180度
+    public bool IsReverseIdeology() => isReverseIdeology;
+    public void SetReverseIdeology(bool isReverse) => isReverseIdeology = isReverse;
 
     public void ResetCamera()
     {
@@ -136,9 +141,21 @@ public class BattleBoardCameraSetter : MonoBehaviour
     {
         CheckResetPos();
         CheckResetRot();
+        //如果ReverseIdeology产生了变化则要设置旋转
+        CheckReverseIdeology();
         if (alawysReset)
         {
             ResetCamera();
+        }
+    }
+
+    [NonSerialized] private bool lastIsReversed = false;
+    private void CheckReverseIdeology()
+    {
+        if(lastIsReversed != isReverseIdeology)
+        {
+            resetRot = true;
+            lastIsReversed = isReverseIdeology;
         }
     }
 
@@ -238,6 +255,8 @@ public class BattleBoardCameraSetter : MonoBehaviour
 
         // 先绕世界(棋盘)竖直轴 yaw,再绕 yaw 之后的局部水平轴 pitch
         Quaternion endRot = board.transform.rotation * yaw * Quaternion.Euler(rotOffset);
+        //若处于反转状态,则再绕z轴旋转180度
+        if(isReverseIdeology) endRot = endRot * Quaternion.Euler(0, 0, 180);
 
         if (Quaternion.Angle(cinemachineCamera.transform.rotation, endRot) < stopRotateDistance)
             resetRot = false;
