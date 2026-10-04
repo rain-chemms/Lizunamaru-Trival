@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using System;
+using CardSystem;
 
 
 //用于显示卡槽的可触发情况
@@ -33,11 +35,6 @@ public class CardSlotEffectTriggerDisplayer : MonoBehaviour
             }
             gameObject?.SetActive(false);
         }
-    }
-
-    void Start()
-    {
-        SetCanvasSort();
     }
 
     private void SetCanvasSort()
@@ -77,11 +74,40 @@ public class CardSlotEffectTriggerDisplayer : MonoBehaviour
         }
     }
 
+    [NonSerialized] private int lastRemainCount = 0;
+    [NonSerialized] private int lastRecoverPreRound = 0;
     private void SetCounter()
     {
-        if(counter != null)
+        int nowRemainCount = (int)triggerController?.GetRemainTriggerCount();
+        int nowRecoverPreRound = (int)triggerController.GetRecoverPreRound();
+        if(nowRecoverPreRound != lastRecoverPreRound || nowRemainCount != lastRemainCount)
         {
-            counter.text = triggerController?.GetRemainTriggerCount().ToString();
+            if(counter != null)
+            {
+                string startText = nowRemainCount.ToString();
+                if(nowRemainCount <= 0) startText = "<color=red>" + startText + "</color=red>";
+                counter.text = 
+                    startText +
+                    "/" +
+                    nowRecoverPreRound.ToString();
+            }
+        }
+        lastRecoverPreRound = nowRecoverPreRound;
+        lastRemainCount = nowRemainCount;
+    }
+
+    private void CheckDisplay()
+    {
+        Card card = null;
+        if(triggerController!=null)
+            card = triggerController?.GetCardSlot()?.GetInnerCard();
+        if(card == null || triggerController == null)//空的时候不显示
+        {
+            counter.enabled = false;
+        }
+        else if(card != null && triggerController != null)
+        {
+            counter.enabled = true;
         }
     }
 
@@ -89,6 +115,8 @@ public class CardSlotEffectTriggerDisplayer : MonoBehaviour
     {
         SetCounter();
         CheckTriggerCount();
+        CheckDisplay();
+        SetCanvasSort();
     }
     
 }

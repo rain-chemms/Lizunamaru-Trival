@@ -1648,6 +1648,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70f3e1ee5ef333644b234afae9285469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotListList: []
+  displayer: {fileID: 637296678900860888}
   prefabDict:
     m_keys: 000000000100000002000000
     m_values:
@@ -3316,7 +3318,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25.65
+  m_fontSize: 34.2
   m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6484,7 +6486,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.25
+  m_fontSize: 23.5
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1

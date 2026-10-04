@@ -45,7 +45,8 @@ public class CardHubChecker : MonoBehaviour
         StackCardDisplayer.instance?.OpenDisplayer();
         foreach(Card card in cardList.ToList())
         {
-            Destroy(card);
+            if(card == null) continue;
+            Destroy(card.gameObject);
         }
     }
 }

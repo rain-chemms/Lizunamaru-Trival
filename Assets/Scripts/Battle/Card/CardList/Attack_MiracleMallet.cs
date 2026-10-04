@@ -9,11 +9,18 @@ namespace CardSystem.AllCardHub
     //万宝槌:第一张攻击卡,相关角色:少名针妙丸
     //激活时,在目前控制角色的正前方产生预制体
     //打出时触发一次激活效果
-    public class Attack_MiracleMallet : Card
+    public class Attack_MiracleMallet : Card, IAttackCardInsertSlotSetter
     {
         [SerializeField] private MiracleMallet miracleMalletPrefab;
         public MiracleMallet GetMiracleMalletPrefab() => miracleMalletPrefab;
-        
+        //接口的实现        
+        [SerializeField] private int recoverPreRound = 1;
+        public int RecoverPreRound 
+        {
+            get => recoverPreRound;
+            set => recoverPreRound = value;
+        }
+
         public override IEnumerator AfterPlay()
         {
             yield return AfterTriggerEffective();
@@ -24,6 +31,13 @@ namespace CardSystem.AllCardHub
         {
             CreateMallet();
             yield return base.AfterTriggerEffective();
+        }
+
+        public override IEnumerator AfterInsertToSolt()
+        {
+            Debug.Log("[Attack_MiracleMallet]: Insert To Slot!");
+            ((IAttackCardInsertSlotSetter)this).SetInsertSlotAttackTime(this);
+            yield return base.AfterInsertToSolt();
         }
 
         private void CreateMallet()
