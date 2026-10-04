@@ -29,5 +29,6 @@ namespace CardSystem
         IEnumerator AfterACardPlayed_WhenCardInDiscardStack();//在一张牌被打出后的效果,触发条件时卡牌在弃牌堆中时
         IEnumerator AfterACardPlayed_WhenCardInDrawStack();//在一张牌被打出后的效果,触发条件时卡牌在抽牌堆中时
         IEnumerator AfterRetained();//在一张牌被保留后触发
+        IEnumerator UpgradeEffective();
     }
 }

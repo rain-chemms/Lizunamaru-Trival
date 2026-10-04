@@ -7,8 +7,18 @@ using System.Linq;
 [RequireComponent(typeof(BattleMessageDisplayer))]
 public class BattleCardSlotListController : MonoBehaviour
 {   
+    [SerializeField] private List<CardSlotList> slotListList = new List<CardSlotList>();
+    [SerializeField] private BattleMessageDisplayer displayer;
+    void OnEnable()
+    {
+        if(displayer == null) displayer = GetComponent<BattleMessageDisplayer>();
+        //初始化卡槽列表
+        slotListList?.Clear();
+        foreach(CardSlotList csl in displayer.GetComponentsInChildren<CardSlotList>())
+            slotListList.Add(csl);
+    }
+
     [SerializeField] private SerializableDictionary<CardCategory,CardSlot> prefabDict;//卡槽预制体
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     IEnumerator Start()
     {
         yield return SetCardSlotListSortingLayer();
@@ -19,7 +29,7 @@ public class BattleCardSlotListController : MonoBehaviour
     public IEnumerator SetCardSlotListSortingLayer()
     {
         int index = 0;
-        foreach(CardSlotList list in BattleMessage.instance.GetCardSlotListList())
+        foreach(CardSlotList list in slotListList)
         {
             if(list == null) continue;
             Canvas cvs = list.GetComponent<Canvas>();
@@ -60,8 +70,7 @@ public class BattleCardSlotListController : MonoBehaviour
     //删除所有卡槽列表中类型不匹配的卡槽
     public IEnumerator DeleteAllCardSlotCategoryNotMatch()
     {
-        List<CardSlotList> cardSlotListList = BattleMessage.instance.GetCardSlotListList();
-        foreach(CardSlotList cardSlotList in cardSlotListList)
+        foreach(CardSlotList cardSlotList in slotListList)
         {
             if(cardSlotList == null) continue;//跳过null值卡槽列表
             List<CardSlot> cardSlotList1 = cardSlotList.GetCardSlotList();
@@ -84,8 +93,7 @@ public class BattleCardSlotListController : MonoBehaviour
     //依据特定的卡槽类型删除所有卡槽列表中类型不匹配的卡槽
     public IEnumerator DeleteAllCardSlotCategoryNotMatch(CardCategory checkListCategory)
     {
-        List<CardSlotList> cardSlotListList = BattleMessage.instance.GetCardSlotListList();
-        foreach(CardSlotList cardSlotList in cardSlotListList)
+        foreach(CardSlotList cardSlotList in slotListList)
         {
             List<CardSlot> cardSlotList1 = cardSlotList.GetCardSlotList();
             if(cardSlotList1 == null || cardSlotList1.Count <= 0) continue;

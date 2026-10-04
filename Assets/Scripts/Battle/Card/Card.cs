@@ -9,7 +9,7 @@ namespace CardSystem
     //卡牌的属性和功能全在这个类及其继承中实现
     public class Card : MonoBehaviour, ICardFunctioner
     {
-        [SerializeField] private uint riceCost = 0;//打出这张牌需要消耗的ricePoint数
+        [SerializeField] protected uint riceCost = 0;//打出这张牌需要消耗的ricePoint数
         public void SetRiceCost(uint cost)
         {
             riceCost = cost;
@@ -19,11 +19,11 @@ namespace CardSystem
             return riceCost;
         }
         //卡牌的稀有度
-        [SerializeField] private CardRarity rarity;
+        [SerializeField] protected CardRarity rarity;
         public CardRarity GetRarity() => rarity;
         public void SetCardRarity(CardRarity rty) => rarity = rty;
         //卡牌类别
-        [SerializeField] private CardCategory cardCategory;
+        [SerializeField] protected CardCategory cardCategory;
         public void SetCardCategory(CardCategory ctg)
         {
             cardCategory = ctg;
@@ -33,7 +33,7 @@ namespace CardSystem
             return cardCategory;
         }
         //卡牌关键字列表
-        [SerializeField] private List<CardKeyWord> cardKeyWords = new List<CardKeyWord>();
+        [SerializeField] protected List<CardKeyWord> cardKeyWords = new List<CardKeyWord>();
         public List<CardKeyWord> GetCardKeyWords()
         {
             return cardKeyWords;
@@ -43,7 +43,12 @@ namespace CardSystem
             if (cardKeyWords == null) return;
             if (!cardKeyWords.Contains(kw)) cardKeyWords.Add(kw);
         }
-
+        [SerializeField] protected bool canRepeatUpgrade = false;//是否可以重复升级
+        public bool CanRepeatUpgrade() => canRepeatUpgrade;
+        public void SetRepeatUpgrade(bool canRepeat) => canRepeatUpgrade = canRepeat;
+        [SerializeField] protected uint cardUpgradeLevel = 0;//卡牌的等级,0等级代表并未升级
+        public void SetCardUpgradeLevel(uint level) => cardUpgradeLevel = level;
+        public uint GetCardUpgradeLevel() => cardUpgradeLevel;
         //卡牌接口的空实现
         public virtual IEnumerator AfterRetained()//在一张牌被保留后触发
         {
@@ -132,41 +137,37 @@ namespace CardSystem
             yield return null;
         }
         
+        public virtual IEnumerator UpgradeEffective()
+        {
+            yield return null;
+        }
         
+        protected virtual void Update()
+        {
+            //检测并设置卡牌等级变化
+            CheckUpgradeChange();
+        }
+
+        private uint lastLevel;
+        private void CheckUpgradeChange()
+        {
+            if(lastLevel != cardUpgradeLevel)
+            {   
+                StartCoroutine(UpgradeEffective());//同步升级后的效果
+                lastLevel = cardUpgradeLevel;
+            }
+        }
+
         //不在卡牌列表中且有效的卡牌默认加入弃牌堆中
         protected virtual void OnEnable()
         {
-            /*
-            BattleMessage bi = BattleMessage.instance;//不在卡槽,手中,三个牌堆中的卡牌
-            if(bi == null) return;
-            if(!(bool)bi?.IsCardInDiscardStack(this)
-             && !(bool)bi?.IsCardInDrawStack(this)
-             && !(bool)bi?.IsCardInHand(this)
-             && !(bool)bi?.IsCardInExhaustStack(this)
-             && !(bool)bi?.IsCardInSlot(this))
-            {
-                //将其加入底牌堆中
-                bi?.GetDiscardCardList().Add(this);
-            }*/
-            
+            //在卡牌初始化的时候应用升级的效果
+            StartCoroutine(UpgradeEffective());
+            lastLevel = cardUpgradeLevel;
         }
 
         protected virtual void OnDisable()//非激活状态的牌移除出控制列表
         {
-            /*
-            BattleMessage bi = BattleMessage.instance;//不在卡槽,手中,三个牌堆中的卡牌
-            if((bool)bi?.IsCardInDiscardStack(this)) bi?.GetDiscardCardList().Remove(this);
-            if((bool)bi?.IsCardInDrawStack(this)) bi?.GetDrawCardList().Remove(this);
-            if((bool)bi?.IsCardInHand(this)) bi?.GetHandCardList().Remove(this);
-            if((bool)bi?.IsCardInExhaustStack(this)) bi?.GetExhaustCardList().Remove(this);
-            if((bool)bi?.IsCardInSlot(this))
-            {
-                foreach (CardSlot slot in bi?.GetAllCardSlot())
-                {
-                    if((bool)slot.GetInnerCard() == this) slot.SetInnerCard(null);
-                }
-            }
-            */
         }
     }
 }

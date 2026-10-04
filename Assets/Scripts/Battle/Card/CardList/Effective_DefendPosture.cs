@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using GridObjectSystem.RoleSystem;
+using System;
 
 
 namespace CardSystem.AllCardHub
@@ -44,6 +45,24 @@ namespace CardSystem.AllCardHub
                 yield return BattleMessage.instance?.AddExistCardToHand(cardEntity);
             }
             yield return base.AfterPlay();
+        }
+
+        [SerializeField] private int addDefendPrelevel = 3;
+        [NonSerialized] private int sourceDefendPoint = 0;
+        new void OnEnable()
+        {
+            base.OnEnable();
+            sourceDefendPoint = defendPoint;
+        }
+        
+        public override IEnumerator UpgradeEffective()
+        {
+            //升级后,防御点数增加
+            if(cardUpgradeLevel > 0)
+            {
+                defendPoint = sourceDefendPoint + addDefendPrelevel;
+            }
+            yield return base.UpgradeEffective();
         }
     }
 }

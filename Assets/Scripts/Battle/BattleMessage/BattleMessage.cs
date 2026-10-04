@@ -36,6 +36,10 @@ public class BattleMessage : MonoBehaviour
     {
         //刷新道具列表
         FreshTheGadgetList();
+    }
+
+    void Start()
+    {
         //依据BattleMessageDisplayer刷新卡槽列表
         ResetCardSlotListFromBattleMessageDisplayer();
     }
@@ -942,7 +946,7 @@ public class BattleMessage : MonoBehaviour
     public void ResetCardSlotListFromBattleMessageDisplayer()
     {
         cardSlotListList.Clear();
-        List<CardSlotList> slotListList = BattleMessageDisplayer.instance.GetComponentsInChildren<CardSlotList>().ToList();
+        List<CardSlotList> slotListList = BattleMessageDisplayer.instance?.GetComponentsInChildren<CardSlotList>()?.ToList();
         cardSlotListList = slotListList;
     }
 

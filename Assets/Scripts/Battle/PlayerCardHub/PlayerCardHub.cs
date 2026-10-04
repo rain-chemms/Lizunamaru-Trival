@@ -5,10 +5,24 @@ using System.Linq;
 using Unity.VisualScripting;
 using System;
 
-//代表玩家在游戏中的牌库,战斗开始时会使用牌库对战斗信息进行初始化
+//代表玩家在游戏中的牌库,战斗开始时会使用牌库对战斗信息进行初始化,要存储对应卡牌的等级
 //单例对象
 public class PlayerCardHub : MonoBehaviour
 {
+    [Serializable]
+    public struct PlayerCardHubItem
+    {
+        public Card cardPrefab;
+        public uint cardLevel; 
+    }
+
+    //卡牌名字与卡牌等级结构体
+    public struct CardNameWithLevel
+    {
+        public string cardName;
+        public uint cardLevel;
+    }
+
     public static PlayerCardHub instance;
     void Awake()
     {
@@ -24,9 +38,9 @@ public class PlayerCardHub : MonoBehaviour
     }
 
     //这个里面全是Prefab的引用,它本身也是从CardPool中获取的
-    [SerializeField] private List<Card> cardHub = new List<Card>();
-    public List<Card> GetCardHub() => cardHub;
-    public List<Card> GetCardHub_Copy() => cardHub.ToList();
+    [SerializeField] private List<PlayerCardHubItem> cardHub = new List<PlayerCardHubItem>();
+    public List<PlayerCardHubItem> GetCardHub() => cardHub;
+    public List<PlayerCardHubItem> GetCardHub_Copy() => cardHub.ToList();
 
     //供给外界调用,用于加载游戏的卡牌
     public void InitCardToBattle()
@@ -58,10 +72,14 @@ public class PlayerCardHub : MonoBehaviour
         oldCards.Clear();
 
         //依据玩家牌库产生新的游戏物体到抽牌堆
-        foreach(Card c in cardHub?.ToList())
+        foreach(PlayerCardHubItem pchi in cardHub?.ToList())
         {
+            
+            Card c = pchi.cardPrefab;
+            uint level = pchi.cardLevel;
             if(c == null) continue;
             Card newCard = Instantiate(c,BattleMessageDisplayer.instance?.transform);//设置父物体为战斗信息显示器
+            newCard.SetCardUpgradeLevel(level);//设置卡牌等级
             draw?.Add(newCard);
         }
         //对抽牌堆进行洗牌
@@ -69,15 +87,20 @@ public class PlayerCardHub : MonoBehaviour
     }
 
     //获取所有玩家牌库中卡牌的完整命名,便于SL复原当前游戏进度
-    public List<string> GetFullNameListOfCardHub()
+    public List<CardNameWithLevel> GetFullNameListOfCardHub()
     {
-        List<string> result = new List<string>();
-        foreach(Card c in cardHub?.ToList())
+        List<CardNameWithLevel> result = new List<CardNameWithLevel>();
+        foreach(PlayerCardHubItem pchi in cardHub?.ToList())
         {
+            Card c = pchi.cardPrefab;
+            uint level = pchi.cardLevel;
             if(c == null) continue;
             Type cType = c.GetType();
             string cKey = cType.FullName;
-            result.Add(cKey);//牌库里可以有重复的牌
+            CardNameWithLevel item = new CardNameWithLevel();
+            item.cardName = cKey;
+            item.cardLevel = level;
+            result.Add(item);//牌库里可以有重复的牌
         }
         return result;
     }
