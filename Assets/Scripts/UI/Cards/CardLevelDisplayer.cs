@@ -28,11 +28,13 @@ public class CardLevelDisplayer : MonoBehaviour
     }
     
     private int lastLevel = -1;
+    private bool lastCanRepeatUG = false;
     private void SyncCardLevel()
     {
         if(card == null) return;
         uint nowLevel = card.GetCardUpgradeLevel();
-        if(nowLevel != lastLevel)
+        bool canRUG = card.CanRepeatUpgrade();
+        if(nowLevel != lastLevel || canRUG != lastCanRepeatUG)
         {
             //同步等级信息
             if(nowLevel > 0)
@@ -54,6 +56,7 @@ public class CardLevelDisplayer : MonoBehaviour
                 levelText.text = nowLevel.ToString();
             }
             lastLevel = (int)nowLevel;
+            lastCanRepeatUG =canRUG;
         }
     }
 }

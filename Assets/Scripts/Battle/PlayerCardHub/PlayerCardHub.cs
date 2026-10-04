@@ -13,7 +13,8 @@ public class PlayerCardHub : MonoBehaviour
     public struct PlayerCardHubItem
     {
         public Card cardPrefab;
-        public uint cardLevel; 
+        public uint cardLevel;
+        public bool canRUG;
     }
 
     //卡牌名字与卡牌等级结构体
@@ -21,6 +22,7 @@ public class PlayerCardHub : MonoBehaviour
     {
         public string cardName;
         public uint cardLevel;
+        public bool canRUG;
     }
 
     public static PlayerCardHub instance;
@@ -74,12 +76,13 @@ public class PlayerCardHub : MonoBehaviour
         //依据玩家牌库产生新的游戏物体到抽牌堆
         foreach(PlayerCardHubItem pchi in cardHub?.ToList())
         {
-            
             Card c = pchi.cardPrefab;
             uint level = pchi.cardLevel;
+            bool rUG = pchi.canRUG;
             if(c == null) continue;
             Card newCard = Instantiate(c,BattleMessageDisplayer.instance?.transform);//设置父物体为战斗信息显示器
             newCard.SetCardUpgradeLevel(level);//设置卡牌等级
+            newCard.SetRepeatUpgrade(rUG);
             draw?.Add(newCard);
         }
         //对抽牌堆进行洗牌
@@ -94,12 +97,14 @@ public class PlayerCardHub : MonoBehaviour
         {
             Card c = pchi.cardPrefab;
             uint level = pchi.cardLevel;
+            bool rUG = pchi.canRUG;
             if(c == null) continue;
             Type cType = c.GetType();
             string cKey = cType.FullName;
             CardNameWithLevel item = new CardNameWithLevel();
             item.cardName = cKey;
             item.cardLevel = level;
+            item.canRUG = rUG;
             result.Add(item);//牌库里可以有重复的牌
         }
         return result;
