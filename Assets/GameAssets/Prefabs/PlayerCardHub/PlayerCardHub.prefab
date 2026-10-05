@@ -44,14 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0cb79c062a7e374890f342e171ee094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardHub:
-  - {fileID: 4204945852005887696, guid: 5dc7b093fc2a6f041a63fc1a4a5593a3, type: 3}
-  - {fileID: 4204945852005887696, guid: 5dc7b093fc2a6f041a63fc1a4a5593a3, type: 3}
-  - {fileID: 4204945852005887696, guid: 5dc7b093fc2a6f041a63fc1a4a5593a3, type: 3}
-  - {fileID: 4204945852005887696, guid: 5dc7b093fc2a6f041a63fc1a4a5593a3, type: 3}
-  - {fileID: 1100431790119186882, guid: a2f98b3a508916d4491e0bd3d1413555, type: 3}
-  - {fileID: 1100431790119186882, guid: a2f98b3a508916d4491e0bd3d1413555, type: 3}
-  - {fileID: 1100431790119186882, guid: a2f98b3a508916d4491e0bd3d1413555, type: 3}
-  - {fileID: 1100431790119186882, guid: a2f98b3a508916d4491e0bd3d1413555, type: 3}
-  - {fileID: 2999450010997887131, guid: 520d98e31d6d75c49a2fd6d617aa0247, type: 3}
-  - {fileID: 2861037005881710516, guid: 049ddd4695ccf7f4e81b4ae8b550b524, type: 3}
+  cardHub: []

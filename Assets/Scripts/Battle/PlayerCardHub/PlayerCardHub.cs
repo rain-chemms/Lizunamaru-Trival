@@ -59,7 +59,7 @@ public class PlayerCardHub : MonoBehaviour
         if (draw != null) oldCards.AddRange(draw);
         if (discard != null) oldCards.AddRange(discard);
         if (exhaust != null) oldCards.AddRange(exhaust);
-
+        Debug.Log("[PlayerCardHub]: OldCards Number:" + oldCards.Count);
         //清空对应的列表
         hand?.Clear();
         draw?.Clear();
@@ -110,7 +110,7 @@ public class PlayerCardHub : MonoBehaviour
         return result;
     }
 
-    /*测试代码
+    ///*测试代码
     void Start()
     {
         InitCardToBattle();

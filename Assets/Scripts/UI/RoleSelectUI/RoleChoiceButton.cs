@@ -62,6 +62,7 @@ namespace RoleChoiceUISystem
             float hp = roleChoiceData.StartMaxHp;
             if(hpText != null) hpText.text = "<color=red>" + hp.ToString() + "/" + hp.ToString() + "</color>";
             if(coinText != null) coinText.text = "<color=yellow>" + coin.ToString() + "</color>";
+            //设置角色名
             LocalizedString targetName = new LocalizedString("RoleName", "RoleName_" + roleChoiceData.RoleName);
             TMP_Text nameText = choiceUI.NameText;
             var nameHandle = targetName.GetLocalizedStringAsync();

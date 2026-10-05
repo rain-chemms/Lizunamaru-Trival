@@ -208,7 +208,7 @@ namespace LevelLoadSystem
                 }
             }
 
-
+            
             //刷新卡槽信息
             BattleMessage.instance?.ResetCardSlotListFromBattleMessageDisplayer();
             //初始化卡槽数据
@@ -216,6 +216,7 @@ namespace LevelLoadSystem
             yield return sllCtr?.SetCardSlotListSortingLayer();
             yield return sllCtr?.DeleteAllCardSlotCategoryNotMatch();
             yield return sllCtr?.FreshCardSlotListCount();
+            
             
             //重新依据当前信息设置并生成棋盘格
             board.SetWidthAndHeight(loadInMessage.GetWidthAndHeight());
@@ -233,18 +234,21 @@ namespace LevelLoadSystem
             //信息包括:玩家的默认阵营,玩家血量,玩家最大生命值,玩家金币量,玩家卡牌列表+未加入的其他控制信息
 
             //初始化玩家角色,依据lodeInMessage设置玩家位置,并设置控制的玩家ID为当前玩家
-            Role playerPrefab = null;
+            Role playerPrefab = BattleMessage.instance?.GetRoleChoiceData()?.RolePrefab;
             Role player = null;
             if(playerPrefab != null) player = Instantiate(playerPrefab,board.transform);
             player?.SetSide(true);
             player?.SetID((uint)id_append);
+            player?.SetRoundOperateEnd(false);
             id_append++;
-            if(player != null) BattleMessage.instance?.SetControlPlayerID((uint)player?.GetID());
+            if(player != null) 
+            {
+                BattleMessage.instance?.SetControlPlayerID((uint)player?.GetID());
+                BattleMessage.instance?.GetRoleList()?.Add(player);
+            }
             //设置玩家的数据
             player?.SetGridIndex(loadInMessage.GetPlayerStartIndex());
             
-            //设置当前回合为玩家回合
-            BattleMessage.instance.SetIsPlayerTurn(true);
             //某些遗物可以在这里产生效果
 
             //初始化敌人及其位置
@@ -258,16 +262,12 @@ namespace LevelLoadSystem
                 role?.SetID((uint)id_append);
                 //初始化敌人角色的阵营,不同于玩家角色
                 role?.SetSide(player == null ? false : !(bool)player?.GetSide());
+                role?.SetRoundOperateEnd(false);
                 //将敌人加入列表
                 BattleMessage.instance?.GetRoleList()?.Add(role);
                 id_append++;
             }
             
-            //初始化玩家的手牌
-            PlayerCardHub.instance?.InitCardToBattle();
-            //抽一个回合的牌
-            BattleMessage.instance?.DrawCard((int)BattleMessage.instance?.GetDrawCardPreRound());
-            BattleMessage.instance.SetRound(0);
             //接下来,战斗就正式开始了
             //加载战斗场景
             SceneLoader.instance?.LoadScene("BattleScene",AppendLoadInBattle);
@@ -276,6 +276,13 @@ namespace LevelLoadSystem
         private void AppendLoadInBattle()
         {
             StartCoroutine(WaitAndSyncCamera());
+            //设置当前回合为玩家回合
+            BattleMessage.instance.SetIsPlayerTurn(true);
+            //初始化玩家的手牌
+            PlayerCardHub.instance?.InitCardToBattle();
+            //抽一个回合的牌
+            StartCoroutine(BattleMessage.instance?.DrawCard((int)BattleMessage.instance?.GetDrawCardPreRound()));
+            BattleMessage.instance.SetRound(0);
         }
 
         //等待新场景中 MainCamera 完成初始化后,再同步摄像机数据

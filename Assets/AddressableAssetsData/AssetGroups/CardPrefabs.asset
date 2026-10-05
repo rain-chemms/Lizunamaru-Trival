@@ -95,24 +95,8 @@ MonoBehaviour:
     - Card.Category.Effective
     - Card.Pool.AllHub
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 520d98e31d6d75c49a2fd6d617aa0247
-    m_Address: Assets/GameAssets/Prefabs/Card/Effective/StrikeCard.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Card
-    - Card.Category.Effective
-    - Card.Pool.AllHub
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 549e554d406164e43bd8cc6406d52166
     m_Address: Assets/GameAssets/Prefabs/Card/Effective/Effective_PowerSlotIncrease.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Card
-    - Card.Category.Effective
-    - Card.Pool.AllHub
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5dc7b093fc2a6f041a63fc1a4a5593a3
-    m_Address: Assets/GameAssets/Prefabs/Card/Effective/DefendCard.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Card
@@ -209,22 +193,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 93993e93e7de923439d8008d9309bc46
     m_Address: Assets/GameAssets/Prefabs/Card/Effective/Effective_BrilliantIdeas.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Card
-    - Card.Category.Effective
-    - Card.Pool.AllHub
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 99461b2ba88093345b02cec4556202ed
-    m_Address: Assets/GameAssets/Prefabs/Card/Effective/DigAndDig.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Card
-    - Card.Category.Effective
-    - Card.Pool.AllHub
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a2f98b3a508916d4491e0bd3d1413555
-    m_Address: Assets/GameAssets/Prefabs/Card/Effective/ShootCard.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Card
