@@ -110,7 +110,7 @@ public class PlayerCardHub : MonoBehaviour
         return result;
     }
 
-    ///*测试代码
+    /*测试代码
     void Start()
     {
         InitCardToBattle();

@@ -820,6 +820,18 @@ public class BattleMessage : MonoBehaviour
             yield return ((ICardFunctioner)c).AfterACardPlayed_WhenCardEveryWhere();
         }
     }
+    /*
+        11.统计所有卡牌的数量
+    */
+    public int GetNowBattleCardNumber()
+    {
+        int result = 0;
+        foreach(Card card in drawCardList?.ToList()) result++;
+        foreach(Card card in discardCardList?.ToList()) result++;
+        foreach(Card card in exhaustCardList?.ToList()) result++;
+        foreach(Card card in handCardList?.ToList()) result++;    
+        return result;
+    }
     /// <summary>
     /// 用于直线子弹,会依据玩家的位置和目标坐标的位置产生子弹
     /// </summary>
