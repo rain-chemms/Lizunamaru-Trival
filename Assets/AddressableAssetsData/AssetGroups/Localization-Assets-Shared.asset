@@ -21,6 +21,11 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52e08c67e75a9dc428acc6e0b10fb391
+    m_Address: Assets/GameAssets/Localization/Tabels/RoleName/RoleName Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6f14b5d978151d041b06e81a89c6fd47
     m_Address: Assets/GameAssets/Localization/Tabels/AssetTable/LanguageAssetTable
       Shared Data.asset
@@ -30,6 +35,12 @@ MonoBehaviour:
   - m_GUID: 8751b578619bed948aff405866072dac
     m_Address: Assets/GameAssets/Localization/Tabels/RoundChangeTexts/RoundChangeText
       Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e819a07c1a326243b60fe9cb13a7b02
+    m_Address: Assets/GameAssets/Localization/Tabels/RoleDiscribe/RoleDiscribe Shared
+      Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

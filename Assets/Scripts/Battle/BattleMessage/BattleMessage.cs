@@ -15,6 +15,8 @@ using GridObjectSystem.GadgetSystem;
 using GridObjectSystem.AbilitySystem;
 using GlobalSystem;
 using GridObjectSystem.AbilitySystem.AllAbilities;
+using RoleChoiceUISystem;
+using Unity.VisualScripting.Dependencies.NCalc;
 
 public class BattleMessage : MonoBehaviour
 {
@@ -294,6 +296,10 @@ public class BattleMessage : MonoBehaviour
     }
 
     //敌人玩家角色控制相关
+    [SerializeField] private RoleChoiceData roleChoiceData;//玩家的选择数据,可以用于初始化
+    public RoleChoiceData GetRoleChoiceData() => roleChoiceData;
+    public void SetRoleChoiceData(RoleChoiceData value) => roleChoiceData = value;
+    
     [SerializeField] private uint controlPlayerID = 0;//控制的玩家的ID,卡牌触发系统从这个id的玩家中生效
     public uint GetControlPlayerID() => controlPlayerID;
     public void SetControlPlayerID(uint id) => controlPlayerID = id;

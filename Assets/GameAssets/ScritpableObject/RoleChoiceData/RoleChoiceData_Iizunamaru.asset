@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c696759c6de549a545e57c7572ff4, type: 3}
+  m_Name: RoleChoiceData_Iizunamaru
+  m_EditorClassIdentifier: 
+  roleName: Iizunamaru
+  rolePrefab: {fileID: 7867947059795645700, guid: c41ccaf2af37af44990565bd6dfd4483, type: 3}
+  rolePrefileArt: {fileID: 3737795860507676021, guid: 63baaa1f448babd4f8760b7b515dd220, type: 3}
+  useCardPool:
+  - AllHub
+  - Iizunamaru
+  startCoin: 120
+  startMaxHp: 75
+  roleDiscribeTableName: RoleDiscribe
+  roleDiscribeKey: RoleDiscribe_Iizunamaru

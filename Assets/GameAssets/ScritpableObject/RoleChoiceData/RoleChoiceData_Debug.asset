@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c696759c6de549a545e57c7572ff4, type: 3}
+  m_Name: RoleChoiceData_Debug
+  m_EditorClassIdentifier: 
+  roleName: DebugRole
+  rolePrefab: {fileID: 0}
+  rolePrefileArt: {fileID: 0}
+  useCardPool:
+  - AllHub
+  startCoin: 0
+  startMaxHp: 0
+  roleDiscribeTableName: RoleDiscribe
+  roleDiscribeKey: RoleDiscribe_Debug

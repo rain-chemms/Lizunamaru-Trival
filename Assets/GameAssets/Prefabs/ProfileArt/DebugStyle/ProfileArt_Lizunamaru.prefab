@@ -726,6 +726,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8078125580076783993}
   - component: {fileID: 4422904199913476132}
+  - component: {fileID: 3737795860507676021}
   m_Layer: 0
   m_Name: ProfileArt_Lizunamaru
   m_TagString: Untagged
@@ -771,6 +772,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3737795860507676021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2227093284726902029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b49ec9835d1174da5e766a8038cef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 4422904199913476132}
 --- !u!1 &2265657431169782991
 GameObject:
   m_ObjectHideFlags: 0

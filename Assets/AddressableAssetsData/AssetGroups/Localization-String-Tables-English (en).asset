@@ -45,6 +45,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b209a08cc38c98340bc2959242d3f24f
+    m_Address: RoleDiscribe_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b8ab5d181a00145498c44f32f9538991
     m_Address: MusicNameTexts_en
     m_ReadOnly: 1
@@ -59,6 +65,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ea38ddfa0481f624dbc4517583d93fc9
     m_Address: GameTexts_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee49a9affb7f4d748a42e12019dc6705
+    m_Address: RoleName_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en

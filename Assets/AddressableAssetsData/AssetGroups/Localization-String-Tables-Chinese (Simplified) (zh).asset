@@ -15,6 +15,12 @@ MonoBehaviour:
   m_GroupName: Localization-String-Tables-Chinese (Simplified) (zh)
   m_GUID: 8a7444630c135bb4ca4cdfc861dd9c9b
   m_SerializeEntries:
+  - m_GUID: 1742ffc71db7b4142b301f76b7f41b6d
+    m_Address: RoleDiscribe_zh
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2cac7e20e9a005a449ad35abfee502e0
     m_Address: GameTexts_zh
     m_ReadOnly: 1
@@ -47,6 +53,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ad28cda38ab5f014eb6d3cf57a5f783d
     m_Address: MusicNameTexts_zh
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d0b5aff0d99324740b0ad0c67642fbb1
+    m_Address: RoleName_zh
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-zh

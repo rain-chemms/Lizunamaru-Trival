@@ -643,6 +643,38 @@ MonoBehaviour:
       1
     m_Metadata:
       m_Items: []
+  - m_Id: 32921668593778688
+    m_Key: RoleChoiceUI/RoleChoiceUI/DiscribeCanvas/Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32921668652498944
+    m_Key: RoleChoiceUI/RoleChoiceUI/DiscribeCanvas/Name 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32921843156516864
+    m_Key: RoleChoiceUI/RoleChoiceUI/DiscribeCanvas/StartCoin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32921843185876992
+    m_Key: RoleChoiceUI/RoleChoiceUI/DiscribeCanvas/StartCoin 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32921972244611072
+    m_Key: RoleChoiceUI/RoleChoiceUI/DiscribeCanvas/StartHp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32921972273971200
+    m_Key: RoleChoiceUI/RoleChoiceUI/DiscribeCanvas/StartHp 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32922102611968000
+    m_Key: RoleChoiceUI/RoleChoiceUI/DiscribeCanvas/RoleDiscribe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32922102637133824
+    m_Key: RoleChoiceUI/RoleChoiceUI/DiscribeCanvas/RoleDiscribe 1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 816146740363657316
@@ -1098,6 +1130,30 @@ MonoBehaviour:
           - zh
           - zh-Hant
           - ja
+        - m_KeyId: 32921668593778688
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 32921843156516864
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 32921972244611072
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 32922102611968000
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
         m_TypeString: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
     - rid: 816146740363657319
@@ -1531,6 +1587,30 @@ MonoBehaviour:
           - zh-Hant
           - ja
         - m_KeyId: 32592086351085568
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 32921668652498944
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 32921843185876992
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 32921972273971200
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 32922102637133824
           m_TableCodes:
           - en
           - zh
