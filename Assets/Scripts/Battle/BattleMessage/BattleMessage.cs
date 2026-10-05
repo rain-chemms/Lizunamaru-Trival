@@ -111,27 +111,32 @@ public class BattleMessage : MonoBehaviour
         }
 
         //丢弃所有手牌到弃牌堆
-        foreach (Card card in handCardList.ToList())
+        //手牌属于控制玩家,因此只在"正在结束的回合是控制玩家所在阵营"时才弃牌
+        //否则敌方回合结束(也就是玩家回合开始的那一刻)会把上回合保留下来的手牌误弃掉
+        if (isPlayerTurn == yourSide)
         {
-            //如果说卡牌存在虚无关键字,则直接消耗卡牌
-            if(card == null)//确保每张牌有效 
+            foreach (Card card in handCardList.ToList())
             {
-                handCardList.Remove(card);
-                continue;
-            }
-            if (card.GetCardKeyWords().Contains(CardKeyWord.ETHEREAL))
-            {
-                //消耗卡牌
-                yield return ExhaustCard(card);
-                continue;
-            }
-            //扔掉手中不含保留关键字的牌
-            //卡槽中的牌不动
-            if(!card.GetCardKeyWords().Contains(CardKeyWord.RETAIN))
-            {
-                yield return ((ICardFunctioner)card).AfterRetained();//触发保留效果
-                handCardList.Remove(card);
-                discardCardList.Add(card);    
+                //如果说卡牌存在虚无关键字,则直接消耗卡牌
+                if(card == null)//确保每张牌有效 
+                {
+                    handCardList.Remove(card);
+                    continue;
+                }
+                if (card.GetCardKeyWords().Contains(CardKeyWord.ETHEREAL))
+                {
+                    //消耗卡牌
+                    yield return ExhaustCard(card);
+                    continue;
+                }
+                //扔掉手中不含保留关键字的牌
+                //卡槽中的牌不动
+                if(!card.GetCardKeyWords().Contains(CardKeyWord.RETAIN))
+                {
+                    yield return ((ICardFunctioner)card).AfterRetained();//触发保留效果
+                    handCardList.Remove(card);
+                    discardCardList.Add(card);    
+                }
             }
         }
         //切换回合之前触发对应的GadgetList中的道具的TurnEnd功能
@@ -829,7 +834,11 @@ public class BattleMessage : MonoBehaviour
         foreach(Card card in drawCardList?.ToList()) result++;
         foreach(Card card in discardCardList?.ToList()) result++;
         foreach(Card card in exhaustCardList?.ToList()) result++;
-        foreach(Card card in handCardList?.ToList()) result++;    
+        foreach(Card card in handCardList?.ToList()) result++;
+        foreach(CardSlot slot in GetAllCardSlot())
+        {
+            if(slot != null && slot.GetInnerCard() != null) result++; 
+        }
         return result;
     }
     /// <summary>

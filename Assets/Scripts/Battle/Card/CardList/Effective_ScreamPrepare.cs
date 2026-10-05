@@ -30,17 +30,19 @@ namespace CardSystem.AllCardHub
             }
             yield return base.AfterDraw();
         }
+        [NonSerialized] private bool haveGiven = false; 
         public override IEnumerator AfterRoundEnd()
         {
             Role player = BattleMessage.instance?.GetControlPlayer();
             if (BattleMessage.instance?.IsPlayerTurn() == player?.GetSide())
             {
                 roundRecorder++;
-                if (roundRecorder >= giveCardWaitRound)
+                if (roundRecorder >= giveCardWaitRound && !haveGiven)
                 {
                     yield return AddNewCardToHand();
                     //消耗这张卡
                     yield return BattleMessage.instance?.ExhaustCard(this);
+                    haveGiven = true;
                 }
                 //可以在这里播放一些特效
                 /*
@@ -63,6 +65,7 @@ namespace CardSystem.AllCardHub
         [NonSerialized] private int sourceWaitRound = 0;
         new void OnEnable()
         {
+            haveGiven = false;
             sourceWaitRound = giveCardWaitRound;
             base.OnEnable();
         }
