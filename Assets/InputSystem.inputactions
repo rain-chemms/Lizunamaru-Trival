@@ -75,11 +75,33 @@
                 },
                 {
                     "name": "",
+                    "id": "3bdbc12e-cc95-49d7-990a-5875c40d0a22",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "MoveUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d89a3208-73de-4a27-8fd8-4de92b6f2ec8",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
+                    "action": "MoveDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d553ed6f-bd51-47d0-864f-0fdaa796bc37",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
                     "action": "MoveDown",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -97,11 +119,33 @@
                 },
                 {
                     "name": "",
+                    "id": "09e0f881-6956-42c9-9097-f5ad98f1b4a0",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "MoveLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "bca9fc84-f959-4484-b2ff-9f9ac956b982",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
+                    "action": "MoveRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a07f087e-de8f-4cac-98d8-0f690249690b",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
                     "action": "MoveRight",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -119,11 +163,33 @@
                 },
                 {
                     "name": "",
+                    "id": "ba3422b6-89a4-403f-b790-83e8f61371bb",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "LowSpeeder",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "a77eee62-249f-4410-8a9c-c89f6affb887",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
+                    "action": "FlyShifter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a4841e9d-c4e2-43d6-9f1d-5e91ac7ddf6b",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
                     "action": "FlyShifter",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -747,11 +813,33 @@
                 },
                 {
                     "name": "",
+                    "id": "abe87e59-59b1-4638-b3b3-397861ce2450",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "MoveUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "697fe294-ef13-4969-a193-9d14750cb06e",
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
+                    "action": "MoveDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a79567f3-38ce-430d-a35c-2630196ef732",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
                     "action": "MoveDown",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -769,11 +857,33 @@
                 },
                 {
                     "name": "",
+                    "id": "50cb6505-427e-4465-b286-fc6762541d01",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "MoveRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "663584c4-9161-440b-8026-bf42f22bc26f",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
+                    "action": "MoveLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9a38e3ef-85d3-4756-93d4-5a2962e5ee39",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
                     "action": "MoveLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -791,6 +901,17 @@
                 },
                 {
                     "name": "",
+                    "id": "456b9405-eb71-4153-90f1-55525cde420a",
+                    "path": "<Gamepad>/leftStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "LockShift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "489c4bcb-2729-49df-855e-9bdc176a439e",
                     "path": "<Keyboard>/leftBracket",
                     "interactions": "",
@@ -799,6 +920,39 @@
                     "action": "DisplayShift",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "GamePad",
+                    "id": "a1146c17-9acd-4c8c-b7fe-2cfcf3988226",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DisplayShift",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "ac306080-e12c-4566-931c-5c246459170e",
+                    "path": "<Gamepad>/leftStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "DisplayShift",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "8a81dd27-09b2-4fb9-8540-836a74479bfa",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "DisplayShift",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },
@@ -919,6 +1073,39 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "GamePad",
+                    "id": "08f3f548-caa2-43ce-84bd-dcadc2e6b75b",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Card1",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "5755fc69-da9c-4fc1-a1db-99dfe13280f2",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Card1",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "2ed4fba9-d1d3-44d9-b1ca-bf632f24f0b2",
+                    "path": "<Gamepad>/rightStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Card1",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "c4458375-125b-46b0-b276-ccf58abecb2a",
                     "path": "<Keyboard>/2",
@@ -928,6 +1115,39 @@
                     "action": "Card2",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "GamePad",
+                    "id": "98e9be33-423e-46a4-875d-d7a146c26901",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Card2",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "815a9526-e854-49e0-9b6e-718e90ce7bc4",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Card2",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "c55a78eb-682e-4cb2-9b1e-0f4f6ba10c15",
+                    "path": "<Gamepad>/rightStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Card2",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -941,6 +1161,39 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "GamePad",
+                    "id": "dd048f05-053f-4ba0-891d-da703ee112ca",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Card3",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "8e65a1ba-078a-4431-9e21-4bab2e6a1ffc",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Card3",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "4fb884fa-50d2-4dcd-b9f1-d1e077d929e6",
+                    "path": "<Gamepad>/rightStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Card3",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "6940827b-b1b3-4cd5-8a26-7738b6ead3d5",
                     "path": "<Keyboard>/4",
@@ -950,6 +1203,39 @@
                     "action": "Card4",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "GamePad",
+                    "id": "48ec55ad-0f6e-47c6-9aa4-9c48425e8886",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Card4",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "66f03b9d-143e-4edc-97be-e421c9df6ff7",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Card4",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "5c984ac3-9232-46ac-aefe-a603cc7217b5",
+                    "path": "<Gamepad>/rightStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Card4",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -963,6 +1249,39 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "GamePad",
+                    "id": "5dd6e966-dbc7-44fe-80e2-be60087cde16",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Card5",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "eb0a3c1c-5eea-4b3d-af28-82bb3445d9dd",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Card5",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "1b5d496d-77ad-4b56-b248-01c198fd16ac",
+                    "path": "<Gamepad>/rightStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Card5",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "9d4361b4-3109-42cf-83d1-1f6d3a90c341",
                     "path": "<Keyboard>/6",
@@ -972,6 +1291,39 @@
                     "action": "Card6",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "GamePad",
+                    "id": "a668c12f-0a6d-41ce-a7e2-8a046cd482a0",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Card6",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "1b90284a-73ff-438c-a716-5f1fb76e62aa",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Card6",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "9dfbfae5-223e-4306-876d-258c14ce26f2",
+                    "path": "<Gamepad>/rightStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Card6",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -985,6 +1337,39 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "GamePad",
+                    "id": "d177bb61-aa56-466d-9f2a-39b4d29bba17",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Card7",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "bec839b8-5ef4-4a2d-87b2-8f9e438d3572",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Card7",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "5fa5a534-2b2e-429d-a390-d161087e733e",
+                    "path": "<Gamepad>/rightStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Card7",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "dc444db3-1d28-4ed7-a703-b00bd32fe4ca",
                     "path": "<Keyboard>/8",
@@ -994,6 +1379,39 @@
                     "action": "Card8",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "GamePad",
+                    "id": "eb91f400-8d4e-4a9d-a691-56759c195882",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Card8",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "f7ee3cfd-6035-48ca-b781-19064ca958ca",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Card8",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "aa5c112d-a790-4cf6-9aa2-fff7b4f73d80",
+                    "path": "<Gamepad>/rightStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Card8",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -1007,6 +1425,39 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "GamePad",
+                    "id": "0f5b1db5-051f-4466-a5d2-ab68e420cdd3",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Card9",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "4f82f83c-ae89-4427-826e-119119ee0e9a",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Card9",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "3d296182-4c44-42bd-96c3-21c44d34c209",
+                    "path": "<Gamepad>/rightStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Card9",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "c38d153e-0bbf-4ce9-b80a-9b4df4bed0bf",
                     "path": "<Keyboard>/0",
@@ -1018,6 +1469,39 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "GamePad",
+                    "id": "c97be819-31a2-4301-8e24-5cf39d847ac3",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Card10",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "7990696b-5148-4b5d-90d7-3bebeb92fa25",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Card10",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "c183f551-4072-4b37-969b-9beb1c86a223",
+                    "path": "<Gamepad>/rightStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Card10",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "407d7df3-ed55-4155-979a-92220f1c3fb6",
                     "path": "<Keyboard>/backslash",
@@ -1027,6 +1511,39 @@
                     "action": "PlayCard",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "GamePad",
+                    "id": "f2850df4-b6f1-4457-90ff-c9b5ababf5a2",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayCard",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "455c6274-0a5b-44a1-b346-cde91c26c6ae",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "PlayCard",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "9e267cc8-7437-4ac4-9632-7c1f18b27cab",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "PlayCard",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },
@@ -1202,6 +1719,17 @@
                 },
                 {
                     "name": "",
+                    "id": "944ef90a-2e88-4430-b0e2-83b1fa155c7c",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "RoundEnd",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "5f753680-4fd4-4e64-93a7-14019aa2cca6",
                     "path": "<Keyboard>/b",
                     "interactions": "",
@@ -1210,6 +1738,39 @@
                     "action": "DrawStack",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "GamePad",
+                    "id": "faf892e7-e183-4037-ad84-398e3a80722f",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DrawStack",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "a2bfdd9c-82ce-4394-8118-0cd06837f48d",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "DrawStack",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "64ecc071-fc16-4551-bb4d-06c4bd238160",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "DrawStack",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -1223,6 +1784,39 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "GamePad",
+                    "id": "50397cb6-7ecf-4e4f-b125-bde13a3007df",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DiscardStack",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "145ab854-0229-4175-b644-5c2e6a224860",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "DiscardStack",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "1cfffc32-a197-4e82-9b7b-e5bc6e17c6a2",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "DiscardStack",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "1648c03b-8834-43f3-bc89-e394f9485c42",
                     "path": "<Keyboard>/m",
@@ -1232,6 +1826,39 @@
                     "action": "ExhaustStack",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "GamePad",
+                    "id": "2fc89624-3c5a-404f-85e5-48194d82fe19",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExhaustStack",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "6945515a-e88c-4df1-b5ba-7d0f4147ef18",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "ExhaustStack",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "6eb38582-d9e1-4a9d-886f-96f0a55c2276",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "ExhaustStack",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -1267,6 +1894,50 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "GamePad",
+                    "id": "2e602645-3cbf-4de0-ab12-65d5896a4022",
+                    "path": "TwoModifiers",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseStackCardDisplay",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier1",
+                    "id": "42e28627-d0ef-4737-b4cc-0571cedd5bee",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseStackCardDisplay",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "modifier2",
+                    "id": "f8f4d228-5ece-4c5e-9cf8-655f13c897cf",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseStackCardDisplay",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "fc1e502b-f024-4368-b133-c3ea63bb8ae7",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseStackCardDisplay",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "89f76d1f-14a7-4bf1-a1d1-734346b7b96c",
                     "path": "<Keyboard>/q",
@@ -1276,6 +1947,39 @@
                     "action": "CardOutLookChanger",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "GamePad",
+                    "id": "35cf59e5-9909-461a-b32d-56bfb693e8a8",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CardOutLookChanger",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "2fa0b718-e908-4fbc-8f1c-c910a805736d",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CardOutLookChanger",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "d5ecbc49-3b29-4f7b-88f8-a00551930bf0",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CardOutLookChanger",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -1289,6 +1993,50 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "GamePad",
+                    "id": "bae264b0-15f1-4df7-8f5b-94761ff7a1f2",
+                    "path": "TwoModifiers",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BattleCameraViewShifter",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier1",
+                    "id": "c0aa71b7-21af-4905-8b3b-4adbfcbb93d2",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BattleCameraViewShifter",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "modifier2",
+                    "id": "a2e9a583-09ac-4f89-92d7-591ae93f24c2",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BattleCameraViewShifter",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "b2a755ce-ae2f-469d-b6f2-39d858c84fd5",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BattleCameraViewShifter",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "7a7bf025-960c-45a1-a5a9-a769136d5324",
                     "path": "<Keyboard>/g",
@@ -1298,6 +2046,50 @@
                     "action": "HiddenButton",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "GamePad",
+                    "id": "872be836-0045-4ee1-bce4-9d7067664475",
+                    "path": "TwoModifiers",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HiddenButton",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier1",
+                    "id": "50502f27-4d15-4f1a-ab24-63d859da5aec",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HiddenButton",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "modifier2",
+                    "id": "65646603-9268-4eec-a2ed-771100fb927e",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HiddenButton",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "81225a67-4199-404f-abcf-e5f324be08f2",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HiddenButton",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -1311,6 +2103,50 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "GamePad",
+                    "id": "d42efc51-ebd0-47f7-b8b8-65e66b730991",
+                    "path": "TwoModifiers",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseSpell",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier1",
+                    "id": "f06a86b9-7347-4a95-a269-0f2b3866dbf3",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseSpell",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "modifier2",
+                    "id": "fcfed962-fb3d-4842-91c2-e6be1c50a8b6",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseSpell",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "528632ba-90f3-49ad-b0de-0c9e08fdf028",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseSpell",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "d5f2e54e-3b14-4d9f-a3ed-bbad6b211f36",
                     "path": "<Keyboard>/leftCtrl",
@@ -1320,6 +2156,50 @@
                     "action": "SlotListViewShifter",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "GamePad",
+                    "id": "3331467d-df78-4ba9-91e4-2ee56019824e",
+                    "path": "TwoModifiers",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SlotListViewShifter",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier1",
+                    "id": "be92ff33-d63c-4224-96d3-3b6ba4f49d9f",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SlotListViewShifter",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "modifier2",
+                    "id": "d3af3796-fc74-46ec-8657-d86ec46e8b3e",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SlotListViewShifter",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "70267eb0-85ea-46ca-826a-497fd63ac32e",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SlotListViewShifter",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -1333,6 +2213,39 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "GamePad",
+                    "id": "98eacf33-7bf4-44a7-9054-367fe7e6037e",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackSlotListIndexerShifter",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "c609686d-2322-478e-b442-15b097a27929",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackSlotListIndexerShifter",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "73c77c46-cbb9-43da-9db0-7589e52a9ad3",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackSlotListIndexerShifter",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "ba632445-b756-4332-a192-1b2e1c878140",
                     "path": "<Keyboard>/c",
@@ -1342,6 +2255,39 @@
                     "action": "AttackSlotInnerCardEffectiveTrigger",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "GamePad",
+                    "id": "663daf5f-2279-4666-9e30-8e41bc540454",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackSlotInnerCardEffectiveTrigger",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "57e174cb-9f6a-4026-b0f2-df09a905daaf",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackSlotInnerCardEffectiveTrigger",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "d5e79569-e2e8-4d2b-a6cb-cf13a6d36459",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackSlotInnerCardEffectiveTrigger",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
