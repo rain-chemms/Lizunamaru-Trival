@@ -57,8 +57,20 @@ public class CardHandler : MonoBehaviour,
         //尝试播放拖拽音效
         card?.GetComponent<CardVoiceController>()?.PlayCardVoice("Drag");
         Debug.Log("[CardHandler]: Mouse Begin Drag]");
+        //若卡牌开启了拖拽显示
+        bool openArrowline = (bool)card?.IsOpenCardArrowLine();
+        CardArrowLine arrowLine = BattleMessageDisplayer.instance?.GetCardArrowLine();
+        if(arrowLine != null)
+        {
+            arrowLine.IsOpen = openArrowline;
+            if(openArrowline)
+            {
+                arrowLine.SetStartMode(CardArrowLine.ArrowPointMode.CardUI);
+                arrowLine.SetCard(card);
+            }
+        }
     }
-    
+
     private Camera GetUICamera()
     {
         Canvas c = GetComponentInParent<Canvas>();
@@ -71,6 +83,9 @@ public class CardHandler : MonoBehaviour,
         isDragging = false;
         card?.GetComponent<CardVoiceController>()?.PlayCardVoice("DisDrag");
         Debug.Log("[CardHandler]: Mouse End Drag]");
+        //拖拽结束后关闭ArrowLine
+        CardArrowLine arrowLine = BattleMessageDisplayer.instance?.GetCardArrowLine();
+        if(arrowLine != null) arrowLine.IsOpen = false;
     }
 
     // 鼠标按住并拖拽时触发
@@ -163,5 +178,6 @@ public class CardHandler : MonoBehaviour,
                 cardLerpSpeed * Time.deltaTime
             );
         }
+
     }
 }

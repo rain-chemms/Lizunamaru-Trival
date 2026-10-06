@@ -18,7 +18,8 @@ public class BattleMessageDisplayer : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    [SerializeField] private CardArrowLine arrowLine;
+    public CardArrowLine GetCardArrowLine() => arrowLine;
     [SerializeField] private bool isShow = false;///是否显示
     public bool IsShow() => isShow;
     public void SetShow(bool isShow) => this.isShow = isShow;
@@ -33,6 +34,7 @@ public class BattleMessageDisplayer : MonoBehaviour
         //尝试自动获取
         if(mainCanvas == null) mainCanvas = GetComponent<Canvas>();
         if(cardPlayArea == null) cardPlayArea = GetComponentInChildren<CardPlayArea>();//尝试从自身及子集脚本中获取
+        if(arrowLine == null) arrowLine = GetComponentInChildren<CardArrowLine>();
     }
 
     public void Update()

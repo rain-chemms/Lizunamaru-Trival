@@ -1569,6 +1569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e04a7a8df2b7a04aa894e09d148ce7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openCardArrowLine: 1
   riceCost: 0
   rarity: 0
   cardCategory: 4

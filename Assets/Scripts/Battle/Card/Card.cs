@@ -9,6 +9,10 @@ namespace CardSystem
     //卡牌的属性和功能全在这个类及其继承中实现
     public class Card : MonoBehaviour, ICardFunctioner
     {
+        [SerializeField] protected bool openCardArrowLine = false;
+        public bool IsOpenCardArrowLine() => openCardArrowLine;
+        public void SetOpenCardArrowLine(bool open) => openCardArrowLine = open;
+
         [SerializeField] protected uint riceCost = 0;//打出这张牌需要消耗的ricePoint数
         public void SetRiceCost(uint cost)
         {
