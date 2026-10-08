@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: RoleChoiceData
+  m_EditorClassIdentifier: 
+  m_GroupName: RoleChoiceData
+  m_GUID: 79de6f22c24991743933c4930b4d77b0
+  m_SerializeEntries:
+  - m_GUID: 61aa455e47e5bb3439cb8a2c36f62e09
+    m_Address: Assets/GameAssets/ScritpableObject/RoleChoiceData/RoleChoiceData_Debug.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - RoleChoiceData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 989fe5d07af00354b9ff0c02b8e3948a
+    m_Address: Assets/GameAssets/ScritpableObject/RoleChoiceData/RoleChoiceData_Iizunamaru.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - RoleChoiceData
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: e8888f07cbfd2fc48b162c127f18c7e3, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: cb19b5f79bdd0b448a008214459fd3e4, type: 2}
+    - {fileID: 11400000, guid: 0811e5f411547844a87f94fa4b360f28, type: 2}

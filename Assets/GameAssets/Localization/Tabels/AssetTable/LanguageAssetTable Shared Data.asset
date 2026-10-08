@@ -675,6 +675,14 @@ MonoBehaviour:
     m_Key: RoleChoiceUI/RoleChoiceUI/DiscribeCanvas/RoleDiscribe 1
     m_Metadata:
       m_Items: []
+  - m_Id: 33996182815637504
+    m_Key: MenuUI/MenuUI/SaveDisplay/SaveSelectButton/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33996182895329280
+    m_Key: MenuUI/MenuUI/SaveDisplay/SaveSelectButton/Text (TMP) 1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 816146740363657316
@@ -1154,6 +1162,12 @@ MonoBehaviour:
           - zh
           - zh-Hant
           - ja
+        - m_KeyId: 33996182815637504
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
         m_TypeString: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
     - rid: 816146740363657319
@@ -1611,6 +1625,12 @@ MonoBehaviour:
           - zh-Hant
           - ja
         - m_KeyId: 32922102637133824
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 33996182895329280
           m_TableCodes:
           - en
           - zh

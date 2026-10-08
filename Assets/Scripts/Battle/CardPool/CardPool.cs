@@ -46,8 +46,6 @@ namespace CardSystem.CardPoolSystem
 
         private IEnumerator LoadCardPrefabList()
         {
-            //清空旧的条目
-            cardPrefabDict.Clear();
             var keys = new List<string> { "Card", "Card.Pool." + label };
             //分类的时候不是按照卡牌的命名空间分类,而是依据其资源标签分到不同的卡池中
             //卡池存有这张卡的唯一标识符和其预制体
@@ -58,6 +56,8 @@ namespace CardSystem.CardPoolSystem
             // 3. 检查加载状态是否成功
             if (handle.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
             {
+                //清空旧的条目
+                cardPrefabDict.Clear();
                 List<GameObject> pfbs = handle.Result.ToList();
 
                 foreach (GameObject p in pfbs)

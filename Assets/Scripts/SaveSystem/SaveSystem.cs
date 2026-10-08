@@ -51,13 +51,13 @@ namespace GameSaveSystem
         private List<GamePlayData> gamePlayDatas = new List<GamePlayData>(3) { null, null, null };
         private List<GameHistory> gameHistories = new List<GameHistory>(3) { null, null, null };
         private List<GameSave> gameSaves = new List<GameSave>(3) { null, null, null };
-
+        //一下为索引路径的前缀
+        [NonSerialized] private string playDataStr = "game";
+        [NonSerialized] private string saveStr = "save";
+        [NonSerialized] private string historyStr = "history";
         //通过文件名尝试初始化对应的数据
         public void LoadFileData()
         {
-            string playDataStr = "game";
-            string saveStr = "save";
-            string historyStr = "history";
             //最多只有三个有效存档
             for (int i = 0; i < 3; i++)
             {
@@ -138,9 +138,6 @@ namespace GameSaveSystem
             string sJson = JsonUtility.ToJson(nowSD, true);
 
             //获取存档路径
-            string playDataStr = "game";
-            string saveStr = "save";
-            string historyStr = "history";
             string pDp = Path.Combine(savePath, playDataStr, saveIndex.ToString() + ".json");
             string sDp = Path.Combine(savePath, saveStr, saveIndex.ToString() + ".json");
             string hDp = Path.Combine(savePath, historyStr, saveIndex.ToString() + ".json");
@@ -166,10 +163,107 @@ namespace GameSaveSystem
                 File.WriteAllText(hDp, hJson);
             }
         }
-        
+
         //创建新的存档文件,创建文件history和save
         //注: 开始一局新的游戏的时候才去创建playData,游戏失败时,将saveData存入对应的History并将history保存
+        //只负责生成新的存档
+        public void CreateANewSave(int index)
+        {
+            if (index < 0 || index >= 3)
+            {
+                Debug.Log("[SaveSystem]: The Index of Save To Create is Out of Range!");
+                return;
+            }
+            string sDp = Path.Combine(savePath, saveStr, index.ToString() + ".json");
+            string hDp = Path.Combine(savePath, historyStr, index.ToString() + ".json");
+            //检查当前是否已经存在对应的存档文件了
+            //若存在则报错返回
+            bool saveExist = File.Exists(sDp);
+            bool historyExist = File.Exists(hDp);
+            if (saveExist && historyExist)
+            {
+                Debug.LogError("[SaveSystem]: You want to Destroy A Exist Save, it's Not Allow. Please Delete The Save First!");
+                return;
+            }
+            else if (!historyExist)//优先检测存档
+            {
+                GameHistory newHistory = new GameHistory();
+                string json = JsonUtility.ToJson(newHistory, true);
+                Directory.CreateDirectory(Path.GetDirectoryName(hDp)); // 确保目录存在
+                File.WriteAllText(hDp, json);
+                Debug.Log($"Create new History Successful! File Path: {hDp}");
+            }
+            //
+            if (!saveExist)
+            {
+                GameSave newSave = new GameSave();
+                string json = JsonUtility.ToJson(newSave, true);
+                Directory.CreateDirectory(Path.GetDirectoryName(sDp)); // 确保目录存在
+                File.WriteAllText(sDp, json);
+                Debug.Log($"Create new Save Successful! File Path: {sDp}");
+            }
+        }
 
         //删除某个索引的存档及其文件,文件包括history,playData和save
+        //只负责删除对应存档
+        public void DeleteSave(int index)
+        {
+            if (index < 0 || index >= 3)
+            {
+                Debug.Log("[SaveSystem]: The Index of Save is Out of Range, Delete Error!");
+                return;
+            }
+
+            //获取存档路径
+            string pDp = Path.Combine(savePath, playDataStr, saveIndex.ToString() + ".json");
+            string sDp = Path.Combine(savePath, saveStr, saveIndex.ToString() + ".json");
+            string hDp = Path.Combine(savePath, historyStr, saveIndex.ToString() + ".json");
+
+            //尝试将路径下文件删除
+            try
+            {
+                //删除GamePlayData
+                if (File.Exists(pDp))
+                {
+                    File.Delete(pDp);
+                    Debug.Log($"[SaveSystem]: Delete GamePlayData: {pDp}");
+                }
+                else
+                {
+                    Debug.LogWarning($"[SaveSystem]: Not Find GamePlayData: {pDp}");
+                }
+                
+                //删除GameSave
+                if (File.Exists(sDp))
+                {
+                    File.Delete(sDp);
+                    Debug.Log($"[SaveSystem]: Delete Gamesave: {sDp}");
+                }
+                else
+                {
+                    Debug.LogWarning($"[SaveSystem]: Not Find GamePlayData: {sDp}");
+                }
+                
+                //删除GameHistory
+                if (File.Exists(hDp))
+                {
+                    File.Delete(hDp);
+                    Debug.Log($"[SaveSystem]: Delete GameHistory: {hDp}");
+                }
+                else
+                {
+                    Debug.LogWarning($"[SaveSystem]: Not Find GameHistory: {hDp}");
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"[SaveSystem]:Delete File Error: {e.Message}");
+            }
+
+            //移除SaveSystem中存储的临时数据
+            gameHistories[index] = null;
+            gamePlayDatas[index] = null;
+            gameSaves[index] = null;
+        }
     }
 }
