@@ -44,4 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8bd9e8ec0d84a4a9f93d73ad79cb19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveIndex: 0
+  nowSaveIndex: 0
+  gamePlayDatas: []
+  gameHistories: []
+  gameSaves: []

@@ -393,6 +393,38 @@ MonoBehaviour:
 '
     m_Metadata:
       m_Items: []
+  - m_Id: 35937779216154624
+    m_Key: Menu_SaveSelecter_ConfirmDialog_Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35951694226522112
+    m_Key: Menu_SaveSelecter_ConfirmDialog_ConfirmButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35951819489411072
+    m_Key: Menu_SaveSelecter_ConfirmDialog_CancelButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35953818431782912
+    m_Key: Menu_SaveSelecter_RenameDialog_
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35955291576205312
+    m_Key: Menu_SaveSelecter_RenameDialog_ConfirmButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35955376099819520
+    m_Key: Menu_SaveSelecter_RenameDialog_CancelButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35964032191168512
+    m_Key: Menu_SaveSelecter_SelectText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35979261281173504
+    m_Key: Menu_SaveSelecter_SaveTittle
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

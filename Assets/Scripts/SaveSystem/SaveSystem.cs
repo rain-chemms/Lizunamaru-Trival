@@ -2,6 +2,7 @@ using UnityEngine;
 using System.IO;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 //游戏的存档系统:每当玩家需要存储临时进度或者是开启新的玩家档案的时候都会启动
 //目录结构
@@ -43,14 +44,21 @@ namespace GameSaveSystem
 
         [NonSerialized] private string savePath;
 
-        void OnEnable()
+        void Start()
         {
             LoadFileData();
         }
-        [Range(0, 2)][SerializeField] private int saveIndex = 0;//当前的存档索引
+        [Range(0, 2)][SerializeField] private int nowSaveIndex = 0;//当前的存档索引
+        public int NowSaveIndex { get => nowSaveIndex; set => nowSaveIndex = value; }
         private List<GamePlayData> gamePlayDatas = new List<GamePlayData>(3) { null, null, null };
+        public List<GamePlayData> GamePlayDatas {get => gamePlayDatas;}
+        //public List<GamePlayData> GamePlayDatas_Copy {get => gamePlayDatas.ToList();}
         private List<GameHistory> gameHistories = new List<GameHistory>(3) { null, null, null };
+        public List<GameHistory> GameHistories { get => gameHistories; }
+        //public List<GameHistory> GameHistories_Copy { get => gameHistories.ToList(); }
         private List<GameSave> gameSaves = new List<GameSave>(3) { null, null, null };
+        public List<GameSave> GameSaves { get => gameSaves; }
+        //public List<GameSave> GameSaves_Copy { get => gameSaves.ToList(); }
         //一下为索引路径的前缀
         [NonSerialized] private string playDataStr = "game";
         [NonSerialized] private string saveStr = "save";
@@ -62,9 +70,9 @@ namespace GameSaveSystem
             for (int i = 0; i < 3; i++)
             {
                 //尝试解析字符串
-                string pDp = Path.Combine(savePath, playDataStr, saveIndex.ToString() + ".json");
-                string sDp = Path.Combine(savePath, saveStr, saveIndex.ToString() + ".json");
-                string hDp = Path.Combine(savePath, historyStr, saveIndex.ToString() + ".json");
+                string pDp = Path.Combine(savePath, playDataStr + i.ToString() + ".json");
+                string sDp = Path.Combine(savePath, saveStr + i.ToString() + ".json");
+                string hDp = Path.Combine(savePath, historyStr + i.ToString() + ".json");
 
 
                 //解析GamePlayData
@@ -126,38 +134,64 @@ namespace GameSaveSystem
             }
         }
 
+        public bool SaveExist(int index)
+        {
+            //获取存档路径
+            string sDp = Path.Combine(savePath, saveStr + index.ToString() + ".json");
+            return File.Exists(sDp);
+        }
+
+        public bool HistoryExist(int index)
+        {
+            //获取存档路径
+            string hDp = Path.Combine(savePath, historyStr + index.ToString() + ".json");
+            return File.Exists(hDp);
+        }
+
+        public bool GamePlayDataExist(int index)
+        {
+            //获取存档路径
+            string pDp = Path.Combine(savePath, playDataStr + index.ToString() + ".json");
+            return File.Exists(pDp);
+        }
+
         public void SaveNowIndexDataToFile()
         {
+            SaveDataToFile(nowSaveIndex);
+        }
+        
+        public void SaveDataToFile(int index,bool writePlayData = true,bool writeHistory = true,bool writeSave = true)
+        {
             //获取数据类
-            GameHistory nowHD = gameHistories[saveIndex];
-            GamePlayData nowPD = gamePlayDatas[saveIndex];
-            GameSave nowSD = gameSaves[saveIndex];
+            GameHistory nowHD = gameHistories[index];
+            GamePlayData nowPD = gamePlayDatas[index];
+            GameSave nowSD = gameSaves[index];
             //转化为Json字符串
             string hJson = JsonUtility.ToJson(nowHD, true);
             string pJson = JsonUtility.ToJson(nowPD, true);
             string sJson = JsonUtility.ToJson(nowSD, true);
 
             //获取存档路径
-            string pDp = Path.Combine(savePath, playDataStr, saveIndex.ToString() + ".json");
-            string sDp = Path.Combine(savePath, saveStr, saveIndex.ToString() + ".json");
-            string hDp = Path.Combine(savePath, historyStr, saveIndex.ToString() + ".json");
+            string pDp = Path.Combine(savePath, playDataStr + index.ToString() + ".json");
+            string sDp = Path.Combine(savePath, saveStr + index.ToString() + ".json");
+            string hDp = Path.Combine(savePath, historyStr + index.ToString() + ".json");
 
-            //写入历史数据
-            if (nowHD != null)
+            //写入临时游玩数据
+            if (nowPD != null && writePlayData)
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(pDp)); // 确保目录存在
                 File.WriteAllText(pDp, pJson);
             }
 
             //写入存档数据
-            if (nowSD != null)
+            if (nowSD != null && writeSave)
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(sDp)); // 确保目录存在
                 File.WriteAllText(sDp, sJson);
             }
 
-            //写入临时游玩数据
-            if (nowPD != null)
+            //写入历史数据
+            if (nowHD != null && writeHistory)
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(hDp)); // 确保目录存在
                 File.WriteAllText(hDp, hJson);
@@ -174,8 +208,8 @@ namespace GameSaveSystem
                 Debug.Log("[SaveSystem]: The Index of Save To Create is Out of Range!");
                 return;
             }
-            string sDp = Path.Combine(savePath, saveStr, index.ToString() + ".json");
-            string hDp = Path.Combine(savePath, historyStr, index.ToString() + ".json");
+            string sDp = Path.Combine(savePath, saveStr + index.ToString() + ".json");
+            string hDp = Path.Combine(savePath, historyStr + index.ToString() + ".json");
             //检查当前是否已经存在对应的存档文件了
             //若存在则报错返回
             bool saveExist = File.Exists(sDp);
@@ -215,9 +249,9 @@ namespace GameSaveSystem
             }
 
             //获取存档路径
-            string pDp = Path.Combine(savePath, playDataStr, saveIndex.ToString() + ".json");
-            string sDp = Path.Combine(savePath, saveStr, saveIndex.ToString() + ".json");
-            string hDp = Path.Combine(savePath, historyStr, saveIndex.ToString() + ".json");
+            string pDp = Path.Combine(savePath, playDataStr + nowSaveIndex.ToString() + ".json");
+            string sDp = Path.Combine(savePath, saveStr + nowSaveIndex.ToString() + ".json");
+            string hDp = Path.Combine(savePath, historyStr + nowSaveIndex.ToString() + ".json");
 
             //尝试将路径下文件删除
             try

@@ -219,6 +219,38 @@ MonoBehaviour:
     m_Localized: Save Select
     m_Metadata:
       m_Items: []
+  - m_Id: 35937779216154624
+    m_Localized: Are You Sure?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35951694226522112
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35951819489411072
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35953818431782912
+    m_Localized: Please Input New Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35955291576205312
+    m_Localized: Perfect, Use it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35955376099819520
+    m_Localized: Forget it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35964032191168512
+    m_Localized: Let's select Archive!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35979261281173504
+    m_Localized: Archive Card
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

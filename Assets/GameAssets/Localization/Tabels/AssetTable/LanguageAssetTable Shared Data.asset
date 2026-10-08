@@ -683,6 +683,96 @@ MonoBehaviour:
     m_Key: MenuUI/MenuUI/SaveDisplay/SaveSelectButton/Text (TMP) 1
     m_Metadata:
       m_Items: []
+  - m_Id: 34053618213715968
+    m_Key: MenuUI/MenuUI/SaveSelecter/SaveConfirmDialog/DialogText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34053618297602048
+    m_Key: MenuUI/MenuUI/SaveSelecter/SaveConfirmDialog/DialogText 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34055109347508224
+    m_Key: MenuUI/MenuUI/SaveSelecter/SaveConfirmDialog/ConfirmButton/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34055109443977216
+    m_Key: MenuUI/MenuUI/SaveSelecter/SaveConfirmDialog/ConfirmButton/Text (TMP)
+      1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34055309998817280
+    m_Key: MenuUI/MenuUI/SaveSelecter/SaveConfirmDialog/CancelButton/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34055310061731840
+    m_Key: MenuUI/MenuUI/SaveSelecter/SaveConfirmDialog/CancelButton/Text (TMP) 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34057762945236992
+    m_Key: MenuUI/MenuUI/SaveSelecter/RenameSaveCanvas/DialogText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34057762982985728
+    m_Key: MenuUI/MenuUI/SaveSelecter/RenameSaveCanvas/DialogText 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34063008127909888
+    m_Key: MenuUI/MenuUI/SaveSelecter/RenameSaveCanvas/DialogText 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34063008161464320
+    m_Key: MenuUI/MenuUI/SaveSelecter/RenameSaveCanvas/DialogText 3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34063067242430464
+    m_Key: SaveSelecter/RenameSaveCanvas/DialogText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34063067267596288
+    m_Key: SaveSelecter/RenameSaveCanvas/DialogText 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34064553603104768
+    m_Key: MenuUI/MenuUI/SaveSelecter/RenameSaveCanvas/CancelButton/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34064553632464896
+    m_Key: MenuUI/MenuUI/SaveSelecter/RenameSaveCanvas/CancelButton/Text (TMP) 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34064785367760896
+    m_Key: MenuUI/MenuUI/SaveSelecter/RenameSaveCanvas/ConfirmButton/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34064785401315328
+    m_Key: MenuUI/MenuUI/SaveSelecter/RenameSaveCanvas/ConfirmButton/Text (TMP) 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34064840866791424
+    m_Key: SaveSelecter/RenameSaveCanvas/ConfirmButton/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34064840891957248
+    m_Key: SaveSelecter/RenameSaveCanvas/ConfirmButton/Text (TMP) 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34067391200755712
+    m_Key: SaveSelecter/Prefab Mode in Context/SaveSelecter/SelectText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34067391305613312
+    m_Key: SaveSelecter/Prefab Mode in Context/SaveSelecter/SelectText 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34083634653822976
+    m_Key: MenuUI/MenuUI/SaveSelecter/SavesView/Viewport/Content/Archive1/SaveIndexDisplayer/SaveTittle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34083634733514752
+    m_Key: MenuUI/MenuUI/SaveSelecter/SavesView/Viewport/Content/Archive1/SaveIndexDisplayer/SaveTittle
+      1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 816146740363657316
@@ -1168,6 +1258,70 @@ MonoBehaviour:
           - zh
           - zh-Hant
           - ja
+        - m_KeyId: 34053618213715968
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 34055109347508224
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 34055309998817280
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 34057762945236992
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 34063008127909888
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 34063067242430464
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 34064553603104768
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 34064785367760896
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 34064840866791424
+          m_TableCodes:
+          - en
+          - zh
+        - m_KeyId: 34067391200755712
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 34083634653822976
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
         m_TypeString: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
     - rid: 816146740363657319
@@ -1631,6 +1785,70 @@ MonoBehaviour:
           - zh-Hant
           - ja
         - m_KeyId: 33996182895329280
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 34053618297602048
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 34055109443977216
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 34055310061731840
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 34057762982985728
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 34063008161464320
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 34063067267596288
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 34064553632464896
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 34064785401315328
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 34064840891957248
+          m_TableCodes:
+          - en
+          - zh
+        - m_KeyId: 34067391305613312
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 34083634733514752
           m_TableCodes:
           - en
           - zh
