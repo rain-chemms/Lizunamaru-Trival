@@ -18,12 +18,13 @@ namespace GameSaveSystem
         [SerializeField] public long startTime;//这局游戏开始的时间
         [SerializeField] public double duration;//这局的游戏时长
         [SerializeField] public string seed;//游戏种子
-        [SerializeField] public List<string> cardHub;//玩家的卡组    
+        [SerializeField] public List<PlayerCardHub.CardNameWithLevel> cardHub;//玩家的卡组(string为卡名)    
         [SerializeField] public string selectRole;//玩家选择的角色,代表角色名,可以通过这个获取角色的初始数据
         [SerializeField] public float maxHp;//最大生命值
         [SerializeField] public float currentHp;//当前的生命值
         [SerializeField] public uint coins;//金币数
         [SerializeField] public MapAreaCategory mapArea;//玩家所处的地图区域
         [SerializeField] public Vector2Int mapIndex;//玩家所处的地图索引
+        [SerializeField] public Vector2Int mapSize;//当前的地图大小
     }
 }

@@ -33,6 +33,8 @@ namespace CardSystem.AllCardHub
         [NonSerialized] private bool haveGiven = false; 
         public override IEnumerator AfterRoundEnd()
         {
+            yield return base.AfterRoundEnd();
+            if((bool)BattleMessage.instance?.GetExhaustCardList()?.Contains(this)) yield break;//未消耗时计数才减少
             Role player = BattleMessage.instance?.GetControlPlayer();
             if (BattleMessage.instance?.IsPlayerTurn() == player?.GetSide())
             {
@@ -49,7 +51,6 @@ namespace CardSystem.AllCardHub
                     暂时还没有实现
                 */
             }
-            yield return base.AfterRoundEnd();
         }
 
         private IEnumerator AddNewCardToHand()

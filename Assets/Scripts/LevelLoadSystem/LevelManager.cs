@@ -9,6 +9,8 @@ using GridObjectSystem.GadgetSystem;
 using CardSystem;
 using GridObjectSystem;
 using MapSystem;
+using Unity.VisualScripting;
+using GameSaveSystem;
 
 //关卡控制器
 //控制有关战斗内关卡数据的加载,角色敌人的初始化
@@ -76,9 +78,10 @@ namespace LevelLoadSystem
         }
 
         //依据关卡类别,所处的地图区域和当前玩家的位置选择合适的随机项进行加载
-        public IEnumerator LoadRandomLevel(int layer ,MapNodeCategory nodeCategory)
+        public IEnumerator LoadRandomLevel(Vector2Int mapIndex ,MapNodeCategory nodeCategory)
         {
             yield return null;
+            int layer = mapIndex.y;
             int seed = (int)SeedSetter.instance?.GetSeed_Int();
             System.Random random = new System.Random(seed);
             //筛选目标的加载列表
@@ -123,6 +126,17 @@ namespace LevelLoadSystem
                     //其他节点的加载逻辑还没做
                     break;
             }
+            //将地图锁定并将进度跳转到下一关
+            Map.instance.MapLocked = true;
+            Map.instance.SetPlayerPos(mapIndex);
+            //保存当前进度到SaveSystem和文件系统
+            if(!(bool)SaveSystem.instance?.GamePlayDataExist(SaveSystem.instance.NowSaveIndex))
+            {
+                SaveSystem.instance.CreateANewGamePlayData(SaveSystem.instance.NowSaveIndex);
+                SaveSystem.instance.LoadFileData();
+            }
+            SaveSystem.instance.GamePlayDatas[SaveSystem.instance.NowSaveIndex].mapIndex = mapIndex;
+            SaveSystem.instance.SaveDataToFile(SaveSystem.instance.NowSaveIndex,true,false,false);
         }
         //一下为LoadRandomLevel服务的私有函数
         //主要扩展功能
@@ -276,6 +290,12 @@ namespace LevelLoadSystem
         private void AppendLoadInBattle()
         {
             StartCoroutine(WaitAndSyncCamera());
+            //开启所有和战斗相关的单例物体
+            ConcentratePoint.instance?.gameObject.SetActive(true);
+            BattleMessage.instance?.gameObject.SetActive(true);
+            BattleMessageDisplayer.instance?.gameObject.SetActive(true);
+            RoundChangeDisplayer.instance?.gameObject.SetActive(true);
+            BattleBoard.instance?.gameObject.SetActive(true);
             //设置当前回合为玩家回合
             BattleMessage.instance.SetIsPlayerTurn(true);
             //初始化玩家的手牌

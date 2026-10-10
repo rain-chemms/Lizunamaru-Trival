@@ -3,6 +3,7 @@ using System.IO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 
 //游戏的存档系统:每当玩家需要存储临时进度或者是开启新的玩家档案的时候都会启动
 //目录结构
@@ -225,7 +226,7 @@ namespace GameSaveSystem
                 string json = JsonUtility.ToJson(newHistory, true);
                 Directory.CreateDirectory(Path.GetDirectoryName(hDp)); // 确保目录存在
                 File.WriteAllText(hDp, json);
-                Debug.Log($"Create new History Successful! File Path: {hDp}");
+                Debug.Log($"[SaveSystem]: Create new History Successful! File Path: {hDp}");
             }
             //
             if (!saveExist)
@@ -234,8 +235,34 @@ namespace GameSaveSystem
                 string json = JsonUtility.ToJson(newSave, true);
                 Directory.CreateDirectory(Path.GetDirectoryName(sDp)); // 确保目录存在
                 File.WriteAllText(sDp, json);
-                Debug.Log($"Create new Save Successful! File Path: {sDp}");
+                Debug.Log($"[SaveSystem]: Create new Save Successful! File Path: {sDp}");
             }
+        }
+
+        //创建一个新的临时游戏记录
+        //一般在开始新游戏的时候调用
+        public void CreateANewGamePlayData(int index,bool checkOld = false)//是否对原先 没玩完的游戏 的进行检查
+        {
+            if (index < 0 || index >= 3)
+            {
+                Debug.Log("[SaveSystem]: The Index of GamePlayData To Create is Out of Range!");
+                return;
+            }
+            string pDp = Path.Combine(savePath, playDataStr + index.ToString() + ".json");
+            //检查当前是否已经存在对应的存档文件了
+            //若开启checkOld且存在则报错返回
+            bool gamePlayExist = File.Exists(pDp);
+            if(checkOld && gamePlayExist)
+            {
+                Debug.LogWarning("[SaveSystem]: You can't Cover your old GamePlayData because <checkOld> is Open!");
+                return ; 
+            }
+
+            GamePlayData data = new GamePlayData();
+            string json = JsonUtility.ToJson(data);
+            Directory.CreateDirectory(Path.GetDirectoryName(pDp)); // 确保目录存在
+            File.WriteAllText(pDp, json);
+            Debug.Log($"[SaveSystem]: Create new GamePlayData Successful! File Path: {pDp}");
         }
 
         //删除某个索引的存档及其文件,文件包括history,playData和save

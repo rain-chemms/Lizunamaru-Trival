@@ -27,11 +27,7 @@ namespace MapSystem
                 Destroy(gameObject);
             }
         }
-        //暂时留着,等存档系统优化后在制作
-        public void LoadMap()
-        {
-            return;
-        }
+
         [SerializeField] private MapNode nodePrefab;//地图节点预制体模板
         public MapNode GetNodePrefab() => nodePrefab;
         [SerializeField] private const int maxJumpDis = 2;//规定两层节点之间最大的跨越距离,不可以变
@@ -67,7 +63,7 @@ namespace MapSystem
             int effectLoop = 0;
             int ptrStrX = -1;
             //初始化随机数生成器
-            System.Random random = new System.Random(seed);
+            System.Random random = new System.Random(seed + (int)area);//随机数要跟随地图区域进行变化
             while (effectLoop < size.x)//循环地图列数次
             {
                 //每两次选择不同的节点,依据种子随机选取起始点,初始的节点的layer位置是0

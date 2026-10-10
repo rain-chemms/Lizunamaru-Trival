@@ -30,6 +30,7 @@ namespace MapSystem.MapNodeSystem
                 优先检测当前是否可以加载地图
                 index和当前的node之间不可达的时候直接返回
             */
+            if(Map.instance.MapLocked) return;
             Vector2Int index = (Vector2Int)Map.instance?.GetPlayerPos();
             SerializableDictionary<Vector2Int,List<Vector2Int>> linkDict = Map.instance?.GetLinkData();
             if(linkDict.Contains(index))
@@ -49,7 +50,7 @@ namespace MapSystem.MapNodeSystem
             } 
             //等待当前地图关闭
             Map.instance.SetDisplay(false);
-            StartCoroutine(LevelManager.instance?.LoadRandomLevel(index.y,(MapNodeCategory)node?.GetCategory()));
+            StartCoroutine(LevelManager.instance?.LoadRandomLevel(index,(MapNodeCategory)node?.GetCategory()));
         }
     }
 }

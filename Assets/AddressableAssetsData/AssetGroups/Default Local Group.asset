@@ -21,6 +21,70 @@ MonoBehaviour:
     m_SerializedLabels:
     - LevelLoadInMessage
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 520d98e31d6d75c49a2fd6d617aa0247
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/StrikeCard.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5dc7b093fc2a6f041a63fc1a4a5593a3
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/DefendCard.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a86385274ad173409ef70824620fc96
+    m_Address: Assets/GameAssets/Prefabs/Card/Status/Status_Wound.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Status
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99461b2ba88093345b02cec4556202ed
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/DigAndDig.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2f98b3a508916d4491e0bd3d1413555
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/ShootCard.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c02345d205c1d4746805b6dabb3d4322
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/Effective_ScreamEcho.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dca6a0481500f2f44a7db17cdc7d1727
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/Effective_ScreamPrepare.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eedff11516438744682681e9233fcaa3
+    m_Address: Assets/GameAssets/Prefabs/Card/Effective/Effective_DefendPosture.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Card.Category.Effective
+    - Card.Pool.AllHub
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e8888f07cbfd2fc48b162c127f18c7e3, type: 2}
   m_SchemaSet:

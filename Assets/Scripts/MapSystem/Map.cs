@@ -51,6 +51,8 @@ namespace MapSystem
         public MapAreaCategory GetMapArea() => mapArea;
         public void SetMapArea(MapAreaCategory area) => mapArea = area;
         [SerializeField] private Vector2Int mapSize;//规定地图的边界大小:x代表列数,y代表这个地图一共有几关
+        [SerializeField] private bool mapLocked;//地图锁定时,不能加载下一关
+        public bool MapLocked { get => mapLocked; set => mapLocked = value; }
         public Vector2Int GetMapSize() => mapSize;
         public Vector2Int GetMapSize_Copy() => new Vector2Int(mapSize.x,mapSize.y);
         public void SetMapSize(Vector2Int size) => mapSize = size;

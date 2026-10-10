@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using System;
+using CardSystem.CardPoolSystem;
 
 //代表玩家在游戏中的牌库,战斗开始时会使用牌库对战斗信息进行初始化,要存储对应卡牌的等级
 //单例对象
@@ -18,6 +19,7 @@ public class PlayerCardHub : MonoBehaviour
     }
 
     //卡牌名字与卡牌等级结构体
+    [Serializable]
     public struct CardNameWithLevel
     {
         public string cardName;
@@ -87,6 +89,20 @@ public class PlayerCardHub : MonoBehaviour
         }
         //对抽牌堆进行洗牌
         BattleMessage.instance?.ShuffleCardList(draw);
+    }
+
+    public void GenerateItemByNameWithLevel(List<CardNameWithLevel> nameList)
+    {
+        cardHub.Clear();
+        foreach(CardNameWithLevel nwl in nameList.ToList())
+        {
+            string name = nwl.cardName;
+            PlayerCardHubItem item;
+            item.cardPrefab = CardPoolManager.instance?.GetCardPrefabFormPool(name);
+            item.cardLevel = nwl.cardLevel;
+            item.canRUG = nwl.canRUG;
+            cardHub.Add(item);
+        }
     }
 
     //获取所有玩家牌库中卡牌的完整命名,便于SL复原当前游戏进度
