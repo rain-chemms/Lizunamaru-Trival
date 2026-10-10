@@ -17,6 +17,7 @@ using GlobalSystem;
 using GridObjectSystem.AbilitySystem.AllAbilities;
 using RoleChoiceUISystem;
 using Unity.VisualScripting.Dependencies.NCalc;
+using GameEventSystem;
 
 public class BattleMessage : MonoBehaviour
 {
@@ -38,6 +39,12 @@ public class BattleMessage : MonoBehaviour
     {
         //刷新道具列表
         FreshTheGadgetList();
+        //设置游戏的事件订阅
+        //金币变化:
+        GameEventCenter.Instance.AddEventListener("CoinsGet", () => {Debug.Log("[BattleMessage]: Get Coins!");});
+        GameEventCenter.Instance.AddEventListener("CoinsLose", () => {Debug.Log("[BattleMessage]: Lose Coins!");});
+        //卡牌打出
+        //GameEventCenter.Instance.AddEventListener("")
     }
 
     void Start()
@@ -47,12 +54,35 @@ public class BattleMessage : MonoBehaviour
     }
 
     //玩家货币系统相关
-
     [SerializeField] private uint coins = 0;
     public uint GetCoins() => coins;
-    public uint SetCoins(uint coins) => this.coins = coins;
-    public uint AddCoins(uint coins) => this.coins += coins;
-    public uint SubCoins(uint coins) => this.coins -= coins;
+    public void SetCoins(uint coins) 
+    {
+        uint last = this.coins;
+        this.coins = coins;
+        if(last > coins)
+        {
+            GameEventCenter.Instance.EventTrigger("CoinsLose");        
+        }
+        else if(last < coins)
+        {
+            GameEventCenter.Instance.EventTrigger("CoinsGet");    
+        }
+    }
+    
+    public void AddCoins(uint coins) 
+    {
+        this.coins += coins;
+        GameEventCenter.Instance.EventTrigger("CoinsGet");
+    }
+
+    public void SubCoins(uint coins)
+    {
+        if(this.coins < coins) this.coins = 0;
+        else this.coins -= coins;
+        GameEventCenter.Instance.EventTrigger("CoinsLose");
+    }
+
     //回合控制相关
     [SerializeField] private string roundChangeLocalizeTable = "RoundChangeText";
     [SerializeField] private string selfTurnTextKey = "RoundChange_SelfTurn";
