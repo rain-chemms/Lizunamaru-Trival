@@ -17,14 +17,12 @@ namespace GlobalSystem
         }
 
         [SerializeField] private Canvas canvas;
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
             AutoGetCanvas();
             AutoSetEventCamera();
         }
 
-        // Update is called once per frame
         void Update()
         {
             if (alwaysCheck)
@@ -37,11 +35,7 @@ namespace GlobalSystem
         private void AutoSetEventCamera()
         {
             if (canvas == null) return;
-            Camera camera = canvas.worldCamera;
-            if (camera != null)
-            {
-                canvas.worldCamera = camera;
-            }
+            canvas.worldCamera = Camera.main;
         }
 
         private void AutoGetCanvas()

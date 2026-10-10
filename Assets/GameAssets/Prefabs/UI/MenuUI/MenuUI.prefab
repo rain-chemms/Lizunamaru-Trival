@@ -1284,13 +1284,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 8165852618998933227}
+        m_TargetAssemblyTypeName: UnityEngine.Canvas, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4993,6 +4993,10 @@ PrefabInstance:
     - target: {fileID: 4414553997642679671, guid: 078d1b20c4e989142984a35af51f2680, type: 3}
       propertyPath: m_Name
       value: SaveSelecter
+      objectReference: {fileID: 0}
+    - target: {fileID: 4414553997642679671, guid: 078d1b20c4e989142984a35af51f2680, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5045305931038978291, guid: 078d1b20c4e989142984a35af51f2680, type: 3}
       propertyPath: m_IsActive

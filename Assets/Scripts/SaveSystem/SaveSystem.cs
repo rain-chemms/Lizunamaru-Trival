@@ -249,9 +249,9 @@ namespace GameSaveSystem
             }
 
             //获取存档路径
-            string pDp = Path.Combine(savePath, playDataStr + nowSaveIndex.ToString() + ".json");
-            string sDp = Path.Combine(savePath, saveStr + nowSaveIndex.ToString() + ".json");
-            string hDp = Path.Combine(savePath, historyStr + nowSaveIndex.ToString() + ".json");
+            string pDp = Path.Combine(savePath, playDataStr + index.ToString() + ".json");
+            string sDp = Path.Combine(savePath, saveStr + index.ToString() + ".json");
+            string hDp = Path.Combine(savePath, historyStr + index.ToString() + ".json");
 
             //尝试将路径下文件删除
             try
