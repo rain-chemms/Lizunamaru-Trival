@@ -26,6 +26,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords:
+  - _BLURSOURCE_OPAQUE
   - _PREMULTIPLYALPHA_ON
   - _USESPRITEALPHA_ON
   m_LightmapFlags: 4
@@ -99,12 +100,14 @@ Material:
     m_Floats:
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
+    - _AlphaClipThreshold: 0.05
     - _AlphaToMask: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BlurBrightness: 1.266
     - _BlurSamples: 23.48
     - _BlurSize: 6.31
+    - _BlurSource: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
