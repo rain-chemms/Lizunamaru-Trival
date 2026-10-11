@@ -773,6 +773,14 @@ MonoBehaviour:
       1
     m_Metadata:
       m_Items: []
+  - m_Id: 35171300979900416
+    m_Key: ResetDoingSelecter/ResetDoingSelecter/RestDoingText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35171301088952320
+    m_Key: ResetDoingSelecter/ResetDoingSelecter/RestDoingText 1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 816146740363657316
@@ -1322,6 +1330,12 @@ MonoBehaviour:
           - zh
           - zh-Hant
           - ja
+        - m_KeyId: 35171300979900416
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
         m_TypeString: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
     - rid: 816146740363657319
@@ -1849,6 +1863,12 @@ MonoBehaviour:
           - zh-Hant
           - ja
         - m_KeyId: 34083634733514752
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 35171301088952320
           m_TableCodes:
           - en
           - zh
