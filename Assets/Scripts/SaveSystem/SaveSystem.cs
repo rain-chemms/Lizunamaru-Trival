@@ -51,13 +51,13 @@ namespace GameSaveSystem
         }
         [Range(0, 2)][SerializeField] private int nowSaveIndex = 0;//当前的存档索引
         public int NowSaveIndex { get => nowSaveIndex; set => nowSaveIndex = value; }
-        private List<GamePlayData> gamePlayDatas = new List<GamePlayData>(3) { null, null, null };
+        [SerializeField] private List<GamePlayData> gamePlayDatas = new List<GamePlayData>(3) { new GamePlayData(), new GamePlayData(), new GamePlayData() };
         public List<GamePlayData> GamePlayDatas {get => gamePlayDatas;}
         //public List<GamePlayData> GamePlayDatas_Copy {get => gamePlayDatas.ToList();}
-        private List<GameHistory> gameHistories = new List<GameHistory>(3) { null, null, null };
+        [SerializeField] private List<GameHistory> gameHistories = new List<GameHistory>(3) { new GameHistory(), new GameHistory(), new GameHistory() };
         public List<GameHistory> GameHistories { get => gameHistories; }
         //public List<GameHistory> GameHistories_Copy { get => gameHistories.ToList(); }
-        private List<GameSave> gameSaves = new List<GameSave>(3) { null, null, null };
+        [SerializeField] private List<GameSave> gameSaves = new List<GameSave>(3) { new GameSave(), new GameSave(), new GameSave() };
         public List<GameSave> GameSaves { get => gameSaves; }
         //public List<GameSave> GameSaves_Copy { get => gameSaves.ToList(); }
         //一下为索引路径的前缀

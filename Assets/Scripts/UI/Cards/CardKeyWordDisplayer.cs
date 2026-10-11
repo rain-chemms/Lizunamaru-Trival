@@ -94,7 +94,7 @@ public class CardKeyWordDisplayer : MonoBehaviour
         yield return LocalizationSettings.InitializationOperation;
         // 异步获取指定表和Key的本地化字符串
         //string tableName = "CardKeywords";//指定查找的Table列表
-        foreach (CardKeyWord kw in kwList)
+        foreach (CardKeyWord kw in kwList.ToList())
         {
             //将UN_RETAIN这类的字符串转化为UnRetain
             string keyName = "CardKeyword_" + string.Concat(

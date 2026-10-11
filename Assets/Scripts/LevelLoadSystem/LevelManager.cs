@@ -11,6 +11,7 @@ using GridObjectSystem;
 using MapSystem;
 using Unity.VisualScripting;
 using GameSaveSystem;
+using RestDoingSystem;
 
 //关卡控制器
 //控制有关战斗内关卡数据的加载,角色敌人的初始化
@@ -121,6 +122,13 @@ namespace LevelLoadSystem
                     int index = random.Next(0,count);
                     BattleLoadInMessage msg = count > 0 ? targets[index] as BattleLoadInMessage : null;
                     yield return LodeInBattle(msg);//加载对应的关卡
+                    break;
+                case MapNodeCategory.CAMPFIRE:
+                    //加载休息点场景
+                    SceneLoader.instance?.LoadScene("CampfireScene",null);
+                    //初始化休息点选择器
+                    RestDoingSelecter.instance.OperateOver = false;
+                    RestDoingSelecter.instance.IsOpen = true;
                     break;
                 default:
                     //其他节点的加载逻辑还没做

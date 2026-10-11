@@ -11,7 +11,7 @@ using CardSystem.CardPoolSystem;
 public class PlayerCardHub : MonoBehaviour
 {
     [Serializable]
-    public struct PlayerCardHubItem
+    public class PlayerCardHubItem
     {
         public Card cardPrefab;
         public uint cardLevel;
@@ -20,7 +20,7 @@ public class PlayerCardHub : MonoBehaviour
 
     //卡牌名字与卡牌等级结构体
     [Serializable]
-    public struct CardNameWithLevel
+    public class CardNameWithLevel
     {
         public string cardName;
         public uint cardLevel;
@@ -97,7 +97,7 @@ public class PlayerCardHub : MonoBehaviour
         foreach(CardNameWithLevel nwl in nameList.ToList())
         {
             string name = nwl.cardName;
-            PlayerCardHubItem item;
+            PlayerCardHubItem item = new PlayerCardHubItem();
             item.cardPrefab = CardPoolManager.instance?.GetCardPrefabFormPool(name);
             item.cardLevel = nwl.cardLevel;
             item.canRUG = nwl.canRUG;

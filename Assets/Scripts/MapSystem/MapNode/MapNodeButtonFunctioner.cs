@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using LevelLoadSystem;
+using GameSaveSystem;
 
 namespace MapSystem.MapNodeSystem
 {
@@ -39,15 +40,17 @@ namespace MapSystem.MapNodeSystem
                 Vector2Int end = (Vector2Int)node?.GetIndex();
                 if((bool)!tg?.Contains(end))
                 {
-                    Debug.LogWarning("[]: Link Start<"+ index.x.ToString() +","+ index.y.ToString() +"> => End<"+ end.x.ToString() +","+ end.y.ToString() + "> In Map ,Please Check your Player Index");
+                    Debug.LogWarning("[MapNodeButtonFunctioner]: Link Start<"+ index.x.ToString() +","+ index.y.ToString() +"> => End<"+ end.x.ToString() +","+ end.y.ToString() + "> In Map ,Please Check your Player Index");
                     return ;
                 }
             }
             else 
             {
-                Debug.LogWarning("Don't have the StartNode<"+ index.x.ToString() +","+ index.y.ToString()+"> MapNode In Map ,Please Check your Player Index");
+                Debug.LogWarning("[MapNodeButtonFunctioner]: Don't have the StartNode<"+ index.x.ToString() +","+ index.y.ToString()+"> MapNode In Map ,Please Check your Player Index");
                 return ;
             } 
+            //保存当前游戏进度数据到文件中
+            SaveSystem.instance.SaveDataToFile(SaveSystem.instance.NowSaveIndex,true,false,false);
             //等待当前地图关闭
             Map.instance.SetDisplay(false);
             StartCoroutine(LevelManager.instance?.LoadRandomLevel(index,(MapNodeCategory)node?.GetCategory()));

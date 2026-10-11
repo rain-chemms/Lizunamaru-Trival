@@ -781,6 +781,34 @@ MonoBehaviour:
     m_Key: ResetDoingSelecter/ResetDoingSelecter/RestDoingText 1
     m_Metadata:
       m_Items: []
+  - m_Id: 35209021052026880
+    m_Key: ResetDoingSelecter/ResetDoingSelecter/OperateButtonView/Viewport/Content/UpgradeButton/Text
+      (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35209021140107264
+    m_Key: ResetDoingSelecter/ResetDoingSelecter/OperateButtonView/Viewport/Content/UpgradeButton/Text
+      (TMP) 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35209641926459392
+    m_Key: ResetDoingSelecter/ResetDoingSelecter/OperateButtonView/Viewport/Content/RestButton/Text
+      (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35209641955819520
+    m_Key: ResetDoingSelecter/ResetDoingSelecter/OperateButtonView/Viewport/Content/RestButton/Text
+      (TMP) 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35212912871211008
+    m_Key: ResetDoingSelecter/ResetDoingSelecter/NextLevelButton/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35212912980262912
+    m_Key: ResetDoingSelecter/ResetDoingSelecter/NextLevelButton/Text (TMP) 1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 816146740363657316
@@ -1336,6 +1364,24 @@ MonoBehaviour:
           - zh
           - zh-Hant
           - ja
+        - m_KeyId: 35209021052026880
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 35209641926459392
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 35212912871211008
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
         m_TypeString: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
     - rid: 816146740363657319
@@ -1869,6 +1915,24 @@ MonoBehaviour:
           - zh-Hant
           - ja
         - m_KeyId: 35171301088952320
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 35209021140107264
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 35209641955819520
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 35212912980262912
           m_TableCodes:
           - en
           - zh
