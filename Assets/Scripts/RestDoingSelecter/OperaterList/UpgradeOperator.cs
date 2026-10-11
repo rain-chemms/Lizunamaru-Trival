@@ -13,7 +13,6 @@ namespace RestDoingSystem
         [SerializeField] private SerializableDictionary<Card,PlayerCardHub.PlayerCardHubItem> dict = new SerializableDictionary<Card, PlayerCardHub.PlayerCardHubItem>();
         protected override void OperateEffect()
         {
-            
             dict.Clear();
             //创建Dict和cpList
             List<(Card,Transform)> cpList = new List<(Card,Transform)>();
@@ -29,7 +28,6 @@ namespace RestDoingSystem
             CardSelectOperator.instance.SetOperateFunc(UpgradeCardInHub);
             //调起CardSelectOperator
             StartCoroutine(CallCardSelectOperatorAndDestroyAllCardEntity(cpList));
-            base.OperateEffect();
         }
 
         //删除所有
@@ -40,6 +38,7 @@ namespace RestDoingSystem
             {
                 Destroy(card.gameObject);
             }
+            base.OperateEffect();
         }
 
         private IEnumerator UpgradeCardInHub(Card card)

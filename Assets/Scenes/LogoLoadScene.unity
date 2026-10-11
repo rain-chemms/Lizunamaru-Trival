@@ -2416,15 +2416,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5285267981631026361, guid: 2940ba056d6bf3a4691d214f7e5a86ef, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5285267981631026361, guid: 2940ba056d6bf3a4691d214f7e5a86ef, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5285267981631026361, guid: 2940ba056d6bf3a4691d214f7e5a86ef, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5306476897678254070, guid: 2940ba056d6bf3a4691d214f7e5a86ef, type: 3}
       propertyPath: isHidden
@@ -8041,7 +8041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8559928122864879979, guid: eafa28d92558afc46b75341c92ea6698, type: 3}
       propertyPath: seed
-      value: AABBCCDD1203
+      value: yjjtjytjgb
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9735,7 +9735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2874460134079859844, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3066768298003432359, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: m_IsActive
@@ -9943,7 +9943,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8208616566129945358, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: mapArea
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8208616566129945358, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: isDisplay
@@ -10243,6 +10243,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 999280251849271807, guid: c4313e137335c0945b5035b1ea3724d1, type: 3}
+      propertyPath: gameSaves.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 999280251849271807, guid: c4313e137335c0945b5035b1ea3724d1, type: 3}
+      propertyPath: gameHistories.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 999280251849271807, guid: c4313e137335c0945b5035b1ea3724d1, type: 3}
+      propertyPath: gamePlayDatas.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5842444149768783308, guid: c4313e137335c0945b5035b1ea3724d1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

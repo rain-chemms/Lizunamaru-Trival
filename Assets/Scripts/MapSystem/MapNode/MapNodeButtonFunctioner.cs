@@ -33,16 +33,18 @@ namespace MapSystem.MapNodeSystem
             */
             if(Map.instance.MapLocked) return;
             Vector2Int index = (Vector2Int)Map.instance?.GetPlayerPos();
+            Vector2Int end = Vector2Int.zero;
             SerializableDictionary<Vector2Int,List<Vector2Int>> linkDict = Map.instance?.GetLinkData();
             if(linkDict.Contains(index))
             {
                 List<Vector2Int> tg = linkDict[index];
-                Vector2Int end = (Vector2Int)node?.GetIndex();
-                if((bool)!tg?.Contains(end))
+                end = (Vector2Int)node?.GetIndex();
+                if(!(bool)tg?.Contains(end))
                 {
                     Debug.LogWarning("[MapNodeButtonFunctioner]: Link Start<"+ index.x.ToString() +","+ index.y.ToString() +"> => End<"+ end.x.ToString() +","+ end.y.ToString() + "> In Map ,Please Check your Player Index");
                     return ;
                 }
+                //SaveSystem.instance.GamePlayDatas[SaveSystem.instance.NowSaveIndex].mapIndex = end;
             }
             else 
             {
@@ -50,10 +52,10 @@ namespace MapSystem.MapNodeSystem
                 return ;
             } 
             //保存当前游戏进度数据到文件中
-            SaveSystem.instance.SaveDataToFile(SaveSystem.instance.NowSaveIndex,true,false,false);
+            //SaveSystem.instance.SaveDataToFile(SaveSystem.instance.NowSaveIndex,true,false,false);
             //等待当前地图关闭
             Map.instance.SetDisplay(false);
-            StartCoroutine(LevelManager.instance?.LoadRandomLevel(index,(MapNodeCategory)node?.GetCategory()));
+            StartCoroutine(LevelManager.instance?.LoadRandomLevel(end,(MapNodeCategory)node?.GetCategory()));
         }
     }
 }

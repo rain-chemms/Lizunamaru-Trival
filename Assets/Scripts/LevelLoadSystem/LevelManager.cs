@@ -78,7 +78,13 @@ namespace LevelLoadSystem
             }
         }
 
-        //依据关卡类别,所处的地图区域和当前玩家的位置选择合适的随机项进行加载
+        /// <summary>
+        /// 依据关卡类别,所处的地图区域和当前玩家的位置选择合适的随机项进行加载
+        /// mapIndex和nodeCategory的控制是分开的,互不影响
+        /// </summary>
+        /// <param name="mapIndex">只会刷新存档文件中的mapIndex数据</param>
+        /// <param name="nodeCategory">依据这个参数加载不同关卡</param>
+        /// <returns></returns>
         public IEnumerator LoadRandomLevel(Vector2Int mapIndex ,MapNodeCategory nodeCategory)
         {
             yield return null;
@@ -112,6 +118,19 @@ namespace LevelLoadSystem
                 )
                 .ToList();
 
+            //将地图锁定并将进度跳转到下一关
+            Map.instance.MapLocked = true;
+            Map.instance.SetPlayerPos(mapIndex);
+            //保存当前进度到SaveSystem和文件系统
+            if(!(bool)SaveSystem.instance?.GamePlayDataExist(SaveSystem.instance.NowSaveIndex))
+            {
+                SaveSystem.instance.CreateANewGamePlayData(SaveSystem.instance.NowSaveIndex);
+                SaveSystem.instance.LoadFileData();
+            }
+            SaveSystem.instance.GamePlayDatas[SaveSystem.instance.NowSaveIndex].mapIndex = mapIndex;
+            SaveSystem.instance.SaveDataToFile(SaveSystem.instance.NowSaveIndex,true,false,false);
+
+            //数据的存储要优先于加载
             switch (nodeCategory)
             {
                 //从target中通过种子随机获取一个关卡进行加载
@@ -134,17 +153,7 @@ namespace LevelLoadSystem
                     //其他节点的加载逻辑还没做
                     break;
             }
-            //将地图锁定并将进度跳转到下一关
-            Map.instance.MapLocked = true;
-            Map.instance.SetPlayerPos(mapIndex);
-            //保存当前进度到SaveSystem和文件系统
-            if(!(bool)SaveSystem.instance?.GamePlayDataExist(SaveSystem.instance.NowSaveIndex))
-            {
-                SaveSystem.instance.CreateANewGamePlayData(SaveSystem.instance.NowSaveIndex);
-                SaveSystem.instance.LoadFileData();
-            }
-            SaveSystem.instance.GamePlayDatas[SaveSystem.instance.NowSaveIndex].mapIndex = mapIndex;
-            SaveSystem.instance.SaveDataToFile(SaveSystem.instance.NowSaveIndex,true,false,false);
+
         }
         //一下为LoadRandomLevel服务的私有函数
         //主要扩展功能

@@ -342,6 +342,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1573523338628835396}
+  dict:
+    m_keys: []
+    m_values: []
 --- !u!1 &1489670935072030668
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,6 +502,7 @@ MonoBehaviour:
   cvs: {fileID: 8908347480391812065}
   animator: {fileID: 6376940754570900371}
   operateOver: 0
+  isOpen: 0
 --- !u!95 &6376940754570900371
 Animator:
   serializedVersion: 7
@@ -778,7 +782,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 123.5
+  m_fontSize: 121.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1948,6 +1952,7 @@ GameObject:
   - component: {fileID: 8667170632259022490}
   - component: {fileID: 637422395958320742}
   - component: {fileID: 850929767113141644}
+  - component: {fileID: 380320771673687719}
   m_Layer: 5
   m_Name: NextLevelButton
   m_TagString: Untagged
@@ -2079,6 +2084,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &380320771673687719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9021122257657825331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f99d0c79586fa464585bf7cb29558d9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 637422395958320742}
 --- !u!1 &9058736819829662710
 GameObject:
   m_ObjectHideFlags: 0
