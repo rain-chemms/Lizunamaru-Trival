@@ -339,6 +339,7 @@ MonoBehaviour:
     m_keys: []
   mapArea: 0
   mapSize: {x: 0, y: 0}
+  mapLocked: 0
 --- !u!114 &7206164471346142004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,12 +354,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 8208616566129945358}
   scrollRect: {fileID: 2775713448418222348}
-  _00Position: {x: 400, y: -300}
-  _gaps: {x: 200, y: 200}
+  _00Position: {x: 800, y: -300}
+  _gaps: {x: 195, y: 200}
   controlSettings:
     verticalOrHorizontal: 0
     dlOrIc_x: 0
     dlOrIc_y: 1
+  appendOffsetToSpecialNode: {x: 100, y: 0}
 --- !u!114 &6405362129999519473
 MonoBehaviour:
   m_ObjectHideFlags: 0

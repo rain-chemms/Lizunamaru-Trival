@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 282511359598092305}
   - component: {fileID: 36581430459645129}
   - component: {fileID: 2426801001905032555}
+  - component: {fileID: 3434518618755530115}
   m_Layer: 5
-  m_Name: GameStartButton
+  m_Name: NewGameStartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,7 +97,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -121,6 +122,28 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!95 &3434518618755530115
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47617341103797285}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 70dcf884fafb2894b882cfe5a5f9d4c2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &299755513304773017
 GameObject:
   m_ObjectHideFlags: 0
@@ -3246,6 +3269,7 @@ MonoBehaviour:
   hpText: {fileID: 3634288834584955304}
   startCoinText: {fileID: 5144792121175268336}
   nameText: {fileID: 6894077417166590158}
+  newGameStartButton: {fileID: 2426801001905032555}
 --- !u!1001 &2516527795924469548
 PrefabInstance:
   m_ObjectHideFlags: 0

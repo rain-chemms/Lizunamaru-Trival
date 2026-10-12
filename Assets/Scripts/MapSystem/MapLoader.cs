@@ -64,6 +64,17 @@ namespace MapSystem
             int ptrStrX = -1;
             //初始化随机数生成器
             System.Random random = new System.Random(seed + (int)area);//随机数要跟随地图区域进行变化
+            /*
+                注意点,看好了
+                1.
+                    当地图竖着放的时候
+                    x代表的是关卡的一共有多少列
+                    y代表的才是当前处于第几层
+                2.
+                    地图处于层数的一半的时候,一定会产生一个奖励
+                    地图的-1层为每张地图的开始位置,要生成一个为CHAPTER_START的地图节点,而且是特制的
+                    地图的size.y层(顶层上的一层)为每张地图的Boss战,也是特制的
+            */
             while (effectLoop < size.x)//循环地图列数次
             {
                 //每两次选择不同的节点,依据种子随机选取起始点,初始的节点的layer位置是0
@@ -86,15 +97,25 @@ namespace MapSystem
                         break;
                     }
                 }
+
+                //生成节点时可用的种类
+                List<MapNodeCategory> availableCategory = Enum.GetValues(typeof(MapNodeCategory))
+                        .Cast<MapNodeCategory>()
+                        .Distinct()
+                        .Where(x => x != MapNodeCategory.CHAPTER_START && x!= MapNodeCategory.BATTLE_BOSS)//排除起始关卡和Boss战
+                        .ToList();
+                int si = availableCategory.Count;
+                    
                 if (!haveNode)//创建一个新的节点
                 {
                     MapNode node = Instantiate(nodePrefab);
+
                     //随机化节点的类型
-                    int si = Enum.GetValues(typeof(MapNodeCategory)).Length;
-                    node.SetCategory((MapNodeCategory)random.Next(0, si));//设置节点类型
+                    //这里面的类型要排除初始关卡和Boss战
+                    node.SetCategory(availableCategory[random.Next(si)]);//随机设置节点类型
+
                     node.SetIndex(new Vector2Int(str, 0));//设置节点的索引
-                    //尝试刷新外观
-                    node.GetComponent<MapNodeSpriteSetter>()?.FreshNodeOutSight();
+                    node.GetComponent<MapNodeSpriteSetter>()?.FreshNodeOutSight();//尝试刷新外观
                     mapNodes.Add(node);
                 }
 
@@ -167,8 +188,7 @@ namespace MapSystem
                     {
                         MapNode node = Instantiate(nodePrefab);
                         //随机化节点的类型
-                        int si = Enum.GetValues(typeof(MapNodeCategory)).Length;
-                        node.SetCategory((MapNodeCategory)random.Next(0,si));//设置节点类型
+                        node.SetCategory(availableCategory[random.Next(si)]);//随机设置节点类型
                         node.SetIndex(nextLayerIndex);//设置下一层节点的索引
                         //尝试刷新外观
                         node.GetComponent<MapNodeSpriteSetter>()?.FreshNodeOutSight();
@@ -206,6 +226,55 @@ namespace MapSystem
                 }
                 effectLoop++;
             }
+
+            ///*
+            //起始关卡和Boss战关卡的生成
+            //1.起始关卡
+            MapNode startNode = Instantiate(nodePrefab);
+            startNode.SetCategory(MapNodeCategory.CHAPTER_START);
+            Vector2Int startNodeIndex = new Vector2Int(size.x / 2, -1);
+            startNode.SetIndex(startNodeIndex);//要让其位x向于中心
+            startNode.GetComponent<MapNodeSpriteSetter>()?.FreshNodeOutSight();//尝试刷新外观
+            mapNodes.Add(startNode);
+
+            List<Vector2Int> appendToStart = new List<Vector2Int>();
+            foreach(MapNode n in mapNodes?.ToList())//获取所有索引为0的节点的mapIndex
+            {
+                if(n == null) continue;
+                Vector2Int idx = n.GetIndex();
+                if(idx.y == 0)//这是第一关
+                {
+                    appendToStart.Add(idx);
+                }
+            }
+            links.Add(startNodeIndex,appendToStart.ToList());//添加连接
+            //*/
+
+            ///*
+            //2.关底Boss战
+            MapNode endNode = Instantiate(nodePrefab);
+            endNode.SetCategory(MapNodeCategory.BATTLE_BOSS);
+            Vector2Int endNodeIndex = new Vector2Int(size.x / 2, size.y);
+            endNode.SetIndex(endNodeIndex);//要让其位x向于中心
+            endNode.GetComponent<MapNodeSpriteSetter>()?.FreshNodeOutSight();//尝试刷新外观
+            mapNodes.Add(endNode);
+            //获取所有处于Boss战之前的节点,将他们连接上Boss节点
+            foreach(MapNode n in mapNodes?.ToList())
+            {
+                if(n == null) continue;
+                Vector2Int idx = n.GetIndex();
+                if(idx.y == (endNodeIndex.y - 1))//是最后一关
+                {
+                    links.Add(idx,new List<Vector2Int>{ endNodeIndex });
+                } 
+            }
+            //*/
+
+            //尝试刷新地图的显示
+            map.GetComponent<MapNodeListPositionSetter>()?.FreshTheMapNodePosition();
+            map.GetComponent<MapNodePathDisplayer>()?.FreshMapPath();//先刷新路径,让图标在路径之上
+        
+            //格式化输出调试
             Debug.Log("[MapLoader]: New Map Node Index List Number: " + mapNodes.Count);
             int number = 0;
             foreach (KeyValuePair<Vector2Int, List<Vector2Int>> kvp in links)
@@ -217,10 +286,6 @@ namespace MapSystem
                 }
             }
             Debug.Log("[MapLoader]: New Map Links Numbre: " + number);
-
-            //尝试刷新地图的显示
-            map.GetComponent<MapNodeListPositionSetter>()?.FreshTheMapNodePosition();
-            map.GetComponent<MapNodePathDisplayer>()?.FreshMapPath();//先刷新路径,让图标在路径之上
         }
 
         //测试一下

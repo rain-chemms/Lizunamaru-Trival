@@ -35,6 +35,8 @@ namespace MapSystem
         public bool VertialOrHorizontal() => controlSettings.verticalOrHorizontal;
         public bool IsIncreaseX() => controlSettings.dlOrIc_x ? false : true;
         public bool IsIncreaseY() => controlSettings.dlOrIc_y ? false : true;
+        //特殊节点的额外偏移量,主要是针对起始节点和Boss战
+        [SerializeField] private Vector2 appendOffsetToSpecialNode = new Vector2(100,0);
         public void FreshTheMapNodePosition()
         {
             if(map == null) return;
@@ -52,6 +54,16 @@ namespace MapSystem
                     (controlSettings.dlOrIc_x ? -1.0f : 1.0f) * (controlSettings.verticalOrHorizontal ? index.x : index.y) * _gaps.x,
                     (controlSettings.dlOrIc_y ? -1.0f : 1.0f) * (controlSettings.verticalOrHorizontal ? index.y: index.x) * _gaps.y
                 );
+                //依据所处的层数附加偏移量
+                if(index.y >= map.GetMapSize().y)
+                {
+                    offset += appendOffsetToSpecialNode;
+                }
+                else if(index.y < 0)
+                {
+                    offset -= appendOffsetToSpecialNode;
+                }
+
                 //尝试设置RectTransform
                 node.GetComponent<RectTransform>().localPosition = new Vector3(
                     _00Position.x + offset.x,
