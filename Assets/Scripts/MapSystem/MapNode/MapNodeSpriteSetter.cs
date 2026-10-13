@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,19 +17,33 @@ namespace MapSystem.MapNodeSystem
             if(button == null) button = GetComponent<Button>();
             FreshNodeOutSight();
         }
-        //节点类型和节点图标映射器
-        [SerializeField] private SerializableDictionary<MapNodeCategory,Sprite> spriteDict;
         public void FreshNodeOutSight()
         {
+            //默认设置
+            SerializableDictionary<MapNodeCategory,Sprite> spriteDict = MapNodeSpriteManager.instance.SpriteDict;
             if(node == null) return ;
             if(button == null) return ;
-            if(spriteDict.TryGetValue(node.GetCategory(),out Sprite sprite))
+            MapNodeCategory ctg = node.GetCategory();
+            if(spriteDict.TryGetValue(ctg,out Sprite sprite))
             {
                 if(sprite != null)
                 {
                     button.image.sprite = sprite;
                 }
             }
+            else button.image.sprite = MapNodeSpriteManager.instance.DefaultSprite;
+            //对特殊的节点值进行处理
+            if(ctg == MapNodeCategory.CHAPTER_START)
+            {
+                var bossDict = MapNodeSpriteManager.instance.BossBattleDict;
+                
+            }
+            else if(ctg == MapNodeCategory.BATTLE_BOSS)
+            {
+                var startDict = MapNodeSpriteManager.instance.ChapterStartDict;
+
+            }
+
         }
     }
 }
