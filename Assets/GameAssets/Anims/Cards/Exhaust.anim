@@ -724,14 +724,21 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: CloseComponentBeforeExhaust
+    functionName: TriggerAllDissolveController
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0
-    functionName: TriggerAllDissolveController
+    functionName: PlayExhaustVoice
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0
+    functionName: CloseComponentBeforeExhaust
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

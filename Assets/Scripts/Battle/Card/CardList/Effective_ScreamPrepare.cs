@@ -34,7 +34,8 @@ namespace CardSystem.AllCardHub
         public override IEnumerator AfterRoundEnd()
         {
             yield return base.AfterRoundEnd();
-            if((bool)BattleMessage.instance?.GetExhaustCardList()?.Contains(this)) yield break;//未消耗时计数才减少
+            //不在手牌中时计数不减少
+            if(!(bool)BattleMessage.instance?.GetHandCardList()?.Contains(this)) yield break;
             Role player = BattleMessage.instance?.GetControlPlayer();
             if (BattleMessage.instance?.IsPlayerTurn() == player?.GetSide())
             {

@@ -137,7 +137,6 @@ namespace CardSystem
         public virtual IEnumerator AfterExhaust()
         {
             //尝试播放卡片的消耗音效
-            GetComponent<CardVoiceController>()?.PlayCardVoice("Exhaust");
             yield return null;
         }
         

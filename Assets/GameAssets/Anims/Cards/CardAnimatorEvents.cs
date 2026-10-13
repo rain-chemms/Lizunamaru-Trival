@@ -66,7 +66,7 @@ namespace AnimatorEventSystem
         {
             foreach(var disCtrl in card?.GetComponentsInChildren<CardDissolveController>().ToList())
             {
-                Debug.Log("[CardAnimatorEvents]: Trigger Dissolve Controller:"+ disCtrl.name);
+                Debug.Log("[CardAnimatorEvents]: Trigger Dissolve Controller:" + disCtrl.name);
                 disCtrl?.SetDissolveMaterial();//刷新所有DissolveController的材质
             }
         }
@@ -77,6 +77,11 @@ namespace AnimatorEventSystem
             {
                 disCtrl?.RevertMaterial();//刷新所有DissolveController的材质
             }
+        }
+
+        public void PlayExhaustVoice()
+        {
+            card?.GetComponent<CardVoiceController>()?.PlayCardVoice("Exhaust");
         }
     }
 }

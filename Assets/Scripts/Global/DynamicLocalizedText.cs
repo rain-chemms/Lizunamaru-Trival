@@ -45,7 +45,7 @@ namespace GlobalSystem
         {    
             if (_localizeEvent == null) _localizeEvent = GetComponent<LocalizeStringEvent>();
             ApplyVariables();
-            _localizeEvent.RefreshString();   
+            _localizeEvent?.RefreshString();   
         }
 
         /// <summary>
