@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 27fc1663b32cae840a0129b051ee3681
   m_currentHash:
     serializedVersion: 2
-    Hash: 2b3f596dccd9d128c6dd99d4cdbc7f76
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -79,6 +79,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 30d896def0e6dfb43ac4c39cdc5317a3, type: 2}
   - {fileID: 11400000, guid: 02bcfa7f75fbe414b9637cbae3c39b41, type: 2}
   - {fileID: 11400000, guid: 4b25df9a69986114ea89bbb749a242de, type: 2}
+  - {fileID: 11400000, guid: c31a456c0753ddc4d84cab866fb9d255, type: 2}
   - {fileID: 11400000, guid: a17bbb3b253171846a14d97b2593dbee, type: 2}
   - {fileID: 11400000, guid: f5c5c17ca647a9b4d9976dd0f60a1394, type: 2}
   - {fileID: 11400000, guid: b9def0b4323192c4985c6ce3017651b1, type: 2}
@@ -141,6 +142,7 @@ MonoBehaviour:
     - Card.Pool.AllHub
     - LevelLoadInMessage
     - RoleChoiceData
+    - Bullet
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 5085f537618f9ff4b9fe603104a56747, type: 2}

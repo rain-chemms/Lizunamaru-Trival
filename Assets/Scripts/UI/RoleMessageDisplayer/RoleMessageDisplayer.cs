@@ -27,11 +27,11 @@ public class RoleMessageDisplayer : MonoBehaviour
     
     void OnEnable()
     {
+        if(role == null) role = GetComponentInParent<Role>();
         if(canvas == null) canvas = GetComponent<Canvas>();
         if(defendAnimator == null) defendAnimator = GetComponentsInChildren<Animator>().Where(x => x.gameObject.name.Equals("Defend")).FirstOrDefault();
         //尝试获取角色防御点数
         lastDefendPoint = (uint)role?.GetDefend();
-        if(role == null) role = GetComponentInParent<Role>();
     }
 
     [SerializeField] private bool isDisplay = true;

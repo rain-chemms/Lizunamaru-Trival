@@ -24,13 +24,13 @@ namespace GridObjectSystem.RoleSystem.AutoSystem
         [SerializeField] protected bool isActionOpen = true;//是否开启
         [Header("要显示的Vfx列表")]
         [SerializeField] protected bool openVfx = false;
-        [SerializeField] protected List<string> vfxList = new List<string>();//要显示的Vfx名称
+        [ShowIfBoolAttribute("openVfx")] [SerializeField] protected List<string> vfxList = new List<string>();//要显示的Vfx名称
         [Header("是否显示符卡界面")]
         [SerializeField] private bool openSpellDisplay = false;
-        [SerializeField] private bool leftOrRightSD = false;//是在左侧还是右侧进行符卡的显示
-        [SerializeField] private Sprite spellSprite;//符卡的人物立绘Sprite
-        [SerializeField] private string spellTextKey = "Spell_Debug";//符卡的文本的本地化键值
-        [SerializeField] private string searchTable = "SpellDisplayTexts";//搜索本地字典
+        [ShowIfBoolAttribute("openSpellDisplay")] [SerializeField] private bool leftOrRightSD = false;//是在左侧还是右侧进行符卡的显示
+        [ShowIfBoolAttribute("openSpellDisplay")] [SerializeField] private Sprite spellSprite;//符卡的人物立绘Sprite
+        [ShowIfBoolAttribute("openSpellDisplay")] [SerializeField] private string spellTextKey = "Spell_Debug";//符卡的文本的本地化键值
+        [ShowIfBoolAttribute("openSpellDisplay")] [SerializeField] private string searchTable = "SpellDisplayTexts";//搜索本地字典
         public virtual IEnumerator Excute(Role role)//行为执行函数,需要传入生效的玩家
         {
             if (openVfx)

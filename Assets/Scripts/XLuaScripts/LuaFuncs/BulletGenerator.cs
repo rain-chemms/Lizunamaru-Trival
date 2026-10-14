@@ -1,0 +1,76 @@
+using BulletSystem;
+using GridObjectSystem.RoleSystem;
+using UnityEngine.AddressableAssets;
+using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
+using XLua;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using System;
+
+namespace LuaGameSystem
+{
+    //用于动态Lua代码的子弹生成器
+    [LuaCallCSharp]
+    public class BulletGenerator
+    {
+        public BulletGenerator(){}
+        private Role generateRole = null;
+        private Bullet bulletPrefab = null;
+        public void SetRole(Role role) => generateRole = role;
+        public void SetBullet(Bullet bullet) => bulletPrefab = bullet;
+        //通过资源系统的子弹名获取子弹
+        public void SetBullet(string bulletName,string poolName = null)
+        {
+            var keys = new List<string> { "Bullet" };
+            if(!string.IsNullOrEmpty(poolName)) keys.Add( "Bullet.Pool." + poolName );
+            // 启动异步加载，并在加载完成后执行回调
+            var handle = Addressables.LoadAssetsAsync<GameObject>(keys, null, Addressables.MergeMode.Intersection);
+
+            handle.Completed += (asyncOp) =>
+            {
+                if (asyncOp.Status == AsyncOperationStatus.Succeeded)
+                {
+                    List<GameObject> pfbs = asyncOp.Result.ToList();
+                    foreach (GameObject p in pfbs)
+                    {
+                        if (p == null) continue;
+
+                        Bullet bullet = p.GetComponent<Bullet>();
+                        // 注意：这里比较的是 GameObject 的 name 属性
+                        if (bullet != null && p.name.Equals(bulletName))
+                        {
+                            bulletPrefab = bullet;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning($"[XLuaBulletGenerator]: Card Prefab Load Failed: {asyncOp.OperationException}");
+                }
+                handle.Release();
+            };
+        }
+
+        public void GenerateBullet(Vector3 direction,float force = default,ForceMode forceMode = default,Action<Bullet> selfPostProcess = null,Vector3 posOffset = default,Vector3 scale = default)
+        {
+            if(bulletPrefab == null || generateRole == null) return; 
+            Bullet bt = UnityEngine.Object.Instantiate(bulletPrefab);
+            if(scale != default) bt.SetScale(scale);//非默认情况设置大小
+            bt.SetSide(generateRole.GetSide());
+            Rigidbody rRb = generateRole.GetRigidBody();
+            Rigidbody bRb = bt?.GetRigidBody();
+            if(rRb != null && bRb != null)
+            {
+                bRb.transform.position = rRb.worldCenterOfMass + posOffset;
+            }
+            if(force != default) bt?.SetForce(force);
+            if(forceMode != default) bt?.SetForceMode(forceMode);//默认时不改变子弹的forceMode
+            bt?.SetDirection(direction);
+
+            selfPostProcess?.Invoke(bt);//尝试触发后处理
+            BattleMessage.instance?.BulletPostProcess?.Invoke(bt);//尝试触发后处理
+        }
+    }
+}

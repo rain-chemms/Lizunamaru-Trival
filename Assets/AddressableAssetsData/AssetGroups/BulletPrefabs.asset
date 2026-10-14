@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: BulletPrefabs
+  m_EditorClassIdentifier: 
+  m_GroupName: BulletPrefabs
+  m_GUID: ad200a22a535cea44af4ead0cb0e630c
+  m_SerializeEntries:
+  - m_GUID: 1be96bd4e6f117d4482a2862ff33a955
+    m_Address: Assets/GameAssets/Prefabs/Bullet/NeedleBullet.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Bullet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d7d2446340c5cc49b08ab001f923a9f
+    m_Address: Assets/GameAssets/Prefabs/Bullet/MasterSpark_Small.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Bullet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3cbd61cca239eca40b455315c5cc341c
+    m_Address: Assets/GameAssets/Prefabs/Bullet/StarBullet.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Bullet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4592ef551b12fd24d985790e8eff447b
+    m_Address: Assets/GameAssets/Prefabs/Bullet/Explosion_Green.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Bullet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b46711e0b617db4983179ac7d2229e1
+    m_Address: Assets/GameAssets/Prefabs/Bullet/SatelliteKnife.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Bullet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 84dfc6d53aeb71e40b826f0056f0773a
+    m_Address: Assets/GameAssets/Prefabs/Bullet/SolemnBullet_Black.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Bullet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 85847347dd9e5ae4ba41b6a235fe262b
+    m_Address: Assets/GameAssets/Prefabs/Bullet/Explosion_Golden.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Bullet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a4a58fabe83ac148b3529e85b355717
+    m_Address: Assets/GameAssets/Prefabs/Bullet/StarBullet_SnipeAppend&ForceAppend.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Bullet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a46fa91575c7190439c34faa83df1438
+    m_Address: Assets/GameAssets/Prefabs/Bullet/SolemnBullet_White.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Bullet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c593c873384a3504c95b358ce2ffa1a0
+    m_Address: Assets/GameAssets/Prefabs/Bullet/SwordEdgeBullet.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Bullet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc92e50072ce244478f88e8f998383af
+    m_Address: Assets/GameAssets/Prefabs/Bullet/AwlBullet.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Bullet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f73bf400300806a40a870797ab6da781
+    m_Address: Assets/GameAssets/Prefabs/Bullet/MasterSpark.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Bullet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa0fb24192aae7343b17a543d56240f5
+    m_Address: Assets/GameAssets/Prefabs/Bullet/ElasticBullet.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Bullet
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: e8888f07cbfd2fc48b162c127f18c7e3, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d36d7b7593f97884ca518c9602570a46, type: 2}
+    - {fileID: 11400000, guid: 5bb70ed8689aa3a44a4550e788d331cd, type: 2}
