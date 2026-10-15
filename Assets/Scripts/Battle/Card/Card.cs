@@ -96,7 +96,7 @@ namespace CardSystem
             //当有消耗词条是将触发卡牌的
             if ((bool)cardKeyWords?.Contains(CardKeyWord.EXHAUST))
             {
-                yield return BattleMessage.instance?.ExhaustCard(this);//消耗这张卡
+                StartCoroutine(BattleMessage.instance?.ExhaustCard(this));//消耗这张卡
             }
             yield return null;
         }

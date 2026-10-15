@@ -5610,8 +5610,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   landHeightOffset: 0
-  flyHeight: 0
-  grandYOffset: 0
+  flyHeight: 3
+  grandYOffset: 1.1
   gridObject: {fileID: 0}
   stopLerpThreshold: 0.005
 --- !u!114 &2721662549310186358

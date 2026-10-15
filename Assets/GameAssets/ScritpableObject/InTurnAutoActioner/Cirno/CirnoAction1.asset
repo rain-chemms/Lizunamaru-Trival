@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cb7300507b34ff4f8977ec01320b6db, type: 3}
-  m_Name: CirnoAction
+  m_Name: CirnoAction1
   m_EditorClassIdentifier: 
   turnActions:
   - {fileID: 11400000, guid: 0fc59090a81172f4cb69082c41d946f4, type: 2}
+  - {fileID: 11400000, guid: 153301894551901428e11f1caca9462e, type: 2}
+  - {fileID: 11400000, guid: 1b123592c25202c4eb4497d7a387ae4b, type: 2}
   jumpLogicOpen: 1
   nextLogicIndex: -1

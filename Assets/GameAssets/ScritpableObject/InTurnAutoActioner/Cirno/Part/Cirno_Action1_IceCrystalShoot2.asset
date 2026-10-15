@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fbdfb9ea2c06be4daaef181b42902a0, type: 3}
-  m_Name: XLuaAction
+  m_Name: Cirno_Action1_IceCrystalShoot2
   m_EditorClassIdentifier: 
   actionName: Bugs
   isActionOpen: 1
@@ -23,4 +23,7 @@ MonoBehaviour:
   searchTable: SpellDisplayTexts
   readFromFile: 1
   defaultLuaCode: 
-  luaFile: {fileID: 1042094116111776886, guid: f9b276a1a7c56ff4da3327f4f9899735, type: 3}
+  luaFile: {fileID: 1042094116111776886, guid: 0d8e6a92815d68a409d70ad3630e11e0, type: 3}
+  openWait: 1
+  beforeWaitTime: 0
+  endWaitTime: 1

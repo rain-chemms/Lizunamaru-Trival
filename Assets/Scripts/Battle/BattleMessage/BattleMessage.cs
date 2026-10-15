@@ -347,6 +347,51 @@ public class BattleMessage : MonoBehaviour
     public List<Role> GetRoleList() => roleList;
     public List<Role> GetRoleList(bool side) => roleList.Where(role => role.GetSide() == side).ToList();
     public List<Role> GetRoleList_Copy() => roleList.ToList();
+    //获取距离你最近的敌人的方向角度
+    public Vector3 GetNearestEnermyDirection(Role self)
+    {
+        if(self == null) return Vector3.zero;
+        Vector3 target = Vector3.zero;
+        Rigidbody selfRb = self.GetRigidBody();
+        Vector3 selfPos = selfRb != null ? selfRb.worldCenterOfMass : self.transform.position;
+        float minDistance = float.MaxValue;
+        foreach(Role role in roleList)
+        {
+            if(role == null || role.GetSide() == self.GetSide()) continue;//忽略己方角色
+            Rigidbody rb = role.GetRigidBody();
+            Vector3 pos = rb != null ? rb.worldCenterOfMass : role.transform.position;
+            float distance = Vector3.Distance(selfPos,pos);
+            if(distance < minDistance)
+            {
+                minDistance = distance;
+                target = (pos - selfPos).normalized;
+            }
+        }
+        return target;    
+    }
+    //获取距离self最近的敌人
+    public Role GetNearestEnermy(Role self)
+    {
+        if(self == null) return null;
+        Role target = null;
+        Rigidbody selfRb = self.GetRigidBody();
+        Vector3 selfPos = selfRb != null ? selfRb.worldCenterOfMass : self.transform.position;
+        float minDistance = float.MaxValue;
+        foreach(Role role in roleList)
+        {
+            if(role == null || role.GetSide() == self.GetSide()) continue;//忽略己方角色
+            Rigidbody rb = role.GetRigidBody();
+            Vector3 pos = rb != null ? rb.worldCenterOfMass : role.transform.position;
+            float distance = Vector3.Distance(selfPos,pos);
+            if(distance < minDistance)
+            {
+                minDistance = distance;
+                target = role;
+            }
+        }
+        return target;
+    }
+
     [Header("统计信息")]
     private uint grazeCount = 0;//控制的玩家的擦弹数
     public uint GetGrazeCount() => grazeCount;
@@ -379,7 +424,7 @@ public class BattleMessage : MonoBehaviour
     /*
         扩展方法3:获取距离自身最近的敌方Role
     */
-    public Role GetNearestEnermy(Role self)
+    public Role GetNearestEnermy_GridIndex(Role self)
     {
         if (self == null) return null;
 
@@ -406,6 +451,7 @@ public class BattleMessage : MonoBehaviour
         }
         return targetRole;
     }
+    
 
     public Role GetControlPlayer() => GetRole(controlPlayerID, yourSide);//默认获取True阵营的玩家
 

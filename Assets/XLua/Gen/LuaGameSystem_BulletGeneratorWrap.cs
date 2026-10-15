@@ -21,10 +21,11 @@ namespace XLua.CSObjectWrap
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
 			System.Type type = typeof(LuaGameSystem.BulletGenerator);
-			Utils.BeginObjectRegister(type, L, translator, 0, 3, 0, 0);
+			Utils.BeginObjectRegister(type, L, translator, 0, 4, 0, 0);
 			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetRole", _m_SetRole);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetBullet", _m_SetBullet);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetBulletSync", _m_SetBulletSync);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GenerateBullet", _m_GenerateBullet);
 			
 			
@@ -152,6 +153,49 @@ namespace XLua.CSObjectWrap
             }
             
             return LuaAPI.luaL_error(L, "invalid arguments to LuaGameSystem.BulletGenerator.SetBullet!");
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_SetBulletSync(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                LuaGameSystem.BulletGenerator gen_to_be_invoked = (LuaGameSystem.BulletGenerator)translator.FastGetCSObj(L, 1);
+            
+            
+			    int gen_param_count = LuaAPI.lua_gettop(L);
+            
+                if(gen_param_count == 3&& (LuaAPI.lua_isnil(L, 2) || LuaAPI.lua_type(L, 2) == LuaTypes.LUA_TSTRING)&& (LuaAPI.lua_isnil(L, 3) || LuaAPI.lua_type(L, 3) == LuaTypes.LUA_TSTRING)) 
+                {
+                    string _bulletName = LuaAPI.lua_tostring(L, 2);
+                    string _poolName = LuaAPI.lua_tostring(L, 3);
+                    
+                    gen_to_be_invoked.SetBulletSync( _bulletName, _poolName );
+                    
+                    
+                    
+                    return 0;
+                }
+                if(gen_param_count == 2&& (LuaAPI.lua_isnil(L, 2) || LuaAPI.lua_type(L, 2) == LuaTypes.LUA_TSTRING)) 
+                {
+                    string _bulletName = LuaAPI.lua_tostring(L, 2);
+                    
+                    gen_to_be_invoked.SetBulletSync( _bulletName );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+            return LuaAPI.luaL_error(L, "invalid arguments to LuaGameSystem.BulletGenerator.SetBulletSync!");
             
         }
         

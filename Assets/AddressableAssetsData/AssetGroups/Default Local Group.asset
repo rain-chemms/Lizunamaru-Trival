@@ -69,6 +69,13 @@ MonoBehaviour:
     - Card.Category.Effective
     - Card.Pool.AllHub
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d01ee2b9d3287ed4693b0c07a01fa7fa
+    m_Address: Assets/GameAssets/Prefabs/Bullet/IceCrystal.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Bullet
+    - Bullet.Pool.Default
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dca6a0481500f2f44a7db17cdc7d1727
     m_Address: Assets/GameAssets/Prefabs/Card/Effective/Effective_ScreamPrepare.prefab
     m_ReadOnly: 0

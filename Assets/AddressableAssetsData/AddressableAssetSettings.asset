@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 27fc1663b32cae840a0129b051ee3681
   m_currentHash:
     serializedVersion: 2
-    Hash: 00000000000000000000000000000000
+    Hash: e725bd959d96d65a83d1d4a6e19ff1ab
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -143,6 +143,7 @@ MonoBehaviour:
     - LevelLoadInMessage
     - RoleChoiceData
     - Bullet
+    - Bullet.Pool.Default
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 5085f537618f9ff4b9fe603104a56747, type: 2}
