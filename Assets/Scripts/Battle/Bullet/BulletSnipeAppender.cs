@@ -5,6 +5,7 @@ using GridObjectSystem.RoleSystem;
 
 namespace BulletSystem
 {
+    [XLua.LuaCallCSharp]
     public class BulletSnipeAppender : BulletAppender
     {
         protected override void Start()

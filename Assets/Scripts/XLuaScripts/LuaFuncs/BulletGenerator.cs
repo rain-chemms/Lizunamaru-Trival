@@ -7,6 +7,7 @@ using System.Linq;
 using XLua;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using System;
+using UnityEditor.SceneManagement;
 
 namespace LuaGameSystem
 {

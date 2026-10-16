@@ -40,7 +40,7 @@ print("[Cirno_Action1_IceCrystalShoot]: BTGR Create Over!")
 
 local targetDir = BattleMessage.instance:GetNearestEnermyDirection(btGrRole) -- 获取最近的敌方玩家
 local startBtNumber = 3 -- 初始产生子弹数
-local loopTime = 6 -- 循环6次
+local loopTime = 4 -- 循环6次
 
 local force = 15;
 local forceLow = 2;

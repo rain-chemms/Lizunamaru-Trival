@@ -66,6 +66,9 @@
 		<type fullname="XLuaTest.Foo" preserve="all"/>
 		<type fullname="XLuaTest.FooExtension" preserve="all"/>
 		<type fullname="LuaGameSystem.BulletGenerator" preserve="all"/>
+		<type fullname="BulletSystem.BulletAppender" preserve="all"/>
+		<type fullname="BulletSystem.BulletForceAppender" preserve="all"/>
+		<type fullname="BulletSystem.BulletSnipeAppender" preserve="all"/>
 		<type fullname="Tutorial.DerivedClass+TestEnumInner" preserve="all"/>
 		
 	</assembly>

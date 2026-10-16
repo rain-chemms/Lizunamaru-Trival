@@ -163,11 +163,22 @@ namespace XLua.CSObjectWrap
             translator.DelayWrapLoader(typeof(LuaGameSystem.BulletGenerator), LuaGameSystemBulletGeneratorWrap.__Register);
         
         
+            translator.DelayWrapLoader(typeof(BulletSystem.BulletAppender), BulletSystemBulletAppenderWrap.__Register);
+        
+        
+            translator.DelayWrapLoader(typeof(BulletSystem.BulletForceAppender), BulletSystemBulletForceAppenderWrap.__Register);
+        
+        
+            translator.DelayWrapLoader(typeof(BulletSystem.BulletSnipeAppender), BulletSystemBulletSnipeAppenderWrap.__Register);
+        
+        
             translator.DelayWrapLoader(typeof(Tutorial.DerivedClass.TestEnumInner), TutorialDerivedClassTestEnumInnerWrap.__Register);
         
-        
-        
         }
+        
+        
+        
+        
         
         static void Init(LuaEnv luaenv, ObjectTranslator translator)
         {

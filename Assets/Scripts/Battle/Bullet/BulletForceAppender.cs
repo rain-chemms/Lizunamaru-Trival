@@ -5,11 +5,14 @@ using System.Collections.Generic;
 namespace BulletSystem
 {
     //这个脚本只修改Bullet的方向参数
+    [XLua.LuaCallCSharp]
     [RequireComponent(typeof(Bullet))]
     public class BulletForceAppender : BulletAppender
     {
         [SerializeField] private float appendForce = 1.0f;//追加的力
+        public float AppendForce { get => appendForce; set => appendForce = value;}
         [SerializeField] private bool appendPreFrame = false;//是否在每帧都追加力
+        public bool AppendPreFrame { get => appendPreFrame; set => appendPreFrame = value; }
         [SerializeField] private bool haveAppendForce = false;//是否有追加力
         protected override void Start()
         {

@@ -24,6 +24,6 @@ MonoBehaviour:
   readFromFile: 1
   defaultLuaCode: 
   luaFile: {fileID: 1042094116111776886, guid: b609d62ad48ee3040b9fffc58ace0a21, type: 3}
-  openWait: 0
+  openWait: 1
   beforeWaitTime: 0
   endWaitTime: 1

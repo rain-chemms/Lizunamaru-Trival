@@ -1,7 +1,9 @@
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace BulletSystem
 {
+    [XLua.LuaCallCSharp]
     [RequireComponent(typeof(Bullet))]
     public class BulletAppender : MonoBehaviour
     {

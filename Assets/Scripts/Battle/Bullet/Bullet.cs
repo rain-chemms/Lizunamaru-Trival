@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using UnityEngine;
 
 namespace BulletSystem
@@ -73,7 +74,7 @@ namespace BulletSystem
         public void SetCanDefend(bool canDefend) => this.canDefend = canDefend;
 
         void OnEnable()
-        {
+        {   
             //尝试自动获取
             if (rb == null) rb = GetComponent<Rigidbody>();
             lifeRecorder = 0.0f;

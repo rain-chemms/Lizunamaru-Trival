@@ -142,11 +142,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7577c2474007ff84fb6a584ceef06a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pierce: 1
+  pierce: 0
   lifeTime: 5
   lifeRecorder: 0
   side: 1
-  damage: 0
+  damage: 3
   rb: {fileID: 3083839923200273211}
   scale: {x: 1, y: 1, z: 1}
   direction: {x: 0, y: 0, z: 0}
@@ -187,7 +187,7 @@ MonoBehaviour:
   bullet: {fileID: 6261584063689265495}
   animator: {fileID: 385444792249774236}
   damageTriggger: {fileID: 8696868860323659553}
-  animatorControl: 0
+  animatorControl: 1
   checkPierceOver: 1
 --- !u!114 &5463014606880947963
 MonoBehaviour:
