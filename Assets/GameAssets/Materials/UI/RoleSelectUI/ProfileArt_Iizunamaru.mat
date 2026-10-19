@@ -29,11 +29,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaCutoff: 0
+    - _AlphaCutoff: 0.018
     - _StencilRef: 255
     - _StencilWriteMask: 255
     m_Colors:
-    - _Color: {r: 1, g: 0.9810316, b: 0.95283014, a: 1}
+    - _Color: {r: 1, g: 0.9890371, b: 0.9025157, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
