@@ -6,9 +6,9 @@ using TMPro;
 using System.Collections;
 using UnityEngine.Localization.Settings;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using System;
 
 [RequireComponent(typeof(Canvas))]
-[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(RectTransform))]
 public class SpellAttackDisplayer : MonoBehaviour
 {
@@ -26,27 +26,10 @@ public class SpellAttackDisplayer : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    [SerializeField] private TMP_Text spellText;
-    public TMP_Text GetSpellText()
-    {
-        return spellText;
-    }
-    [SerializeField] private Image roleImage;
-    public Image GetRoleImage()
-    {
-        return roleImage;
-    }
+    
     [SerializeField] private List<AudioSource> audioSources = new List<AudioSource>();
-    [SerializeField] private Animator animator;
-    public Animator GetAnimator()
-    {
-        return animator;
-    }
-    public List<AudioSource> GetAudioSources()
-    {
-        return audioSources;
-    }
-    void Start()
+    public List<AudioSource> GetAudioSources() => audioSources;
+    void OnEnable()
     {
         //自动获取全部的音频源
         List<AudioSource> AS = GetComponentsInChildren<AudioSource>().ToList();
@@ -56,44 +39,44 @@ public class SpellAttackDisplayer : MonoBehaviour
             if(audioSources.Contains(aS)) continue;
             audioSources.Add(aS);
         }
-        //尝试自动获取角色spell图片容器
-        if(roleImage == null)
+        if(displayArea == null)
         {
-            foreach(Image img in GetComponentsInChildren<Image>())
-            {
-                if(img == null) continue;
-                if(img.name.Equals("RoleImage")) 
-                {
-                    roleImage = img;
-                    break;
-                }
-            }
+            displayArea = GetComponentsInChildren<Canvas>().Where(x=>x.name.Equals("DisplayArea")).FirstOrDefault();
         }
-        //尝试自动获取技能文本容器
-        if(spellText == null)
-        {
-            foreach(TMP_Text txt in GetComponentsInChildren<TMP_Text>())
-            {
-                if(txt == null) continue;
-                if(txt.name.Equals("SpellText"))
-                {
-                    spellText = txt;
-                    break;
-                }
-            }
-        }
-        //尝试自动获取动画控制器
-        if(animator == null) animator = GetComponent<Animator>();
     }
 
     /*
         附加功能: 触发一次符卡显示
+        为了实现多个符卡的同时显示,需要实现一个控制的动画预制体
     */
+    [SerializeField] private SpellAttackDisplayItem itemPrefab; 
+    [SerializeField] private Canvas displayArea;
+    public Canvas DisplayArea { get => displayArea; }
+
+    [SerializeField] private Vector2 offsetUnit = new Vector2(0.05f,0.05f);
+    public Vector2 OffsetUnit { get => offsetUnit; set => offsetUnit = value; }
+    //临时实体存放列表
+    [SerializeField] private List<SpellAttackDisplayItem> leftList = new List<SpellAttackDisplayItem>();
+    public List<SpellAttackDisplayItem> LeftList { get => leftList; }
+    [SerializeField] private List<SpellAttackDisplayItem> rightList = new List<SpellAttackDisplayItem>();
+    public List<SpellAttackDisplayItem> RightList { get => rightList; }
     public IEnumerator WakeDisplayer(Sprite sprite,bool leftOrRight = true,string textKey = "Spell_Debug",string searchTable = "SpellDisplayTexts")
     {
-        //SpellAttackDisplayer instance = SpellAttackDisplayer.instance;
-        //设置图像
-        Image img = instance?.GetRoleImage();
+        SpellAttackDisplayItem newItem = Instantiate(itemPrefab,displayArea.transform);//在下侧新建一个Item
+        if(leftOrRight) leftList.Add(newItem);//加入对应的管理列表中
+        else rightList.Add(newItem);
+        //检查当前的列表并设置偏移:内部为栈结构
+        List<SpellAttackDisplayItem> targetList = leftOrRight ? leftList : rightList;
+        int count = targetList.Count;
+        int index = 0;
+        foreach(var itm in targetList?.ToList())
+        {
+            if(itm == null) continue;
+            itm.Offset = (count - index - 1) * (leftOrRight ? offsetUnit : -offsetUnit);
+            index ++;
+        }
+
+        Image img = newItem.RoleSpellImage;
         if (img != null)
         {
             img.sprite = sprite;
@@ -106,7 +89,7 @@ public class SpellAttackDisplayer : MonoBehaviour
         yield return operation;
         if (operation.Status == AsyncOperationStatus.Succeeded)
         {
-            TMP_Text txt = instance?.GetSpellText();
+            TMP_Text txt = newItem.SpellText;
             if (txt != null)
             {
                 txt.text = operation.Result;
@@ -117,7 +100,7 @@ public class SpellAttackDisplayer : MonoBehaviour
             Debug.LogError($"[CardSpellAttackWaker]: Display the Keywords Failed: {operation.OperationException}");
         }
         //播放动画
-        Animator animator = instance?.GetAnimator();
+        Animator animator = newItem.Animator;
         if (animator != null)
         {
             animator?.SetTrigger(leftOrRight ? "Left" : "Right");
