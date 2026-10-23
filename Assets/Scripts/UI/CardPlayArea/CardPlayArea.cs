@@ -43,7 +43,12 @@ public class CardPlayArea : MonoBehaviour
         while(willPlayCardQueue.Count > 0)
         {
             Card card = willPlayCardQueue.Dequeue();
-            yield return BattleMessage.instance?.PlayCard(card,true);
+            //若当前为自己的回合则打出卡牌
+            if(BattleMessage.instance?.IsPlayerTurn() == BattleMessage.instance?.GetControlPlayer()?.GetSide())
+                yield return BattleMessage.instance?.PlayCard(card,true);
+            //否则将卡牌放回手中
+            else 
+                yield return BattleMessage.instance.AddExistCardToHand(card);
         }
         isExecuting = false;
     }

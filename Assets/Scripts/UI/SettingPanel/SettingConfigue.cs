@@ -13,6 +13,7 @@ public class SettingConfigue
     public FullScreenMode fullScreenMode = FullScreenMode.FullScreenWindow;//;//MaximizedWindow;//ExclusiveFullScreen;
     public int vSyncCount = 1;
     public string localeCode = "zh-CN";//语言设置
+    public bool displayCardIndex = true;//是否显示牌的索引
     //音频设置:和混音器有关
     public float masterVolume = 1.0f;//主音量
     public float uiVolume = 1.0f;//UI音效

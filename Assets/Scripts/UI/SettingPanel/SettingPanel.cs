@@ -91,7 +91,8 @@ public class SettingPanel : MonoBehaviour
         );//应用分辨率
         Application.targetFrameRate = (int)settingConfigue?.refreshRate;//应用刷新率
         QualitySettings.vSyncCount = (int)settingConfigue?.vSyncCount;//应用垂直同步
-        
+        CardHandIndexDisplayer.displaySettingOpen = (bool)settingConfigue?.displayCardIndex;//应用是否显示牌的索引
+        Debug.Log($"[SettingPanel]: Set the CardIndexDisplay State to: {CardHandIndexDisplayer.displaySettingOpen}");
     }
 
     //应用语言设置

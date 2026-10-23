@@ -145,7 +145,7 @@ public class BattleMessage : MonoBehaviour
         //否则敌方回合结束(也就是玩家回合开始的那一刻)会把上回合保留下来的手牌误弃掉
         if (isPlayerTurn == yourSide)
         {
-            foreach (Card card in handCardList.ToList())
+            foreach (Card card in handCardList?.ToList())
             {
                 //如果说卡牌存在虚无关键字,则直接消耗卡牌
                 if(card == null)//确保每张牌有效 
@@ -153,7 +153,7 @@ public class BattleMessage : MonoBehaviour
                     handCardList.Remove(card);
                     continue;
                 }
-                if (card.GetCardKeyWords().Contains(CardKeyWord.ETHEREAL))
+                if (card.GetCardKeyWords().Contains(CardKeyWord.ETHEREAL) && (bool)handCardList?.Contains(card))
                 {
                     //消耗卡牌
                     yield return ExhaustCard(card);
@@ -161,7 +161,7 @@ public class BattleMessage : MonoBehaviour
                 }
                 //扔掉手中不含保留关键字的牌
                 //卡槽中的牌不动
-                if(!card.GetCardKeyWords().Contains(CardKeyWord.RETAIN))
+                if(!card.GetCardKeyWords().Contains(CardKeyWord.RETAIN) && (bool)handCardList?.Contains(card))
                 {
                     yield return ((ICardFunctioner)card).AfterRetained();//触发保留效果
                     handCardList.Remove(card);
@@ -272,20 +272,23 @@ public class BattleMessage : MonoBehaviour
         yield return info.length * info.speed;//显示回合切换效果
         //检测控制的角色的回合状态
         //controlPlayer = GetControlPlayer();
+        //费用体系修改:
+        //改为玩家固定每回合获得一定的费用和移动点数
+        //移动点数会跨回合保留
         if (controlPlayer?.GetSide() == isPlayerTurn)
         {
             int drawCardCount = drawCardPreRound/*要加一些其他的东西影响抽牌数*/;
             yield return DrawCard(drawCardCount);//抽5张牌
-            ricePoint += riceChargePreRound;
-            icePoint = 0;
+            ricePoint = riceChargePreRound;
+            icePoint += iceChargePreRound;
             //触发角色的所有能力效果
             //这个函数时具体生效的效果,用于卡牌和能力系统堆角色数值的改变,只有切换回合后才能生效激活
             if(shiftSide) selfTurnStartAction?.Invoke();
         }
         else
         {
-            icePoint += iceChargePreRound + ricePoint;//将剩余的ricePoint变为icePoint
-            ricePoint = 0;
+            //icePoint += ricePoint;//将剩余的ricePoint变为icePoint
+            //ricePoint = 0;
             //这个函数时具体生效的效果,用于卡牌和能力系统堆角色数值的改变,只有切换回合后才能生效激活
             if(shiftSide) selfTurnEndAction?.Invoke();
         }

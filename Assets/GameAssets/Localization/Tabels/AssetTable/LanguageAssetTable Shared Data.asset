@@ -818,6 +818,15 @@ MonoBehaviour:
       1
     m_Metadata:
       m_Items: []
+  - m_Id: 39625703883407360
+    m_Key: CardHandIndexDisplayer/Canvas (Environment)/CardHandIndexDisplayer/IndexText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39625703984070656
+    m_Key: CardHandIndexDisplayer/Canvas (Environment)/CardHandIndexDisplayer/IndexText
+      1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 816146740363657316
@@ -1397,6 +1406,12 @@ MonoBehaviour:
           - zh
           - zh-Hant
           - ja
+        - m_KeyId: 39625703883407360
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
         m_TypeString: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
     - rid: 816146740363657319
@@ -1954,6 +1969,12 @@ MonoBehaviour:
           - zh-Hant
           - ja
         - m_KeyId: 38934986538221568
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 39625703984070656
           m_TableCodes:
           - en
           - zh

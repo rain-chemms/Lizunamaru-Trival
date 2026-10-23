@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using CardSystem;
 using NUnit.Framework;
+using System;
 
 [RequireComponent(typeof(Card))]
 [RequireComponent(typeof(Canvas))]
@@ -45,6 +46,14 @@ public class CardHandler : MonoBehaviour,
     [SerializeField] private Vector2 dragTarget;
     public Vector2 GetDragTarget() => dragTarget;
     public void SetDragTarget(Vector2 dragTarget) => this.dragTarget = dragTarget;
+    //用于恢复concentratePoint显示的临时数据
+    internal struct ConcentratePointTempData
+    {
+        public bool isDisplay;
+        public bool isLock;
+        public Vector2Int startIndex;
+    }
+    private ConcentratePointTempData cPData = new ConcentratePointTempData();
     // 开始拖拽时触发
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -67,6 +76,13 @@ public class CardHandler : MonoBehaviour,
             {
                 arrowLine.SetStartMode(CardArrowLine.ArrowPointMode.CardUI);
                 arrowLine.SetCard(card);
+                //记录并开启锁定点样式
+                cPData.isDisplay = ConcentratePoint.instance.IsDisplay();
+                cPData.isLock = ConcentratePoint.instance.IsLocked();
+                cPData.startIndex = ConcentratePoint.instance.GetIndex();
+                //显示并锁定
+                ConcentratePoint.instance.SetDisplay(true);
+                ConcentratePoint.instance.SetIsLocked(true);
             }
         }
     }
@@ -83,9 +99,20 @@ public class CardHandler : MonoBehaviour,
         isDragging = false;
         card?.GetComponent<CardVoiceController>()?.PlayCardVoice("DisDrag");
         Debug.Log("[CardHandler]: Mouse End Drag]");
-        //拖拽结束后关闭ArrowLine
+        //拖拽结束后关闭ArrowLine并恢复锁定点样式
         CardArrowLine arrowLine = BattleMessageDisplayer.instance?.GetCardArrowLine();
-        if(arrowLine != null) arrowLine.IsOpen = false;
+        if(arrowLine != null) 
+        {
+            arrowLine.IsOpen = false;
+        }
+        //开启锁定点显示的时候恢复锁定点数据
+        bool openArrowline = (bool)card?.IsOpenCardArrowLine();
+        if(openArrowline)
+        {
+            ConcentratePoint.instance.SetDisplay(cPData.isDisplay);
+            ConcentratePoint.instance.SetIsLocked(cPData.isLock);
+            ConcentratePoint.instance.SetIndex(cPData.startIndex);
+        }
     }
 
     // 鼠标按住并拖拽时触发

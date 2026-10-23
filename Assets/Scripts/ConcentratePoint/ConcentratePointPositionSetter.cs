@@ -32,22 +32,13 @@ public class ConcentratePointPositionSetter : MonoBehaviour
         if(concentratePoint == null) return;
         Vector2 index = concentratePoint.GetIndex();//获取索引
         if(index == null) return;
-        //获取棋盘中所有格子
-        List<BattleGrid> grids = BattleBoard.instance?.GetBattleGridList();
-        if(grids == null) return;
-        target = 
-            (Vector3)BattleBoard.instance?.GetGrid00LocalPosition() + 
-            (Vector3)BattleBoard.instance?.transform.position + 
-            new Vector3(0.0f,heightOffset,0.0f);
-        foreach(BattleGrid grid in grids)
-        {
-            if(grid == null) continue;//忽略空格
-            if(grid.GetIndex().x == index.x && grid.GetIndex().y == index.y)
-            {
-                target = grid.transform.position + new Vector3(0.0f,heightOffset,0.0f);
-                break;//找到目标格子后跳出循环
-            }
-        }
+        //依据棋盘信息计算目标位置
+        BattleBoard board = BattleBoard.instance;
+        Vector2 _gaps = (Vector2)board?.GetGapsOfGrid();
+        target =
+            board.transform.position +
+            board.GetGrid00LocalPosition() +
+            new Vector3(_gaps.x * index.x, heightOffset, _gaps.y * index.y);
     }
 
     private void LerpToTargetPosition()

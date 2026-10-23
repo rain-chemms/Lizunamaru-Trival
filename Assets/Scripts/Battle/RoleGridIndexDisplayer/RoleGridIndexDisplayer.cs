@@ -32,12 +32,6 @@ public class RoleGridIndexDisplayer : MonoBehaviour
         lerpOver = false;
     }
 
-    private void SetPosInstantly()
-    {
-        GetTargetPos();
-        transform.position = target;
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -79,24 +73,15 @@ public class RoleGridIndexDisplayer : MonoBehaviour
     private void GetTargetPos()
     {
         if (role == null) return;
-        Vector2Int index = role.GetGridIndex();
-        if (index == null) return;
-        //获取棋盘中所有格子
-        List<BattleGrid> grids = BattleBoard.instance?.GetBattleGridList();
-        if (grids == null) return;
+        Vector2Int index = (Vector2Int)role?.GetGridIndex();
+        //依据棋盘信息计算目标位置
+        BattleBoard board = BattleBoard.instance;
+        Vector2 _gaps = (Vector2)board?.GetGapsOfGrid();
+        
         target =
-            (Vector3)BattleBoard.instance?.GetGrid00LocalPosition() +
-            (Vector3)BattleBoard.instance?.transform.position +
-            new Vector3(0.0f, heightOffset, 0.0f);
-        foreach (BattleGrid grid in grids)
-        {
-            if (grid == null) continue;//忽略空格
-            if (grid.GetIndex().x == index.x && grid.GetIndex().y == index.y)
-            {
-                target = grid.transform.position + new Vector3(0.0f, heightOffset, 0.0f);
-                break;//找到目标格子后跳出循环
-            }
-        }
+            board.transform.position +
+            board.GetGrid00LocalPosition() +
+            new Vector3(_gaps.x * index.x, heightOffset, _gaps.y * index.y);
     }
 
     [SerializeField] private Vector2Int lastPos = Vector2Int.zero;

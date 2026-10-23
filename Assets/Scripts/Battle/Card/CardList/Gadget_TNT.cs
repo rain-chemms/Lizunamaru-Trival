@@ -31,9 +31,40 @@ namespace CardSystem.AllCardHub
             tnt?.SetSide((bool)BattleMessage.instance?.GetControlPlayer()?.GetSide());
             //获取ConcentratePoint的位置
             Vector2Int targetIndex = (Vector2Int)ConcentratePoint.instance?.GetIndex();
+            
+            //如果当前位置的格子为空,选取距离自身最近的非空位置安放
+            BattleBoard board = BattleBoard.instance;
+            List<Vector2Int> emptyGrids = board?.GetEmptyGridIndex();
+            if (emptyGrids != null && emptyGrids.Contains(targetIndex))
+            {
+                Vector2Int boardSize = board.GetWidthAndHeight();
+                int maxDist = Mathf.Max(boardSize.x, boardSize.y);
+                for (int dist = 1; dist <= maxDist; dist++)
+                {
+                    bool found = false;
+                    for (int dx = -dist; dx <= dist && !found; dx++)
+                    {
+                        int dy = dist - Mathf.Abs(dx);
+                        foreach (int s in new int[] { 1, -1 })
+                        {
+                            if (dy == 0 && s == -1) continue;
+                            Vector2Int candidate = targetIndex + new Vector2Int(dx, dy * s);
+                            if (candidate.x >= 0 && candidate.x < boardSize.x &&
+                                candidate.y >= 0 && candidate.y < boardSize.y &&
+                                !emptyGrids.Contains(candidate))
+                            {
+                                targetIndex = candidate;
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (found) break;
+                }
+            }
+
             tnt?.SetGridIndex(targetIndex);
             //设置位置
-            BattleBoard board = BattleBoard.instance;
             Vector3 pos = Vector3.zero;
             Vector2 xz = (Vector2)board?.GetGapsOfGrid() * (Vector2)targetIndex;
             if(board!=null)
