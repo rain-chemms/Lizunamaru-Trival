@@ -17,6 +17,7 @@ public class CardHandler : MonoBehaviour,
     [SerializeField] private bool inHand = false;
     [SerializeField] private bool inDiscard = false;
     [SerializeField] private bool inDraw = false;
+    [SerializeField] private bool inExhaust = false;
     [SerializeField] private bool inSlot = false;
     public bool IsDragging() => isDragging;
     public void SetIsDragging(bool isDragging) => this.isDragging = isDragging;
@@ -76,16 +77,38 @@ public class CardHandler : MonoBehaviour,
             {
                 arrowLine.SetStartMode(CardArrowLine.ArrowPointMode.CardUI);
                 arrowLine.SetCard(card);
-                //记录并开启锁定点样式
-                cPData.isDisplay = ConcentratePoint.instance.IsDisplay();
-                cPData.isLock = ConcentratePoint.instance.IsLocked();
-                cPData.startIndex = ConcentratePoint.instance.GetIndex();
-                //显示并锁定
-                ConcentratePoint.instance.SetDisplay(true);
-                ConcentratePoint.instance.SetIsLocked(true);
             }
         }
     }
+
+
+    private void SaveAndDisplayLockCTP()
+    {
+        bool openArrowline = (bool)card?.IsOpenCardArrowLine();
+        if(openArrowline)
+        {
+            //记录并开启锁定点样式
+            cPData.isDisplay = ConcentratePoint.instance.IsDisplay();
+            cPData.isLock = ConcentratePoint.instance.IsLocked();
+            cPData.startIndex = ConcentratePoint.instance.GetIndex();
+            //显示并锁定
+            ConcentratePoint.instance.SetDisplay(true);
+            ConcentratePoint.instance.SetIsLocked(true);
+        }
+    }
+
+    private void RestoreLockCTP()
+    {
+        //开启锁定点显示的时候恢复锁定点数据
+        bool openArrowline = (bool)card?.IsOpenCardArrowLine();
+        if(openArrowline)
+        {
+            ConcentratePoint.instance.SetDisplay(cPData.isDisplay);
+            ConcentratePoint.instance.SetIsLocked(cPData.isLock);
+            ConcentratePoint.instance.SetIndex(cPData.startIndex);
+        }
+    }
+
 
     private Camera GetUICamera()
     {
@@ -104,14 +127,6 @@ public class CardHandler : MonoBehaviour,
         if(arrowLine != null) 
         {
             arrowLine.IsOpen = false;
-        }
-        //开启锁定点显示的时候恢复锁定点数据
-        bool openArrowline = (bool)card?.IsOpenCardArrowLine();
-        if(openArrowline)
-        {
-            ConcentratePoint.instance.SetDisplay(cPData.isDisplay);
-            ConcentratePoint.instance.SetIsLocked(cPData.isLock);
-            ConcentratePoint.instance.SetIndex(cPData.startIndex);
         }
     }
 
@@ -180,12 +195,14 @@ public class CardHandler : MonoBehaviour,
         );
     }
 
+    [NonSerialized] private bool lastIsDrag_CTP = false;
     void Update()
     {
         //非拖拽状态且不在手牌中时,图片位置 lerp 回到初始位置
-        inHand = BattleMessage.instance.GetHandCardList().Contains(card);
-        inDiscard = BattleMessage.instance.GetDiscardCardList().Contains(card);
-        inDraw = BattleMessage.instance.GetDrawCardList().Contains(card);
+        inHand = (bool)BattleMessage.instance?.GetHandCardList()?.Contains(card);
+        inDiscard = (bool)BattleMessage.instance?.GetDiscardCardList()?.Contains(card);
+        inDraw = (bool)BattleMessage.instance?.GetDrawCardList()?.Contains(card);
+        inExhaust = (bool)BattleMessage.instance?.GetExhaustCardList()?.Contains(card);
         inSlot = false;
         foreach (CardSlot csl in BattleMessage.instance.GetAllCardSlot())
         {
@@ -198,7 +215,7 @@ public class CardHandler : MonoBehaviour,
 
         ChangeCardPosAndRot();//检测并改变图片位置和旋转
         //非拖拽状态,非按下状态且不在手牌中时,图片位置 lerp 回到初始位置
-        if (!isDragging && !inHand && !inSlot && !inDiscard && !inDraw)
+        if (!isDragging && !inHand && !inSlot && !inDiscard && !inDraw && !inExhaust)
         {
             rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition,
                 Vector2.zero,
@@ -206,5 +223,14 @@ public class CardHandler : MonoBehaviour,
             );
         }
 
+        //检测并设置锁定点样式
+        if(lastIsDrag_CTP != isDragging)
+        {
+            lastIsDrag_CTP = isDragging;
+            if(isDragging) SaveAndDisplayLockCTP();
+            else RestoreLockCTP();
+        }
     }
+
+
 }

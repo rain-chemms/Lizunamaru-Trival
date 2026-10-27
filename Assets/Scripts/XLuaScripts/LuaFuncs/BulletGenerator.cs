@@ -2,12 +2,14 @@ using BulletSystem;
 using GridObjectSystem.RoleSystem;
 using UnityEngine.AddressableAssets;
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using XLua;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using System;
 using UnityEditor.SceneManagement;
+using GridObjectSystem;
 
 namespace LuaGameSystem
 {
@@ -16,13 +18,13 @@ namespace LuaGameSystem
     public class BulletGenerator
     {
         public BulletGenerator() { }
-        private Role generateRole = null;
+        private GridObject generateObject = null;
         private Bullet bulletPrefab = null;
-        public void SetRole(Role role) => generateRole = role;
+        public void SetGenerateObject(GridObject role) => generateObject = role;
         public void SetBullet(Bullet bullet) => bulletPrefab = bullet;
 
         //通过资源系统的子弹名获取子弹
-        public void SetBullet(string bulletName, string poolName = null)
+        public IEnumerator SetBullet(string bulletName, string poolName = null)
         {
             var keys = new List<string> { "Bullet" };
             if (!string.IsNullOrEmpty(poolName)) keys.Add("Bullet.Pool." + poolName);
@@ -53,6 +55,7 @@ namespace LuaGameSystem
                 }
                 handle.Release();
             };
+            yield return handle;
         }
 
         public void SetBulletSync(string bulletName, string poolName = null)
@@ -86,11 +89,11 @@ namespace LuaGameSystem
         
         public void GenerateBullet(Vector3 direction, float force = default, ForceMode forceMode = default, Action<Bullet> selfPostProcess = null, Vector3 posOffset = default, Vector3 scale = default)
         {
-            if (bulletPrefab == null || generateRole == null) return;
+            if (bulletPrefab == null || generateObject == null) return;
             Bullet bt = UnityEngine.Object.Instantiate(bulletPrefab);
             if (scale != default) bt.SetScale(scale);//非默认情况设置大小
-            bt.SetSide(generateRole.GetSide());
-            Rigidbody rRb = generateRole.GetRigidBody();
+            bt.SetSide(generateObject.GetSide());
+            Rigidbody rRb = generateObject.GetRigidBody();
             Rigidbody bRb = bt?.GetRigidBody();
             if (rRb != null && bRb != null)
             {

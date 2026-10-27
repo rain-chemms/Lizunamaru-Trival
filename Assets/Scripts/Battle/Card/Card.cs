@@ -90,14 +90,6 @@ namespace CardSystem
         }
         public virtual IEnumerator AfterPlay()
         {
-            //尝试播放打出音效
-            GetComponent<CardVoiceController>()?.PlayCardVoice("Play");
-            //现在声音由动画时间触发
-            //当有消耗词条是将触发卡牌的
-            if ((bool)cardKeyWords?.Contains(CardKeyWord.EXHAUST))
-            {
-                StartCoroutine(BattleMessage.instance?.ExhaustCard(this));//消耗这张卡
-            }
             yield return null;
         }
         public virtual IEnumerator AfterRemoveFromSolt()

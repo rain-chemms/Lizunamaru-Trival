@@ -23,7 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(LuaGameSystem.BulletGenerator);
 			Utils.BeginObjectRegister(type, L, translator, 0, 4, 0, 0);
 			
-			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetRole", _m_SetRole);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetGenerateObject", _m_SetGenerateObject);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetBullet", _m_SetBullet);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetBulletSync", _m_SetBulletSync);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GenerateBullet", _m_GenerateBullet);
@@ -76,7 +76,7 @@ namespace XLua.CSObjectWrap
         
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_SetRole(RealStatePtr L)
+        static int _m_SetGenerateObject(RealStatePtr L)
         {
 		    try {
             
@@ -88,9 +88,9 @@ namespace XLua.CSObjectWrap
             
                 
                 {
-                    GridObjectSystem.RoleSystem.Role _role = (GridObjectSystem.RoleSystem.Role)translator.GetObject(L, 2, typeof(GridObjectSystem.RoleSystem.Role));
+                    GridObjectSystem.GridObject _role = (GridObjectSystem.GridObject)translator.GetObject(L, 2, typeof(GridObjectSystem.GridObject));
                     
-                    gen_to_be_invoked.SetRole( _role );
+                    gen_to_be_invoked.SetGenerateObject( _role );
                     
                     
                     
@@ -131,21 +131,23 @@ namespace XLua.CSObjectWrap
                     string _bulletName = LuaAPI.lua_tostring(L, 2);
                     string _poolName = LuaAPI.lua_tostring(L, 3);
                     
-                    gen_to_be_invoked.SetBullet( _bulletName, _poolName );
+                        var gen_ret = gen_to_be_invoked.SetBullet( _bulletName, _poolName );
+                        translator.PushAny(L, gen_ret);
                     
                     
                     
-                    return 0;
+                    return 1;
                 }
                 if(gen_param_count == 2&& (LuaAPI.lua_isnil(L, 2) || LuaAPI.lua_type(L, 2) == LuaTypes.LUA_TSTRING)) 
                 {
                     string _bulletName = LuaAPI.lua_tostring(L, 2);
                     
-                    gen_to_be_invoked.SetBullet( _bulletName );
+                        var gen_ret = gen_to_be_invoked.SetBullet( _bulletName );
+                        translator.PushAny(L, gen_ret);
                     
                     
                     
-                    return 0;
+                    return 1;
                 }
                 
             } catch(System.Exception gen_e) {

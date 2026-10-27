@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 8413767215954934315}
   - component: {fileID: 9040259589892927280}
   - component: {fileID: 3689250299695373638}
+  - component: {fileID: 634440557966656002}
   m_Layer: 7
   m_Name: SolemnLament_Black
   m_TagString: Untagged
@@ -269,10 +270,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a35a110469b2343befd17b1d97d29b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  landHeightOffset: 1
-  flyHeight: 3
+  landHeightOffset: 3.14
+  flyHeight: 2.94
   grandYOffset: 1.1
   gridObject: {fileID: 5313409892159371577}
+  stopLerpThreshold: 0.005
 --- !u!114 &9040259589892927280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,6 +290,8 @@ MonoBehaviour:
   gridObject: {fileID: 0}
   target: {x: 0, y: 0, z: 1}
   lerpSpeed: 6
+  stopAngleThreshold: 0.5
+  minTargetMagnitude: 0.01
 --- !u!114 &3689250299695373638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,6 +311,21 @@ MonoBehaviour:
   isFlySyncOpen: 1
   revertFlyState: 0
   gapsToRole: {x: 0, y: 0}
+--- !u!114 &634440557966656002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6580333829107755200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36053590f375092448b2e533d2e2f829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  self: {fileID: 5313409892159371577}
+  gods: {fileID: 9040259589892927280}
+  target: {fileID: 0}
 --- !u!1001 &5907086710643619231
 PrefabInstance:
   m_ObjectHideFlags: 0

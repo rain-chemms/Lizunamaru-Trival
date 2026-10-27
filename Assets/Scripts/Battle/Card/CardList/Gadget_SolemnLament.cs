@@ -99,6 +99,12 @@ namespace CardSystem.AllCardHub
             //设置wGun和bGun的归属玩家
             bGun.SetBelongRole(role);
             wGun.SetBelongRole(role);
+            //设置双枪的锁定目标
+            GridObject target = BattleMessage.instance?.GetNearestEnermy(role);
+            GridObjectTargetTowarder gods = bGun.GetComponent<GridObjectTargetTowarder>();
+            if(gods != null) gods.Target = target;
+            gods = wGun.GetComponent<GridObjectTargetTowarder>();
+            if(gods != null) gods.Target = target;
             //设置双枪的玩家位置同步器
             GadgetPositionToRoleSyncer bSyncer = bGun.GetComponent<GadgetPositionToRoleSyncer>();
             bSyncer?.SetPosSyncOpen(true);

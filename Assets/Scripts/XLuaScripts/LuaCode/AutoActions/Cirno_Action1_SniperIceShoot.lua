@@ -11,7 +11,7 @@ local BulletForceAppender = CS.BulletSystem.BulletForceAppender
 local ForceMode = CS.UnityEngine.ForceMode
 
 local btGr = BulletGenerator()
-btGr:SetRole(btGrRole)
+btGr:SetGenerateObject(btGrRole)
 btGr:SetBulletSync("IceCrystal") --操作是异步的需要等待一小会
 
 local btNumber = 12 -- 一圈的子弹数目

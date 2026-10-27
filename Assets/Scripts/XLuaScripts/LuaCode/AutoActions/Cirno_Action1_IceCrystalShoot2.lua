@@ -33,7 +33,7 @@ local BattleMessage = CS.BattleMessage
 print("[Cirno_Action1_IceCrystalShoot]: Init Class!")
 
 local btGr = BulletGenerator()
-btGr:SetRole(btGrRole)
+btGr:SetGenerateObject(btGrRole)
 btGr:SetBulletSync("IceCrystal") --操作是异步的需要等待一小会
 
 print("[Cirno_Action1_IceCrystalShoot]: BTGR Create Over!")

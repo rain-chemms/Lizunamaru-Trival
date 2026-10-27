@@ -284,6 +284,10 @@ public class BattleMessage : MonoBehaviour
             //触发角色的所有能力效果
             //这个函数时具体生效的效果,用于卡牌和能力系统堆角色数值的改变,只有切换回合后才能生效激活
             if(shiftSide) selfTurnStartAction?.Invoke();
+            //自身回合开始的时候设置BattleMessageDisplayer显示
+            var hidder = BattleMessageDisplayer.instance?.GetComponent<BattleUIHider>();
+            hidder?.SetIsHidden(false);
+            hidder?.EffectiveOnClick();
         }
         else
         {
@@ -291,6 +295,10 @@ public class BattleMessage : MonoBehaviour
             //ricePoint = 0;
             //这个函数时具体生效的效果,用于卡牌和能力系统堆角色数值的改变,只有切换回合后才能生效激活
             if(shiftSide) selfTurnEndAction?.Invoke();
+            //自身回合结束的时候设置BattleMessageDisplayer隐藏
+            var hidder = BattleMessageDisplayer.instance?.GetComponent<BattleUIHider>();
+            hidder?.SetIsHidden(true);
+            hidder?.EffectiveOnClick();
         }
         //玩家获取能量之后
         //触发所有的GadgetList中的道具的TurnStart功能
@@ -778,13 +786,13 @@ public class BattleMessage : MonoBehaviour
         if (canvas != null) canvas.sortingOrder = 100 + canvas.sortingOrder;
         BattleMessage.instance?.GetAllCardSlot()?.ForEach(cardSlot =>
         {
-            if (cardSlot?.GetInnerCard() == this)
+            if (cardSlot?.GetInnerCard() == card)
             {
                 cardSlot?.SetInnerCard(null);
             }
         });
 
-        yield return ((ICardFunctioner)card).AfterExhaust();//触发消耗效果
+        yield return ((ICardFunctioner)card)?.AfterExhaust();//触发消耗效果
         animator?.SetTrigger("Exhaust");//触发消耗动画,由消耗动画触发消耗后的效果
         //卡牌得烧毁音效由卡牌自己播放
         yield return null;//等待消耗动画转移
@@ -825,30 +833,22 @@ public class BattleMessage : MonoBehaviour
         //打出卡牌
         if (card == null) yield break;
         //卡牌是否有不可打出关键字
-        bool canPlay = !(bool)card?.GetCardKeyWords()?.Contains(CardKeyWord.UNPLAYABLE);
-        if (card?.GetRiceCost() <= instance?.GetRicePoint() && costRice && canPlay)//能量足够且耗能的情况下可以打出
+        bool canPlay = !(bool)card?.GetCardKeyWords()?.Contains(CardKeyWord.UNPLAYABLE) &&
+            (!costRice || 
+            (costRice && card?.GetRiceCost() <= instance?.GetRicePoint()));
+
+        if (canPlay)//能量足够且耗能的情况下可以打出
         {
-            instance?.SetRicePoint((uint)(instance?.GetRicePoint() - card?.GetRiceCost()));
-            yield return ((ICardFunctioner)card).AfterPlay();//AfterPlay函数会对消耗字段进行检测,若存在消耗字段则触发消耗的连锁函数
+            if(costRice) instance?.SetRicePoint((uint)(instance?.GetRicePoint() - card?.GetRiceCost()));
+            yield return ((ICardFunctioner)card)?.AfterPlay();//AfterPlay函数会对消耗字段进行检测,若存在消耗字段则触发消耗的连锁函数
             //将卡牌返回弃牌堆
             //若当前卡牌有消耗关键字,则不将其加入弃牌堆
-            if (card != null && !(bool)card.GetCardKeyWords()?.Contains(CardKeyWord.EXHAUST)) 
+            if (!(bool)card.GetCardKeyWords()?.Contains(CardKeyWord.EXHAUST)) 
             {
                 instance?.GetDiscardCardList()?.Add(card);
                 instance?.GetHandCardList()?.Remove(card);//将卡牌从手中移除
             }
-        }
-        else if (!costRice && canPlay)
-        {
-            //不对费用进行消耗
-            yield return ((ICardFunctioner)card).AfterPlay();//AfterPlay函数会对消耗字段进行检测,若存在消耗字段则触发消耗的连锁函数
-            //将卡牌返回弃牌堆
-            //若当前卡牌有消耗关键字,则不将其加入弃牌堆
-            if (card != null && !(bool)card.GetCardKeyWords()?.Contains(CardKeyWord.EXHAUST)) 
-            {
-                instance?.GetDiscardCardList()?.Add(card);
-                instance?.GetHandCardList()?.Remove(card);//将卡牌从手中移除
-            }
+            else yield return ExhaustCard(card);
         }
         else//将这张牌返回手中
         {

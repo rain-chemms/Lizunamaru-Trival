@@ -38,7 +38,6 @@ namespace AnimatorEventSystem
         public void AfterExhaust()
         {
             card?.GetComponent<Animator>()?.SetBool("IsHidden", true);
-
         }
 
         public void AtEndOfExhaust()

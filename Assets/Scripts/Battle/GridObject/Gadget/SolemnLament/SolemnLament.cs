@@ -1,6 +1,7 @@
 using UnityEngine;
 using BulletSystem;
 using System.Collections;
+using LuaGameSystem;
 
 namespace GridObjectSystem.GadgetSystem.Guns
 {
@@ -16,10 +17,11 @@ namespace GridObjectSystem.GadgetSystem.Guns
         public override IEnumerator OnGadgetEffect()
         {
             yield return base.OnGadgetEffect();
+            //朝当前forward方向射击子弹
             if(!enabled) yield break;
             for (uint i = 0; i < bulletNumberPreRound; i++)
             {
-                yield return GenerateBullet();
+                GenerateBullet();
                 yield return new WaitForSeconds(shootInterval);//进行射击等待
             }
         }
@@ -38,35 +40,19 @@ namespace GridObjectSystem.GadgetSystem.Guns
             yield return OnGadgetEffect();
         }
 
-        private IEnumerator GenerateBullet()
+        private BulletGenerator bulletGenerator = new BulletGenerator();
+        new void Start()
         {
-            Vector2Int target = GetGridIndex();
-            switch (GetDirection())
-            {
-                case BattleDirection.RIGHT:
-                    target.x += 1;
-                    break;
-                case BattleDirection.LEFT:
-                    target.x -= 1;
-                    break;
-                case BattleDirection.DOWN:
-                    target.y -= 1;
-                    break;
-                case BattleDirection.UP:
-                default:
-                    target.y += 1;
-                    break;
-            }
+            base.Start();
+            if(bulletGenerator == null) bulletGenerator = new BulletGenerator();
+            bulletGenerator.SetGenerateObject(this);
+            bulletGenerator.SetBullet(bulletPrefab);
+        }
 
-            //调起子弹产生协程并传入参数
-            yield return BattleMessage.instance?.GenerateBullet(
-                this,//传入产生的Role信息,包含位置等
-                bulletPrefab,//子弹预设体
-                target,//目标位置
-                default,
-                true,
-                "Shoot"
-            );
+        private void GenerateBullet()
+        {
+            bulletGenerator?.GenerateBullet((Vector3)GetRigidBody()?.transform.forward);
+            GetComponent<Animator>().SetTrigger("Shoot");
         }
     }
 }
