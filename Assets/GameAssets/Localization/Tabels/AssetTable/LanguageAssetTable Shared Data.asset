@@ -827,6 +827,14 @@ MonoBehaviour:
       1
     m_Metadata:
       m_Items: []
+  - m_Id: 41227769760317440
+    m_Key: BonusScene/BonusContainer/TittleText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41227769865175040
+    m_Key: BonusScene/BonusContainer/TittleText 1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 816146740363657316
@@ -1412,6 +1420,12 @@ MonoBehaviour:
           - zh
           - zh-Hant
           - ja
+        - m_KeyId: 41227769760317440
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
         m_TypeString: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
     - rid: 816146740363657319
@@ -1975,6 +1989,12 @@ MonoBehaviour:
           - zh-Hant
           - ja
         - m_KeyId: 39625703984070656
+          m_TableCodes:
+          - en
+          - zh
+          - zh-Hant
+          - ja
+        - m_KeyId: 41227769865175040
           m_TableCodes:
           - en
           - zh
