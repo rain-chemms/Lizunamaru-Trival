@@ -295,7 +295,7 @@ namespace MapSystem
             RecurMap(
                 (int)SeedSetter.instance?.GetSeed_Int(),
                 new Vector2Int(5, 15),
-                MapAreaCategory.HAKUREI_SHRINE,
+                MapAreaCategory.MONSTER_MOUNT,
                 new Vector2Int(0, 0)
             );
         }

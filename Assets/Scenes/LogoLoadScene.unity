@@ -1804,6 +1804,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Effective_ScreamPrepare (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8378813824054461103, guid: dca6a0481500f2f44a7db17cdc7d1727, type: 3}
+      propertyPath: cardKeyWords.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378813824054461103, guid: dca6a0481500f2f44a7db17cdc7d1727, type: 3}
+      propertyPath: 'cardKeyWords.Array.data[2]'
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10287,7 +10295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8208616566129945358, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: isDisplay
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8208616566129945358, guid: ebbc72809d100554090b0f1a5fbe9dda, type: 3}
       propertyPath: playerIndex.y
