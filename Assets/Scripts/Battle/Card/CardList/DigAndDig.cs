@@ -17,8 +17,10 @@ namespace CardSystem.AllCardHub
 
         public override IEnumerator AfterPlay()
         {
+            playCanceled = false;
             //连接选择方法
             CardSelectOperator.instance.SetOperateFunc(AddTheDrawListCardToHand);
+            CardSelectOperator.instance.SetCancelFunc(CancelOperateFunc);
             //将所有的抽牌堆中的卡牌加入选择列表中
             List<(Card,Transform)> cpList = new List<(Card,Transform)>();
             foreach(Card card in BattleMessage.instance?.GetDrawCardList())
@@ -28,7 +30,7 @@ namespace CardSystem.AllCardHub
                 cpList.Add((card,parent));
             }
             //调起CardSelectOperator
-            yield return CardSelectOperator.instance.CallTheCardSelectOperator(searchCount,CardOperateCategory.EQUAL,cpList);
+            yield return CardSelectOperator.instance.CallTheCardSelectOperator(searchCount,CardOperateCategory.EQUAL,this,cpList,true);
             yield return base.AfterPlay();
         }
 
@@ -40,6 +42,13 @@ namespace CardSystem.AllCardHub
             Debug.Log("[DigAndDig]: Excute Card" + card.name);
             //放回原先的父物体中
             card.transform.SetParent(card.transform.parent);
+        }
+
+        
+        private IEnumerator CancelOperateFunc()
+        {
+            playCanceled = true;
+            yield return null;
         }
     }
 }

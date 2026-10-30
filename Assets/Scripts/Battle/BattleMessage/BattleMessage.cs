@@ -845,8 +845,15 @@ public class BattleMessage : MonoBehaviour
             //若当前卡牌有消耗关键字,则不将其加入弃牌堆
             if (!(bool)card.GetCardKeyWords()?.Contains(CardKeyWord.EXHAUST)) 
             {
-                instance?.GetDiscardCardList()?.Add(card);
-                instance?.GetHandCardList()?.Remove(card);//将卡牌从手中移除
+                if(!card.PlayCanceled)//若卡牌打出过程中未被取消
+                {
+                    instance?.GetDiscardCardList()?.Add(card);
+                    instance?.GetHandCardList()?.Remove(card);//将卡牌从手中移除
+                }
+                else//卡牌打出过程中被取消,将卡牌加入会手牌中
+                {
+                    yield return instance?.AddExistCardToHand(card);
+                }
             }
             else yield return ExhaustCard(card);
         }

@@ -18,7 +18,7 @@ namespace CardSystem.AllCardHub
             //设置Filter为空
             HandCardOperator.instance?.ClearCardFilter();
             //激活手牌执行器,数量为1
-            yield return HandCardOperator.instance?.CallTheHandCardOperator(1,CardOperateCategory.AT_LEAST);
+            yield return HandCardOperator.instance?.CallTheHandCardOperator(1,CardOperateCategory.AT_LEAST,this);
             yield return BattleMessage.instance.DrawCard(drawCount);
             yield return base.AfterPlay();
         }

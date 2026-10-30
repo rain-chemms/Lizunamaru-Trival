@@ -20,7 +20,7 @@ namespace CardSystem.AllCardHub
             //设置Filter为空
             HandCardOperator.instance?.ClearCardFilter();
             //激活手牌执行器
-            yield return HandCardOperator.instance?.CallTheHandCardOperator(discardCardCount,CardOperateCategory.AT_LEAST);
+            yield return HandCardOperator.instance?.CallTheHandCardOperator(discardCardCount,CardOperateCategory.AT_LEAST,null,true);//这里如果将卡牌传入的话(null => this)取消操作时就会把这张牌重新放回手牌中,但这样逻辑上不对
         }
     
         private IEnumerator DiscardCard(Card card)

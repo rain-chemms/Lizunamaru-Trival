@@ -36,7 +36,7 @@ namespace CardSystem.AllCardHub
                 //添加所有非Power的类型作为过滤器
                 if(ctg != CardCategory.POWER && ctg != CardCategory.SPELL_ATTACK) HandCardOperator.instance?.AddCardCategoryFilter(ctg);
             }
-            yield return HandCardOperator.instance?.CallTheHandCardOperator(selectCount,CardOperateCategory.AT_LEAST);
+            yield return HandCardOperator.instance?.CallTheHandCardOperator(selectCount,CardOperateCategory.AT_LEAST,this);
             yield return base.AfterPlay();
         }
 

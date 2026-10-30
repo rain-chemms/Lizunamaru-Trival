@@ -41,6 +41,10 @@ public class HandCardOperator : MonoBehaviour
     [SerializeField] private List<Card> selectedCards;//当前选中的卡牌
     public List<Card> GetSelectedCards() => selectedCards;
     public List<Card> GetSelectedCards_Copy() => selectedCards.ToList();
+    [SerializeField] private Card callCard;//是否是某一张卡牌调起的操作
+    public Card GetCallCard() => callCard;
+    public void SetCallCard(Card callCard) => this.callCard = callCard;
+
     //执行的数量
     [SerializeField] private uint operateCount;
     public uint GetOperateCount() => operateCount;
@@ -84,11 +88,23 @@ public class HandCardOperator : MonoBehaviour
 
     [SerializeField] private bool selectOver = false;//是否已结束选择
     public void SetSelectOver(bool isOver) => selectOver = isOver;
+    
+    
+    //操作取消选项
+    [SerializeField] private bool isCanceled = false;//当前操作是否被取消
+    public void SetCanceled(bool isCanceled) => this.isCanceled = isCanceled;
+    [SerializeField] private bool canCancel;
+    public void SetCanCancel(bool canCancel) => this.canCancel = canCancel;
+    public bool GetCanCancel() => canCancel;
 
-    public IEnumerator CallTheHandCardOperator(uint operateCount, CardOperateCategory operateCategory)
+
+    public IEnumerator CallTheHandCardOperator(uint operateCount, CardOperateCategory operateCategory, Card theCallCard, bool canCancel = false)
     {
         SetOperateCount(operateCount);
         SetOperateCategory(operateCategory);
+        SetCallCard(theCallCard);
+        SetCanCancel(canCancel);
+        isCanceled = false;//重置取消状态
         HandCardOperatorOpenController hoCtr = GetComponent<HandCardOperatorOpenController>();
         hoCtr?.SetOpen(true);
         //激活所有手牌的执行器
@@ -110,7 +126,8 @@ public class HandCardOperator : MonoBehaviour
         }
         //牌量足够时等待选择结束,处于At_Least模式时等待选择结束
         //At_Most条件下一定要等待选择因为可以不选
-        if (cardCount > operateCount || operateCategory == CardOperateCategory.AT_MOST || operateCategory == CardOperateCategory.NOT_ABOVE) yield return new WaitUntil(() => selectOver);
+        //若可以取消,则等待取消操作
+        if (cardCount > operateCount || operateCategory == CardOperateCategory.AT_MOST || operateCategory == CardOperateCategory.NOT_ABOVE || canCancel) yield return new WaitUntil(() => selectOver || (canCancel && isCanceled));
         else
         {
             //牌量不够时将剩余符合条件的卡牌直接加入选择器中
@@ -135,9 +152,14 @@ public class HandCardOperator : MonoBehaviour
             //重新开启卡槽插入检测器
             CardInsertSlotChecker cslChecker = card.GetComponent<CardInsertSlotChecker>();
             if (cslChecker != null) cslChecker.enabled = true;
+            CloseCardVfx(card);
         }
 
-        yield return OperateFuncToSelectedCards();
+        if(canCancel && isCanceled)//若操作取消,将执行列表中的卡牌放回手中
+        {
+            yield return CancelTheOperate();
+        }
+        else yield return OperateFuncToSelectedCards();
         //执行后清空已选择的卡牌列表
         selectedCards.Clear();
         //关闭选择器
@@ -152,8 +174,18 @@ public class HandCardOperator : MonoBehaviour
             if (card == null) continue;
             yield return operateFunc(card);
             //关闭相对应的卡牌的显示特效
-            CloseCardVfx(card);
+            //CloseCardVfx(card);
         }
+    }
+
+    private IEnumerator CancelTheOperate()
+    {
+        foreach (Card card in selectedCards)
+        {
+            if (card == null) continue;
+            yield return BattleMessage.instance.AddExistCardToHand(card);
+        }
+        if(callCard != null) yield return BattleMessage.instance.AddExistCardToHand(callCard);
     }
 
     private void CloseCardVfx(Card card)

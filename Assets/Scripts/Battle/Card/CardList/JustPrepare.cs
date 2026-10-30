@@ -19,7 +19,7 @@ namespace CardSystem.AllCardHub
             //清空过滤器
             HandCardOperator.instance?.ClearCardFilter();
             //激活手牌执行器
-            yield return HandCardOperator.instance?.CallTheHandCardOperator(discardCardCount,CardOperateCategory.AT_LEAST);
+            yield return HandCardOperator.instance?.CallTheHandCardOperator(discardCardCount,CardOperateCategory.AT_LEAST,null,false);
         }
 
         private IEnumerator DiscardCard(Card card)

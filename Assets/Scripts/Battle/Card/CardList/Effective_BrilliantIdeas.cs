@@ -20,11 +20,12 @@ namespace CardSystem.AllCardHub
 
         [SerializeField] private static int playTime = 0;
         public static int GetPlayTime() => playTime;
-
+        List<Card> willSelectCard = new List<Card>();
+            
         public override IEnumerator AfterPlay()
         {
+            playCanceled = false;
             //生成待选卡组
-            List<Card> willSelectCard = new List<Card>();
             for(int i = 0;i < checkNumber;i++)
             {
                 Card prefab = CardPoolManager.instance?.GetRandomCardFromPool(i + playTime,null);//完全随机的选择卡牌
@@ -35,6 +36,7 @@ namespace CardSystem.AllCardHub
             }
             //连接选择方法
             CardSelectOperator.instance.SetOperateFunc(AddCardToHandAndAddKeyWordsAndAddRicePoint);
+            CardSelectOperator.instance.SetCancelFunc(CancelOperateFunc);
             //将所有的抽牌堆中的卡牌加入选择列表中
             List<(Card,Transform)> cpList = new List<(Card,Transform)>();
             foreach(Card card in willSelectCard)
@@ -44,7 +46,7 @@ namespace CardSystem.AllCardHub
                 cpList.Add((card,parent));
             }
             //调起CardSelectOperator
-            yield return CardSelectOperator.instance?.CallTheCardSelectOperator(selectNumber,CardOperateCategory.AT_MOST,cpList);
+            yield return CardSelectOperator.instance?.CallTheCardSelectOperator(selectNumber,CardOperateCategory.AT_MOST,this,cpList,true);
             //将没有被选中加入到牌组中的牌直接删除
             foreach(Card card in willSelectCard?.ToList())
             {
@@ -58,6 +60,8 @@ namespace CardSystem.AllCardHub
                     Destroy(card.gameObject);
                 }
             }
+            willSelectCard?.Clear();
+
             playTime ++;
             yield return base.AfterPlay();
         }
@@ -71,6 +75,18 @@ namespace CardSystem.AllCardHub
             yield return BattleMessage.instance?.AddExistCardToHand(card);//添加到手牌中        
             //放回原先的父物体中
             card.transform.SetParent(card.transform.parent);    
+        }
+
+        private IEnumerator CancelOperateFunc()
+        {
+            foreach(Card card in willSelectCard?.ToList())
+            {
+                if(card == null) continue;
+                Destroy(card.gameObject);
+            }
+            willSelectCard?.Clear();
+            playCanceled = true;
+            yield return null;
         }
         
     }

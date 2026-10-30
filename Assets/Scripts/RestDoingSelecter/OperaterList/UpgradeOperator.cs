@@ -11,8 +11,10 @@ namespace RestDoingSystem
         //一次升级几张牌
         public static uint upgradeCount = 1;
         [SerializeField] private SerializableDictionary<Card,PlayerCardHub.PlayerCardHubItem> dict = new SerializableDictionary<Card, PlayerCardHub.PlayerCardHubItem>();
+        private bool isCanceled = false;
         protected override void OperateEffect()
         {
+            isCanceled = false;
             dict.Clear();
             //创建Dict和cpList
             List<(Card,Transform)> cpList = new List<(Card,Transform)>();
@@ -26,6 +28,7 @@ namespace RestDoingSystem
             }
             //连接选择方法
             CardSelectOperator.instance.SetOperateFunc(UpgradeCardInHub);
+            CardSelectOperator.instance.SetCancelFunc(CancelUpgrade);
             //调起CardSelectOperator
             StartCoroutine(CallCardSelectOperatorAndDestroyAllCardEntity(cpList));
         }
@@ -33,12 +36,18 @@ namespace RestDoingSystem
         //删除所有
         private IEnumerator CallCardSelectOperatorAndDestroyAllCardEntity(List<(Card,Transform)> cpList)
         {
-            yield return CardSelectOperator.instance.CallTheCardSelectOperator(upgradeCount,CardOperateCategory.EQUAL,cpList);
+            yield return CardSelectOperator.instance.CallTheCardSelectOperator(upgradeCount,CardOperateCategory.EQUAL,null,cpList,true);
             foreach((Card card,Transform tf) in cpList)
             {
                 Destroy(card.gameObject);
             }
-            base.OperateEffect();
+            if(!isCanceled) base.OperateEffect();//没取消操作则执行完毕,解锁地图和设置状态为执行完毕
+        }
+
+        private IEnumerator CancelUpgrade()
+        {
+            isCanceled = true;
+            yield break;
         }
 
         private IEnumerator UpgradeCardInHub(Card card)

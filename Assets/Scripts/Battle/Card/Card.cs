@@ -53,6 +53,9 @@ namespace CardSystem
         [SerializeField] protected uint cardUpgradeLevel = 0;//卡牌的等级,0等级代表并未升级
         public void SetCardUpgradeLevel(uint level) => cardUpgradeLevel = level;
         public uint GetCardUpgradeLevel() => cardUpgradeLevel;
+        //这个字段用于配合CardPlayArea类,在打出一张牌后,若玩家点击了取消按钮,则将这张牌放回手中
+        [SerializeField] protected bool playCanceled = false;//是否在打出过程中取消了这张牌的打出
+        public bool PlayCanceled { get => playCanceled; set => playCanceled = value; }
         //卡牌接口的空实现
         public virtual IEnumerator AfterRetained()//在一张牌被保留后触发
         {

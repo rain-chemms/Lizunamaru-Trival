@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using CardSystem;
 using System.Linq;
+using CardVfxSystem;
 
 //已有卡牌选择执行器,类似HandCardOperator,但是选择的是已经存在的卡牌
 [RequireComponent(typeof(Canvas))]
@@ -23,7 +24,6 @@ public class CardSelectOperator : MonoBehaviour
         }
     }
 
-
     //卡牌存储相关
     //卡牌列表
     //要临时修改当前卡牌的位置,其中记录者原来的父物体的
@@ -34,6 +34,11 @@ public class CardSelectOperator : MonoBehaviour
     */
     public List<(Card,Transform)> GetWillSelectCardList() => willSelectCardList;
     public List<(Card,Transform)> GetWillSelectCardList_Copy() => willSelectCardList.ToList();
+    //是否为一张卡牌调起的
+    [SerializeField] private Card callCard;
+    public Card GetCallCard() => callCard;
+    public void SetCallCard(Card card) => callCard = card;
+
     /// <summary>
     /// 添加一个(卡牌,父物体元组)
     /// </summary>
@@ -60,7 +65,10 @@ public class CardSelectOperator : MonoBehaviour
     //操作函数设置
     [SerializeField] public Func<Card,IEnumerator> operateFunc;//操作函数,每次调用时必须传入当前需要对卡牌进新的操作,返回协程对象并传入Card
     public void SetOperateFunc(Func<Card,IEnumerator> operateFunc) => this.operateFunc = operateFunc;
-    
+    //操作取消函数
+    [SerializeField] public Func<IEnumerator> cancelFunc;
+    public void SetCancelFunc(Func<IEnumerator> cancelFunc) => this.cancelFunc = cancelFunc;
+
     //执行数量
     [SerializeField] private uint operateCount;
     public uint GetOperateCount() => operateCount;
@@ -72,13 +80,23 @@ public class CardSelectOperator : MonoBehaviour
     //状态标识符
     [SerializeField] private bool selectOver = false;//是否已结束选择
     public void SetSelectOver(bool isOver) => selectOver = isOver;
+    //取消操作相关
+    [SerializeField] private bool isCanceled = false;//是否已取消选择
+    public void SetCanceled(bool isCanceled) => this.isCanceled = isCanceled;
+    public bool IsCanceled() => isCanceled;
+    [SerializeField] private bool canCancel = false;//是否已取消选择
+    public bool GetCanCancel() => canCancel;
+    public void SetCanCancel(bool canCancel) => this.canCancel = canCancel;
 
     //willSelectList可以在外部设置也可以直接传入
     //直接传入时,会覆盖外界已经加入的选择的CardList
-    public IEnumerator CallTheCardSelectOperator(uint operateCount,CardOperateCategory operateCategory,List<(Card,Transform)> willSelectList = null)//激活选择器
+    public IEnumerator CallTheCardSelectOperator(uint operateCount, CardOperateCategory operateCategory, Card callCard, List<(Card,Transform)> willSelectList = null, bool canCancel = false)//激活选择
     {
         SetOperateCount(operateCount);//设置执行数量
         SetOperateCategory(operateCategory);//设置执行类别
+        SetCallCard(callCard);//设置调用卡牌
+        SetCanCancel(canCancel);//设置是否可取消选择
+        isCanceled = false;//重置取消标识符
         if(willSelectList != null)//传入的列表不为空时,将传入的列表加入willSelectList
         {
             willSelectCardList.Clear();//清空已有的卡牌列表
@@ -132,7 +150,7 @@ public class CardSelectOperator : MonoBehaviour
         int cardCount = willSelectCardList.ToList().Count;
         //判断卡牌数量是否充足,处于At_Most条件下可以不做选择因此一定要打开
         //EQUAL不能多也不能少,但如果卡牌数量不够,那EQUAL按照AT_LEAST处理
-        if(cardCount > operateCount  || operateCategory == CardOperateCategory.AT_MOST || operateCategory ==  CardOperateCategory.NOT_ABOVE) yield return new WaitUntil(() => selectOver);//充足时等待玩家选择结束
+        if(cardCount > operateCount  || operateCategory == CardOperateCategory.AT_MOST || operateCategory ==  CardOperateCategory.NOT_ABOVE || canCancel) yield return new WaitUntil(() => selectOver || (canCancel && isCanceled));//充足时等待玩家选择结束
         else
         {
             //牌量不够时的逻辑:将所有牌标记为已经选择
@@ -170,6 +188,7 @@ public class CardSelectOperator : MonoBehaviour
             //打开CardInStackChecker
             CardInStackChecker cisChecker = card.GetComponent<CardInStackChecker>();
             if(cisChecker != null) cisChecker.enabled = true;  
+            CloseCardVfx(card);//关闭卡牌的显示特效
         }
         //清空已选择的卡牌列表
         //防止UI显示错误,将已选择的卡牌放回原来的位置
@@ -185,7 +204,11 @@ public class CardSelectOperator : MonoBehaviour
             card.transform.SetParent(parent);//放回原UI父物体位置
         }
         //相关的卡牌数据存储移动操作在外部进行
-        yield return OperateFuncToSelectedCards();
+        if(canCancel && isCanceled)
+        {
+            yield return CancelOperateFunc();
+        }
+        else yield return OperateFuncToSelectedCards();
         //移除剩余的卡牌
         willSelectCardList.Clear();
         //重新开启所有StackCardAnchorSetter和所有StackCardSortOrderSetter组件
@@ -212,5 +235,61 @@ public class CardSelectOperator : MonoBehaviour
                 ctr?.FreshCardVfx();
             }
         }
+    }
+
+    private IEnumerator CancelOperateFunc()
+    {
+        //关闭所有卡牌的CardCardSelectOperatorController脚本
+        foreach ((Card card,Transform parent) cp in willSelectCardList)
+        {
+            Card card = cp.card;
+            Transform parent = cp.parent;
+            if(card == null) continue;
+            //若当前卡牌处于已经选择的状态则执行相关的操作
+            CardCardSelectOperatorController ctr = card?.GetComponent<CardCardSelectOperatorController>();
+            //当前卡牌处于选择状态
+            if((bool)ctr?.IsSelected()) 
+            {
+                ctr?.SetSelected(false);
+                ctr?.FreshCardVfx();
+            }
+            card.transform.SetParent(parent);//放回原UI父物体位置
+        }
+        if(cancelFunc != null) yield return cancelFunc.Invoke();
+        //若是某一张牌打出时激活的,则要将这张牌放回手中
+        if(callCard != null) yield return BattleMessage.instance?.AddExistCardToHand(callCard);
+    }
+
+    private void CloseCardVfx(Card card)
+    {
+        //关闭相对应的卡牌的显示特效
+        string vfxXColor = "_Black";
+        switch (card?.GetCardCategory())
+        {
+            case CardCategory.POWER:
+                vfxXColor = "_Green";
+                break;
+            case CardCategory.GADGET:
+                vfxXColor = "_Blue";
+                break;
+            case CardCategory.ATTACK:
+                vfxXColor = "_Red";
+                break;
+            case CardCategory.SPELL_ATTACK:
+                vfxXColor = "_White";
+                break;
+            case CardCategory.CURSE:
+                vfxXColor = "_Purple";
+                break;
+            case CardCategory.STATUS:
+                vfxXColor = "_DarkGreen";
+                break;
+            case CardCategory.EFFECTIVE:
+            default:
+                vfxXColor = "_Black";
+                break;
+        }
+        //尝试关闭Vfx
+        card?.GetComponentInChildren<CardVfxDisplayer>()?.CloseVfx("SpreadGlow" + vfxXColor);
     }
 }
