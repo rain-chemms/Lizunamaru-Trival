@@ -27,6 +27,24 @@ MonoBehaviour:
     m_SerializedLabels:
     - RoleChoiceData
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cbbaec2f56e0d6c4491e0b58b6f937a6
+    m_Address: Assets/GameAssets/ScritpableObject/RoleChoiceData/RoleChoiceData_Aya.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - RoleChoiceData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d457eb000b327e94baacc6957d5dda15
+    m_Address: Assets/GameAssets/ScritpableObject/RoleChoiceData/RoleChoiceData_Marisa.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - RoleChoiceData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e8c74479ace60194fac310f39c6fedc2
+    m_Address: Assets/GameAssets/ScritpableObject/RoleChoiceData/RoleChoiceData_Reimu.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - RoleChoiceData
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e8888f07cbfd2fc48b162c127f18c7e3, type: 2}
   m_SchemaSet:

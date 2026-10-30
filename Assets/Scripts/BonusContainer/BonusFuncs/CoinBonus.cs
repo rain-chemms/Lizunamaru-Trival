@@ -6,12 +6,9 @@ namespace BonusSystem.BonusFuncs
     //金币奖励生效器
     public class CoinBonus : Bonus
     {
-        [SerializeField] private uint coinCount;
-        public uint CoinCount => coinCount;
-
         public override IEnumerator OnEffective()
         {
-            BattleMessage.instance?.SetCoins((uint)BattleMessage.instance?.GetCoins() + coinCount);
+            BattleMessage.instance?.SetCoins((uint)BattleMessage.instance?.GetCoins() + bonusCount);
             EffectiveSuccess = true;
             yield return null;
         }

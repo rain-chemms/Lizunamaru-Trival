@@ -124,10 +124,20 @@ namespace LevelLoadSystem
             //保存当前进度到SaveSystem和文件系统
             if(!(bool)SaveSystem.instance?.GamePlayDataExist(SaveSystem.instance.NowSaveIndex))
             {
-                SaveSystem.instance.CreateANewGamePlayData(SaveSystem.instance.NowSaveIndex);
+                SaveSystem.instance.CreateANewGamePlayData(SaveSystem.instance.NowSaveIndex);//保存上一步的进度
                 SaveSystem.instance.LoadFileData();
             }
+
+            //角色 当前生命值|最大生命值 相关的部分还没有同步
+            SaveSystem.instance.GamePlayDatas[SaveSystem.instance.NowSaveIndex].seed = SeedSetter.instance?.GetSeed();
+            SaveSystem.instance.GamePlayDatas[SaveSystem.instance.NowSaveIndex].coins = (uint)BattleMessage.instance?.GetCoins();
+            SaveSystem.instance.GamePlayDatas[SaveSystem.instance.NowSaveIndex].mapArea = (MapAreaCategory)Map.instance?.GetMapArea();
+            SaveSystem.instance.GamePlayDatas[SaveSystem.instance.NowSaveIndex].mapSize = (Vector2Int)Map.instance?.GetMapSize();
+            SaveSystem.instance.GamePlayDatas[SaveSystem.instance.NowSaveIndex].selectRole = BattleMessage.instance?.GetRoleChoiceData()?.RoleName;
             SaveSystem.instance.GamePlayDatas[SaveSystem.instance.NowSaveIndex].mapIndex = mapIndex;
+            SaveSystem.instance.GamePlayDatas[SaveSystem.instance.NowSaveIndex].maxHp = (uint)BattleMessage.instance?.GetControlPlayer()?.GetMaxHp();
+            SaveSystem.instance.GamePlayDatas[SaveSystem.instance.NowSaveIndex].currentHp = (uint)BattleMessage.instance?.GetControlPlayer()?.GetHp();
+            SaveSystem.instance.GamePlayDatas[SaveSystem.instance.NowSaveIndex].cardHub = PlayerCardHub.instance.GetFullNameListOfCardHub();//保存当前状态下的卡组
             SaveSystem.instance.SaveDataToFile(SaveSystem.instance.NowSaveIndex,true,false,false);
 
             //数据的存储要优先于加载
@@ -260,26 +270,35 @@ namespace LevelLoadSystem
             board.GetComponent<BattleBoardPhysicBoarderController>()?.ResizeTheBoundaryByBoardSize();//设置子弹的物理边界
 
             //一下部分为依据LodeInMessage信息初始化战斗场景
-            int id_append = 0;
+            int id_append = (int)BattleMessage.instance?.GetControlPlayerID();
             //这部分需要从玩家信息获取器中实时读取玩家信息
             //信息包括:玩家的默认阵营,玩家血量,玩家最大生命值,玩家金币量,玩家卡牌列表+未加入的其他控制信息
 
             //初始化玩家角色,依据lodeInMessage设置玩家位置,并设置控制的玩家ID为当前玩家
             Role playerPrefab = BattleMessage.instance?.GetRoleChoiceData()?.RolePrefab;
-            Role player = null;
-            if(playerPrefab != null) player = Instantiate(playerPrefab,board.transform);
-            player?.SetSide(true);
-            player?.SetID((uint)id_append);
-            player?.SetRoundOperateEnd(false);
-            id_append++;
-            if(player != null) 
+            Role player = BattleMessage.instance?.GetControlPlayer();
+            if(playerPrefab != null && player == null) 
             {
-                BattleMessage.instance?.SetControlPlayerID((uint)player?.GetID());
-                BattleMessage.instance?.GetRoleList()?.Add(player);
+                id_append = 0;//若玩家控制物体不存在则从0开始编号
+                //若玩家控制物体不存在则创建一个新的玩家物体
+                player = Instantiate(playerPrefab,board.transform);
+                player?.SetSide(true);
+                player?.SetID((uint)id_append);
+                id_append++;
+                if(player != null) 
+                {
+                    BattleMessage.instance?.SetControlPlayerID((uint)player?.GetID());
+                    BattleMessage.instance?.GetRoleList()?.Add(player);
+                }
             }
             //设置玩家的数据
+            float maxHp = SaveSystem.instance.GamePlayDatas[SaveSystem.instance.NowSaveIndex].maxHp;
+            float hp = SaveSystem.instance.GamePlayDatas[SaveSystem.instance.NowSaveIndex].currentHp;
+            if(hp > maxHp) hp = maxHp;
+            player?.SetMaxHp(maxHp);
+            player?.SetHp(hp);        
             player?.SetGridIndex(loadInMessage.GetPlayerStartIndex());
-            
+            player?.SetRoundOperateEnd(false);
             //某些遗物可以在这里产生效果
 
             //初始化敌人及其位置

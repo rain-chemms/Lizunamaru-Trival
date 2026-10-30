@@ -24,6 +24,7 @@ namespace CardSystem.CardPoolSystem
         [SerializeField] private SerializableDictionary<string,Card> cardPrefabDict = new SerializableDictionary<string, Card>();//当前卡池中存放的卡牌预制体
         public SerializableDictionary<string,Card> GetCardPrefabDict() => cardPrefabDict;
 
+        public List<Card> GetAllCardPrefabInPool() => cardPrefabDict.Values.ToList();
         //使用卡牌完整的命名空间+类名获取唯一的卡牌
         //这个是唯一标识符
         public Card GetCardPrefabByFullClassName(string fullName)

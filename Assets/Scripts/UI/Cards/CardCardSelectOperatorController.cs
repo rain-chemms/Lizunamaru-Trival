@@ -55,7 +55,8 @@ public class CardCardSelectOperatorController : MonoBehaviour, IPointerClickHand
                 break;
         }
         //尝试打开Vfx
-        CardVfxDisplayer dsp = card?.GetComponentInChildren<CardVfxDisplayer>();
+        CardVfxDisplayer dsp = null;
+        if(card != null) dsp = card.GetComponentInChildren<CardVfxDisplayer>();
         if(isSelected) dsp?.OpenVfx("SpreadGlow" + vfxXColor);
         else dsp?.CloseVfx("SpreadGlow" + vfxXColor);    
     }

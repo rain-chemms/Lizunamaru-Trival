@@ -49,6 +49,7 @@ namespace MapSystem
             }
             map.GetNodeList()?.Clear();
             map.GetLinkData()?.Clear();
+            
             //设置基础数据
             map.SetMapArea(area);
             map.SetMapSize(size);

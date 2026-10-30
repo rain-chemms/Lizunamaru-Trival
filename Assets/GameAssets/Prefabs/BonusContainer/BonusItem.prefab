@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 8802641027007599281}
   - component: {fileID: 1049131420454241398}
   - component: {fileID: 5889361397223822750}
-  - component: {fileID: 2330048802268326844}
   - component: {fileID: 8060004018524040653}
+  - component: {fileID: 2330048802268326844}
+  - component: {fileID: 7480299170728847836}
   m_Layer: 5
   m_Name: BonusItem
   m_TagString: Untagged
@@ -125,19 +126,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2330048802268326844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 192111162380035692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f87240cda4407ec4da81d3a027ac193a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 5889361397223822750}
 --- !u!95 &8060004018524040653
 Animator:
   serializedVersion: 7
@@ -160,6 +148,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2330048802268326844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192111162380035692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f87240cda4407ec4da81d3a027ac193a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 5889361397223822750}
+--- !u!114 &7480299170728847836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192111162380035692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 201b62c71f38a5344811bf4e89e496fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countText: {fileID: 8637101793392952366}
+  descriptionText: {fileID: 4357414656652474642}
+  previewImage: {fileID: 613706187808809559}
 --- !u!1 &303511445599275546
 GameObject:
   m_ObjectHideFlags: 0

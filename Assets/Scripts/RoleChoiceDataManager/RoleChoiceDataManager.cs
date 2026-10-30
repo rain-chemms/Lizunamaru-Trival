@@ -26,6 +26,11 @@ public class RoleChoiceDataManager : MonoBehaviour
     public List<RoleChoiceData> ChoiceDataList { get => choiceDataList; }
     public List<RoleChoiceData> ChoiceDataList_Copy { get => choiceDataList.ToList(); }
 
+    public RoleChoiceData GetRoleChoiceDataByName(string roleName)
+    {
+        return choiceDataList.FirstOrDefault(x => x.RoleName.Equals(roleName));
+    }
+
     //游戏开始时自动获取所有资源列表中的RoleChoiceData标签的物体
     void OnEnable()
     {
