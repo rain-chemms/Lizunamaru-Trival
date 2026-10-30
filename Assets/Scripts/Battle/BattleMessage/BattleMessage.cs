@@ -853,6 +853,9 @@ public class BattleMessage : MonoBehaviour
                 else//卡牌打出过程中被取消,将卡牌加入会手牌中
                 {
                     yield return instance?.AddExistCardToHand(card);
+                    card.PlayCanceled = false;
+                    //将花费的费用加回去
+                    instance?.SetRicePoint((uint)(instance?.GetRicePoint() + card?.GetRiceCost()));
                 }
             }
             else yield return ExhaustCard(card);

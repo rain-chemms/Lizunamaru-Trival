@@ -24,7 +24,6 @@ namespace CardSystem.AllCardHub
             
         public override IEnumerator AfterPlay()
         {
-            playCanceled = false;
             //生成待选卡组
             for(int i = 0;i < checkNumber;i++)
             {
@@ -61,7 +60,7 @@ namespace CardSystem.AllCardHub
                 }
             }
             willSelectCard?.Clear();
-
+            if(playCanceled && cardUpgradeLevel <= 0) playTime --;//未升级且打出取消时,打出计数减去1,让其每次生成的牌一样,升级后,每次生成的牌不一样
             playTime ++;
             yield return base.AfterPlay();
         }
@@ -85,7 +84,6 @@ namespace CardSystem.AllCardHub
                 Destroy(card.gameObject);
             }
             willSelectCard?.Clear();
-            playCanceled = true;
             yield return null;
         }
         

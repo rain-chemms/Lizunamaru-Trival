@@ -185,7 +185,7 @@ public class HandCardOperator : MonoBehaviour
             if (card == null) continue;
             yield return BattleMessage.instance.AddExistCardToHand(card);
         }
-        if(callCard != null) yield return BattleMessage.instance.AddExistCardToHand(callCard);
+        if(callCard != null) callCard.PlayCanceled = true;
     }
 
     private void CloseCardVfx(Card card)

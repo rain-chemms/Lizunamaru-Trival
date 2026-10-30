@@ -257,7 +257,7 @@ public class CardSelectOperator : MonoBehaviour
         }
         if(cancelFunc != null) yield return cancelFunc.Invoke();
         //若是某一张牌打出时激活的,则要将这张牌放回手中
-        if(callCard != null) yield return BattleMessage.instance?.AddExistCardToHand(callCard);
+        if(callCard != null) callCard.PlayCanceled = true;
     }
 
     private void CloseCardVfx(Card card)
