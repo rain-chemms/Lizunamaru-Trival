@@ -1185,6 +1185,7 @@ GameObject:
   - component: {fileID: 4361837281956522321}
   - component: {fileID: -1185975911563526187}
   - component: {fileID: 594075391406779168}
+  - component: {fileID: 5512885285890039296}
   m_Layer: 3
   m_Name: StrikeCard
   m_TagString: Untagged
@@ -1324,6 +1325,7 @@ MonoBehaviour:
   cardKeyWords: 
   canRepeatUpgrade: 0
   cardUpgradeLevel: 0
+  playCanceled: 0
   swordEdge: {fileID: 7763978380216626810, guid: c593c873384a3504c95b358ce2ffa1a0, type: 3}
 --- !u!114 &5571395713374509513
 MonoBehaviour:
@@ -1408,6 +1410,7 @@ MonoBehaviour:
   inHand: 0
   inDiscard: 0
   inDraw: 0
+  inExhaust: 0
   inSlot: 0
   cardLerpSpeed: 10
   rotateSpeed: 10
@@ -1694,6 +1697,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 2999450010997887131}
   isSelected: 0
+--- !u!114 &5512885285890039296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5585a9ec3d50914a948ed233c97bb3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 0}
+  rectTransform: {fileID: 0}
+  hoverChecker: {fileID: 0}
+  lastLocalPos: {x: 0, y: 0}
+  rotateUnit: 1.25
+  rotateSpeed: 1
 --- !u!1 &6576236267278137396
 GameObject:
   m_ObjectHideFlags: 0

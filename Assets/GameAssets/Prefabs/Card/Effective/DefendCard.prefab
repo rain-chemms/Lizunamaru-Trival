@@ -1314,6 +1314,7 @@ GameObject:
   - component: {fileID: 1295871064004266776}
   - component: {fileID: -4787098376448106881}
   - component: {fileID: -7694703055828382660}
+  - component: {fileID: -790756153380265421}
   m_Layer: 3
   m_Name: DefendCard
   m_TagString: Untagged
@@ -1467,6 +1468,7 @@ MonoBehaviour:
   cardKeyWords: 
   canRepeatUpgrade: 0
   cardUpgradeLevel: 0
+  playCanceled: 0
   gainDefendPoint: 1
 --- !u!114 &1625184676289311345
 MonoBehaviour:
@@ -1537,6 +1539,7 @@ MonoBehaviour:
   inHand: 0
   inDiscard: 0
   inDraw: 0
+  inExhaust: 0
   inSlot: 0
   cardLerpSpeed: 10
   rotateSpeed: 10
@@ -1823,6 +1826,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 4204945852005887696}
   isSelected: 0
+--- !u!114 &-790756153380265421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5585a9ec3d50914a948ed233c97bb3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 0}
+  rectTransform: {fileID: 0}
+  hoverChecker: {fileID: 0}
+  lastLocalPos: {x: 0, y: 0}
+  rotateUnit: 1.25
+  rotateSpeed: 1
 --- !u!1 &8117196228549574974
 GameObject:
   m_ObjectHideFlags: 0

@@ -1424,6 +1424,7 @@ GameObject:
   - component: {fileID: 110965908771700256}
   - component: {fileID: 670580240056227434}
   - component: {fileID: 1606317045429463385}
+  - component: {fileID: -2288605670323162179}
   m_Layer: 3
   m_Name: ShootCard
   m_TagString: Untagged
@@ -1577,6 +1578,7 @@ MonoBehaviour:
   cardKeyWords: 
   canRepeatUpgrade: 0
   cardUpgradeLevel: 0
+  playCanceled: 0
   bulletPrefab: {fileID: 2857681049944608652, guid: 3cbd61cca239eca40b455315c5cc341c, type: 3}
 --- !u!114 &1625184676289311345
 MonoBehaviour:
@@ -1647,6 +1649,7 @@ MonoBehaviour:
   inHand: 0
   inDiscard: 0
   inDraw: 0
+  inExhaust: 0
   inSlot: 0
   cardLerpSpeed: 10
   rotateSpeed: 10
@@ -1915,6 +1918,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 1100431790119186882}
   isSelected: 0
+--- !u!114 &-2288605670323162179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5585a9ec3d50914a948ed233c97bb3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 0}
+  rectTransform: {fileID: 0}
+  hoverChecker: {fileID: 0}
+  lastLocalPos: {x: 0, y: 0}
+  rotateUnit: 1.25
+  rotateSpeed: 1
 --- !u!1 &8117196228549574974
 GameObject:
   m_ObjectHideFlags: 0

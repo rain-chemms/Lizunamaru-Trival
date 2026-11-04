@@ -1188,6 +1188,7 @@ GameObject:
   - component: {fileID: 8733297926563790165}
   - component: {fileID: 1623513001104513029}
   - component: {fileID: 9218931378968090475}
+  - component: {fileID: 5833401268191765058}
   m_Layer: 3
   m_Name: Intuition
   m_TagString: Untagged
@@ -1327,6 +1328,7 @@ MonoBehaviour:
   cardKeyWords: 04000000
   canRepeatUpgrade: 0
   cardUpgradeLevel: 0
+  playCanceled: 0
   gainEnergyPoint: 2
   drawCardCount: 1
 --- !u!114 &5571395713374509513
@@ -1412,6 +1414,7 @@ MonoBehaviour:
   inHand: 0
   inDiscard: 0
   inDraw: 0
+  inExhaust: 0
   inSlot: 0
   cardLerpSpeed: 10
   rotateSpeed: 10
@@ -1699,6 +1702,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 1542212326629998061}
   isSelected: 0
+--- !u!114 &5833401268191765058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5585a9ec3d50914a948ed233c97bb3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 0}
+  rectTransform: {fileID: 0}
+  hoverChecker: {fileID: 0}
+  lastLocalPos: {x: 0, y: 0}
+  rotateUnit: 1.25
+  rotateSpeed: 1
 --- !u!1 &6576236267278137396
 GameObject:
   m_ObjectHideFlags: 0

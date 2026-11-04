@@ -1182,6 +1182,7 @@ GameObject:
   - component: {fileID: 2578022469545840349}
   - component: {fileID: 5151033411201291399}
   - component: {fileID: 1506643940402585820}
+  - component: {fileID: 4788114278216032943}
   m_Layer: 3
   m_Name: GadgetCard_YinyangJade_Blue
   m_TagString: Untagged
@@ -1321,6 +1322,7 @@ MonoBehaviour:
   cardKeyWords: 
   canRepeatUpgrade: 0
   cardUpgradeLevel: 0
+  playCanceled: 0
   jadePrefab: {fileID: 2480450097327994863, guid: 0cbbfff2292f98e4692035af70a0ad4e, type: 3}
   gameEntities: []
 --- !u!114 &5571395713374509513
@@ -1406,6 +1408,7 @@ MonoBehaviour:
   inHand: 0
   inDiscard: 0
   inDraw: 0
+  inExhaust: 0
   inSlot: 0
   cardLerpSpeed: 10
   rotateSpeed: 10
@@ -1691,6 +1694,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 8086954568328140536}
   isSelected: 0
+--- !u!114 &4788114278216032943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5585a9ec3d50914a948ed233c97bb3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 0}
+  rectTransform: {fileID: 0}
+  hoverChecker: {fileID: 0}
+  lastLocalPos: {x: 0, y: 0}
+  rotateUnit: 1.25
+  rotateSpeed: 1
 --- !u!1 &6576236267278137396
 GameObject:
   m_ObjectHideFlags: 0

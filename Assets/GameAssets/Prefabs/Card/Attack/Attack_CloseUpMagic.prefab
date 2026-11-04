@@ -1191,6 +1191,7 @@ GameObject:
   - component: {fileID: 6184976758018434419}
   - component: {fileID: 576896758676793475}
   - component: {fileID: 2290307438273439419}
+  - component: {fileID: -1802808460628331611}
   m_Layer: 3
   m_Name: Attack_CloseUpMagic
   m_TagString: Untagged
@@ -1394,6 +1395,7 @@ MonoBehaviour:
   inHand: 0
   inDiscard: 0
   inDraw: 0
+  inExhaust: 0
   inSlot: 0
   cardLerpSpeed: 10
   rotateSpeed: 10
@@ -1701,11 +1703,30 @@ MonoBehaviour:
   cardKeyWords: 
   canRepeatUpgrade: 0
   cardUpgradeLevel: 0
+  playCanceled: 0
   recoverPreRound: 1
   satelliteKnife: {fileID: 1879238926135969761, guid: 4b46711e0b617db4983179ac7d2229e1, type: 3}
   numberOfKnife: 6
   bulletDamage: 3
   gapDistance: 1
+--- !u!114 &-1802808460628331611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5585a9ec3d50914a948ed233c97bb3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 0}
+  rectTransform: {fileID: 0}
+  hoverChecker: {fileID: 0}
+  lastLocalPos: {x: 0, y: 0}
+  rotateUnit: 1.25
+  rotateSpeed: 1
 --- !u!1 &6576236267278137396
 GameObject:
   m_ObjectHideFlags: 0

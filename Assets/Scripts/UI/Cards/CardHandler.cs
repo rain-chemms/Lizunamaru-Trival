@@ -170,7 +170,7 @@ public class CardHandler : MonoBehaviour,
     }
 
 
-    private void ChangeCardPosAndRot()
+    private void ChangeCardPos()
     {
         if (!isDragging) return;
         // 更新图片的位置，减去初始偏移量防止图片瞬移到鼠标中心
@@ -187,12 +187,31 @@ public class CardHandler : MonoBehaviour,
             cardLerpSpeed * Time.deltaTime
         );
         */
+    }
 
-        //更新旋转
-        rectTransform.rotation = Quaternion.Lerp(rectTransform.rotation,
-            Quaternion.identity,
+    //更新图片旋转,x和y由鼠标在图片上的位置控制,这里只是控制z    
+    private void ChangeCardRot()
+    {
+        if (!isDragging) return;
+        //x/y 的倾斜由 CardMousePressPointRotater 负责,倾斜量是右乘叠加的,
+        //必须先剥离再回写,不能用 rotation.eulerAngles.x/.y 反解,否则三轴互相污染
+        Quaternion tilt = GetPressTilt();
+        Quaternion currentBase = rectTransform.rotation * Quaternion.Inverse(tilt);
+        //z 归零以父节点为基准,因为 Canvas 自身会朝向主摄像机旋转,用世界 identity 会让卡牌不贴合 UI 平面
+        RectTransform parent = rectTransform.parent as RectTransform;
+        Quaternion targetBase = parent != null ? parent.rotation : Quaternion.identity;
+        rectTransform.rotation = Quaternion.Lerp(
+            currentBase,
+            targetBase,
             rotateSpeed * Time.deltaTime
-        );
+        ) * tilt;
+    }
+
+    //取得卡牌上由鼠标按压点产生的 x/y 倾斜量
+    private Quaternion GetPressTilt()
+    {
+        CardMousePressPointRotater rotater = GetComponent<CardMousePressPointRotater>();
+        return rotater != null ? rotater.LocalTilt : Quaternion.identity;
     }
 
     [NonSerialized] private bool lastIsDrag_CTP = false;
@@ -213,7 +232,8 @@ public class CardHandler : MonoBehaviour,
             }
         }
 
-        ChangeCardPosAndRot();//检测并改变图片位置和旋转
+        ChangeCardPos();//检测并改变图片位置和旋转
+        ChangeCardRot();//检测并改变图片旋转
         //非拖拽状态,非按下状态且不在手牌中时,图片位置 lerp 回到初始位置
         if (!isDragging && !inHand && !inSlot && !inDiscard && !inDraw && !inExhaust)
         {

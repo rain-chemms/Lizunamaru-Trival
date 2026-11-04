@@ -103,15 +103,28 @@ public class HandCardDisplayer : MonoBehaviour
             RectTransform cardRTF = card.GetComponent<RectTransform>();
             if(cardRTF != null)
             {
+                //只控制 z 的旋转,x 和 y 的倾斜由 CardMousePressPointRotater 负责
+                //倾斜量是右乘叠加的,这里必须先把它剥离出来,插值完基底再乘回去,
+                //不能用 rotation.eulerAngles.x/.y 反解,否则扇形 z 会污染倾斜并逐帧漂移
+                Quaternion tilt = GetCardTilt(card);
+                Quaternion currentBase = cardRTF.rotation * Quaternion.Inverse(tilt);
+                Quaternion targetBase = baseCardAnchor.rotation * Quaternion.Euler(0f, 0f, rotate);
                 cardRTF.rotation = Quaternion.Lerp(
-                    cardRTF.rotation,
-                    baseCardAnchor.rotation * Quaternion.Euler(0, 0, rotate),
+                    currentBase,
+                    targetBase,
                     rotateSpeed * Time.deltaTime
-                );    
+                ) * tilt;
             }
             index++;
         }
     
+    }
+
+    //取得卡牌上由鼠标按压点产生的 x/y 倾斜量
+    private static Quaternion GetCardTilt(Card card)
+    {
+        CardMousePressPointRotater rotater = card.GetComponent<CardMousePressPointRotater>();
+        return rotater != null ? rotater.LocalTilt : Quaternion.identity;
     }
     
     private void ChangeHandCardPosition()

@@ -1317,6 +1317,7 @@ GameObject:
   - component: {fileID: 1139034737754822940}
   - component: {fileID: 5044731463119979555}
   - component: {fileID: -7166935979605143970}
+  - component: {fileID: 5958473409874693791}
   m_Layer: 3
   m_Name: SpellCard_DanceOfStar-SparkedWildfire
   m_TagString: Untagged
@@ -1456,6 +1457,7 @@ MonoBehaviour:
   cardKeyWords: 01000000
   canRepeatUpgrade: 0
   cardUpgradeLevel: 0
+  playCanceled: 0
   bulletPrefab: {fileID: 2857681049944608652, guid: 8a4a58fabe83ac148b3529e85b355717, type: 3}
   generateLoopTime: 10
   generateLineCount: 5
@@ -1545,6 +1547,7 @@ MonoBehaviour:
   inHand: 0
   inDiscard: 0
   inDraw: 0
+  inExhaust: 0
   inSlot: 0
   cardLerpSpeed: 10
   rotateSpeed: 10
@@ -1832,6 +1835,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 1359237969543802621}
   isSelected: 0
+--- !u!114 &5958473409874693791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229160113585097296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5585a9ec3d50914a948ed233c97bb3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 0}
+  rectTransform: {fileID: 0}
+  hoverChecker: {fileID: 0}
+  lastLocalPos: {x: 0, y: 0}
+  rotateUnit: 1.25
+  rotateSpeed: 1
 --- !u!1 &8117196228549574974
 GameObject:
   m_ObjectHideFlags: 0
